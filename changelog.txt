@@ -5,3 +5,4 @@
 1.1         Added sizing support for Flash/video content.
 1.1.0.1     Removed duplicate content:; property from .keywords rule.
 1.2         Grids turned on in debug mode. Added thanks to @VictorPimentel
+            Added inuit.css to github at v1.2
