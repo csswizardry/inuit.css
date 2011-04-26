@@ -1,0 +1,88 @@
+/*------------------------------------*\
+	MAIN
+\*------------------------------------*/
+html{
+	font-family:"Helvetica Neue", Arial, sans-serif;
+	color:#e4eef6;
+	background:#4a8ec2;
+	background:-moz-linear-gradient(-90deg,#5998c7,#4a8ec2) fixed;
+	background:-webkit-gradient(linear,left top,left bottom,from(#5998c7),to(#4a8ec2)) fixed;
+}
+body{
+	background:none;
+	padding-top:50px;
+	text-shadow:0 -1px 0 rgba(0,0,0,0.5), 0 1px 0 rgba(255,255,255,0.25);
+}
+#page{
+	margin:0 auto;
+	float:none;
+	text-align:center;
+}
+
+
+
+
+
+/*------------------------------------*\
+	TYPE
+\*------------------------------------*/
+h1{
+	font-weight:bold;
+	font-size:3em;
+	line-height:1;
+}
+a{
+	color:inherit;
+}
+
+
+
+
+
+/*------------------------------------*\
+	IMAGES
+\*------------------------------------*/
+#logo{
+	margin-bottom:1.5em;
+}
+
+
+
+
+
+/*------------------------------------*\
+	NARROW
+\*------------------------------------*/
+/*
+CSS for tablets and narrower devices
+*/
+
+
+
+
+
+@media (min-width: 721px) and (max-width: 960px){}
+/*--- END NARROW ---*/
+
+
+
+
+
+/*------------------------------------*\
+	MOBILE
+\*------------------------------------*/
+/*
+CSS for mobile devices.
+Linearise it!
+*/
+
+
+
+
+
+@media (max-width: 720px){
+body{
+	font-size:0.75em;
+}
+}
+/*--- END MOBILE ---*/

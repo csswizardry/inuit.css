@@ -1,0 +1,7 @@
+1           inuit.css lives!
+1.0.1       Added Apache license.
+1.0.1.1     Fixed typo in a CSS comment.
+1.0.2       Increased <h1> line-height whilst keeping the baseline, adjusted <dd> indent amount on narrow and mobile devices.
+1.1         Added sizing support for Flash/video content.
+1.1.0.1     Removed duplicate content:; property from .keywords rule.
+1.2         Grids turned on in debug mode. Added thanks to @VictorPimentel
