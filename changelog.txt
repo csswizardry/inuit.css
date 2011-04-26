@@ -6,3 +6,4 @@
 1.1.0.1     Removed duplicate content:; property from .keywords rule.
 1.2         Grids turned on in debug mode. Added thanks to @VictorPimentel
             Added inuit.css to github at v1.2
+v1.2.1      @charset rule moved to top of file, cursor:pointer; added to <label>, 960.gs attribution added, forced-scrollbar method changed.

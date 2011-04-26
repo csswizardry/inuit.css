@@ -1,4 +1,5 @@
-﻿/*------------------------------------*\
+﻿@charset "UTF-8";
+/*------------------------------------*\
 	INUIT.CSS
 \*------------------------------------*/
 /*
@@ -6,9 +7,9 @@ Author:             Harry Roberts
 Twitter:            @inuitcss
 Author URL:         csswizardry.com
 Project URL:        inuitcss.com
-Version:            1.2
+Version:            1.2.1
 Codename:           Eskimo
-Date:               25 April 2011
+Date:               26 April 2011
 
 Copyright 2011 Harry Roberts
 
@@ -33,7 +34,6 @@ limitations under the License.
 /*------------------------------------*\
 	RESET
 \*------------------------------------*/
-@charset "UTF-8";
 html,body,div,span,applet,object,iframe,
 h1,h2,h3,h4,h5,h6,p,blockquote,pre,
 a,abbr,acronym,address,big,cite,code,
@@ -87,7 +87,7 @@ abbr,acronym{
 	MAIN
 \*------------------------------------*/
 html{
-	height:101%; /* Force scrollbars 100% of the time */
+	overflow-y:scroll; /* Force scrollbars 100% of the time */
 	font-size:100%; /* Use 16px as per http://www.wilsonminer.com/posts/2008/oct/20/relative-readability/ */
 	font-family:Calibri, "Helvetica Neue", Arial, sans-serif; /* Swap these two lines around to switch between serif and sans */
 	font-family:Cambria, Georgia, "Times New Roman", serif; /* Swap these two lines around to switch between serif and sans */
@@ -133,6 +133,9 @@ ul.grids{
 .grids .grid{
 	margin:0 0 0 20px;
 }
+/*
+Based on 960.gs by @nathansmith
+*/
 .grid-1		{ width:40px; }
 .grid-2		{ width:100px; }
 .grid-3		{ width:160px; }
@@ -431,6 +434,7 @@ fieldset{
 }
 label{
 	display:block;
+	cursor:pointer;
 }
 label:after,
 label::after{
