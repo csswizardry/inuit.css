@@ -843,3 +843,108 @@ img.left,
 img.right	{ max-width:50%; height:auto; }
 }
 /*--- END MOBILE ---*/
+
+
+
+
+
+/*------------------------------------*\
+	PRINT
+\*------------------------------------*/
+/*
+Good ol’ fashioned paper...
+*/
+
+
+
+
+
+@media print{
+/*------------------------------------*\
+	MAIN
+\*------------------------------------*/
+/*
+Give everything some decent contrast.
+*/
+*{
+	background:#fff;
+	color:#000;
+	text-shadow:none!important;
+}
+/*
+Set a nice measure and take the font down to print-acceptable sizes.
+*/
+body{
+	width:75%;
+	margin:0 auto;
+	font-size:0.75em; /* 12px (if base font-size was 16px) */
+}
+/*
+A list of things you don’t want printing. Add to/subtract from as necessary. 
+*/
+#nav,
+#footer{
+	display:none;
+}
+#logo img{
+	position:static;
+}
+/*
+Linearise
+*/
+.grid{
+	width:auto;
+	float:none;
+	clear:both;
+}
+/*
+Don’t let images break anything.
+*/
+img{
+	max-width:100%;
+	height:auto;
+}
+/*
+Messages look odd with just borders.
+*/
+.message{
+	border:none;
+	font-weight:bold;
+}
+/*
+Try to avoid tables spanning multiple pages. Not failsafe, but a good start.
+*/
+table{
+	page-break-before:always;
+}
+/*
+Show the accessibility class.
+*/
+.accessibility{
+	position:static;
+}
+/*
+Display the href of any links.
+*/
+a:link:after,a:visited:after{
+	content:" (" attr(href) ")";
+	font-size:smaller;
+}
+/*
+Any links that are root relative to your site need prepending with your URL.
+*/
+a[href^="/"]:after{
+	content:" (http://yoururlhere.com" attr(href) ")";
+	font-size:smaller;
+}
+/*
+Any Flash/video content can’t be printed so leave a message.
+*/
+object:after{
+	content:"Flash/video content. Head to http://yoururlhere.com/ to view this content.";
+	display:block;
+	font-weight:bold;
+	margin-bottom:1.5em;
+}
+}
+/*--- END PRINT ---*/
