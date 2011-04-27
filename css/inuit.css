@@ -926,21 +926,24 @@ Show the accessibility class.
 /*
 Display the href of any links.
 */
-a:link:after,a:visited:after{
+a:link:after,a:visited:after,
+a:link::after,a:visited::after{
 	content:" (" attr(href) ")";
 	font-size:smaller;
 }
 /*
 Any links that are root relative to your site need prepending with your URL.
 */
-a[href^="/"]:after{
+a[href^="/"]:after,
+a[href^="/"]::after{
 	content:" (http://yoururlhere.com" attr(href) ")";
 	font-size:smaller;
 }
 /*
 Any Flash/video content can’t be printed so leave a message.
 */
-object:after{
+object:after,
+object::after{
 	content:"Flash/video content. Head to http://yoururlhere.com/ to view this content.";
 	display:block;
 	font-weight:bold;
