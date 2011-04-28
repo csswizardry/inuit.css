@@ -5,5 +5,5 @@ inuit.css is a pragmatic, production-ready CSS framework.
 Find bundled inuit.css and related project files.
 To get started link to inuit.css before any other stylesheet in your <head>.
 Move inuit.css images to the relevant location and update paths as necessary.
-Using inuit.css as a base, extend it with you own stylesheet(s).
+Using inuit.css as a base, extend it with your own stylesheet(s).
 Happy coding!
