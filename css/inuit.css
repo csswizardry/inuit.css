@@ -600,7 +600,7 @@ Unfortunately feedback messages don’t fit the baseline all too well. Perhaps i
 }
 /* With multiple errors it’s nice to group them. */
 ul.message{
-	list-style:decimal outside; /* It’s also handy to number them however they might not necessarily be in a certain order, that’s why we spoof it by putting numbers on an unordered list */
+	list-style:decimal outside; /* It’s also handy to number them. However, they might not necessarily be in a particular order, so we spoof it by putting numbers on an unordered list */
 	padding:10px 10px 10px 56px;
 }
 .cols-12 ul.message{
