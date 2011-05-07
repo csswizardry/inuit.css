@@ -91,7 +91,7 @@ html{
 	font-size:100%; /* Use 16px as per http://www.wilsonminer.com/posts/2008/oct/20/relative-readability/ */
 	font-family:Calibri, "Helvetica Neue", Arial, sans-serif; /* Swap these two lines around to switch between serif and sans */
 	font-family:Cambria, Georgia, "Times New Roman", serif; /* Swap these two lines around to switch between serif and sans */
-	text-rendering:optimizeLegibility;
+	text-rendering:optimizeLegibility; /* This is not without its drawbacks. Please see ‘Caveats’ section at http://www.aestheticallyloyal.com/public/optimize-legibility/ */
 	line-height:1.5;
 	background:url(../img/css/baseline.gif) 0 4px #fff;
 	color:#333;
