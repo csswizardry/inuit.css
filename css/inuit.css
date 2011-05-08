@@ -88,7 +88,7 @@ abbr,acronym{
 \*------------------------------------*/
 html{
 	overflow-y:scroll; /* Force scrollbars 100% of the time */
-	font-size:100%; /* Use 16px as per http://www.wilsonminer.com/posts/2008/oct/20/relative-readability/ */
+	font-size:100%; /* Use 16px as http://www.informationarchitects.jp/en/100e2r/ and per http://www.wilsonminer.com/posts/2008/oct/20/relative-readability/ */
 	font-family:Calibri, "Helvetica Neue", Arial, sans-serif; /* Swap these two lines around to switch between serif and sans */
 	font-family:Cambria, Georgia, "Times New Roman", serif; /* Swap these two lines around to switch between serif and sans */
 	line-height:1.5;
