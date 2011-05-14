@@ -112,7 +112,7 @@ body{
 \*------------------------------------*/
 /*
 Most frameworks rely on class="end" or similar to remove the margin from the last column in a row of grids. We don’t want to do that so we use a combination of margin- and negative margin-left. It’s clever...
-We also alow you to use grid items as stand alone columns or in a series of columns. To use a series just wrap them all in <div class="grids">...</div>
+We also allow you to use grid items as stand alone columns or in a series of columns. To use a series just wrap them all in <div class="grids">...</div>
 */
 .grids{
 	margin-left:-20px;
