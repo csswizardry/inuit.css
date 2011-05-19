@@ -7,9 +7,9 @@ Author:             Harry Roberts
 Twitter:            @inuitcss
 Author URL:         csswizardry.com
 Project URL:        inuitcss.com
-Version:            1.4.3
+Version:            1.4.4
 Codename:           Eskimo
-Date:               15 May 2011
+Date:               19 May 2011
 
 Copyright 2011 Harry Roberts
 
@@ -563,6 +563,10 @@ th{
 td[colspan]{
 	/* This looks lovely, trust me... */
 	text-align:center;
+}
+td[rowspan]{
+	/* ...as does this. */
+	vertical-align:middle;
 }
 tbody tr:nth-of-type(odd){
 	background:rgba(0,0,0,0.05);

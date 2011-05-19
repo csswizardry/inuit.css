@@ -12,3 +12,4 @@
 1.4.1       Added text-rendering:optimizeLegibility; as per aestheticallyloyal.com/public/optimize-legibility
 1.4.2       Removed the text-rendering:optimizeLegibility; as the drawbacks really are too great IMO.
 1.4.3       Removed .round and .letterpress classes, because they were a bad idea.
+1.4.4       Added some td[rowspan] rules for more pretty tables.
