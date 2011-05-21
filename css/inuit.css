@@ -7,9 +7,9 @@ Author:             Harry Roberts
 Twitter:            @inuitcss
 Author URL:         csswizardry.com
 Project URL:        inuitcss.com
-Version:            1.4.4
+Version:            1.4.5
 Codename:           Eskimo
-Date:               19 May 2011
+Date:               21 May 2011
 
 Copyright 2011 Harry Roberts
 
@@ -494,6 +494,17 @@ textarea{
 	font-family:inherit;
 	font-size:1em;
 	line-height:1.5;
+}
+
+/*
+Nice UI touch for placeholders. To get placeholders working cross-browser see @dan_bentley’s jQuery plugin: https://github.com/danbentley/placeholder
+*/
+[placeholder]{
+	cursor:pointer;
+}
+[placeholder]:active,
+[placeholder]:focus{
+	cursor:text;
 }
 .check-list{
 	width:100%;
