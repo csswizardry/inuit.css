@@ -7,9 +7,9 @@ Author:             Harry Roberts
 Twitter:            @inuitcss
 Author URL:         csswizardry.com
 Project URL:        inuitcss.com
-Version:            1.4.5
+Version:            1.5
 Codename:           Eskimo
-Date:               21 May 2011
+Date:               23 May 2011
 
 Copyright 2011 Harry Roberts
 
@@ -116,8 +116,8 @@ We also allow you to use grid items as stand alone columns or in a series of col
 */
 .grids{
 	margin-left:-20px;
-	overflow:hidden;
 	clear:both;
+	width:960px;
 }
 ul.grids,
 .cols-12 ul.grids{
@@ -130,7 +130,28 @@ ul.grids,
 	margin:0 20px 0 0;
 }
 .grids .grid{
+	display:inline;
 	margin:0 0 0 20px;
+}
+
+/*--- CLEARFIX ---*/
+/*
+Fix clearing issues as per: http://nicolasgallagher.com/micro-clearfix-hack/
+*/
+.cf,
+.grids{
+	zoom:1;
+}
+.cf:before,
+.grids:before,
+.cf:after,
+.grids:after{
+	content:"";
+	display:table;
+}
+.cf:after,
+.grids:after{
+	clear:both;
 }
 
 /*
@@ -314,14 +335,14 @@ p+p{
 
 /*--- LINKS ---*/
 /*
-Say no to negative hovers!
+Say no to negative hovers: http://csswizardry.com/2011/05/on-negative-hovers/
 A negative hover is one whose appearance is subtracted from on hover rather than added to.
 */
 a{
 	text-decoration:none;
 }
 a:visited{
-	opacity:0.8; /* A bit generic, but it’s a bare minumum... */
+	opacity:0.8; /* A bit basic, but it’s a bare minumum... */
 }
 a:hover{
 	text-decoration:underline;
@@ -351,7 +372,9 @@ dl{
 dt{
 	font-weight:bold;
 }
-dt:after,
+dt:after{
+	content:":";
+}
 dt::after{
 	content:":";
 }
@@ -372,11 +395,15 @@ I personally love this next one. Create a list of keywords by adding a single cl
 .keywords li:first-of-type{
 	text-transform:capitalize;
 }
-.keywords li:after,
+.keywords li:after{
+	content:", ";
+}
 .keywords li::after{
 	content:", ";
 }
-.keywords li:last-of-type:after,
+.keywords li:last-of-type:after{
+	content:".";
+}
 .keywords li:last-of-type::after{
 	content:".";
 }
@@ -485,7 +512,9 @@ label{
 	display:block;
 	cursor:pointer;
 }
-label:after,
+label:after{
+	content:":";
+}
 label::after{
 	content:":";
 }
@@ -523,7 +552,9 @@ Nice UI touch for placeholders. To get placeholders working cross-browser see @d
 .check-label{
 	display:inline;
 }
-.check-label:after,
+.check-label:after{
+	content:normal;
+}
 .check-label::after{
 	content:normal;
 }
@@ -571,11 +602,11 @@ th{
 	font-weight:bold;
 	text-align:center
 }
-td[colspan]{
+table [colspan]{
 	/* This looks lovely, trust me... */
 	text-align:center;
 }
-td[rowspan]{
+table [rowspan]{
 	/* ...as does this. */
 	vertical-align:middle;
 }
@@ -651,9 +682,11 @@ ul.message{
 	position:absolute;
 	left:-99999px;
 }
-.more-link:after,	/* <= CSS2.1 syntax */
-.more-link::after{ 	/* CSS3 syntax */
+.more-link:after{
 	/* Too many people use &raquo; in their markup to signify progression/movement, that ain’t cool. Let’s insert that using content:""; */
+	content:" »";
+}
+.more-link::after{
 	content:" »";
 }
 
@@ -1053,7 +1086,10 @@ Show the accessibility class.
 /*
 Display the href of any links.
 */
-a:link:after,a:visited:after,
+a:link:after,a:visited:after{
+	content:" (" attr(href) ")";
+	font-size:smaller;
+}
 a:link::after,a:visited::after{
 	content:" (" attr(href) ")";
 	font-size:smaller;
@@ -1061,7 +1097,10 @@ a:link::after,a:visited::after{
 /*
 Any links that are root relative to your site need prepending with your URL.
 */
-a[href^="/"]:after,
+a[href^="/"]:after{
+	content:" (http://yoururlhere.com" attr(href) ")";
+	font-size:smaller;
+}
 a[href^="/"]::after{
 	content:" (http://yoururlhere.com" attr(href) ")";
 	font-size:smaller;
@@ -1069,7 +1108,12 @@ a[href^="/"]::after{
 /*
 Any Flash/video content can’t be printed so leave a message.
 */
-object:after,
+object:after{
+	content:"Flash/video content. Head to http://yoururlhere.com/ to view this content.";
+	display:block;
+	font-weight:bold;
+	margin-bottom:1.5em;
+}
 object::after{
 	content:"Flash/video content. Head to http://yoururlhere.com/ to view this content.";
 	display:block;
