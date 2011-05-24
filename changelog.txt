@@ -15,3 +15,4 @@
 1.4.4       Added some td[rowspan] rules for more pretty tables.
 1.4.5       Added some new form UI stuff as per http://jsfiddle.net/csswizardry/fBuxF/
 1.5         Major release: IE6 support, Nicolas Gallagher’s clearfix and tidying up some table styles.
+1.5.0.1     Fixing broken media-query layouts affected by v1.5 update.
