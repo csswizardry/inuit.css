@@ -7,9 +7,9 @@ Author:             Harry Roberts
 Twitter:            @inuitcss
 Author URL:         csswizardry.com
 Project URL:        inuitcss.com
-Version:            1.5.0.1
+Version:            1.5.1
 Codename:           Eskimo
-Date:               24 May 2011
+Date:               29 May 2011
 
 Copyright 2011 Harry Roberts
 
@@ -609,6 +609,16 @@ table [colspan]{
 table [rowspan]{
 	/* ...as does this. */
 	vertical-align:middle;
+}
+/*
+Assuming IE has an 'implied' colspan of one on cells without an explicit colspan attribute, fix/undo it.
+See http://jsfiddle.net/csswizardry/UJJay/
+*/
+[colspan="1"]{
+    text-align:left;
+}
+[rowspan="1"]{
+    vertical-align:top;
 }
 tbody tr:nth-of-type(odd){
 	background:rgba(0,0,0,0.05);
