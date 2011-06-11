@@ -1,0 +1,167 @@
+/*
+12-col.inuit.css is an inuit.css igloo
+igloos are CSS plugins which extend the inuit.css framework
+They are released under the Apache License, Version 2.0 -- http://www.apache.org/licenses/LICENSE-2.0
+
+@inuitcss
+inuitcss.com
+*/
+
+
+
+
+
+/*------------------------------------*\
+	12 COLUMN GRID
+\*------------------------------------*/
+.cols-12 ul.grids{
+	/* So we can make grids out of lists */
+	margin:0 0 0 -20px;
+	list-style:none;
+}
+
+/*
+12 column grid system -- add ‘class="cols-12"’ to the html element to invoke this system.
+*/
+
+/*
+12-col version
+*/
+.cols-12 body{
+	background:url(../img/css/12-grid.png) top center repeat-y;
+}
+
+.cols-12 .grid-1		{ width:60px; }
+.cols-12 .grid-2		{ width:140px; }
+.cols-12 .grid-3		{ width:220px; }
+.cols-12 .grid-4		{ width:300px; }
+
+.cols-12 .grid-5		{ width:380px; }
+.cols-12 .grid-6		{ width:460px; }
+.cols-12 .grid-7		{ width:540px; }
+.cols-12 .grid-8		{ width:620px; }
+
+.cols-12 .grid-9		{ width:700px; }
+.cols-12 .grid-10		{ width:780px; }
+.cols-12 .grid-11		{ width:860px; }
+
+/* Take care of grids 12-16 to cater for a switch from one system to the other. */
+.cols-12 .grid-12,
+.cols-12 .grid-13,
+.cols-12 .grid-14,
+.cols-12 .grid-15,
+.cols-12 .grid-16		{ width:940px; margin:0; }
+
+/*
+Lists in the 12 col version
+*/
+.cols-12 ul,
+.cols-12 ol,
+.cols-12 dd{
+	margin-left:80px;
+}
+
+.cols-12 .check-list{
+	/* Change to suit 12 col version */
+	margin-left:0;
+}
+
+.cols-12 ul.message{
+	/* Change to suit 12 col version */
+	margin-left:0;
+}
+
+.cols-12.debug body	{ background:url(../img/css/12-grid.png) top center repeat-y!important; }
+
+
+
+
+
+/*------------------------------------*\
+	NARROW
+\*------------------------------------*/
+/*
+CSS for tablets and narrower devices
+*/
+
+
+
+
+
+@media (min-width: 721px) and (max-width: 960px){
+/*
+12-col AND debug version
+*/
+.debug.cols-12 body	{ background:url(../img/css/12-grid-720.png) top center repeat-y!important; }
+/*
+12-col version
+*/
+.cols-12 body	{ background:url(../img/css/12-grid-720.png) top center repeat-y; }
+
+/*
+12 cols
+*/
+.cols-12 .grid-1	{ width:40px; }
+.cols-12 .grid-2	{ width:100px; }
+.cols-12 .grid-3	{ width:160px; }
+.cols-12 .grid-4	{ width:220px; }
+
+.cols-12 .grid-5	{ width:280px; }
+.cols-12 .grid-6	{ width:340px; }
+.cols-12 .grid-7	{ width:400px; }
+.cols-12 .grid-8	{ width:460px; }
+
+.cols-12 .grid-9	{ width:520px; }
+.cols-12 .grid-10	{ width:580px; }
+.cols-12 .grid-11	{ width:640px; }
+
+/* Take care of grids 12-16 to cater for a switch from one system to the other */
+.cols-12 .grid-12,
+.cols-12 .grid-13,
+.cols-12 .grid-14,
+.cols-12 .grid-15,
+.cols-12 .grid-16	{ width:700px; }
+
+/*
+Lists in the 12 col version
+*/
+.cols-12 ul,
+.cols-12 ol,
+.cols-12 dd{
+	margin-left:60px;
+}
+}
+
+
+
+
+
+/*------------------------------------*\
+	MOBILE
+\*------------------------------------*/
+/*
+CSS for mobile devices.
+Linearise it!
+*/
+
+
+
+
+
+@media (max-width: 720px){
+.cols-12,
+.cols-12 body,
+.debug.cols-12,
+.debug.cols-12 body{
+	background:#fff!important;
+}
+
+/*
+Override 12 col settings
+*/
+.cols-12 ul,
+.cols-12 ul,
+.cols-12 dd{
+	margin-left:25px;
+}
+}

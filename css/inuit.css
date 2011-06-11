@@ -7,9 +7,8 @@ Author:             Harry Roberts
 Twitter:            @inuitcss
 Author URL:         csswizardry.com
 Project URL:        inuitcss.com
-Version:            1.5.1
-Codename:           Eskimo
-Date:               29 May 2011
+Version:            2.0
+Date:               11 June 2011
 
 Copyright 2011 Harry Roberts
 
@@ -119,8 +118,7 @@ We also allow you to use grid items as stand alone columns or in a series of col
 	clear:both;
 	width:960px;
 }
-ul.grids,
-.cols-12 ul.grids{
+ul.grids{
 	/* So we can make grids out of lists */
 	margin:0 0 0 -20px;
 	list-style:none;
@@ -182,39 +180,6 @@ The ability to use one of two different grid systems from the same file means th
 .grid-14	{ width:820px; }
 .grid-15	{ width:880px; }
 .grid-16	{ width:940px; margin:0; }
-
-
-/*
-12 column grid system -- add ‘class="cols-12"’ to the html element to invoke this system.
-*/
-
-/*
-12-col version
-*/
-.cols-12 body{
-	background:url(../img/css/12-grid.png) top center repeat-y;
-}
-
-.cols-12 .grid-1		{ width:60px; }
-.cols-12 .grid-2		{ width:140px; }
-.cols-12 .grid-3		{ width:220px; }
-.cols-12 .grid-4		{ width:300px; }
-
-.cols-12 .grid-5		{ width:380px; }
-.cols-12 .grid-6		{ width:460px; }
-.cols-12 .grid-7		{ width:540px; }
-.cols-12 .grid-8		{ width:620px; }
-
-.cols-12 .grid-9		{ width:700px; }
-.cols-12 .grid-10		{ width:780px; }
-.cols-12 .grid-11		{ width:860px; }
-
-/* Take care of grids 12-16 to cater for a switch from one system to the other. */
-.cols-12 .grid-12,
-.cols-12 .grid-13,
-.cols-12 .grid-14,
-.cols-12 .grid-15,
-.cols-12 .grid-16		{ width:940px; margin:0; }
 
 
 
@@ -333,6 +298,18 @@ p+p{
 }
 */
 
+/*--- FIGURES ---*/
+figure{
+	margin-bottom:1.5em;
+}
+figure img{
+	display:block;
+	margin-bottom:0;
+}
+figcaption{
+	font-size:0.75em;
+}
+
 /*--- LINKS ---*/
 /*
 Say no to negative hovers: http://csswizardry.com/2011/05/on-negative-hovers/
@@ -380,41 +357,6 @@ dt::after{
 }
 dd{
 	margin-left:60px;
-}
-/*
-I personally love this next one. Create a list of keywords by adding a single class to a <ul>:
-*/
-.keywords{
-	list-style:none;
-	margin:0 0 1.5em;
-}
-.keywords li{
-	display:inline;
-	text-transform:lowercase;
-}
-.keywords li:first-of-type{
-	text-transform:capitalize;
-}
-.keywords li:after{
-	content:", ";
-}
-.keywords li::after{
-	content:", ";
-}
-.keywords li:last-of-type:after{
-	content:".";
-}
-.keywords li:last-of-type::after{
-	content:".";
-}
-
-/*
-Lists in the 12 col version
-*/
-.cols-12 ul,
-.cols-12 ol,
-.cols-12 dd{
-	margin-left:80px;
 }
 
 /*--- QUOTES ---*/
@@ -541,10 +483,6 @@ Nice UI touch for placeholders. To get placeholders working cross-browser see @d
 	list-style:none;
 	margin:0 0 1.5em 0;
 }
-.cols-12 .check-list{
-	/* Change to suit 12 col version */
-	margin-left:0;
-}
 .check-list li{
 	width:25%;
 	float:left;
@@ -659,10 +597,6 @@ ul.message{
 	list-style:decimal outside; /* It’s also handy to number them. However, they might not necessarily be in a particular order, so we spoof it by putting numbers on an unordered list */
 	padding:10px 10px 10px 56px;
 }
-.cols-12 ul.message{
-	/* Change to suit 12 col version */
-	margin-left:0;
-}
 .error{
 	border-color:#fb5766;
 	background:url(../img/css/icons/error.png) 10px center no-repeat #fab;
@@ -734,7 +668,6 @@ Turn the grids back on. Idea given by @VictorPimentel
 
 .debug		{ background:url(../img/css/baseline.gif) 0 4px #fff!important; }
 .debug body	{ background:url(../img/css/grid.png) top center repeat-y!important; }
-.cols-12.debug body	{ background:url(../img/css/12-grid.png) top center repeat-y!important; }
 
 /*
 Red border == something is wrong
@@ -812,20 +745,11 @@ body{
 	width:700px;
 	background:url(../img/css/grid-720.png) top center repeat-y;
 }
-/*
-12-col version
-*/
-.cols-12 body	{ background:url(../img/css/12-grid-720.png) top center repeat-y; }
 
 /*
 Debug version
 */
 .debug body	{ background:url(../img/css/grid-720.png) top center repeat-y!important; }
-
-/*
-12-col AND debug version
-*/
-.debug.cols-12 body	{ background:url(../img/css/12-grid-720.png) top center repeat-y!important; }
 
 
 
@@ -860,30 +784,6 @@ Debug version
 .grid-15	{ width:655px; }
 .grid-16	{ width:700px; }
 
-/*
-12 cols
-*/
-.cols-12 .grid-1	{ width:40px; }
-.cols-12 .grid-2	{ width:100px; }
-.cols-12 .grid-3	{ width:160px; }
-.cols-12 .grid-4	{ width:220px; }
-
-.cols-12 .grid-5	{ width:280px; }
-.cols-12 .grid-6	{ width:340px; }
-.cols-12 .grid-7	{ width:400px; }
-.cols-12 .grid-8	{ width:460px; }
-
-.cols-12 .grid-9	{ width:520px; }
-.cols-12 .grid-10	{ width:580px; }
-.cols-12 .grid-11	{ width:640px; }
-
-/* Take care of grids 12-16 to cater for a switch from one system to the other */
-.cols-12 .grid-12,
-.cols-12 .grid-13,
-.cols-12 .grid-14,
-.cols-12 .grid-15,
-.cols-12 .grid-16	{ width:700px; }
-
 
 
 
@@ -905,15 +805,6 @@ ol ul{
 }
 dd{
 	margin-left:45px;
-}
-
-/*
-Lists in the 12 col version
-*/
-.cols-12 ul,
-.cols-12 ol,
-.cols-12 dd{
-	margin-left:60px;
 }
 }
 /*--- END NARROW ---*/
@@ -943,11 +834,7 @@ body{
 	background:#fff;
 }
 .debug,
-.debug body,
-.cols-12,
-.cols-12 body,
-.debug.cols-12,
-.debug.cols-12 body{
+.debug body{
 	background:#fff!important;
 }
 html{
@@ -998,15 +885,6 @@ ol ul{
 	margin:0 0 0 25px;
 }
 dd{
-	margin-left:25px;
-}
-
-/*
-Override 12 col settings
-*/
-.cols-12 ul,
-.cols-12 ul,
-.cols-12 dd{
 	margin-left:25px;
 }
 
