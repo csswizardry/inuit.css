@@ -229,23 +229,6 @@ Your logo is an image, not a h1: http://csswizardry.com/2010/10/your-logo-is-an-
 #nav a{
 	display:block;
 }
-/*
-http://csswizardry.com/2011/01/create-a-centred-horizontal-navigation/
-Add a class of centred/centered to create a centred nav.
-*/
-#nav.centred,
-#nav.centered{
-	text-align:center;
-}
-#nav.centred li,
-#nav.centered li{
-	display:inline;
-	float:none;
-}
-#nav.centred a,
-#nav.centered a{
-	display:inline-block;
-}
 
 
 
