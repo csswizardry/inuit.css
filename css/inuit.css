@@ -745,6 +745,10 @@ body{
 	width:700px;
 	background:url(../img/css/grid-720.png) top center repeat-y;
 }
+.wrapper{
+	width:700px;
+}
+
 
 /*
 Debug version
@@ -844,6 +848,9 @@ body{
 	padding:20px;
 	width:auto;
 	-webkit-text-size-adjust:none;
+}
+.wrapper{
+	width:auto;
 }
 .grids{
 	margin:0!important;
