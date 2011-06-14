@@ -742,7 +742,6 @@ CSS for tablets and narrower devices
 	MAIN
 \*------------------------------------*/
 body{
-	width:700px;
 	background:url(../img/css/grid-720.png) top center repeat-y;
 }
 .wrapper{
@@ -845,11 +844,11 @@ html{
 	font-size:1.125em;
 }
 body{
-	padding:20px;
-	width:auto;
 	-webkit-text-size-adjust:none;
 }
 .wrapper{
+	width:auto;
+	padding:20px;
 	width:auto;
 }
 .grids{
@@ -937,9 +936,11 @@ Give everything some decent contrast.
 Set a nice measure and take the font down to print-acceptable sizes.
 */
 body{
+	font-size:0.75em; /* 12px (if base font-size was 16px) */
+}
+.wrapper{
 	width:75%;
 	margin:0 auto;
-	font-size:0.75em; /* 12px (if base font-size was 16px) */
 }
 /*
 A list of things you don’t want printing. Add to/subtract from as necessary. 
