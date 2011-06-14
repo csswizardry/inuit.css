@@ -7,8 +7,8 @@ Author:             Harry Roberts
 Twitter:            @inuitcss
 Author URL:         csswizardry.com
 Project URL:        inuitcss.com
-Version:            2.0
-Date:               11 June 2011
+Version:            2.1
+Date:               14 June 2011
 
 Copyright 2011 Harry Roberts
 
@@ -95,11 +95,18 @@ html{
 	color:#333;
 }
 body{
-	width:940px;
 	min-height:100%;
+	background:url(../img/css/grid.png) top center repeat-y;
+}
+
+/*
+Apply this class to the body element where possible, as per: http://csswizardry.com/2011/01/using-the-body-element-as-a-wrapper/
+Otherwise, apply it to other elements where necessary.
+*/
+.wrapper{
+	width:940px;
 	padding:10px;
 	margin:0 auto;
-	background:url(../img/css/grid.png) top center repeat-y;
 }
 
 
@@ -269,7 +276,8 @@ h6{
 }
 
 /*--- PARAGRAPHS ---*/
-p{
+p,
+address{
 	margin-bottom:1.5em;
 }
 /*
@@ -325,6 +333,15 @@ ul ol,
 ol ul{
 	/* Let’s take care of lists in lists */
 	margin:0 0 0 60px;
+}
+
+/*
+A numbered list is NOT the same as an ordered one.
+Use this class when you want a list to be numbered but it has no order.
+See http://jsfiddle.net/csswizardry/sdrth/
+*/
+ul.numbered{
+	list-style:decimal outside;
 }
 dl{
 	margin-bottom:1.5em;

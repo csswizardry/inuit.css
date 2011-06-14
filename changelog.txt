@@ -18,3 +18,4 @@
 1.5.0.1     Fixing broken media-query layouts affected by v1.5 update.
 1.5.1       Fixing IE silliness with implied colspans etc. Ref: http://jsfiddle.net/csswizardry/UJJay/
 2.0         igloos are go!
+2.1         Added a .wrapper class to allow you to have 100% width body, added <address> support, added humans.txt link, .numbered for numbered but nor ordered lists.
