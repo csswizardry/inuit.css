@@ -7,8 +7,8 @@ Author:             Harry Roberts
 Twitter:            @inuitcss
 Author URL:         csswizardry.com
 Project URL:        inuitcss.com
-Version:            2.1
-Date:               14 June 2011
+Version:            2.5
+Date:               15 June 2011
 
 Copyright 2011 Harry Roberts
 
@@ -130,12 +130,20 @@ ul.grids{
 	margin:0 0 0 -20px;
 	list-style:none;
 }
-.grid{
+
+/*
+Here we are using an attribute selector to detect the string ‘grid-’ in an element’s class.
+This works by assuming that anything we call grid-<n> we also want to be a grid item. It means less code and less for you to remember!
+
+Ensure any grid item’s FIRST class is a grid-<n> class. e.g.
+VALID: class="grid-4 text-centre"
+INVALID: class="left grid-4"
+*/
+[class^="grid-"]{
 	float:left;
 	margin:0 20px 0 0;
 }
-.grids .grid{
-	display:inline;
+.grids [class^="grid-"]{
 	margin:0 0 0 20px;
 }
 
@@ -161,8 +169,7 @@ Fix clearing issues as per: http://nicolasgallagher.com/micro-clearfix-hack/
 
 /*
 Grid sizes based on 960.gs by @nathansmith
-For the sake of file-size and load-time please delete all CSS pertaining to the grid system you aren’t using.
-The ability to use one of two different grid systems from the same file means there is a lot of code needed to alter intricate styles--look out for lists!
+If you would like a 12-col system there's an igloo for that: https://github.com/csswizardry/12-col.inuit.css
 */
 
 /*
@@ -204,7 +211,7 @@ Your logo is an image, not a h1: http://csswizardry.com/2010/10/your-logo-is-an-
 	width:auto; /* Width of your logo in pixels (ideally a round grid-number) */
 	height:auto; /* Height of your logo in pixels */
 }
-/* Based on the fact that we need to use an <img /> in our markup, let’s hide the actual image and use a background on the <a>--this gives us sematically sound markup and the ability to use sprites for hover effects! */
+/* Based on the fact that we need to use an <img /> in our markup, let’s hide the actual image and use a background on the <a>--this gives us semantically sound markup and the ability to use sprites for hover effects! */
 #logo{
 	background:url(/path/to/logo);
 }
@@ -642,7 +649,7 @@ ul.message{
 	CLASSES
 \*------------------------------------*/
 /*
-Some not-too-pretty and insementic classes to do odd jobs.
+Some not-too-pretty and insemantic classes to do odd jobs.
 */
 .left	{ float:left; }
 .right	{ float:right; }
@@ -848,16 +855,18 @@ body{
 }
 .wrapper{
 	width:auto;
-	padding:20px;
+	padding:10px;
 	width:auto;
 }
 .grids{
 	margin:0!important;
 	width:auto;
 }
-.grid{
+[class^="grid-"],
+.grids [class^="grid-"]{
 	width:auto;
 	float:none;
+	margin:0;
 }
 
 
@@ -958,7 +967,7 @@ Linearise
 .grids{
 	width:auto;
 }
-.grid{
+[class^="grid-"]{
 	width:auto;
 	float:none;
 	clear:both;
