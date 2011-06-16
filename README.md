@@ -24,7 +24,7 @@ In the download bundle you will find:
 
 ## igloos
 
-inuit.css has several plugins available, called igloos. An igloo extends the functionality of inuit.css
+inuit.css has several plugins available, called [igloos](http://inuitcss.com/#igloos). An igloo extends the functionality of inuit.css
 
 ## Installing
 
