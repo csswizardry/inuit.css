@@ -7,8 +7,8 @@ Author:             Harry Roberts
 Twitter:            @inuitcss
 Author URL:         csswizardry.com
 Project URL:        inuitcss.com
-Version:            2.5
-Date:               15 June 2011
+Version:            2.5.1
+Date:               19 June 2011
 
 Copyright 2011 Harry Roberts
 
@@ -628,6 +628,9 @@ ul.message{
 /*------------------------------------*\
 	MISC
 \*------------------------------------*/
+hr{
+	margin:0 0 1.5em 0;
+}
 .accessibility{
 	/* Hide content off-screen without hiding from screen-readers. N.B. This is not suited to RTL languages */
 	position:absolute;
