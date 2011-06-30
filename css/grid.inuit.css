@@ -1,0 +1,76 @@
+/*------------------------------------*\
+	GRID.INUIT.CSS
+\*------------------------------------*/
+
+
+
+
+
+/*
+grid.inuit.css is an inuit.css igloo
+igloos are CSS plugins which extend the inuit.css framework
+They are released under the Apache License, Version 2.0 -- http://www.apache.org/licenses/LICENSE-2.0
+
+@inuitcss
+inuitcss.com
+*/
+
+
+
+
+
+/*------------------------------------*\
+	GRIDS
+\*------------------------------------*/
+/*
+Page wrapper. Apply to the body where possible, as per: http://csswizardry.com/2011/01/using-the-body-element-as-a-wrapper/
+*/
+.wrapper{
+	width:940px;
+	margin:0 auto;
+	padding:0 10px;
+}
+
+/*
+Most frameworks rely on class="end" or similar to remove the margin from the last column in a row of grids. We don't want to do that so we use a combination of margin- and negative margin-left. It's clever...
+We also allow you to use grid items as stand alone columns or in a series of columns. To use a series just wrap them all in <div class="grids">...</div>
+*/
+.grids{
+	clear:both;
+	max-width:960px;
+	margin:0 0 0 -20px;
+	list-style:none; /* So we can make grids out of lists */
+}
+
+/*
+Here we are using an attribute selector to detect the string 'grid-' in an element's class.
+This works by assuming that anything we call grid-<n> we also want to be a grid item. It means less code and less for you to remember!
+
+Ensure any grid item's FIRST class is a grid-<n> class. e.g.
+VALID: class="grid-4 text-centre"
+INVALID: class="left grid-4"
+*/
+[class^="grid-"]{
+	float:left;
+	margin:0 20px 0 0;
+}
+.grids [class^="grid-"]{
+	margin:0 0 0 20px;
+}
+
+.grid-1{ width:40px }
+.grid-2{ width:100px }
+.grid-3{ width:160px }
+.grid-4{ width:220px }
+.grid-5{ width:280px }
+.grid-6{ width:340px }
+.grid-7{ width:400px }
+.grid-8{ width:460px }
+.grid-9{ width:520px }
+.grid-10{ width:580px }
+.grid-11{ width:640px }
+.grid-12{ width:700px }
+.grid-13{ width:760px }
+.grid-14{ width:820px }
+.grid-15{ width:880px }
+.grid-16{ width:940px; margin:0 }

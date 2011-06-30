@@ -7,8 +7,8 @@ Author:             Harry Roberts
 Twitter:            @inuitcss
 Author URL:         csswizardry.com
 Project URL:        inuitcss.com
-Version:            2.5.1
-Date:               19 June 2011
+Version:            3.0.a
+Date:               30 June 2011
 
 Copyright 2011 Harry Roberts
 
@@ -91,22 +91,11 @@ html{
 	font-family:Calibri, "Helvetica Neue", Arial, sans-serif; /* Swap these two lines around to switch between serif and sans */
 	font-family:Cambria, Georgia, "Times New Roman", serif; /* Swap these two lines around to switch between serif and sans */
 	line-height:1.5;
-	background:url(../img/css/baseline.gif) 0 4px #fff;
+	background:url(../img/css/baseline.gif) 0 18px #fff;
 	color:#333;
 }
 body{
 	min-height:100%;
-	background:url(../img/css/grid.png) top center repeat-y;
-}
-
-/*
-Apply this class to the body element where possible, as per: http://csswizardry.com/2011/01/using-the-body-element-as-a-wrapper/
-Otherwise, apply it to other elements where necessary.
-*/
-.wrapper{
-	width:940px;
-	padding:10px;
-	margin:0 auto;
 }
 
 
@@ -117,37 +106,16 @@ Otherwise, apply it to other elements where necessary.
 	GRIDS
 \*------------------------------------*/
 /*
-Most frameworks rely on class="end" or similar to remove the margin from the last column in a row of grids. We don’t want to do that so we use a combination of margin- and negative margin-left. It’s clever...
-We also allow you to use grid items as stand alone columns or in a series of columns. To use a series just wrap them all in <div class="grids">...</div>
+Build a custom grid-system igloo at inuitcss.com
 */
-.grids{
-	margin-left:-20px;
-	clear:both;
-	width:960px;
-}
-ul.grids{
-	/* So we can make grids out of lists */
-	margin:0 0 0 -20px;
-	list-style:none;
-}
 
-/*
-Here we are using an attribute selector to detect the string ‘grid-’ in an element’s class.
-This works by assuming that anything we call grid-<n> we also want to be a grid item. It means less code and less for you to remember!
 
-Ensure any grid item’s FIRST class is a grid-<n> class. e.g.
-VALID: class="grid-4 text-centre"
-INVALID: class="left grid-4"
-*/
-[class^="grid-"]{
-	float:left;
-	margin:0 20px 0 0;
-}
-.grids [class^="grid-"]{
-	margin:0 0 0 20px;
-}
 
-/*--- CLEARFIX ---*/
+
+
+/*------------------------------------*\
+	CLEARFIX
+\*------------------------------------*/
 /*
 Fix clearing issues as per: http://nicolasgallagher.com/micro-clearfix-hack/
 */
@@ -166,34 +134,6 @@ Fix clearing issues as per: http://nicolasgallagher.com/micro-clearfix-hack/
 .grids:after{
 	clear:both;
 }
-
-/*
-Grid sizes based on 960.gs by @nathansmith
-If you would like a 12-col system there's an igloo for that: https://github.com/csswizardry/12-col.inuit.css
-*/
-
-/*
-16 column grid system -- default
-*/
-.grid-1		{ width:40px; }
-.grid-2		{ width:100px; }
-.grid-3		{ width:160px; }
-.grid-4		{ width:220px; }
-
-.grid-5		{ width:280px; }
-.grid-6		{ width:340px; }
-.grid-7		{ width:400px; }
-.grid-8		{ width:460px; }
-
-.grid-9		{ width:520px; }
-.grid-10	{ width:580px; }
-.grid-11	{ width:640px; }
-.grid-12	{ width:700px; }
-
-.grid-13	{ width:760px; }
-.grid-14	{ width:820px; }
-.grid-15	{ width:880px; }
-.grid-16	{ width:940px; margin:0; }
 
 
 
@@ -231,17 +171,15 @@ Your logo is an image, not a h1: http://csswizardry.com/2010/10/your-logo-is-an-
 /*------------------------------------*\
 	NAV
 \*------------------------------------*/
-#nav{
+.nav{
 	list-style:none;
-	width:100%;
-	overflow:hidden;
 	margin:0 0 1.5em 0;
 }
-#nav li{
-	float:left;
+.nav li{
+	display:inline;
 }
-#nav a{
-	display:block;
+.nav a{
+	display:inline-block;
 }
 
 
@@ -654,8 +592,8 @@ hr{
 /*
 Some not-too-pretty and insemantic classes to do odd jobs.
 */
-.left	{ float:left; }
-.right	{ float:right; }
+.left	{ float:left!important; }
+.right	{ float:right!important; }
 .clear	{ clear:both; float:none; }
 
 .text-left		{ text-align:left; }
@@ -676,8 +614,7 @@ APPLY A CLASS OF .debug TO THE HTML ELEMENT ONLY WHEN YOUR SITE IS ON DEV
 Turn the grids back on. Idea given by @VictorPimentel
 */
 
-.debug		{ background:url(../img/css/baseline.gif) 0 4px #fff!important; }
-.debug body	{ background:url(../img/css/grid.png) top center repeat-y!important; }
+.debug		{ background:url(../img/css/baseline.gif) 0 18px #fff!important; }
 
 /*
 Red border == something is wrong
@@ -748,77 +685,6 @@ CSS for tablets and narrower devices
 
 
 @media (min-width: 721px) and (max-width: 960px){
-/*------------------------------------*\
-	MAIN
-\*------------------------------------*/
-body{
-	background:url(../img/css/grid-720.png) top center repeat-y;
-}
-.wrapper{
-	width:700px;
-}
-
-
-/*
-Debug version
-*/
-.debug body	{ background:url(../img/css/grid-720.png) top center repeat-y!important; }
-
-
-
-
-
-/*------------------------------------*\
-	GRIDS
-\*------------------------------------*/
-.grids{
-	width:720px;
-}
-/*
-16 cols
-*/
-.grid-1		{ width:25px; }
-.grid-2		{ width:70px; }
-.grid-3		{ width:115px; }
-.grid-4		{ width:160px; }
-
-.grid-5		{ width:205px; }
-.grid-6		{ width:250px; }
-.grid-7		{ width:295px; }
-.grid-8		{ width:340px; }
-
-.grid-9		{ width:385px; }
-.grid-10	{ width:430px; }
-.grid-11	{ width:475px; }
-.grid-12	{ width:520px; }
-
-.grid-13	{ width:565px; }
-.grid-14	{ width:610px; }
-.grid-15	{ width:655px; }
-.grid-16	{ width:700px; }
-
-
-
-
-
-/*------------------------------------*\
-	TYPE
-\*------------------------------------*/
-/*--- LISTS ---*/
-ul,
-ol{
-	margin:0 0 1.5em 45px;
-}
-ul ul,
-ol ol,
-ul ol,
-ol ul{
-	/* Let’s take care of lists in lists */
-	margin:0 0 0 45px;
-}
-dd{
-	margin-left:45px;
-}
 }
 /*--- END NARROW ---*/
 
@@ -842,13 +708,9 @@ Linearise it!
 /*------------------------------------*\
 	MAIN
 \*------------------------------------*/
-html,
-body{
-	background:#fff;
-}
 .debug,
 .debug body{
-	background:#fff!important;
+	background:none!important;
 }
 html{
 	font-size:1.125em;
@@ -857,19 +719,19 @@ body{
 	-webkit-text-size-adjust:none;
 }
 .wrapper{
-	width:auto;
-	padding:10px;
-	width:auto;
+	width:auto!important;
+	padding:10px!important;
+	width:auto!important;
 }
 .grids{
 	margin:0!important;
-	width:auto;
+	width:auto!important;
 }
 [class^="grid-"],
 .grids [class^="grid-"]{
-	width:auto;
-	float:none;
-	margin:0;
+	width:auto!important;
+	float:none!important;
+	margin:0!important;
 }
 
 
@@ -957,7 +819,7 @@ body{
 /*
 A list of things you don’t want printing. Add to/subtract from as necessary. 
 */
-#nav,
+.nav,
 #footer{
 	display:none;
 }
