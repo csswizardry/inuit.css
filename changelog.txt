@@ -21,3 +21,4 @@
 2.1         Added a .wrapper class to allow you to have 100% width body, added <address> support, added humans.txt link, .numbered for numbered but nor ordered lists.
 2.5         Dropped the .grid class, IE6 SUPPORT NOW GONE but there is an igloo for this, better README, few typos fixed.
 2.5.1       Added minimal styling for <hr />
+3.0.a       Removed grids from the framework and added a custom grid builder. Alpha release, use with caution and please report bugs!
