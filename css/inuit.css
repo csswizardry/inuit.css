@@ -272,10 +272,8 @@ ul,
 ol{
 	margin:0 0 1.5em 60px;
 }
-ul ul,
-ol ol,
-ul ol,
-ol ul{
+li ul,
+li ol{
 	/* Let’s take care of lists in lists */
 	margin:0 0 0 60px;
 }
@@ -757,10 +755,8 @@ ul,
 ol{
 	margin:0 0 1.5em 25px;
 }
-ul ul,
-ol ol,
-ul ol,
-ol ul{
+li ul,
+li ol{
 	/* Let’s take care of lists in lists */
 	margin:0 0 0 25px;
 }
