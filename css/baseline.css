@@ -1,0 +1,243 @@
+/*------------------------------------*\
+	TYPE
+\*------------------------------------*/
+/*--- HEADINGS ---*/
+h1{
+	font-size:2em;			/* 32px */
+	margin-bottom:0.75em;	/* 24px */
+	line-height:1.5;		/* 48px */
+}
+h2{
+	font-size:1.5em;		/* 24px */
+	margin-bottom:1em;		/* 24px */
+	line-height:1;			/* 24px */
+}
+h3{
+	font-size:1.25em;		/* 20px */
+	margin-bottom:1.2em;	/* 24px */
+	line-height:1.2;		/* 24px */
+}
+h4{
+	font-size:1.125em;		/* 18px */
+	margin-bottom:1.333em;	/* 24px */
+	line-height:1.333;		/* 24px */
+}
+h5{
+	font-weight:bold;
+}
+h5,
+h6{
+	font-size:1em;			/* 16px */
+	margin-bottom:1.5em;	/* 24px */
+	line-height:1.5;		/* 24px */
+}
+
+/*--- PARAGRAPHS ---*/
+p,
+address{
+	margin-bottom:1.5em;
+}
+/*
+Mo’ robust paragraph indenting: http://csswizardry.com/2010/12/mo-robust-paragraph-indenting/
+Uncomment to activate
+p+p{
+	text-indent:2em;
+	margin-top:-1.5em;
+}
+*/
+
+/*--- FIGURES ---*/
+figure{
+	margin-bottom:1.5em;
+}
+figure img{
+	display:block;
+	margin-bottom:0;
+}
+figcaption{
+	font-size:0.75em;
+}
+
+/*--- LISTS ---*/
+ul,
+ol{
+	margin:0 0 1.5em 60px;
+}
+ul ul,
+ol ol,
+ul ol,
+ol ul{
+	/* Let’s take care of lists in lists */
+	margin:0 0 0 60px;
+}
+
+/*
+A numbered list is NOT the same as an ordered one.
+Use this class when you want a list to be numbered but it has no order.
+See http://jsfiddle.net/csswizardry/sdrth/
+*/
+ul.numbered{
+	list-style:decimal outside;
+}
+dl{
+	margin-bottom:1.5em;
+}
+dt{
+	font-weight:bold;
+}
+dt:after{
+	content:":";
+}
+dt::after{
+	content:":";
+}
+dd{
+	margin-left:60px;
+}
+
+/*--- QUOTES ---*/
+blockquote{
+	text-indent:-0.4em; /* Hang that punctuation */
+}
+blockquote b,
+blockquote .source{
+	/* Mark the source up with either a <b> or another element of your choice with a class of source. */
+	display:block;
+	text-indent:0;
+}
+
+
+/*--- GENERAL ---*/
+q,
+i,
+em,
+cite{
+	font-style:italic;
+	font-weight:inherit;
+}
+b,
+strong{
+	font-weight:bold;
+	font-style:inherit;
+}
+mark{
+	background:#ffc;
+}
+s,
+del{
+	text-decoration:line-through;
+}
+small{
+	font-size:0.75em;
+	line-height:1;
+}
+
+
+/*--- CODE ---*/
+pre,
+code{
+	font-family:monospace;
+	font-size:1em;
+}
+pre{
+	overflow:auto;
+	margin-bottom:1.5em;
+	line-height:24px; /* Having to define explicit pixel values :( */
+}
+code{
+	line-height:1;
+}
+
+/*------------------------------------*\
+	FORMS
+\*------------------------------------*/
+/*
+Unfortunately, and somewhat obviously, forms don’t fit the baseline all too well. Perhaps in a later version...
+*/
+fieldset{
+	padding:10px;
+	border:1px solid #ccc;
+	margin-bottom:1.5em;
+}
+label{
+	display:block;
+	cursor:pointer;
+}
+label:after{
+	content:":";
+}
+label::after{
+	content:":";
+}
+input,
+textarea{
+	font-family:inherit;
+	font-size:1em;
+	line-height:1.5;
+}
+
+/*------------------------------------*\
+	TABLES
+\*------------------------------------*/
+/*
+Unfortunately, and somewhat obviously, tables don’t fit the baseline all too well. Perhaps in a later version...
+*/
+table{
+	margin-bottom:1.5em;
+	width:100%;
+	max-width:100%;
+}
+thead tr:last-of-type th{
+	/* Thicker border on the table-headers of the last row in the table head */
+	border-bottom-width:2px;
+}
+tbody th{
+	/* Thicker right border on table-headers in the table body */
+	border-right-width:2px;
+}
+th:empty{
+	/* Hide the borders on any empty table-headers */
+	border:none;
+}
+th,td{
+	vertical-align:top;
+	padding:0.75em;
+	border:1px solid #ccc;
+}
+th{
+	font-weight:bold;
+	text-align:center
+}
+table [colspan]{
+	/* This looks lovely, trust me... */
+	text-align:center;
+}
+table [rowspan]{
+	/* ...as does this. */
+	vertical-align:middle;
+}
+/*
+Assuming IE has an 'implied' colspan of one on cells without an explicit colspan attribute, fix/undo it.
+See http://jsfiddle.net/csswizardry/UJJay/
+*/
+[colspan="1"]{
+    text-align:left;
+}
+[rowspan="1"]{
+    vertical-align:top;
+}
+tbody tr:nth-of-type(odd){
+	background:rgba(0,0,0,0.05);
+}
+tfoot{
+	text-align:center;
+}
+tfoot td{
+	border-top-width:2px;
+}
+
+
+
+
+
+
