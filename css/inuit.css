@@ -33,9 +33,15 @@ limitations under the License.
 /*------------------------------------*\
 	RESET
 \*------------------------------------*/
-/* DEFINE RESET ELSEWHERE */
+/* Pick your own reset */
 @import url("reset.css");
 
+
+/*------------------------------------*\
+	BASELINE
+\*------------------------------------*/
+/* Use Inuit's baseline if you want */
+@import url("baseline.css");
 
 
 
