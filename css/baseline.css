@@ -1,3 +1,10 @@
+html {
+	font-family:Calibri, "Helvetica Neue", Arial, sans-serif; /* Swap these two lines around to switch between serif and sans */
+	font-family:Cambria, Georgia, "Times New Roman", serif; /* Swap these two lines around to switch between serif and sans */
+	line-height:1.5;
+}
+
+
 /*------------------------------------*\
 	TYPE
 \*------------------------------------*/
