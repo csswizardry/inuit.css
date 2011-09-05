@@ -120,14 +120,14 @@ Your logo is an image, not a h1: http://csswizardry.com/2010/10/your-logo-is-an-
 /*------------------------------------*\
 	NAV
 \*------------------------------------*/
-.nav{
+header[role=banner] nav {
 	list-style:none;
 	margin:0 0 1.5em 0;
 }
-.nav li{
+header[role=banner] nav li {
 	display:inline;
 }
-.nav a{
+header[role=banner] nav a {
 	display:inline-block;
 }
 
