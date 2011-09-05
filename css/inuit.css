@@ -72,18 +72,18 @@ Build a custom grid-system igloo at inuitcss.com
 /*
 Fix clearing issues as per: http://nicolasgallagher.com/micro-clearfix-hack/
 */
-.cf,
+.clearfix,
 .grids{
 	zoom:1;
 }
-.cf:before,
+.clearfix:before,
 .grids:before,
-.cf:after,
+.clearfix:after,
 .grids:after{
 	content:"";
 	display:table;
 }
-.cf:after,
+.clearfix:after,
 .grids:after{
 	clear:both;
 }
