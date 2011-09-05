@@ -199,47 +199,7 @@ fieldset > :last-child{
 
 
 
-/*------------------------------------*\
-	MESSAGES
-\*------------------------------------*/
-/*
-Unfortunately feedback messages don’t fit the baseline all too well. Perhaps in a later version...
-*/
-.message{
-	font-weight:normal;
-	display:block;
-	padding:10px 10px 10px 36px;
-	border:1px solid #ccc;
-	margin:0 0 1.5em 0;
-	
-	-moz-border-radius:2px;
-	-webkit-border-radius:2px;
-	border-radius:2px;
-	-moz-box-shadow:0 1px 0 rgba(255,255,255,0.5) inset;
-	-webkit-box-shadow:0 1px 0 rgba(255,255,255,0.5) inset;
-	box-shadow:0 1px 0 rgba(255,255,255,0.5) inset;
-}
-/* With multiple errors it’s nice to group them. */
-ul.message{
-	list-style:decimal outside; /* It’s also handy to number them. However, they might not necessarily be in a particular order, so we spoof it by putting numbers on an unordered list */
-	padding:10px 10px 10px 56px;
-}
-.error{
-	border-color:#fb5766;
-	background:url(../img/css/icons/error.png) 10px center no-repeat #fab;
-}
-.success{
-	border-color:#83ba77;
-	background:url(../img/css/icons/success.png) 10px center no-repeat #d1feba;
-}
-.info{
-	border-color:#85a5be;
-	background:url(../img/css/icons/info.png) 10px center no-repeat #c4dbec;
-}
-.warning{
-	border-color:#d8d566;
-	background:url(../img/css/icons/warning.png) 10px center no-repeat #fef8c4;
-}
+
 
 
 
