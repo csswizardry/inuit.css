@@ -50,20 +50,12 @@ body{
 	min-height:100%;
 }
 
-
-
-
-
 /*------------------------------------*\
 	GRIDS
 \*------------------------------------*/
 /*
 Build a custom grid-system igloo at inuitcss.com
 */
-
-
-
-
 
 /*------------------------------------*\
 	CLEARFIX
@@ -86,10 +78,6 @@ Fix clearing issues as per: http://nicolasgallagher.com/micro-clearfix-hack/
 .grids:after{
 	clear:both;
 }
-
-
-
-
 
 /*------------------------------------*\
 	LOGO
@@ -119,6 +107,8 @@ Your logo is an image, not a h1: http://csswizardry.com/2010/10/your-logo-is-an-
 /*------------------------------------*\
 	NAV
 \*------------------------------------*/
+/* Use ARIA roles to style main nav http://adactio.com/journal/4267/ */
+
 header[role=banner] nav {
 	list-style:none;
 	margin:0 0 1.5em 0;
@@ -189,21 +179,6 @@ fieldset > :last-child{
 	margin:0;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /*------------------------------------*\
 	MISC
 \*------------------------------------*/
@@ -223,10 +198,6 @@ hr{
 	content:" »";
 }
 
-
-
-
-
 /*------------------------------------*\
 	CLASSES
 \*------------------------------------*/
@@ -243,9 +214,6 @@ Some not-too-pretty and insemantic classes to do odd jobs.
 .text-centre	{ text-align:center; }
 
 
-
-
-
 /*------------------------------------*\
 	DIAGNOSTICS
 \*------------------------------------*/
@@ -255,7 +223,7 @@ APPLY A CLASS OF .debug TO THE HTML ELEMENT ONLY WHEN YOUR SITE IS ON DEV
 Turn the grids back on. Idea given by @VictorPimentel
 */
 
-.debug		{ background:url(../img/css/baseline.gif) 0 18px #fff!important; }
+.debug	{ background:url(../img/css/baseline.gif) 0 18px #fff!important; }
 
 /*
 Red border == something is wrong
@@ -312,8 +280,6 @@ Green border == perfect, nice one!
 
 
 
-
-
 /*------------------------------------*\
 	NARROW
 \*------------------------------------*/
@@ -321,12 +287,10 @@ Green border == perfect, nice one!
 CSS for tablets and narrower devices
 */
 
-
-
-
-
 @media (min-width: 721px) and (max-width: 960px){
+
 }
+
 /*--- END NARROW ---*/
 
 
@@ -340,10 +304,6 @@ CSS for tablets and narrower devices
 CSS for mobile devices.
 Linearise it!
 */
-
-
-
-
 
 @media (max-width: 720px){
 /*------------------------------------*\
@@ -375,19 +335,12 @@ body{
 	margin:0!important;
 }
 
-
-
-
-
 /*------------------------------------*\
 	LOGO
 \*------------------------------------*/
 #logo{
 	margin:0 auto 1.5em;
 }
-
-
-
 
 
 /*------------------------------------*\
@@ -408,9 +361,6 @@ ol ul{
 dd{
 	margin-left:25px;
 }
-
-
-
 
 /*------------------------------------*\
 	IMAGES
