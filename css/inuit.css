@@ -199,26 +199,7 @@ figcaption{
 	font-size:0.75em;
 }
 
-/*--- LINKS ---*/
-/*
-Say no to negative hovers: http://csswizardry.com/2011/05/on-negative-hovers/
-A negative hover is one whose appearance is subtracted from on hover rather than added to.
-*/
-a{
-	text-decoration:none;
-}
-a:visited{
-	opacity:0.8; /* A bit basic, but it’s a bare minumum... */
-}
-a:hover{
-	text-decoration:underline;
-}
-a:active,
-a:focus{
-	/* Give clicked links a depressed effect. */
-	position:relative;
-	top:1px;
-}
+
 
 /*--- LISTS ---*/
 ul,
