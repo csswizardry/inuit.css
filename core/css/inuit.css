@@ -7,8 +7,8 @@ Author:             Harry Roberts
 Twitter:            @inuitcss
 Author URL:         csswizardry.com
 Project URL:        inuitcss.com
-Version:            3.0.a
-Date:               30 June 2011
+Version:            3.1
+Date:               10 October 2011
 
 Copyright 2011 Harry Roberts
 
@@ -31,14 +31,42 @@ limitations under the License.
 
 
 /*------------------------------------*\
-	RESET
+	CONTENTS
+\*------------------------------------*/
+/*
+RESET
+SHARED
+MAIN
+GRIDS
+CLEARFIX
+ISLAND
+LOGO
+NAV
+TYPE
+IMAGES
+FORMS
+TABLES
+MESSAGES
+MISC
+CLASSES
+DIAGNOSTICS
+NARROW
+MOBILE
+*/
+
+
+
+
+
+/*------------------------------------*\
+	$RESET
 \*------------------------------------*/
 html,body,div,span,applet,object,iframe,
 h1,h2,h3,h4,h5,h6,p,blockquote,pre,
 a,abbr,acronym,address,big,cite,code,
 del,dfn,em,img,ins,kbd,q,s,samp,
 small,strike,strong,sub,sup,tt,var,
-b,u,i,center,
+b,u,i,center,hr,
 dl,dt,dd,ol,ul,li,
 fieldset,form,label,legend,
 table,caption,tbody,tfoot,thead,tr,th,td,
@@ -57,10 +85,11 @@ table{
 	border-collapse:collapse;
 	border-spacing:0;
 }
-fieldset,img{ 
+img,
+abbr,acronym{ 
 	border:0;
 }
-address,caption,cite,dfn,th,var{
+address,caption,dfn,th,var{
 	font-style:normal;
 	font-weight:normal;
 }
@@ -71,11 +100,36 @@ h1,h2,h3,h4,h5,h6{
 	font-size:100%;
 	font-weight:normal;
 }
-q:before,q:after{
-	content:'';
+
+
+
+
+
+/*------------------------------------*\
+	$SHARED
+\*------------------------------------*/
+/*
+Rather than repeating declarations over and over, let's make a shared section.
+*/
+h1,h2,h3,h4,h5,h6,
+ul,ol,dl,p,address,figure,pre,fieldset,table,hr,
+.nav,.island{
+	margin-bottom:24px;
+	margin-bottom:1.5rem;
 }
-abbr,acronym{
-	border:0;
+figcaption,small{
+	font-size:12px;
+	font-size:0.75rem;
+}
+ul,ol,dd{
+	margin-left:3em;
+}
+small,code{
+	line-height:1;
+}
+pre,code,
+input,textarea{
+	font:inherit;
 }
 
 
@@ -83,7 +137,7 @@ abbr,acronym{
 
 
 /*------------------------------------*\
-	MAIN
+	$MAIN
 \*------------------------------------*/
 html{
 	overflow-y:scroll; /* Force scrollbars 100% of the time */
@@ -91,7 +145,7 @@ html{
 	font-family:Calibri, "Helvetica Neue", Arial, sans-serif; /* Swap these two lines around to switch between serif and sans */
 	font-family:Cambria, Georgia, "Times New Roman", serif; /* Swap these two lines around to switch between serif and sans */
 	line-height:1.5;
-	background:url(../img/css/baseline.gif) 0 18px #fff;
+	background-color:#fff;
 	color:#333;
 }
 body{
@@ -103,7 +157,7 @@ body{
 
 
 /*------------------------------------*\
-	GRIDS
+	$GRIDS
 \*------------------------------------*/
 /*
 Build a custom grid-system igloo at inuitcss.com
@@ -114,7 +168,7 @@ Build a custom grid-system igloo at inuitcss.com
 
 
 /*------------------------------------*\
-	CLEARFIX
+	$CLEARFIX
 \*------------------------------------*/
 /*
 Fix clearing issues as per: http://nicolasgallagher.com/micro-clearfix-hack/
@@ -140,26 +194,44 @@ Fix clearing issues as per: http://nicolasgallagher.com/micro-clearfix-hack/
 
 
 /*------------------------------------*\
-	LOGO
+	$ISLAND
+\*------------------------------------*/
+/*
+Use a class of .island whenever you want to box off an area of content.
+Extend with classes like .promo to apply different colours etc to draw attention.
+*/
+.island{
+	padding:1.5em;
+}
+	.island > :last-child{
+		margin-bottom:0;
+	}
+
+
+
+
+
+/*------------------------------------*\
+	$LOGO
 \*------------------------------------*/
 /*
 Your logo is an image, not a h1: http://csswizardry.com/2010/10/your-logo-is-an-image-not-a-h1/
 */
-#logo,
-#logo img{
+.logo,
+.logo img{
 	display:block;
 	width:auto; /* Width of your logo in pixels (ideally a round grid-number) */
 	height:auto; /* Height of your logo in pixels */
 }
 /* Based on the fact that we need to use an <img /> in our markup, let’s hide the actual image and use a background on the <a>--this gives us semantically sound markup and the ability to use sprites for hover effects! */
-#logo{
+.logo{
 	background:url(/path/to/logo);
 }
-#logo:hover{
+.logo:hover{
 	/* Hover states */
 	background-position:0 -00px;
 }
-#logo img{
+.logo img{
 	position:absolute;
 	left:-99999px;
 }
@@ -169,11 +241,10 @@ Your logo is an image, not a h1: http://csswizardry.com/2010/10/your-logo-is-an-
 
 
 /*------------------------------------*\
-	NAV
+	$NAV
 \*------------------------------------*/
 .nav{
 	list-style:none;
-	margin:0 0 1.5em 0;
 }
 .nav li{
 	display:inline;
@@ -187,27 +258,23 @@ Your logo is an image, not a h1: http://csswizardry.com/2010/10/your-logo-is-an-
 
 
 /*------------------------------------*\
-	TYPE
+	$TYPE
 \*------------------------------------*/
 /*--- HEADINGS ---*/
-h1{
+h1,.alpha{
 	font-size:2em;			/* 32px */
-	margin-bottom:0.75em;	/* 24px */
 	line-height:1.5;		/* 48px */
 }
-h2{
+h2,.beta{
 	font-size:1.5em;		/* 24px */
-	margin-bottom:1em;		/* 24px */
 	line-height:1;			/* 24px */
 }
-h3{
+h3,.gamma{
 	font-size:1.25em;		/* 20px */
-	margin-bottom:1.2em;	/* 24px */
 	line-height:1.2;		/* 24px */
 }
-h4{
+h4,.delta{
 	font-size:1.125em;		/* 18px */
-	margin-bottom:1.333em;	/* 24px */
 	line-height:1.333;		/* 24px */
 }
 h5{
@@ -221,10 +288,6 @@ h6{
 }
 
 /*--- PARAGRAPHS ---*/
-p,
-address{
-	margin-bottom:1.5em;
-}
 /*
 Mo’ robust paragraph indenting: http://csswizardry.com/2010/12/mo-robust-paragraph-indenting/
 Uncomment to activate
@@ -235,15 +298,9 @@ p+p{
 */
 
 /*--- FIGURES ---*/
-figure{
-	margin-bottom:1.5em;
-}
 figure img{
 	display:block;
 	margin-bottom:0;
-}
-figcaption{
-	font-size:0.75em;
 }
 
 /*--- LINKS ---*/
@@ -268,16 +325,10 @@ a:focus{
 }
 
 /*--- LISTS ---*/
-ul,
-ol{
-	margin:0 0 1.5em 60px;
-}
-ul ul,
-ol ol,
-ul ol,
-ol ul{
+li > ul,
+li > ol{
 	/* Let’s take care of lists in lists */
-	margin:0 0 0 60px;
+	margin-bottom:0;
 }
 
 /*
@@ -288,32 +339,37 @@ See http://jsfiddle.net/csswizardry/sdrth/
 ul.numbered{
 	list-style:decimal outside;
 }
-dl{
-	margin-bottom:1.5em;
-}
 dt{
 	font-weight:bold;
 }
-dt:after{
-	content:":";
-}
-dt::after{
-	content:":";
-}
-dd{
-	margin-left:60px;
-}
 
 /*--- QUOTES ---*/
+/*
+Big up @boblet: http://html5doctor.com/blockquote-q-cite/
+*/
+q{ quotes:"‘" "’" "“" "”"; }
+
+q:before{ content:"‘"; content:open-quote; }
+q:after{ content:"’"; content:close-quote; }
+
+q q:before{ content: "“"; content: open-quote; }
+q q:after{ content: "”"; content: close-quote; }
+
+blockquote{ quotes: "“" "”"; }
+blockquote p:before{ content: "“"; content: open-quote; }
+blockquote p:after{ content: ""; content: no-close-quote; }
+blockquote p:last-of-type:after{ content: "”"; content: close-quote; }
+
 blockquote{
-	text-indent:-0.4em; /* Hang that punctuation */
+	text-indent:-0.4em;
 }
-blockquote b,
-blockquote .source{
-	/* Mark the source up with either a <b> or another element of your choice with a class of source. */
+.source{
 	display:block;
 	text-indent:0;
 }
+	.source:before{
+		content:"—";
+	}
 
 /*--- GENERAL ---*/
 q,
@@ -329,30 +385,22 @@ strong{
 	font-style:inherit;
 }
 mark{
-	background:#ffc;
+	background-color:#ffc;
+	color:#333;
 }
 s,
 del{
 	text-decoration:line-through;
-}
-small{
-	font-size:0.75em;
-	line-height:1;
 }
 
 /*--- CODE ---*/
 pre,
 code{
 	font-family:monospace;
-	font-size:1em;
 }
 pre{
 	overflow:auto;
-	margin-bottom:1.5em;
 	line-height:24px; /* Having to define explicit pixel values :( */
-}
-code{
-	line-height:1;
 }
 
 
@@ -360,7 +408,7 @@ code{
 
 
 /*------------------------------------*\
-	IMAGES
+	$IMAGES
 \*------------------------------------*/
 img{
 	max-width:100%;
@@ -385,48 +433,40 @@ video{
 
 
 /*------------------------------------*\
-	FORMS
+	$FORMS
 \*------------------------------------*/
 /*
 Unfortunately, and somewhat obviously, forms don’t fit the baseline all too well. Perhaps in a later version...
 */
 fieldset{
-	padding:10px;
+	padding:1.5em;
 	border:1px solid #ccc;
-	margin-bottom:1.5em;
 }
 label{
 	display:block;
+}
+.text-input{
+	/* With the advent of various HTML5 input types (email, url etc) input[type=text] is no longer suitable for for styling non-textearea text-inputs. Use .text-input instead. */
+}
+label,
+.text-input,
+textarea,
+.btn{
 	cursor:pointer;
 }
-label:after{
-	content:":";
-}
-label::after{
-	content:":";
-}
-input,
-textarea{
-	font-family:inherit;
-	font-size:1em;
-	line-height:1.5;
-}
+	.text-input:active,
+	.text-input:focus,
+	textarea:active,
+	textarea:focus{
+		cursor:text;
+	}
 
-/*
-Nice UI touch for placeholders. To get placeholders working cross-browser see @dan_bentley’s jQuery plugin: https://github.com/danbentley/placeholder
-*/
-[placeholder]{
-	cursor:pointer;
-}
-[placeholder]:active,
-[placeholder]:focus{
-	cursor:text;
-}
+/* A class of .check-list can be added to a <ul> to create a multi-column list of inputs. */
 .check-list{
 	width:100%;
 	overflow:hidden;
 	list-style:none;
-	margin:0 0 1.5em 0;
+	margin-left:0;
 }
 .check-list li{
 	width:25%;
@@ -434,15 +474,6 @@ Nice UI touch for placeholders. To get placeholders working cross-browser see @d
 }
 .check-label{
 	display:inline;
-}
-.check-label:after{
-	content:normal;
-}
-.check-label::after{
-	content:normal;
-}
-.button{
-	cursor:pointer;
 }
 fieldset > :last-child{
 	/* Remove the margin from the last element in the fieldset--this makes our padding more consistent. */
@@ -454,13 +485,12 @@ fieldset > :last-child{
 
 
 /*------------------------------------*\
-	TABLES
+	$TABLES
 \*------------------------------------*/
 /*
 Unfortunately, and somewhat obviously, tables don’t fit the baseline all too well. Perhaps in a later version...
 */
 table{
-	margin-bottom:1.5em;
 	width:100%;
 	max-width:100%;
 }
@@ -518,7 +548,7 @@ tfoot td{
 
 
 /*------------------------------------*\
-	MESSAGES
+	$MESSAGES
 \*------------------------------------*/
 /*
 Unfortunately feedback messages don’t fit the baseline all too well. Perhaps in a later version...
@@ -528,7 +558,7 @@ Unfortunately feedback messages don’t fit the baseline all too well. Perhaps i
 	display:block;
 	padding:10px 10px 10px 36px;
 	border:1px solid #ccc;
-	margin:0 0 1.5em 0;
+	margin-left:0;
 	
 	-moz-border-radius:2px;
 	-webkit-border-radius:2px;
@@ -537,11 +567,17 @@ Unfortunately feedback messages don’t fit the baseline all too well. Perhaps i
 	-webkit-box-shadow:0 1px 0 rgba(255,255,255,0.5) inset;
 	box-shadow:0 1px 0 rgba(255,255,255,0.5) inset;
 }
-/* With multiple errors it’s nice to group them. */
-ul.message{
-	list-style:decimal outside; /* It’s also handy to number them. However, they might not necessarily be in a particular order, so we spoof it by putting numbers on an unordered list */
-	padding:10px 10px 10px 56px;
-}
+	/*
+	With multiple errors it’s nice to group them:
+	<ul class=message>
+		<li>Please provide a surname.</li>
+		<li>Please enter a valid email address.</li>
+	</ul>
+	*/
+	ul.message{
+		list-style:decimal outside; /* It’s also handy to number them. However, they might not necessarily be in a particular order, so we spoof it by putting numbers on an unordered list */
+		padding:10px 10px 10px 56px;
+	}
 .error{
 	border-color:#fb5766;
 	background:url(../img/css/icons/error.png) 10px center no-repeat #fab;
@@ -564,11 +600,8 @@ ul.message{
 
 
 /*------------------------------------*\
-	MISC
+	$MISC
 \*------------------------------------*/
-hr{
-	margin:0 0 1.5em 0;
-}
 .accessibility{
 	/* Hide content off-screen without hiding from screen-readers. N.B. This is not suited to RTL languages */
 	position:absolute;
@@ -578,22 +611,19 @@ hr{
 	/* Too many people use &raquo; in their markup to signify progression/movement, that ain’t cool. Let’s insert that using content:""; */
 	content:" »";
 }
-.more-link::after{
-	content:" »";
-}
 
 
 
 
 
 /*------------------------------------*\
-	CLASSES
+	$CLASSES
 \*------------------------------------*/
 /*
 Some not-too-pretty and insemantic classes to do odd jobs.
 */
-.left	{ float:left!important; }
-.right	{ float:right!important; }
+.left	{ float:left; }
+.right	{ float:right; }
 .clear	{ clear:both; float:none; }
 
 .text-left		{ text-align:left; }
@@ -606,29 +636,29 @@ Some not-too-pretty and insemantic classes to do odd jobs.
 
 
 /*------------------------------------*\
-	DIAGNOSTICS
+	$DIAGNOSTICS
 \*------------------------------------*/
 /*
-APPLY A CLASS OF .debug TO THE HTML ELEMENT ONLY WHEN YOUR SITE IS ON DEV
-
-Turn the grids back on. Idea given by @VictorPimentel
+Apply a class of .debug to the html element ONLY WHEN YOUR SITE IS ON DEV.
 */
-
-.debug		{ background:url(../img/css/baseline.gif) 0 18px #fff!important; }
 
 /*
-Red border == something is wrong
-Yellow border == something may be wrong, you should double check.
-Green border == perfect, nice one!
+Red border 		== 	something is wrong
+Yellow border 	== 	something may be wrong, you should double check.
+Green border 	== 	perfect, nice one!
 */
 
-/* Styles */
-.debug [style]{
+/*--- STYLES ---*/
+.debug [style],
+.debug style{
 	/* Inline styles aren’t great, can this be avoided? */
 	outline:5px solid yellow;
 }
+	.debug style{
+		display:block;
+	}
 
-/* Images */
+/*--- IMAGES ---*/
 .debug img{
 	/* Images without alt attributes are bad! */
 	outline:5px solid red;
@@ -642,7 +672,7 @@ Green border == perfect, nice one!
 	outline-color:yellow;
 }
 
-/* Links */
+/*--- LINKS ---*/
 .debug a{
 	/* Links without titles are yellow, does your link need one? */
 	outline:5px solid yellow;
@@ -662,7 +692,7 @@ Green border == perfect, nice one!
 	outline-color:red;
 }
 
-/* Classes/IDs */
+/*--- CLASSES/IDS ---*/
 .debug [class=""],
 .debug [id=""]{
 	/* Is this element meant to have an empty class/ID? */
@@ -674,16 +704,11 @@ Green border == perfect, nice one!
 
 
 /*------------------------------------*\
-	NARROW
+	$NARROW
 \*------------------------------------*/
 /*
 CSS for tablets and narrower devices
 */
-
-
-
-
-
 @media (min-width: 721px) and (max-width: 960px){
 }
 /*--- END NARROW ---*/
@@ -693,45 +718,35 @@ CSS for tablets and narrower devices
 
 
 /*------------------------------------*\
-	MOBILE
+	$MOBILE
 \*------------------------------------*/
 /*
 CSS for mobile devices.
 Linearise it!
 */
-
-
-
-
-
 @media (max-width: 720px){
 /*------------------------------------*\
 	MAIN
 \*------------------------------------*/
-.debug,
-.debug body{
-	background:none!important;
-}
 html{
-	font-size:1.125em;
+	font-size:1.125em; /* Make text slightly larger for smaller devices to improve readability. */
 }
 body{
 	-webkit-text-size-adjust:none;
 }
 .wrapper{
-	width:auto!important;
-	padding:10px!important;
-	width:auto!important;
+	width:auto;
+	width:auto;
 }
 .grids{
-	margin:0!important;
-	width:auto!important;
+	margin:0;
+	width:auto;
 }
 [class^="grid-"],
 .grids [class^="grid-"]{
-	width:auto!important;
-	float:none!important;
-	margin:0!important;
+	width:auto;
+	float:none;
+	margin:0;
 }
 
 
@@ -741,8 +756,9 @@ body{
 /*------------------------------------*\
 	LOGO
 \*------------------------------------*/
-#logo{
-	margin:0 auto 1.5em;
+.logo{
+	margin-left:auto;
+	margin-right:auto;
 }
 
 
@@ -754,19 +770,16 @@ body{
 \*------------------------------------*/
 /*--- LISTS ---*/
 ul,
-ol{
-	margin:0 0 1.5em 25px;
+ol,
+dl{
+	margin-left:1.5em;
 }
-ul ul,
-ol ol,
-ul ol,
-ol ul{
+li > ul,
+li > ol{
 	/* Let’s take care of lists in lists */
-	margin:0 0 0 25px;
+	margin-bottom:0;
 }
-dd{
-	margin-left:25px;
-}
+
 
 
 
@@ -789,11 +802,6 @@ img.right	{ max-width:50%; height:auto; }
 /*
 Good ol’ fashioned paper...
 */
-
-
-
-
-
 @media print{
 /*------------------------------------*\
 	MAIN
@@ -802,7 +810,7 @@ Good ol’ fashioned paper...
 Give everything some decent contrast.
 */
 *{
-	background:#fff;
+	background-color:#fff;
 	color:#000;
 	text-shadow:none!important;
 }
@@ -820,10 +828,10 @@ body{
 A list of things you don’t want printing. Add to/subtract from as necessary. 
 */
 .nav,
-#footer{
+.footer{
 	display:none;
 }
-#logo img{
+.logo img{
 	position:static;
 }
 /*
@@ -852,25 +860,9 @@ Messages look odd with just borders.
 	font-weight:bold;
 }
 /*
-Try to avoid tables spanning multiple pages. Not failsafe, but a good start.
-*/
-table{
-	page-break-before:always;
-}
-/*
-Show the accessibility class.
-*/
-.accessibility{
-	position:static;
-}
-/*
 Display the href of any links.
 */
 a:link:after,a:visited:after{
-	content:" (" attr(href) ")";
-	font-size:smaller;
-}
-a:link::after,a:visited::after{
 	content:" (" attr(href) ")";
 	font-size:smaller;
 }
@@ -881,20 +873,10 @@ a[href^="/"]:after{
 	content:" (http://yoururlhere.com" attr(href) ")";
 	font-size:smaller;
 }
-a[href^="/"]::after{
-	content:" (http://yoururlhere.com" attr(href) ")";
-	font-size:smaller;
-}
 /*
 Any Flash/video content can’t be printed so leave a message.
 */
 object:after{
-	content:"Flash/video content. Head to http://yoururlhere.com/ to view this content.";
-	display:block;
-	font-weight:bold;
-	margin-bottom:1.5em;
-}
-object::after{
 	content:"Flash/video content. Head to http://yoururlhere.com/ to view this content.";
 	display:block;
 	font-weight:bold;
