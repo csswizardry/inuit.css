@@ -8,7 +8,7 @@ Twitter:            @inuitcss
 Author URL:         csswizardry.com
 Project URL:        inuitcss.com
 Version:            3.1
-Date:               12 October 2011
+Date:               16 October 2011
 
 Copyright 2011 Harry Roberts
 
@@ -53,6 +53,7 @@ CLASSES
 DIAGNOSTICS
 NARROW
 MOBILE
+PRINT
 */
 
 
@@ -86,8 +87,7 @@ table{
 	border-collapse:collapse;
 	border-spacing:0;
 }
-img,
-abbr,acronym{ 
+img{ 
 	border:0;
 }
 address,caption,dfn,th,var{
@@ -110,7 +110,7 @@ h1,h2,h3,h4,h5,h6{
 	$SHARED
 \*------------------------------------*/
 /*
-Rather than repeating declarations over and over, let's make a shared section.
+Rather than repeating declarations over and over, let’s make a shared section.
 */
 h1,h2,h3,h4,h5,h6,
 ul,ol,dl,p,address,figure,pre,fieldset,table,hr,
@@ -142,10 +142,9 @@ input,textarea{
 \*------------------------------------*/
 html{
 	overflow-y:scroll; /* Force scrollbars 100% of the time */
-	font-size:100%; /* Use 16px as per http://www.informationarchitects.jp/en/100e2r/ and http://www.wilsonminer.com/posts/2008/oct/20/relative-readability/ */
-	font-family:Calibri, "Helvetica Neue", Arial, sans-serif; /* Swap these two lines around to switch between serif and sans */
-	font-family:Cambria, Georgia, "Times New Roman", serif; /* Swap these two lines around to switch between serif and sans */
-	line-height:1.5;
+	font-size:100%; /* Use 16px as per www.informationarchitects.jp/en/100e2r/ and www.wilsonminer.com/posts/2008/oct/20/relative-readability/ */
+	line-height:1.5; /* A safe default for type of any size. */
+	/* You should always specify a colour and background, override these in your own stylesheet if desired. */
 	background-color:#fff;
 	color:#333;
 }
@@ -162,6 +161,7 @@ body{
 \*------------------------------------*/
 /*
 Build a custom grid-system igloo at inuitcss.com
+Include this igloo in igloos.css
 */
 
 
@@ -172,7 +172,7 @@ Build a custom grid-system igloo at inuitcss.com
 	$CLEARFIX
 \*------------------------------------*/
 /*
-Fix clearing issues as per: http://nicolasgallagher.com/micro-clearfix-hack/
+Fix clearing issues as per: nicolasgallagher.com/micro-clearfix-hack/
 */
 .cf,
 .grids,
@@ -247,7 +247,7 @@ Based on @stubbornella’s media object: www.stubbornella.org/content/2010/06/25
 	$LOGO
 \*------------------------------------*/
 /*
-Your logo is an image, not a h1: http://csswizardry.com/2010/10/your-logo-is-an-image-not-a-h1/
+Your logo is an image, not a h1: csswizardry.com/2010/10/your-logo-is-an-image-not-a-h1/
 */
 .logo,
 .logo img{
@@ -275,6 +275,9 @@ Your logo is an image, not a h1: http://csswizardry.com/2010/10/your-logo-is-an-
 /*------------------------------------*\
 	$NAV
 \*------------------------------------*/
+/*
+Create an abstraction, as per: csswizardry.com/2011/09/the-nav-abstraction/
+*/
 .nav{
 	list-style:none;
 }
@@ -309,18 +312,18 @@ h4,.delta{
 	font-size:1.125em;		/* 18px */
 	line-height:1.333;		/* 24px */
 }
-h5{
+h5,.espilon{
 	font-weight:bold;
 }
-h5,
-h6{
+h5,.epsilon,
+h6,.zeta{
 	font-size:1em;			/* 16px */
 	line-height:1.5;		/* 24px */
 }
 
 /*--- PARAGRAPHS ---*/
 /*
-Mo’ robust paragraph indenting: http://csswizardry.com/2010/12/mo-robust-paragraph-indenting/
+Mo’ robust paragraph indenting: csswizardry.com/2010/12/mo-robust-paragraph-indenting/
 Uncomment to activate
 p+p{
 	text-indent:2em;
@@ -336,7 +339,7 @@ figure img{
 
 /*--- LINKS ---*/
 /*
-Say no to negative hovers: http://csswizardry.com/2011/05/on-negative-hovers/
+Say no to negative hovers: csswizardry.com/2011/05/on-negative-hovers/
 A negative hover is one whose appearance is subtracted from on hover rather than added to.
 */
 a{
@@ -375,7 +378,7 @@ dt{
 
 /*--- QUOTES ---*/
 /*
-Big up @boblet: http://html5doctor.com/blockquote-q-cite/
+Big up @boblet: html5doctor.com/blockquote-q-cite/
 */
 q{ quotes:"‘" "’" "“" "”"; }
 
@@ -417,7 +420,8 @@ cite{
 	font-weight:inherit;
 }
 b,
-strong{
+strong,
+mark{
 	font-weight:bold;
 	font-style:inherit;
 }
@@ -429,11 +433,15 @@ s,
 del{
 	text-decoration:line-through;
 }
+abbr{
+	cursor:help;
+	border-bottom:1px dotted;
+}
 
 /*--- CODE ---*/
 pre,
 code{
-	font-family:monospace;
+	font-family:"Inconsolata", "Monaco", "Consolas", "Courier New", Courier, monospace;
 }
 pre{
 	overflow:auto;
@@ -560,7 +568,7 @@ table [rowspan]{
 }
 /*
 Assuming IE has an 'implied' colspan of one on cells without an explicit colspan attribute, fix/undo it.
-See http://jsfiddle.net/csswizardry/UJJay/
+See jsfiddle.net/csswizardry/UJJay/
 */
 [colspan="1"]{
     text-align:left;
@@ -832,7 +840,7 @@ img.right	{ max-width:50%; height:auto; }
 
 
 /*------------------------------------*\
-	PRINT
+	$PRINT
 \*------------------------------------*/
 /*
 Good ol’ fashioned paper...

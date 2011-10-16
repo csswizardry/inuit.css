@@ -1,25 +1,93 @@
+@charset "UTF-8";
 /*------------------------------------*\
-	MAIN
+	STYLE.CSS
+\*------------------------------------*/
+/*
+Author:             Harry Roberts
+Twitter:            @csswizardry
+Author URL:         csswizardry.com
+
+
+
+
+
+/*------------------------------------*\
+	CONTENTS
+\*------------------------------------*/
+/*
+SHARED
+MAIN
+ISLANDS
+HEADER
+TYPE
+*/
+
+
+
+
+
+/*------------------------------------*\
+	$SHARED
+\*------------------------------------*/
+.island.promo,
+pre,
+code{
+	background-color:#fef8c4;
+}
+
+
+
+
+
+/*------------------------------------*\
+	$MAIN
 \*------------------------------------*/
 html{
-	font-family:"Helvetica Neue", Arial, sans-serif;
-	color:#e4eef6;
-	background-color:#4a8ec2;
+	background:url(../img/css/page/page-top.gif) left top repeat-x #fff;
+	padding-top:10px; /* Move the content down over the page-top background-image. */
+	font-family:Georgia, "Times New Roman", serif;
+}
+
+
+
+
+
+/*------------------------------------*\
+	$ISLANDS
+\*------------------------------------*/
+.island.promo{
+	color:#6d6841;
+	border:1px solid #d8d566;
 	
-	background:-moz-linear-gradient(top, #5998c7 0%, #4a8ec2 100%) fixed;
-	background:-webkit-gradient(linear, left top, left bottom, color-stop(0%,#5998c7), color-stop(100%,#4a8ec2)) fixed;
-	background:-webkit-linear-gradient(top, #5998c7 0%,#4a8ec2 100%) fixed;
-	background:-o-linear-gradient(top, #5998c7 0%,#4a8ec2 100%) fixed;
-	background:-ms-linear-gradient(top, #5998c7 0%,#4a8ec2 100%) fixed;
-	background:linear-gradient(top, #5998c7 0%,#4a8ec2 100%) fixed;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:5px;
+	-moz-box-shadow:0 1px 0 rgba(255,255,255,0.5) inset;
+	-webkit-box-shadow:0 1px 0 rgba(255,255,255,0.5) inset;
+	box-shadow:0 1px 0 rgba(255,255,255,0.5) inset;
 }
-body{
-	max-width:640px;
-	padding:50px 1em 0;
-	margin:0 auto;
-	text-align:center;
-	background:none;
-	text-shadow:0 -1px 0 rgba(0,0,0,0.5), 0 1px 0 rgba(255,255,255,0.25);
+	.island.promo a{
+		color:inherit;
+		font-weight:bold;
+		text-decoration:underline;
+	}
+
+
+
+
+
+/*------------------------------------*\
+	$HEADER
+\*------------------------------------*/
+.header{
+	padding:1.5em 0;
+}
+.logo{
+	background:url(../img/logo.jpg);
+}
+.logo,.logo img{
+	width:280px;
+	height:130px;
 }
 
 
@@ -27,15 +95,33 @@ body{
 
 
 /*------------------------------------*\
-	TYPE
+	$FOOTER
 \*------------------------------------*/
-h1{
-	font-weight:bold;
-	font-size:3em;
-	line-height:1;
+.footer{
+	padding-top:1.5em;
+	border-top:1px solid #ccc;
+	color:#999;
 }
+
+
+
+
+
+/*------------------------------------*\
+	$TYPE
+\*------------------------------------*/
 a{
-	color:inherit;
+	color:#4a8ec2;
+}
+mark{
+	border-bottom:2px solid;
+}
+pre{
+	padding:10px;
+}
+pre code,
+pre mark{
+	background:none;
 }
 
 
@@ -43,49 +129,13 @@ a{
 
 
 /*------------------------------------*\
-	IMAGES
+	$MISC
 \*------------------------------------*/
-#logo{
-	margin-bottom:1.5em;
+::selection		{ background-color:#4a8ec2; color:#fff; }
+::-moz-selection{ background-color:#4a8ec2; color:#fff; }
+hr{
+	padding:0;
+	border:none;
+	height:1px;
+	background-color:#ccc;
 }
-
-
-
-
-
-/*------------------------------------*\
-	NARROW
-\*------------------------------------*/
-/*
-CSS for tablets and narrower devices
-*/
-
-
-
-
-
-@media (min-width: 721px) and (max-width: 960px){}
-/*--- END NARROW ---*/
-
-
-
-
-
-/*------------------------------------*\
-	MOBILE
-\*------------------------------------*/
-/*
-CSS for mobile devices.
-Linearise it!
-*/
-
-
-
-
-
-@media (max-width: 720px){
-body{
-	font-size:0.75em;
-}
-}
-/*--- END MOBILE ---*/

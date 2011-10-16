@@ -1,0 +1,63 @@
+/*------------------------------------*\
+	KEYWORDS.INUIT.CSS
+\*------------------------------------*/
+
+
+
+
+
+/*
+keywords.inuit.css is an inuit.css igloo
+igloos are CSS plugins which extend the inuit.css framework
+They are released under the Apache License, Version 2.0 -- http://www.apache.org/licenses/LICENSE-2.0
+
+@inuitcss
+inuitcss.com
+*/
+
+
+
+
+
+/*------------------------------------*\
+	USAGE
+\*------------------------------------*/
+/*
+Delete this section before go-live:
+
+<ul class="keywords">
+	<li>CSS</li>
+	<li>Framework</li>
+	<li>Code</li>
+	<li>Library</li>
+</ul>
+
+*/
+
+
+
+
+
+/*------------------------------------*\
+	KEYWORDS
+\*------------------------------------*/
+/*
+Create a list of keywords by adding a single class of keywords to a <ul>:
+*/
+.keywords{
+	list-style:none;
+	margin:0 0 1.5em;
+}
+.keywords li{
+	display:inline;
+	text-transform:lowercase;
+}
+.keywords li:first-of-type{
+	text-transform:capitalize;
+}
+.keywords li:after{
+	content:", ";
+}
+.keywords li:last-of-type:after{
+	content:"";
+}
