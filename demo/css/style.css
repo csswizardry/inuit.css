@@ -4,19 +4,22 @@
 html{
 	font-family:"Helvetica Neue", Arial, sans-serif;
 	color:#e4eef6;
-	background:#4a8ec2;
-	background:-moz-linear-gradient(-90deg,#5998c7,#4a8ec2) fixed;
-	background:-webkit-gradient(linear,left top,left bottom,from(#5998c7),to(#4a8ec2)) fixed;
+	background-color:#4a8ec2;
+	
+	background:-moz-linear-gradient(top, #5998c7 0%, #4a8ec2 100%) fixed;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0%,#5998c7), color-stop(100%,#4a8ec2)) fixed;
+	background:-webkit-linear-gradient(top, #5998c7 0%,#4a8ec2 100%) fixed;
+	background:-o-linear-gradient(top, #5998c7 0%,#4a8ec2 100%) fixed;
+	background:-ms-linear-gradient(top, #5998c7 0%,#4a8ec2 100%) fixed;
+	background:linear-gradient(top, #5998c7 0%,#4a8ec2 100%) fixed;
 }
 body{
-	background:none;
-	padding-top:50px;
-	text-shadow:0 -1px 0 rgba(0,0,0,0.5), 0 1px 0 rgba(255,255,255,0.25);
-}
-#page{
+	max-width:640px;
+	padding:50px 1em 0;
 	margin:0 auto;
-	float:none;
 	text-align:center;
+	background:none;
+	text-shadow:0 -1px 0 rgba(0,0,0,0.5), 0 1px 0 rgba(255,255,255,0.25);
 }
 
 

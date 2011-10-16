@@ -8,7 +8,7 @@ Twitter:            @inuitcss
 Author URL:         csswizardry.com
 Project URL:        inuitcss.com
 Version:            3.1
-Date:               10 October 2011
+Date:               12 October 2011
 
 Copyright 2011 Harry Roberts
 
@@ -40,6 +40,7 @@ MAIN
 GRIDS
 CLEARFIX
 ISLAND
+MEDIA
 LOGO
 NAV
 TYPE
@@ -113,7 +114,7 @@ Rather than repeating declarations over and over, let's make a shared section.
 */
 h1,h2,h3,h4,h5,h6,
 ul,ol,dl,p,address,figure,pre,fieldset,table,hr,
-.nav,.island{
+.nav,.island,.media{
 	margin-bottom:24px;
 	margin-bottom:1.5rem;
 }
@@ -174,18 +175,23 @@ Build a custom grid-system igloo at inuitcss.com
 Fix clearing issues as per: http://nicolasgallagher.com/micro-clearfix-hack/
 */
 .cf,
-.grids{
+.grids,
+.media{
 	zoom:1;
 }
 .cf:before,
 .grids:before,
+.media:before,
+
 .cf:after,
-.grids:after{
+.grids:after,
+.media:after{
 	content:"";
 	display:table;
 }
 .cf:after,
-.grids:after{
+.grids:after,
+.media:after{
 	clear:both;
 }
 
@@ -212,6 +218,32 @@ Extend with classes like .promo to apply different colours etc to draw attention
 
 
 /*------------------------------------*\
+	$MEDIA
+\*------------------------------------*/
+/*
+Based on @stubbornella’s media object: www.stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code/
+<a class="media promo">
+	<img src=product.jpg alt="" class=img>
+	<p class=body>Get Product for half price!</p>
+</a>
+*/
+.media{
+	display:block;
+}
+	.media .img{
+		float:left;
+		margin-right:10px;
+	}
+	.media .body{
+		overflow:hidden;
+		margin-bottom:0;
+	}
+
+
+
+
+
+/*------------------------------------*\
 	$LOGO
 \*------------------------------------*/
 /*
@@ -227,10 +259,10 @@ Your logo is an image, not a h1: http://csswizardry.com/2010/10/your-logo-is-an-
 .logo{
 	background:url(/path/to/logo);
 }
-.logo:hover{
-	/* Hover states */
-	background-position:0 -00px;
-}
+	.logo:hover{
+		/* Hover states */
+		background-position:0 -00px;
+	}
 .logo img{
 	position:absolute;
 	left:-99999px;
@@ -283,7 +315,6 @@ h5{
 h5,
 h6{
 	font-size:1em;			/* 16px */
-	margin-bottom:1.5em;	/* 24px */
 	line-height:1.5;		/* 24px */
 }
 
@@ -332,9 +363,8 @@ li > ol{
 }
 
 /*
-A numbered list is NOT the same as an ordered one.
+A numbered list is NOT the same as an ordered one: csswizardry.com/2011/09/ordered-and-numbered-lists-the-differences/
 Use this class when you want a list to be numbered but it has no order.
-See http://jsfiddle.net/csswizardry/sdrth/
 */
 ul.numbered{
 	list-style:decimal outside;
@@ -363,6 +393,13 @@ blockquote p:last-of-type:after{ content: "”"; content: close-quote; }
 blockquote{
 	text-indent:-0.4em;
 }
+
+/*
+Mark up the source of a quote with .source:
+<blockquote>
+	<p>Lorem ipsum dolor sit amet. <b class=source>Joe Bloggs</b></p>
+</blockquote>
+*/
 .source{
 	display:block;
 	text-indent:0;
@@ -417,8 +454,8 @@ img{
 	font-style:italic;
 	color:#c00;
 }
-img.left	{ margin:0 20px 0 0; }
-img.right	{ margin:0 0 0 20px; }
+img.left	{ margin:0 1.5em 0 0; }
+img.right	{ margin:0 0 0 1.5em; }
 
 /*--- FLASH/VIDEO ---*/
 object,
@@ -446,7 +483,7 @@ label{
 	display:block;
 }
 .text-input{
-	/* With the advent of various HTML5 input types (email, url etc) input[type=text] is no longer suitable for for styling non-textearea text-inputs. Use .text-input instead. */
+	/* With the advent of various HTML5 input types (email, url, etc) input[type=text] is no longer suitable for for styling non-textearea text-inputs. Use .text-input instead. */
 }
 label,
 .text-input,
@@ -477,7 +514,7 @@ textarea,
 }
 fieldset > :last-child{
 	/* Remove the margin from the last element in the fieldset--this makes our padding more consistent. */
-	margin:0;
+	margin-bottom:0;
 }
 
 
@@ -495,15 +532,15 @@ table{
 	max-width:100%;
 }
 thead tr:last-of-type th{
-	/* Thicker border on the table-headers of the last row in the table head */
+	/* Thicker border on the table-headers of the last row in the table head. */
 	border-bottom-width:2px;
 }
 tbody th{
-	/* Thicker right border on table-headers in the table body */
+	/* Thicker right border on table-headers in the table body. */
 	border-right-width:2px;
 }
 th:empty{
-	/* Hide the borders on any empty table-headers */
+	/* Hide the borders on any empty table-headers. */
 	border:none;
 }
 th,td{
@@ -516,11 +553,9 @@ th{
 	text-align:center
 }
 table [colspan]{
-	/* This looks lovely, trust me... */
 	text-align:center;
 }
 table [rowspan]{
-	/* ...as does this. */
 	vertical-align:middle;
 }
 /*
