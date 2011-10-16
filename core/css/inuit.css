@@ -203,7 +203,7 @@ Fix clearing issues as per: nicolasgallagher.com/micro-clearfix-hack/
 	$ISLAND
 \*------------------------------------*/
 /*
-Use a class of .island whenever you want to box off an area of content.
+Use a class of .island whenever you want to box off an area of content as per: csswizardry.com/2011/10/the-island-object/
 Extend with classes like .promo to apply different colours etc to draw attention.
 */
 .island{
