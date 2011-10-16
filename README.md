@@ -10,17 +10,7 @@ It is crammed full of useful snippets, best practices and has additional plugins
 
 ## What you get
 
-In the download bundle you will find:
-
-* `changelog.txt`&mdash;see what’s changed
-* `css/inuit.css`&mdash;core framework file, the bare minimum
-* `css/style.css`&mdash;this file extends inuit.css
-* `example.html`&mdash;a file showing an array of elements styled with inuit.css
-* `humans.txt`&mdash;give credit to the people involved on your project
-* `icon.png`&mdash;touch icons and favicon
-* `img/`&mdash;a directory of inuit.css images and icons
-* `index.html`&mdash;your starting point
-* `README.md`&mdash;this file
+In the download bundle you will find the core files and a demo site. Core contains the bare minimum for an inuit.css install and the demo gives you an idea how to structure and link up your full build.
 
 ## igloos
 
@@ -37,8 +27,8 @@ To get inuit.css up and running you can either use the files found in the downlo
         <!-- inuit.css core -->
         <link rel="stylesheet" href="/css/inuit.css" />
         
-        <!-- inuit.css plugin -->
-        <link rel="stylesheet" href="/css/<igloo>.inuit.css" />
+        <!-- inuit.css plugins -->
+        <link rel="stylesheet" href="/css/igloos.inuit.css" />
         
         <!-- Your stylesheet -->
         <link rel="stylesheet" href="/css/style.css" />
