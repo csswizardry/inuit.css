@@ -817,11 +817,6 @@ ol,
 dl{
 	margin-left:1.5em;
 }
-li > ul,
-li > ol{
-	/* Let’s take care of lists in lists */
-	margin-bottom:0;
-}
 
 
 
