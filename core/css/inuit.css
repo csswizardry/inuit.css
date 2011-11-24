@@ -47,6 +47,7 @@ TYPE
 IMAGES
 FORMS
 TABLES
+PAGINATION
 MESSAGES
 MISC
 CLASSES
@@ -589,6 +590,68 @@ tfoot{
 tfoot td{
 	border-top-width:2px;
 }
+
+
+
+
+
+/*------------------------------------*\
+	$PAGINATION
+\*------------------------------------*/
+/*
+Simply add a class of .pgaination to ay OL to get some, well, pagination!
+*/
+.pagination{
+	list-style:none;
+	margin-left:0;
+	margin-bottom:19px; /* Combined with the 5px margin-bottom on the LIs (defined later) this makes a spacing of 24px */
+	width:100%;
+	overflow:hidden; /* Clear floats */
+}
+	.pagination li,
+	.pagination a{
+		padding:5px;
+	}
+	.pagination li{
+		float:left;
+		border:1px solid #ccc;
+		color:#ccc;
+		margin-left:5px;
+		margin-bottom:5px;
+		
+		-moz-border-radius:2px;
+		-webkit-border-radius:2px;
+		border-radius:2px;
+	}
+	.pagination li:first-child{
+		margin-left:0;
+	}
+		.pagination a{
+			display:block;
+			margin:-5px;
+		}
+		.pagination a:hover{
+			text-decoration:none;
+		}
+		.pagination a:hover,
+		.pagination .current a{
+			color:#fff;
+			background-color:#4a8ec2;
+		}
+	.pagination .current{
+		border-color:#4a8ec2;
+	}
+		.pagination .current a{
+			font-weight:bold;
+			text-decoration:underline;
+			cursor:text;
+		}
+	.first a:before{
+		content:"« ";
+	}
+	.last a:after{
+		content:" »";
+	}
 
 
 
