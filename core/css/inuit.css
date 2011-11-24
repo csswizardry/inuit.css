@@ -7,8 +7,8 @@ Author:             Harry Roberts
 Twitter:            @inuitcss
 Author URL:         csswizardry.com
 Project URL:        inuitcss.com
-Version:            3.1.a
-Date:               16 October 2011
+Version:            3.2
+Date:               24 November 2011
 
 Copyright 2011 Harry Roberts
 
@@ -16,7 +16,7 @@ Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
 
-    http://www.apache.org/licenses/LICENSE-2.0
+    http://apache.org/licenses/LICENSE-2.0
 
 Unless required by applicable law or agreed to in writing, software
 distributed under the License is distributed on an "AS IS" BASIS,
@@ -63,12 +63,15 @@ PRINT
 /*------------------------------------*\
 	$RESET
 \*------------------------------------*/
+/*
+A more considered reset; more of a restart... csswizardry.com/2011/10/reset-restarted
+*/
 html,body,div,span,applet,object,iframe,
-h1,h2,h3,h4,h5,h6,p,blockquote,pre,
-a,abbr,acronym,address,big,cite,code,
+h1,h2,h3,h4,h5,h6,p,blockquote,pre,hr,
+a,abbr,address,cite,code,
 del,dfn,em,img,ins,kbd,q,s,samp,
-small,strike,strong,sub,sup,tt,var,
-b,u,i,center,hr,
+small,strong,sub,sup,tt,var,
+b,u,i,
 dl,dt,dd,ol,ul,li,
 fieldset,form,label,legend,
 table,caption,tbody,tfoot,thead,tr,th,td,
@@ -80,26 +83,50 @@ time,mark,audio,video{
 }
 article,aside,details,figcaption,figure,footer,
 header,hgroup,menu,nav,section{
-	display: block;
+	display:block;
 }
-
+h1,h2,h3,h4,h5,h6{
+	font-size:1em;
+}
 table{
 	border-collapse:collapse;
 	border-spacing:0;
 }
-img{ 
-	border:0;
+strong,b,mark{
+	font-weight:bold;
+	font-style:inherit;
 }
-address,caption,dfn,th,var{
-	font-style:normal;
-	font-weight:normal;
+em,i,cite,q,address,dfn,var{
+	font-style:italic;
+	font-weight:inherit;
 }
-caption,th{
-	text-align:left;
+abbr[title],dfn[title]{
+	cursor:help;
+	border-bottom:1px dotted;
 }
-h1,h2,h3,h4,h5,h6{
-	font-size:100%;
-	font-weight:normal;
+ins{
+	border-bottom:1px solid;
+}
+a,u,ins{
+	text-decoration:none;
+}
+del,s{
+	text-decoration:line-through;
+}
+pre,code,samp,kbd{
+	font-family:monospace;
+}
+small{
+	font-size:0.75em;
+}
+img{
+	border:none;
+	font-style:italic;
+}
+input,
+select,option,optgroup,
+textarea{
+	font:inherit;
 }
 
 
@@ -142,7 +169,7 @@ input,textarea{
 \*------------------------------------*/
 html{
 	overflow-y:scroll; /* Force scrollbars 100% of the time */
-	font-size:100%; /* Use 16px as per www.informationarchitects.jp/en/100e2r/ and www.wilsonminer.com/posts/2008/oct/20/relative-readability/ */
+	font-size:100%; /* Use 16px as per informationarchitects.jp/en/100e2r/ and wilsonminer.com/posts/2008/oct/20/relative-readability/ */
 	line-height:1.5; /* A safe default for type of any size. */
 	/* You should always specify a colour and background, override these in your own stylesheet if desired. */
 	background-color:#fff;
@@ -221,7 +248,7 @@ Extend with classes like .promo to apply different colours etc to draw attention
 	$MEDIA
 \*------------------------------------*/
 /*
-Based on @stubbornella’s media object: www.stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code/
+Based on @stubbornella’s media object: stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code/
 <a class="media promo">
 	<img src=product.jpg alt="" class=img>
 	<p class=body>Get Product for half price!</p>
@@ -342,9 +369,6 @@ figure img{
 Say no to negative hovers: csswizardry.com/2011/05/on-negative-hovers/
 A negative hover is one whose appearance is subtracted from on hover rather than added to.
 */
-a{
-	text-decoration:none;
-}
 a:visited{
 	opacity:0.8; /* A bit basic, but it’s a bare minumum... */
 }
@@ -406,36 +430,17 @@ Mark up the source of a quote with .source:
 .source{
 	display:block;
 	text-indent:0;
+	margin-top:-24px;
+	margin-top:-1.5rem;
 }
 	.source:before{
 		content:"—";
 	}
 
 /*--- GENERAL ---*/
-q,
-i,
-em,
-cite{
-	font-style:italic;
-	font-weight:inherit;
-}
-b,
-strong,
-mark{
-	font-weight:bold;
-	font-style:inherit;
-}
 mark{
 	background-color:#ffc;
 	color:#333;
-}
-s,
-del{
-	text-decoration:line-through;
-}
-abbr{
-	cursor:help;
-	border-bottom:1px dotted;
 }
 
 /*--- CODE ---*/
@@ -459,7 +464,6 @@ img{
 	max-width:100%;
 	height:auto;
 	/* Give it some text styles to offset alt text */
-	font-style:italic;
 	color:#c00;
 }
 img.left	{ margin:0 1.5em 0 0; }
