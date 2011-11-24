@@ -451,7 +451,6 @@ code{
 }
 pre{
 	overflow:auto;
-	line-height:24px; /* Having to define explicit pixel values :( */
 }
 
 
