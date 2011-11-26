@@ -188,6 +188,212 @@
   background-color:#ffc;
 }</code></pre>
 		</div><!-- /grid-6 -->
+		
+		<hr class=clear>
+		
+		<div class=grid-6>
+			
+			<h2>Forms</h2>
+			
+			<p>inuit.css comes with an extensive array of form styling to do all the boring work for you. Need a multiple column list of checkboxes? <code>&lt;ul class=&quot;check-list multi-list three-col&quot;&gt;</code>, at your service.</p>
+			
+			<h3>Labels</h3>
+			
+			<p>Often is the case that you require an element to <em>look</em> like a label but not actually be one, with checkboxes for example. To combat this, any styles we apply to <code>label{}</code> we also apply to <code>.label{}</code>.</p>
+			
+			<p>We also have the ability to create different labels for checkboxes and labels in lists&hellip;</p>
+			
+			<h3>Helpers</h3>
+			
+			<p>There are a variety of helpers and tooltips that all do different jobs. For an icon tooltip simply use <code>&lt;small class=&quot;tooltip [info|error|success|warning]&quot;&gt;&lt;span&gt;Your tooltip text&lt;/span&gt;&lt;/small&gt;</code>. For a helper that appears next to an input with focus simply use <code>&lt;input /&gt; &lt;small class=helper&gt;Your helper text&lt;/small&gt;</code>. For a simpler piece of supporting text that lies beneath an input simply use <code>&lt;input /&gt; &lt;small class=support&gt;Your supporting text&lt;/small&gt;</code>.</p>
+			
+			<h3>Messages</h3>
+			
+			<p>inuit.css has a variety of feedback messages as standard. These can be applied to any elements but <em>usually</em> these would be <code>&lt;strong&gt;</code>s and <code>&lt;ul&gt;</code>s, thus: <code>&lt;strong class=&quot;message [info|error|success|warning]&quot;&gt; Feedback message &lt;/strong&gt;</code>.</p>
+			
+			<h3>Spoken word forms</h3>
+			
+			<p>A spoken word form is a form that is laid out like a spoken sentence. These can often aid usability in more complex forms and can be constructed using inuit.css by simply applying a class of <code>spoken</code> to the <code>&lt;li&gt;</code> containing that group of inputs.</p>
+			
+			<h3>Buttons</h3>
+			
+			<p>Buttons&rsquo; box-models are set in ems, this means that you can adjust the entire, all-round size of a button just by altering its <code>font-size</code>.</p>
+			
+			<h3>Styling</h3>
+			
+			<p>Form inputs are deliberately left very unstyled. You decide how they look, not inuit.css.</p>
+			
+			<p>We have a generic class of <code>text-input</code> to style any single-line <code>&lt;input /&gt;</code>s like text, email, URL etc.</p>
+			
+		</div><!-- /grid-6 -->
+		
+		<div class=grid-6>
+			
+			<form action=#>
+
+				<fieldset>
+		
+					<legend>An example Über Form</legend>
+
+					<ul class=fields>
+						
+						<li>
+							
+							<strong class="message info">This is a dummy form, it does not submit any data.</strong>
+							
+						</li>
+		
+						<li>
+			
+							<label for=name>Name <small class="tooltip info"><span>This will be visible to your friends</span></small></label>
+							<input type=text id="name" class=text-input>
+							<small class=helper>Your first and last name.</small>
+							<small class=support>Please use your real name.</small>
+			
+						</li>
+		
+						<li>
+			
+							<label for=email>Email</label>
+							<input type=email id="email" class=text-input>
+							<small class=helper>We will need to verify your account.</small>
+			
+						</li>
+		
+						<li>
+	
+							<ul class="message error">
+								<li>You must provide your name.</li>
+								<li>Your name must not be Justin Bieber.</li>
+							</ul>
+
+						</li>
+		
+						<li>
+			
+							<span class=label>How old are you?</span>
+
+							<ul class=check-list>
+
+								<li>
+									<input type=radio name=color id="u16">
+									<label for=u16>Under 16</label>
+								</li>
+
+								<li>
+									<input type=radio name=color id="16-65">
+									<label for=16-65>16&ndash;65</label>
+								</li>
+
+								<li>
+									<input type=radio name=color id="o65">
+									<label for=o65>Over 65</label>
+								</li>
+
+							</ul>
+			
+						</li>
+		
+						<li>
+			
+							<span class=label>How would you like us to contact you?</span>
+
+							<ul class="check-list multi-list three-col">
+
+								<li>
+									<input type=checkbox name=contact id="by-email">
+									<label for=by-email>Email</label>
+								</li>
+
+								<li>
+									<input type=checkbox name=contact id="by-phone">
+									<label for=by-phone>Phone</label>
+								</li>
+
+								<li>
+									<input type=checkbox name=contact id="by-mail">
+									<label for=by-mail>Mail</label>
+								</li>
+
+								<li>
+									<input type=checkbox name=contact id="by-pigeon">
+									<label for=by-pigeon>Carrier pigeon</label>
+								</li>
+
+								<li>
+									<input type=checkbox name=contact id="by-smoke">
+									<label for=by-smoke>Smoke signals</label>
+								</li>
+
+								<li>
+									<input type=checkbox name=contact id="by-yodel">
+									<label for=by-yodel>Yodelling</label>
+								</li>
+
+							</ul>
+			
+						</li>
+		
+						<li>
+							<strong class="message success">You have chosen <i>yodelling</i>.</strong>
+						</li>
+		
+						<li class=spoken>
+							Hi, my <label for=my-name>name</label> is <input type=text id="my-name" class=text-input placeholder="First and last name"> and my <label for=my-age>age</label> is
+							<select id="my-age">
+								<option>Under 16</option>
+								<option>16&ndash;65</option>
+								<option>Over 65</option>
+							</select>
+						</li>
+		
+						<li>
+							<label for=comments>Comments</label>
+							<textarea id="comments" rows=10 cols=50 placeholder="Please keep it clean and on topic&hellip;"></textarea>
+							<small class=support><code>&lt;a&gt;</code>,<code>&lt;em&gt;</code> and <code>&lt;strong&gt;</code> allowed.</small>
+						</li>
+			
+					</ul>
+
+				</fieldset>
+
+				<fieldset>
+		
+					<legend>Confirm</legend>
+		
+					<ul class=fields>
+			
+						<li>
+			
+							<span class=label>Would you like to receive weekly spam emails from us?</span>
+
+							<ul class=check-list>
+
+								<li>
+									<input type=radio name=get-spam id="get-spam-yes" checked>
+									<label for=get-spam-yes>Yes</label>
+								</li>
+
+								<li>
+									<input type=radio name=get-spam id="get-spam-no" disabled>
+									<label for=get-spam-no>No</label>
+								</li>
+
+							</ul>
+						</li>
+			
+						<li>
+							<input type=submit class=btn value="Submit"> <a href=# class=btn-link>No, get me out of here!</a>
+							<small class=support>This form will not submit any information.</small>
+						</li>
+		
+					</ul>
+		
+				</fieldset>
+			</form>
+			
+		</div><!-- /grid-6 -->
+		
 	</div><!-- /grids -->
 	
 	<div class=footer>

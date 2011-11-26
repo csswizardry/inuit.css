@@ -48,7 +48,6 @@ IMAGES
 FORMS
 TABLES
 PAGINATION
-MESSAGES
 MISC
 CLASSES
 DIAGNOSTICS
@@ -142,7 +141,7 @@ Rather than repeating declarations over and over, let’s make a shared section.
 */
 h1,h2,h3,h4,h5,h6,
 ul,ol,dl,p,address,figure,pre,fieldset,table,hr,
-.nav,.island,.media{
+.nav,.island,.media,.fields > li{
 	margin-bottom:24px;
 	margin-bottom:1.5rem;
 }
@@ -156,9 +155,23 @@ ul,ol,dd{
 small,code{
 	line-height:1;
 }
-pre,code,
-input,textarea{
+pre,code{
 	font:inherit;
+}
+label,
+.label,
+form small,
+form .message,
+.btn-link{
+	font:bold 0.75rem/2 "Helvetica Neue", Arial, sans-serif;
+	font-size:12px;
+	font-size:0.75rem;
+}
+
+/*--- SPRITE ---*/
+.tooltip,
+.message:before{
+	background-image:url(../img/css/sprites/main.png);
 }
 
 
@@ -391,6 +404,29 @@ li > ol{
 }
 
 /*
+We can create multi-column lists by simply adding a class of .multi-list.
+*/
+.multi-list{
+	width:100%;
+	overflow:hidden;
+	margin:0;
+}
+	.multi-list li{
+		float:left;
+		width:24%; /* Four columns by default. */
+		padding-right:1%;
+	}
+	.two-col li{
+		width:49%;
+	}
+	.three-col li{
+		width:32.333%;
+	}
+	.five-col li{
+		width:19%;
+	}
+
+/*
 A numbered list is NOT the same as an ordered one: csswizardry.com/2011/09/ordered-and-numbered-lists-the-differences/
 Use this class when you want a list to be numbered but it has no order.
 */
@@ -484,49 +520,287 @@ video{
 /*------------------------------------*\
 	$FORMS
 \*------------------------------------*/
+/*--- SHARED ---*/
 /*
-Unfortunately, and somewhat obviously, forms don’t fit the baseline all too well. Perhaps in a later version...
+Anything we declare more than once that can be used in a variable-esque manner, we pop up here:
 */
-fieldset{
-	padding:1.5em;
-	border:1px solid #ccc;
+.helper,
+.tooltip span{
+	display:inline-block;
+	padding:0 5px;
+	line-height:2;
+	cursor:text;
+	font-weight:normal;
+	white-space:nowrap;
+	color:#fff;
+	background-color:#333;
+	background-color:rgba(0,0,0,0.75);
+	
+	/* We keep the element in the document flow and make it transparent rather than absolutely positioning it off-screen. This means that we shouldn't encounter any layout oddities if we were to reintroduce it to the document flow. */
+	opacity:0;
+	filter:alpha(opacity = 0);
+	
+	-moz-transition:0.2s opacity linear;
+	-webkit-transition:0.2s opacity linear;
+	transition:0.2s opacity linear;	
+	-moz-border-radius:2px;
+	-webkit-border-radius:2px;
+	border-radius:2px;
 }
-label{
-	display:block;
-}
-.text-input{
-	/* With the advent of various HTML5 input types (email, url, etc) input[type=text] is no longer suitable for for styling non-textearea text-inputs. Use .text-input instead. */
-}
-label,
-.text-input,
-textarea,
-.btn{
-	cursor:pointer;
-}
-	.text-input:active,
-	.text-input:focus,
-	textarea:active,
-	textarea:focus{
-		cursor:text;
+
+	.helper:before,
+	.tooltip span:before{
+		content:"";
+		position:absolute;
+		top:50%;
+		right:100%;
+		margin-top:-5px;
+		display:block;
+		width:0;
+		height:0;
+		border:5px solid;
+		border-color:transparent #333 transparent transparent;
+		border-color:transparent rgba(0,0,0,0.75) transparent transparent;
+	}
+	input:active + .helper,
+	input:focus + .helper,
+	.tooltip:hover span{
+		opacity:1;
+		filter:alpha(opacity = 1);
 	}
 
-/* A class of .check-list can be added to a <ul> to create a multi-column list of inputs. */
-.check-list{
-	width:100%;
-	overflow:hidden;
+/*--- Icons ---*/
+.tooltip.success,
+.success:before{
+	background-position:0 0;
+}
+.tootlip.error,
+.error:before{
+	background-position:-16px 0;
+}
+.tooltip.info,
+.info:before{
+	background-position:0 -16px;
+}
+.tooltip.warning,
+.warning:before{
+	background-position:-16px -16px;
+}
+
+/*--- FIELDSETS ---*/
+/* Remove the margin-bottom from the last field in a fieldset so as not create compunded margin/padding spacing. */
+fieldset{
+	padding:1.5em;
+}
+
+/*--- FIELDS ---*/
+/*
+Wrap every block of form items in a list, e.g.:
+
+<ul class=fields>
+	<li>
+		<label></label>
+		<input>
+	</li>
+	
+	<li>
+		[error message]
+	</li>
+	
+	<li>
+		<label></label>
+		<input>
+	</li>
+</ul>
+*/
+.fields{
 	list-style:none;
+	margin:0;
+}
+	.fields > li:last-child{
+		margin-bottom:0;
+	}
+	
+/*--- INPUTS ---*/
+.text-input{
+	/* Before the advent of the new HTML5 input types, a selector of input[type=text] would have sufficed. Now there are too many types to make attribute selectors sensible, so we just use a class of .text-input to cover them all. */
+}
+textarea{
+	
+}
+
+/*--- LABELS ---*/
+/*
+Here we set up styles for labels and elements with a class of .label.
+This class can be used in the circumstance of something needing to look like a label but not being one, e.g.:
+
+<span class=label>How old are you?</span>
+
+<ul class=check-list>
+
+	<li>
+		<input type=radio name=color id="u16">
+		<label for=u16>Under 16</label>
+	</li>
+	
+	<li>
+		<input type=radio name=color id="16-65">
+		<label for=16-65>16&ndash;65</label>
+	</li>
+	
+	<li>
+		<input type=radio name=color id="o65">
+		<label for=o65>Over 65</label>
+	</li>
+
+</ul>
+*/
+
+/* Labels in a field list need to be display:block; to keep the form vertical. */
+.fields label,
+.fields .label{
+	display:block;
+}
+
+/* Labels that sit alongside checkboxes need to be inline(-block) */
+.check-list label{
+	display:inline-block;
+}
+
+/*
+Give a class of .spoken to any LI that you would like to contain a spoken word form, e.g. 'Hi, my name is [text input] and my email address is [email input]'.
+Labels in spoken word forms need to appear like surrounding text.
+*/
+.spoken label{
+	font:inherit;
+	display:inline-block;
+}
+
+/*--- LISTS ---*/
+/*
+List of checkboxes and radio buttons are put in a list with a class of check-list, e.g.:
+<ul class=check-list>
+
+	<li>
+		<input>
+		<label></label>
+	</li>
+	
+	<li>
+		<input>
+		<label></label>
+	</li>
+	
+	<li>
+		<input>
+		<label></label>
+	</li>
+
+</ul>
+
+*/
+.check-list{
+	list-style:none;
+	margin:0;
+}
+
+/*--- HELP ---*/
+input + .helper{
+	position:relative;
+	left:5px;
+}
+
+/*--- MESSAGES ---*/
+.message{
+	padding:1em; /* 12px */
+	padding-left:40px; /* 12px white-space + 16px icon + 12px white-space */
+	display:block;
+	border:1px solid;
+	border-width:1px 0;
+	position:relative;
+	font-weight:normal;
+}
+.message:before{
+	content:"";
+	display:block;
+	width:16px;
+	height:16px;
+	position:absolute;
+	top:50%;
+	left:12px;
+	margin-top:-8px;
+}
+ul.message{
+	list-style:decimal outside;
 	margin-left:0;
+	padding-left:60px; /* 12px white-space + 16px icon + 12px white-space + 20px bullets */
 }
-.check-list li{
-	width:25%;
-	float:left;
+.message.success{
+	border-color:#83ba77;
+	background-color:#d1feba;
 }
-.check-label{
-	display:inline;
+.message.error{
+	border-color:#fb5766;
+	background-color:#fab;
 }
-fieldset > :last-child{
-	/* Remove the margin from the last element in the fieldset--this makes our padding more consistent. */
-	margin-bottom:0;
+.message.info{
+	border-color:#85a5be;
+	background-color:#c4dbec;
+}
+.message.warning{
+	border-color:#d8d566;
+	background-color:#fef8c4;
+}
+
+/*--- TOOLTIPS ---*/
+.tooltip{
+	cursor:help;
+	position:relative;
+	display:inline-block;
+	width:16px;
+	height:16px;
+	line-height:1;
+	vertical-align:middle;
+}
+	.tooltip span{
+		position:absolute;
+		left:21px;
+		top:50%;
+		margin-top:-12px;
+	}
+
+/*--- SUPPORTING HELP TEXT ---*/
+.support{
+	display:block;
+	color:#999;
+}
+
+/*--- BUTTONS ---*/
+.btn,
+button{
+	padding:0.25em; /* Set this in ems so that you can make a whole button larger just by upping its font-size. */
+	border:none; /* A lot of browsers won't honour a padding value unless you fiddle with a button's borders/background. */
+}
+    .lrg{
+        font-size:1.5em;
+    }
+
+/*--- CURSOR INTERACTIONS ---*/
+/*
+Form items have always missed cursor interactions...
+*/
+label,
+input,
+textarea,
+button,
+select{
+	cursor:pointer;
+}
+.text-input:active,
+.text-input:focus,
+textarea:active,
+textarea:focus{
+	cursor:text;
 }
 
 
@@ -651,58 +925,6 @@ Simply add a class of .pgaination to ay OL to get some, well, pagination!
 	.last a:after{
 		content:" »";
 	}
-
-
-
-
-
-/*------------------------------------*\
-	$MESSAGES
-\*------------------------------------*/
-/*
-Unfortunately feedback messages don’t fit the baseline all too well. Perhaps in a later version...
-*/
-.message{
-	font-weight:normal;
-	display:block;
-	padding:10px 10px 10px 36px;
-	border:1px solid #ccc;
-	margin-left:0;
-	
-	-moz-border-radius:2px;
-	-webkit-border-radius:2px;
-	border-radius:2px;
-	-moz-box-shadow:0 1px 0 rgba(255,255,255,0.5) inset;
-	-webkit-box-shadow:0 1px 0 rgba(255,255,255,0.5) inset;
-	box-shadow:0 1px 0 rgba(255,255,255,0.5) inset;
-}
-	/*
-	With multiple errors it’s nice to group them:
-	<ul class=message>
-		<li>Please provide a surname.</li>
-		<li>Please enter a valid email address.</li>
-	</ul>
-	*/
-	ul.message{
-		list-style:decimal outside; /* It’s also handy to number them. However, they might not necessarily be in a particular order, so we spoof it by putting numbers on an unordered list */
-		padding:10px 10px 10px 56px;
-	}
-.error{
-	border-color:#fb5766;
-	background:url(../img/css/icons/error.png) 10px center no-repeat #fab;
-}
-.success{
-	border-color:#83ba77;
-	background:url(../img/css/icons/success.png) 10px center no-repeat #d1feba;
-}
-.info{
-	border-color:#85a5be;
-	background:url(../img/css/icons/info.png) 10px center no-repeat #c4dbec;
-}
-.warning{
-	border-color:#d8d566;
-	background:url(../img/css/icons/warning.png) 10px center no-repeat #fef8c4;
-}
 
 
 
