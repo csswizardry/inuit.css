@@ -1,42 +1,13 @@
-# inuit.css&mdash;inuitcss.com
+# inuit.css
 
-<i>inuit.css is a pragmatic, production-ready CSS framework.</i>
+![inuit.css](http://csswizardry.com/inuitcss/img/logo.jpg)
 
-## What is inuit.css?
+inuit.css is a powerful little framework designed for _serious_ developers.
 
-inuit.css is a lightweight, constantly updated CSS framework which provides you with a pragmatic and feature-rich starting point for all your projects.
+It is a Sass based, Object Oriented framework that is full of objects and abstractions. inuit.css provides little-to-no design which means no undoing things, no deleting CSS and no adhering to other peoples’ design decisions.
 
-It is crammed full of useful snippets, best practices and has additional plugins to extend its usefulness further.
+inuit.css is ideally suited to designers who want to focus on the creative and not code, and developers who understand the need for abstraction and an OO approach.
 
-## What you get
+inuit.css gives you design patterns, not design decisions. It features nestable, fluid grids, a double-stranded heading hierarchy, sprites, buttons and a lot, _lot_ more.
 
-In the download bundle you will find the core files and a demo site. Core contains the bare minimum for an inuit.css install and the demo gives you an idea how to structure and link up your full build.
-
-## igloos
-
-inuit.css has several plugins available, called [igloos](http://inuitcss.com/#igloos). An igloo extends the functionality of inuit.css
-
-## Installing
-
-To get inuit.css up and running you can either use the files found in the download bundle or you can install it afresh:
-
-    <head>
-        
-        ...
-        
-        <!-- inuit.css core -->
-        <link rel="stylesheet" href="/css/inuit.css" />
-        
-        <!-- inuit.css plugins -->
-        <link rel="stylesheet" href="/css/igloos.inuit.css" />
-        
-        <!-- Your stylesheet -->
-        <link rel="stylesheet" href="/css/style.css" />
-        
-        ...
-        
-    </head>
-
-## Gallery
-
-If you create anything with inuit.css please consider submitting it to [the gallery](http://inuitcss.com/#gallery).
+inuit.css is the most powerful little framework out there, and it’s ready to go!

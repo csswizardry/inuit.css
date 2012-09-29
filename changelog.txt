@@ -23,3 +23,4 @@
 2.5.1       Added minimal styling for <hr />
 3.0.a       Removed grids from the framework and added a custom grid builder. Alpha release, use with caution and please report bugs!
 3.1.a       Massive refactor, added some nice objects and abstractions, removed extraneous images and created demo/docs page.
+4.0.0       Complete overhaul, not compatible with any previous versions of inuit.css. Sass based, completely OO, zero styling, all grunt!
