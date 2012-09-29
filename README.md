@@ -20,6 +20,12 @@ inuit.css gives you design patterns, not design decisions. It features nestable,
 * You don’t have Sass installed.
 * You need a framework that supplies design (I’d recommend [Bootstrap](http://twitter.github.com/bootstrap/) for that).
 
+## The developer
+
+There are a million-and-one different CSS frameworks out there so it is this rather cringeworthy section is an attempt to validate inuit.css and give it some credibility.
+
+I am [Harry Roberts](http://hry.rbrts.me), I am a 22 year old developer and front-end architect from the UK. I work as a Senior UI Developer for [BSkyB](http://en.wikipedia.org/wiki/BSkyB) where it is my job to build scalable front-ends, write internally used CSS frameworks and libraries, and to architect CSS and front-ends. I [write](http://csswizardry.com), [tweet](http://twitter.com/csswizardry) and [speak](http://speakerdeck.com/u/csswizardry/) about OOCSS, scalable CSS, maintainability, working in large teams, CSS performance, CSS architecture and a whole lot more.
+
 ## Documentation
 
 There are no official docs for inuit.css because the code _is_ the documentation. Everything is heavily commented with example HTML. If you struggle with anything please tweet at [@inuitcss](http://twitter.com/inuitcss) and I’ll try help out and use your feedback to improve the documentation.
