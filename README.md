@@ -6,7 +6,7 @@ It is a Sass based, Object Oriented framework that is full of objects and abstra
 
 inuit.css is ideally suited to designers who want to focus on the creative and not code, and developers who understand the need for abstraction and an OO approach.
 
-inuit.css gives you design patterns, not design decisions. It features nestable, fluid grids, a double-stranded heading hierarchy, sprites, buttons and a lot, _lot_ more.
+inuit.css gives you design patterns, not design decisions. It features nestable, fluid grids; a double-stranded heading hierarchy; sprites; buttons and a lot, _lot_ more.
 
 
 **Use inuit.css if:**
