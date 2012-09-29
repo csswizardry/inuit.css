@@ -24,7 +24,9 @@ inuit.css gives you design patterns, not design decisions. It features nestable,
 
 There are a million-and-one different CSS frameworks out there so it is this rather cringeworthy section is an attempt to validate inuit.css and give it some credibility.
 
-I am [Harry Roberts](http://hry.rbrts.me), I am a 22 year old developer and front-end architect from the UK. I work as a Senior UI Developer for [BSkyB](http://en.wikipedia.org/wiki/BSkyB) where it is my job to build scalable front-ends, write internally used CSS frameworks and libraries, and to architect CSS and front-end builds. I [write](http://csswizardry.com), [tweet](http://twitter.com/csswizardry) and [speak](http://speakerdeck.com/u/csswizardry/) about OOCSS, scalable CSS, maintainability, working in large teams, CSS performance, CSS architecture and a whole lot more.
+I am [Harry Roberts](http://hry.rbrts.me), I am a 22 year old developer and front-end architect from the UK. I work as a Senior UI Developer for [BSkyB](http://en.wikipedia.org/wiki/BSkyB) where it is my job to build scalable front-ends, write internally used CSS frameworks and libraries, and to architect CSS and front-end builds.
+
+I [write](http://csswizardry.com), [tweet](http://twitter.com/csswizardry) and [speak](http://speakerdeck.com/u/csswizardry/) about OOCSS, scalable CSS, maintainability, working in large teams, CSS performance, CSS architecture and a whole lot more.
 
 ## Documentation
 
