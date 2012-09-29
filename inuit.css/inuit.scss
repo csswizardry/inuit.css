@@ -1517,22 +1517,26 @@ label,
     $SPRITE
 \*------------------------------------*/
 /**
- * Giving an element a class of `.s` will throw it into ‘sprite’ mode, e.g.:
+ * Giving an element a class of `.s` will throw it into ‘sprite’ mode and apply
+ * a background image e.g.:
  *
-   <a class="s s-?">More info&hellip;</a>
+   <a class="s s-question-mark">More info&hellip;</a>
  *
  * or
  *
-   <a href=#><i class="s s-?"></i> Help and FAQ</a>
+   <a href=#><i class="s s-question-mark"></i> Help and FAQ</a>
  * 
- * Giving an element a class of `.i` will throw it into ‘icon’ mode, e.g.:
+ * Giving an element a class of `.i` will throw it into ‘icon’ mode and will
+ * not add a background, but should be used for icon fonts, e.g.:
  * 
-   <i class="i i-star"></i>
+   <a href=# class="i i-star">Add to favorites</a>
  * 
  * or
  * 
    <a href=#><i class="i i-star"></i> View your favourites</a>
  * 
+ * These all require extension in your theme stylesheet. For a rough example
+ * please see: jsfiddle.net/csswizardry/98VeS
  */
 .s,
 .i{
@@ -1579,8 +1583,6 @@ label,
     $ICON-TEXT
 \*------------------------------------*/
 /**
- * TAGS: ^icon ^text ^images
- *
  * For text-links etc that have an icon with them. Sometimes whitespace would
  * suffice in creating a gap between the icon and text, for example:
  *
