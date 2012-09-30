@@ -39,4 +39,17 @@ If you would like to try inuit.css out before you download anything there is a c
 
 If you use inuit.css on a live project then [tweet at me](http://twitter.com/inuitcss) and I’ll send you some inuit.css stickers!
 
+## Credits
+
+inuit.css, although produced and maintained by one developer, could not have been possible without inspiration and work from an array of other people.
+
+* **[Nicole Sullivan](https://twitter.com/stubbornells)** for her work on OOCSS
+* **[Jonathan Snook](https://twitter.com/snookca)** for his work on SMACSS
+* **[Nicolas Gallagher](https://twitter.com/necolas)** for his work on various CSS things
+* **[Bryan James](https://twitter.com/WengersToyBus)** for the inuit.css logo
+
+And probably more…
+
+---
+
 **inuit.css is the most powerful little framework out there, and it’s ready to go!**
