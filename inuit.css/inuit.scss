@@ -93,9 +93,9 @@
 \*------------------------------------*/
 /*
  * inuit.css, being an OO framework, works in keeping with the open/closed
- * principle. The variables you set above are now being used throughout
- * inuit.css to style everything we need for a base. Any custom styles should
- * not be added or modified in inuit.css directly, but added via your theme
+ * principle. The variables you set previously are now being used throughout
+ * inuit.css to style everything we need for a base. Any custom styles SHOULD
+ * NOT be added or modified in inuit.css directly, but added via your theme
  * stylesheet as per the open/closed principle:
  * 
  * csswizardry.com/2012/06/the-open-closed-principle-applied-to-css
