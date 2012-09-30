@@ -266,7 +266,7 @@ h1,h2,h3,h4,h5,h6,hgroup,
 ul,ol,dl,
 blockquote,p,address,
 table,
-fieldset,
+fieldset,figure,
 pre,
 hr,
 /**
@@ -576,6 +576,9 @@ a{
 img{
     max-width:100%;
     height:auto;
+}
+figure > img{
+    display:block;
 }
 
 
