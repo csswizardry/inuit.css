@@ -1,0 +1,75 @@
+/*------------------------------------*\
+    $RESET
+\*------------------------------------*/
+/**
+ * A more considered reset; more of a restart... 
+ * As per: csswizardry.com/2011/10/reset-restarted
+ */
+body,
+h1,h2,h3,h4,h5,h6,
+p,blockquote,pre,
+dl,dd,ol,ul,
+form,fieldset,legend,
+table,th,td,caption,
+figure,
+hr{
+    margin:0;
+    padding:0;
+}
+article,aside,details,figcaption,figure,footer,
+header,hgroup,menu,nav,section{
+    display:block;
+}
+table{
+    border-collapse:collapse;
+    border-spacing:0;
+}
+strong,b,mark{
+    font-weight:bold;
+    font-style:inherit;
+}
+em,i,cite,q,address,dfn,var{
+    font-style:italic;
+    font-weight:inherit;
+}
+abbr[title],dfn[title]{
+    cursor:help;
+    border-bottom:1px dotted;
+}
+ins{
+    border-bottom:1px solid;
+}
+a,u,ins{
+    text-decoration:none;
+}
+del,s{
+    text-decoration:line-through;
+}
+img{
+    border:none;
+    font-style:italic;
+}
+input,
+select,option,optgroup,
+textarea{
+    font:inherit;
+}
+
+/**
+ * Give form elements some cursor interactions...
+ */
+label,
+input,
+textarea,
+button,
+select,
+option{
+    cursor:pointer;
+}
+    .text-input:active,
+    .text-input:focus,
+    textarea:active,
+    textarea:focus{
+        cursor:text;
+        outline:none;
+    }

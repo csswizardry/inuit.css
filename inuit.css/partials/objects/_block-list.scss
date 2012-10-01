@@ -1,0 +1,33 @@
+/*------------------------------------*\
+    $BLOCK-LIST
+\*------------------------------------*/
+/**
+ * Create big blocky lists of content, e.g.:
+ *
+   <ul class=block-list>
+      <li>Foo</li>
+      <li>Bar</li>
+      <li>Baz</li>
+      <li><a href=# class=block-list-link>Foo Bar Baz</a></li>
+   </ul>
+  *
+  * Extend this object in your theme stylesheet.
+ */
+.block-list,
+    .block-list > li{
+        border:0 solid #ccc; /* Override this color in your theme stylesheet */
+    }
+.block-list{
+    list-style:none;
+    margin-left:0;
+    border-top-width:1px;
+}
+    .block-list > li{
+        border-bottom-width:1px;
+        padding:$half-spacing-unit +px;
+    }
+        .block-list-link{
+            display:block;
+            padding:$half-spacing-unit +px;
+            margin:-$half-spacing-unit +px;
+        }

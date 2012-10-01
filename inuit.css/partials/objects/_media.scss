@@ -1,0 +1,53 @@
+/*------------------------------------*\
+    $MEDIA
+\*------------------------------------*/
+/**
+ * Place any image- and text-like content side-by-side, as per:
+ * stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code
+ * E.g.:
+ *
+   <div class=media>
+       <img src=http://placekitten.com/200/300 alt="" class=img>
+       <p class=body>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+       sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+   </div>
+ *
+ */
+.media{
+    display:block;
+    @extend .cf;
+}
+    .img{
+        float:left;
+        margin-right:$base-spacing-unit +px;
+    }
+    /**
+     * Reversed image location (right instead of left).
+     */
+    .img-rev{
+        float:right;
+        margin-left:$base-spacing-unit +px;
+    }
+    
+        .img img,
+        .img-rev img{
+            display:block;
+        }
+    
+    .body{
+        overflow:hidden;
+    }
+        .body,
+        .body > :last-child{
+            margin-bottom:0;
+        }
+    
+    /**
+     * `.img`s in `.islet`s need an appropriately sized margin.
+     */
+    .islet .img{
+        margin-right:$half-spacing-unit +px;
+    }
+    .islet .img-rev{
+        margin-left:$half-spacing-unit +px;
+    }

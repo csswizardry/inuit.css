@@ -1,0 +1,30 @@
+/*------------------------------------*\
+    $LINKS
+\*------------------------------------*/
+/**
+ * Say no to negative hovers, as per: csswizardry.com/2011/05/on-negative-hovers
+ */
+a{
+    /**
+     * Set colors etc in your theme stylesheet.
+     */
+}
+    a:hover{
+        text-decoration:underline;
+    }
+
+/**
+ * ‘Current’ states, e.g.:
+ *
+   <ul class=nav>
+       <li><a href=#>Home</a></li>
+       <li><a href=#>About</a></li>
+       <li class=current><a href=#>Portfolio</a></li>
+       <li><a href=#>Contact</a></li>
+   </ul>
+ *
+ */
+.current a{
+    cursor:text;
+    text-decoration:underline;
+}

@@ -1,0 +1,33 @@
+/*------------------------------------*\
+    $LOZENGES
+\*------------------------------------*/
+/**
+ * Create pill-like runs of text, e.g.:
+ *
+   <p>This <span class=loz>here</span> is a lozenge!</p>
+ *
+   <h1>This <span class=loz>here</span> is also a lozenge!</h1>
+ *
+ */
+.loz{
+    display:inline-block;
+    /**
+     * These numbers set in ems mean that, at its narrowest, a lozenge will be
+     * the same width as the 1.5 `line-height` set on the `html` element.
+     * This allows us to use the `.loz` in any `font-size` we wish.
+     */
+    min-width:    1.00em;
+    padding-right:0.25em;
+    padding-left: 0.25em;
+              /* =1.50em */
+    text-align:center;
+    background-color:#ccc; /* Override this color in your theme stylesheet */
+    color:#fff; /* Override this color in your theme stylesheet */
+    
+    /**
+     * Normally we’d use border-radius:100%; but instead here we just use an
+     * overly large number; `border-radius:100%;` would create an oval on
+     * non-square elements whereas we just want to round the ends of an element.
+     */
+    @include vendor(border-radius, 100px);
+}

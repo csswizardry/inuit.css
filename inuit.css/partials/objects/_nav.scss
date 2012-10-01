@@ -1,0 +1,60 @@
+/*------------------------------------*\
+    $NAV
+\*------------------------------------*/
+/**
+ * Nav abstraction as per: csswizardry.com/2011/09/the-nav-abstraction
+ * When used on an `ol` or `ul`, this class throws the list into horizontal mode
+ * e.g.:
+ *
+   <ul class=nav>
+       <li><a href=#>Home</a></li>
+       <li><a href=#>About</a></li>
+       <li><a href=#>Portfolio</a></li>
+       <li><a href=#>Contact</a></li>
+   </ul>
+ *
+ */
+.nav{
+    list-style:none;
+    margin-left:0;
+    @extend .cf;
+}
+    .nav > li,
+        .nav > li > a{
+            display:inline-block;
+           *display:inline;
+            zoom:1;
+        }
+
+/**
+ * `.stacked` extends `.nav` and throws the list into vertical mode, e.g.:
+ *
+   <ul class="nav stacked">
+       <li><a href=#>Home</a></li>
+       <li><a href=#>About</a></li>
+       <li><a href=#>Portfolio</a></li>
+       <li><a href=#>Contact</a></li>
+   </ul>
+ *
+ */
+    .stacked > li{
+        display:list-item;
+    }
+        .stacked > li > a{
+            display:block;
+        }
+
+/**
+ * `.banner-nav` extends `.nav` and centres the list, e.g.:
+ *
+   <ul class="nav banner-nav">
+       <li><a href=#>Home</a></li>
+       <li><a href=#>About</a></li>
+       <li><a href=#>Portfolio</a></li>
+       <li><a href=#>Contact</a></li>
+   </ul>
+ *
+ */
+.banner-nav{
+    text-align:center;
+}

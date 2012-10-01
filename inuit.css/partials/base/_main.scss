@@ -1,0 +1,7 @@
+/*------------------------------------*\
+    $MAIN
+\*------------------------------------*/
+html{
+    font:($base-font-size / 16 +em)/($base-line-height / $base-font-size) serif;
+    overflow-y:scroll;
+}
