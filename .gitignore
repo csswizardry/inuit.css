@@ -1,2 +1,3 @@
 .sass-cache/
-your-project.min.css
+# We don’t want to bundle any compiled CSS
+*.css
