@@ -67,7 +67,11 @@ are encouraged to fork and play with. Refer back to
 [the source here on GitHub](https://github.com/csswizardry/inuit.css/blob/master/inuit.css/inuit.scss)
 for documentation.
 
-## Using inuit.css?
+## As used by
+
+* [BSkyB](http://en.wikipedia.org/wiki/BSkyB)
+
+### Using inuit.css?
 
 If you use inuit.css on a live project then [tweet at me](http://twitter.com/inuitcss)
 and I’ll send you some inuit.css stickers!
