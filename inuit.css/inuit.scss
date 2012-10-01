@@ -929,8 +929,11 @@ label,
  */
 /**
  * Grid wrapper
+ * 
+ * Shorthand and verbose
  */
-.gw{
+.gw,
+.grid-wrapper{
     /**
      * Negative margin to negate the padding on the first grid child. 
      */
@@ -945,13 +948,17 @@ label,
     /**
      * Very infrequently occuring grid wrappers as children of grid wrappers.
      */
-    .gw > .gw{
+    .gw > .gw,
+    .grid-wrapper > .grid-wrapper{
         margin-left:0;
     }
     /**
      * Grid
+     * 
+     * Shorthand and verbose
      */
-    .g{
+    .g,
+    .grid{
         float:left;
         padding-left:$base-spacing-unit +px;
         @include vendor(box-sizing, border-box);
