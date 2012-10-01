@@ -760,7 +760,7 @@ fieldset{
 /**
  * Text inputs
  * 
- * Instead of a `[type]` selector for each kind of form input, we just us a
+ * Instead of a `[type]` selector for each kind of form input, we just use a
  * class to target any/every one, e.g.:
    <input type=text class=text-input>
    <input type=email class=text-input>
@@ -904,23 +904,23 @@ label,
  *
    <div class=gw>
        
-       <div class="g one-three">
+       <div class="g one-third">
            <p>One third grid</p>
        </div>
        
-       <div class="g two-three">
+       <div class="g two-thirds">
            <p>Two thirds grid</p>
        </div>
        
-       <div class="g two-four">
+       <div class="g one-half">
            <p>One half grid</p>
        </div>
        
-       <div class="g one-four">
+       <div class="g one-quarter">
            <p>One quarter grid</p>
        </div>
        
-       <div class="g one-four">
+       <div class="g one-quarter">
            <p>One quarter grid</p>
        </div>
        
