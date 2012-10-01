@@ -51,6 +51,22 @@ refined and bulletproofed over hours of development across an array of projects
 of varying sizes. inuit.css is the result of hundreds of hours of work all
 condensed into one powerful little framework.
 
+## Installation
+
+inuit.css is incredibly easy to get up and running (provided you’re all set for
+Sass). Simply [download the latest version](https://github.com/csswizardry/inuit.css/zipball/master)
+of inuit.css from right here on GitHub, unpack the zip file, rename
+`your-project.scss` to whatever your project is called and then watch that file
+to a minified version with:
+
+    sass --watch [your-project].scss:[your-project].min.css --style compressed
+
+<small>…where `[your-project]` is the name you have chosen for your build.</small>
+
+It is important to **compile to a minified file** because inuit.css is packed
+full of comments and whitespace; so much so that it would be detrimental to
+your website’s performance to serve the unminified version.
+
 ## Documentation
 
 There are no official docs for inuit.css because the code _is_ the
