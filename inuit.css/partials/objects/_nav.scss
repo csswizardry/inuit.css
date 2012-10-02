@@ -17,7 +17,6 @@
 .nav{
     list-style:none;
     margin-left:0;
-    @extend .cf;
 }
     .nav > li,
         .nav > li > a{
