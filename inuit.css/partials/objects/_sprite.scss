@@ -5,20 +5,20 @@
  * Giving an element a class of `.s` will throw it into ‘sprite’ mode and apply
  * a background image e.g.:
  *
-   <a class="s s-question-mark">More info&hellip;</a>
+   <a class="s s--question-mark">More info&hellip;</a>
  *
  * or
  *
-   <a href=#><i class="s s-question-mark"></i> Help and FAQ</a>
+   <a href=#><i class="s s--question-mark"></i> Help and FAQ</a>
  * 
  * Giving an element a class of `.i` will throw it into ‘icon’ mode and will
  * not add a background, but should be used for icon fonts, e.g.:
  * 
-   <a href=# class="i i-star">Add to favorites</a>
+   <a href=# class="i i--star">Add to favorites</a>
  * 
  * or
  * 
-   <a href=#><i class="i i-star"></i> View your favourites</a>
+   <a href=#><i class="i i--star"></i> View your favourites</a>
  * 
  * These all require extension in your theme stylesheet. For a rough example
  * please see: jsfiddle.net/csswizardry/98VeS

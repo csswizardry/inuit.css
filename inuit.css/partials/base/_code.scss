@@ -35,7 +35,7 @@ pre{
  * You can add line numbers to your code examples but be warned, it requires
  * some pretty funky looking markup, e.g.:
    <pre class=numbered>
-       <ol class=line-numbers>
+       <ol class=numbered__numbers>
            <li><code>.nav{</code></li>
            <li><code>    list-style:none;</code></li>
            <li><code>    margin-left:0;</code></li>
@@ -52,11 +52,11 @@ pre{
 .numbered{
     white-space:nowrap;
 }
-    .line-numbers{
+    .numbered__numbers{
         list-style:decimal-leading-zero inside;
         margin-bottom:0;
         margin-left:0;
     }
-            .line-numbers code{
+            .numbered__numbers code{
                 white-space:pre;
             }
