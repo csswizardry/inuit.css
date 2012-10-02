@@ -1,0 +1,30 @@
+/*------------------------------------*\
+    $THIS-OR-THIS
+\*------------------------------------*/
+/**
+ * Simple options object to provide multiple choices, e.g.:
+ * 
+   <h1 class=this-or-this>
+       <a href=# class="this two-fifths">
+           Free
+       </a>
+       <span class="or one-fifth">
+           or
+       </span>
+       <a href=# class="this two-fifths">
+           Pro
+       </a>
+   </h1>
+ * 
+ * The `.this` and `.or` objects can be sized using the grid-system classes.
+ */
+.this-or-this{
+    display:table;
+    width:100%;
+    text-align:center;
+}
+    .this,
+    .or{
+        display:table-cell;
+        vertical-align:middle;
+    }

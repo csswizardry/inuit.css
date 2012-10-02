@@ -80,6 +80,7 @@
  * BLOCK-LIST..........Blocky lists of content
  * MATRIX..............Gridded lists
  * SPLIT...............A simple split-in-two object
+ * THIS-OR-THIS........Options object
  * FLYOUT..............Flyout-on-hover object
  * SPRITE..............Generic spriting element
  * ICON-TEXT...........Icon and text couplings
@@ -151,6 +152,7 @@
 @import "partials/objects/block-list";
 @import "partials/objects/matrix";
 @import "partials/objects/split";
+@import "partials/objects/this-or-this";
 @import "partials/objects/flyout";
 @import "partials/objects/sprite";
 @import "partials/objects/icon-text";
