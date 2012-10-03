@@ -145,8 +145,8 @@
     .four-twelfths   { @extend .one-third; }
     .five-twelfths   { width:41.666% }
     .six-twelfths    { @extend .one-half; }
-    .seven-twelfths  { width:58.333; }
+    .seven-twelfths  { width:58.333%; }
     .eight-twelfths  { @extend .two-thirds; }
     .nine-twelfths   { @extend .three-quarters; }
     .ten-twelfths    { @extend .five-sixths; }
-    .eleven-twelfths { width:91.666; }
+    .eleven-twelfths { width:91.666%; }
