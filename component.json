@@ -1,0 +1,21 @@
+{
+  "name": "inuit.css",
+  "version": "4.0.0",
+  "main": ["inuit.scss"],
+  "keywords": [
+    "css",
+    "utilities"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/csswizardry/inuit.css.git"
+  },
+  "licenses": [
+    {
+      "type": "Apache",
+      "url": "http://apache.org/licenses/LICENSE-2.0"
+    }
+  ],
+  "_id": "inuit.css@4.0.0",
+  "description": "A SUIT collection of utility classes for common, reusable, low-level CSS traits. The collection includes text, link, display, layout, space, and state utilities."
+}
