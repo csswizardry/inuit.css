@@ -56,6 +56,13 @@
 }
 
 /**
+ * Apply capital case to an element (usually a `strong`).
+ */
+.caps{
+    text-transform:uppercase;
+}
+
+/**
  * Hide content off-screen without resorting to `display:none;`
  */
 .accessibility              { position:absolute; left:-99999px; }
