@@ -2,8 +2,16 @@
     $COMPLEX-LINK
 \*------------------------------------*/
 /**
- * As inspired by @necolas, add hover behaviour to only slected items within
- * links.
+ * As inspired by @necolas:
+ * github.com/necolas/suit-utils/blob/master/link.css#L18
+ * 
+ * Add hover behaviour to only slected items within links, e.g.:
+ * 
+   <a href=signup class=complex-link>
+       <i class="s s--user></i>
+       <span class=complex-link__target>Log in</span>
+   </a>
+ * 
  */
 .complex-link,
 .complex-link:hover,
