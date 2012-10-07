@@ -9,7 +9,9 @@ a{
      * Set colors etc in your theme stylesheet.
      */
 }
-    a:hover{
+    a:hover,
+    a:active,
+    a:focus{
         text-decoration:underline;
     }
 
