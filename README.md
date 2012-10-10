@@ -61,11 +61,12 @@ to a minified version with:
 
     sass --watch [your-project].scss:[your-project].min.css --style compressed
 
-<small>…where `[your-project]` is the name you have chosen for your build.</small>
+…where `[your-project]` is the name you have chosen for your build.
 
 It is important to **compile to a minified file** because inuit.css is packed
 full of comments and whitespace; so much so that it would be detrimental to
-your website’s performance to serve the unminified version.
+your website’s performance to serve the unminified version. The current version
+of inuit.css, once minified and gzipped, weighs in at **just 3kB**.
 
 ## Documentation
 
