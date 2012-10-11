@@ -25,13 +25,37 @@ hr,
     margin-bottom:$base-spacing-unit +px;
     margin-bottom:$base-spacing-unit / $base-font-size +rem;
 }
+    
     /**
-     * Doubled up `margin-bottom` helper class.
+     * Reduced `margin-bottom` for elements in `.islet`s. It’s a bit more effort
+     * to maintain but it works.
      */
-    .landmark{
-        margin-bottom:2 * $base-spacing-unit +px;
-        margin-bottom:2 * $base-spacing-unit / $base-font-size +rem;
+    .islet{
+        
+        h1,h2,h3,h4,h5,h6,hgroup,
+        ul,ol,dl,
+        blockquote,p,address,
+        table,
+        fieldset,figure,
+        pre,
+        hr,
+        .sass-margin-bottom,
+        .media,
+        .island,
+        .islet{
+            margin-bottom:($base-spacing-unit / 2) +px;
+            margin-bottom:($base-spacing-unit / $base-font-size / 2) +rem;
+        }
+        
     }
+
+/**
+ * Doubled up `margin-bottom` helper class.
+ */
+.landmark{
+    margin-bottom:2 * $base-spacing-unit +px;
+    margin-bottom:2 * $base-spacing-unit / $base-font-size +rem;
+}
 
 /**
  * Where `margin-left` is concerned we want to try and indent certain elements
