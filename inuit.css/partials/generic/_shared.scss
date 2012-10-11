@@ -24,31 +24,13 @@ hr,
 .island,
 .islet{
     margin-bottom:$base-spacing-unit +px;
-    margin-bottom:$base-spacing-unit / $base-font-size +rem;
-}
+    margin-bottom:($base-spacing-unit / $base-font-size) +rem;
     
-    /**
-     * Reduced `margin-bottom` for elements in `.islet`s. It’s a bit more effort
-     * to maintain but it works.
-     */
-    .islet{
-        
-        h1,h2,h3,h4,h5,h6,hgroup,
-        ul,ol,dl,
-        blockquote,p,address,
-        table,
-        fieldset,figure,
-        pre,
-        hr,
-        .sass-margin-bottom,
-        .media,
-        .island,
-        .islet{
-            margin-bottom:($base-spacing-unit / 2) +px;
-            margin-bottom:($base-spacing-unit / $base-font-size / 2) +rem;
-        }
-        
+    .islet &{
+        margin-bottom:($base-spacing-unit / 2) +px;
+        margin-bottom:(($base-spacing-unit / $base-font-size) / 2) +rem;
     }
+}
 
 /**
  * Doubled up `margin-bottom` helper class.
