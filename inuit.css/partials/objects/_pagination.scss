@@ -29,10 +29,9 @@
             padding:($base-spacing-unit / 2) +px;
             margin:-($base-spacing-unit / 2) +px;
         }
-    
-        .pagination-first a:before{
-            content:"« ";
-        }
-        .pagination-last a:after{
-            content:" »";
-        }
+            .pagination-first a:before{
+                content:"« ";
+            }
+            .pagination-last a:after{
+                content:" »";
+            }
