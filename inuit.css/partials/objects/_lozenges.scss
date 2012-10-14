@@ -29,5 +29,5 @@
      * overly large number; `border-radius:100%;` would create an oval on
      * non-square elements whereas we just want to round the ends of an element.
      */
-    @include vendor(border-radius, 100px);
+    @include vendor(border-radius, 100px, true, false, false, false, true);
 }

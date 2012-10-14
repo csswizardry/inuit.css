@@ -64,7 +64,7 @@
     .grid{
         float:left;
         padding-left:$base-spacing-unit +px;
-        @include vendor(box-sizing, border-box);
+        @include vendor(box-sizing, border-box, true, true, false, false, true);
     }
     
     /**

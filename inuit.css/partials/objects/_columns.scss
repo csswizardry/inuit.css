@@ -12,17 +12,17 @@
 .text-cols-3,
 .text-cols-4,
 .text-cols-5{
-    @include vendor(column-gap, $base-spacing-unit +px);
+    @include vendor(column-gap, $base-spacing-unit +px, true, true, false, false, true);
 }
 .text-cols-2{
-    @include vendor(column-count, 2);
+    @include vendor(column-count, 2, true, true, false, false, true);
 }
 .text-cols-3{
-    @include vendor(column-count, 3);
+    @include vendor(column-count, 3, true, true, false, false, true);
 }
 .text-cols-4{
-    @include vendor(column-count, 4);
+    @include vendor(column-count, 4, true, true, false, false, true);
 }
 .text-cols-5{
-    @include vendor(column-count, 5);
+    @include vendor(column-count, 5, true, true, false, false, true);
 }
