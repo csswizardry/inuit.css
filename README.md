@@ -95,6 +95,11 @@ for documentation.
 If you use inuit.css on a live project then [tweet at me](http://twitter.com/inuitcss)
 and I’ll send you some inuit.css stickers!
 
+## Support inuit.css
+
+If you use and/or like inuit.css, perhaps you might consider [supporting it
+through Gumroad](http://gum.co/nOoht).
+
 ## Credits
 
 inuit.css, although produced and maintained by one developer, could not have
