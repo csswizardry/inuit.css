@@ -6,9 +6,8 @@
  *
    <ul class="matrix four-cols">
        <li class=all-cols>Lorem</li>
-       <li>Ipsum</li>
-       <li>Dolor</li>
-       <li>Sit</li>
+       <li>Ipsum <a href=#>dolor</a></li>
+       <li><a href=# class=matrix-link>Sit</a></li>
        <li>Amet</li>
        <li class=all-cols>Consectetuer</li>
    </ul>
@@ -33,6 +32,11 @@
         border-bottom-width:1px;
         @include vendor(box-sizing, border-box);
     }
+        .matrix-link{
+            display:block;
+            padding:$half-spacing-unit +px;
+            margin:-$half-spacing-unit +px;
+        }
 
 /**
  * The `.multi-list` object is a lot like the `.matrix` object only without the
