@@ -22,10 +22,20 @@
    `@include vendor(box-sizing, border-box);`
  *
  */
-@mixin vendor($property, $value){
-    -webkit-#{$property}:$value;
-       -moz-#{$property}:$value;
-        -ms-#{$property}:$value;
-         -o-#{$property}:$value;
-            #{$property}:$value;
+@mixin vendor($property, $value, $webkit: true, $moz: true, $ms: true, $o: true, $unprefixed: true) {
+    @if $webkit {
+        -webkit-#{$property}: $value;
+    }
+    @if $moz {
+        -moz-#{$property}: $value;
+    }
+    @if $ms {
+        -ms-#{$property}: $value;
+    }
+    @if $o {
+        -o-#{$property}: $value;
+    }
+    @if $unprefixed {
+        #{$property}: $value;
+    }
 }
