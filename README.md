@@ -88,6 +88,7 @@ for documentation.
 
 * [BSkyB](http://en.wikipedia.org/wiki/BSkyB)
 * [pr.ofile.me](http://pr.ofile.me)
+* [Lukas Bestle](http://lu-x.me)
 
 ### Using inuit.css?
 
