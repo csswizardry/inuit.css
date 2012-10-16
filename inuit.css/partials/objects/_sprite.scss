@@ -25,14 +25,13 @@
  */
 .s,
 .i{
-    display:inline-block;
+    @include inline-block;
     /**
      * The typical size of most icons. Override in your theme stylesheet.
      */
     width: 16px;
     height:16px;
     position:relative;
-    zoom:1;
     /**
      * So using `.i` on `i` elements doesn’t make a visual difference.
      */

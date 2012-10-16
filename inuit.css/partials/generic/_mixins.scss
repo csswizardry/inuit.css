@@ -29,3 +29,10 @@
          -o-#{$property}:$value;
             #{$property}:$value;
 }
+
+
+@mixin inline-block {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+}
