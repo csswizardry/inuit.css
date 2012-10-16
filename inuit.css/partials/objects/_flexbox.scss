@@ -1,0 +1,39 @@
+/*------------------------------------*\
+    $FLEXBOX
+\*------------------------------------*/
+/**
+ * Until we can utilise flexbox natively we can kinda, sorta, attempt to emulate
+ * it, in a way... e.g.:
+ * 
+   <header class=flexbox>
+       
+       <div class=flexbox-item>
+           <b>Welcome to</b>
+       </div>
+       
+       <div class=flexbox-item>
+           <img src="//csswizardry.com/inuitcss/img/logo.jpg" alt="inuit.css">
+       </div>
+   
+   </header>
+ * 
+ * We can also combine our grid system classes with `.flexbox-item` classes,
+ * e.g.:
+ * 
+   <div class=flexbox>
+       <div class="flexbox-item  one-quarter">
+       </div>
+       <div class="flexbox-item  three-quarters">
+       </div>
+   </div>
+ * 
+ * It’s pretty poorly named I’m afraid, but it works…
+ */
+.flexbox{
+    display:table;
+    width:100%;
+}
+    .flexbox-item{
+        display:table-cell;
+        vertical-align:middle;
+    }
