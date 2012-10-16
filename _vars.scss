@@ -11,6 +11,10 @@
 $base-font-size:    16;
 $base-line-height:  24;
 
+//Base colors
+$c-white: #fff;
+$c-gray: #ccc;
+
 // Assign our `$base-line-height` to a new spacing var for more transparency.
 $base-spacing-unit: $base-line-height;
 $half-spacing-unit: $base-spacing-unit / 2;

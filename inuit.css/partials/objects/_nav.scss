@@ -1,60 +1,61 @@
 /*------------------------------------*\
     $NAV
 \*------------------------------------*/
-/**
- * Nav abstraction as per: csswizardry.com/2011/09/the-nav-abstraction
- * When used on an `ol` or `ul`, this class throws the list into horizontal mode
- * e.g.:
- *
-   <ul class=nav>
-       <li><a href=#>Home</a></li>
-       <li><a href=#>About</a></li>
-       <li><a href=#>Portfolio</a></li>
-       <li><a href=#>Contact</a></li>
-   </ul>
- *
- */
-.nav{
-    list-style:none;
-    margin-left:0;
-    @extend .cf;
+
+/* As per: http://builtbyboon.com/posed/OOCSS-Sass-MQs/3  */
+
+@mixin obj-nav {
+  list-style: none;
+  margin-left: 0;
+  li, a {
+    @include inline-block;
+  }
 }
-    .nav > li,
-        .nav > li > a{
-            display:inline-block;
-           *display:inline;
-            zoom:1;
-        }
 
-/**
- * `.stacked` extends `.nav` and throws the list into vertical mode, e.g.:
- *
-   <ul class="nav stacked">
-       <li><a href=#>Home</a></li>
-       <li><a href=#>About</a></li>
-       <li><a href=#>Portfolio</a></li>
-       <li><a href=#>Contact</a></li>
-   </ul>
- *
- */
-    .stacked > li{
-        display:list-item;
+.nav {
+  @include obj-nav;
+}
+
+
+@mixin obj-nav-divided {
+  margin-left: -1em;
+  li {
+    border-left: 1px solid $c-gray;
+    padding: .5em 1em;
+
+    &:first-child {
+      border-left: none;
     }
-        .stacked > li > a{
-            display:block;
-        }
+  }
+}
 
-/**
- * `.banner-nav` extends `.nav` and centres the list, e.g.:
- *
-   <ul class="nav banner-nav">
-       <li><a href=#>Home</a></li>
-       <li><a href=#>About</a></li>
-       <li><a href=#>Portfolio</a></li>
-       <li><a href=#>Contact</a></li>
-   </ul>
- *
- */
+.nav-divided {
+  @include obj-nav-divided;
+}
+
+.nav-blocked a {
+  display: block;
+  background-color: $c-gray;
+  padding: .25em .5em;
+}
+
+
+.nav-tertiary li {
+  list-style: none;
+  margin-bottom: .25em;
+}
+
+@media only screen and (min-width: 50em) {
+  .nav-tertiary {
+    @include obj-nav;
+    @include obj-nav-divided;
+    a {
+      padding: 0;
+      background: none;
+    }
+  }
+}
+
 .banner-nav{
-    text-align:center;
+  text-align:center;
 }

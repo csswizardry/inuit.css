@@ -41,9 +41,9 @@ pre{
            <li><code>}</code></li>
            <li><code>    .nav > li,</code></li>
            <li><code>        .nav > li > a{</code></li>
-           <li><code>            display:inline-block;</code></li>
-           <li><code>           *display:inline-block;</code></li>
-           <li><code>            zoom:1;</code></li>
+           <li><code>            @include inline-block;</code></li>
+           <li><code>            </code></li>
+           <li><code>            </code></li>
            <li><code>        }</code></li>
        </ol>
    </pre>​

@@ -8,7 +8,7 @@
     font:inherit;
     cursor:pointer;
     border:none;
-    display:inline-block;
+    @include inline-block;
     margin: 0;
     line-height:1;
     /**
