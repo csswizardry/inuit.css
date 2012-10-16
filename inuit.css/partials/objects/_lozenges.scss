@@ -21,8 +21,8 @@
     padding-left: 0.25em;
               /* =1.50em */
     text-align:center;
-    background-color:#ccc; /* Override this color in your theme stylesheet */
-    color:#fff; /* Override this color in your theme stylesheet */
+    background-color:$c-gray; /* Override this color in your theme stylesheet */
+    color:$c-white; /* Override this color in your theme stylesheet */
     
     /**
      * Normally we’d use border-radius:100%; but instead here we just use an

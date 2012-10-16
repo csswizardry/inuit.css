@@ -16,7 +16,7 @@
  */
 .matrix,
     .matrix > li{
-        border:0 solid #ccc; /* Override this color in your theme stylesheet */
+        border:0 solid $c-gray; /* Override this color in your theme stylesheet */
     }
 .matrix{
     list-style:none;
