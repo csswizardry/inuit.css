@@ -117,7 +117,7 @@ label,
     .check-label,
     .check-list label,
     .check-list .label{
-        display:inline-block;
+        @include inline-block;
     }
 
 /**
@@ -136,6 +136,6 @@ label,
  *
  */
 .spoken-form label{
-    display:inline-block;
+    @include inline-block;
     font:inherit;
 }

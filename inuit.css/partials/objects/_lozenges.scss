@@ -10,7 +10,7 @@
  *
  */
 .loz{
-    display:inline-block;
+    @include inline-block;
     /**
      * These numbers set in ems mean that, at its narrowest, a lozenge will be
      * the same width as the 1.5 `line-height` set on the `html` element.
