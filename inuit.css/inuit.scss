@@ -73,6 +73,7 @@
  * FORMS...............
  * 
  * GRIDS...............Fluid, proportional and nestable grids
+ * FLEXBOX.............Crudely emulate flexbox
  * COLUMNS.............CSS3 columns
  * NAV.................A simple abstraction to put a list in horizontal nav mode
  * PAGINATION..........Very stripped back, basic paginator
@@ -147,6 +148,7 @@
  * Objects and abstractions
  */
 @import "partials/objects/grids";
+@import "partials/objects/flexbox";
 @import "partials/objects/columns";
 @import "partials/objects/nav";
 @import "partials/objects/pagination";
