@@ -21,9 +21,7 @@
 }
     .nav > li,
         .nav > li > a{
-            display:inline-block;
-           *display:inline;
-            zoom:1;
+            @include inline-block;
         }
 
 /**

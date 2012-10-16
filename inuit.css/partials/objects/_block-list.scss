@@ -15,7 +15,7 @@
  */
 .block-list,
     .block-list > li{
-        border:0 solid #ccc; /* Override this color in your theme stylesheet */
+        border:0 solid $c-gray; /* Override this color in your theme stylesheet */
     }
 .block-list{
     list-style:none;
