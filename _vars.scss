@@ -8,31 +8,31 @@
  */
 
 // Base stuff
-$base-font-size:    16;
-$base-line-height:  24;
+$base-font-size:    16 !default;
+$base-line-height:  24 !default;
 
 // Assign our `$base-line-height` to a new spacing var for more transparency.
-$base-spacing-unit: $base-line-height;
-$half-spacing-unit: $base-spacing-unit / 2;
+$base-spacing-unit: $base-line-height !default;
+$half-spacing-unit: $base-spacing-unit / 2 !default;
 
 // Font-sizes (in pixels). Refer to relevant sections for their implementations.
-$giga-size:         96;
-$mega-size:         72;
-$kilo-size:         48;
+$giga-size:         96 !default;
+$mega-size:         72 !default;
+$kilo-size:         48 !default;
 
-$h1-size:           36;
-$h2-size:           30;
-$h3-size:           24;
-$h4-size:           20;
-$h5-size:           16;
-$h6-size:           14;
+$h1-size:           36 !default;
+$h2-size:           30 !default;
+$h3-size:           24 !default;
+$h4-size:           20 !default;
+$h5-size:           16 !default;
+$h6-size:           14 !default;
 
-$milli-size:        12;
-$micro-size:        10;
+$milli-size:        12 !default;
+$micro-size:        10 !default;
 
 // Brand stuff
-$brand-color:       #4a8ec2;
-$brand-face:        "Helvetica Neue", sans-serif;
+$brand-color:       #4a8ec2 !default;
+$brand-face:        "Helvetica Neue", sans-serif !default;
 
 // Supply a full code font-stack to combat this: jsfiddle.net/csswizardry/uD6UW
-$code-face:         Inconsolata, Monaco, Consolas, "Andale Mono", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace;
+$code-face:         Inconsolata, Monaco, Consolas, "Andale Mono", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace !default;
