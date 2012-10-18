@@ -7,36 +7,33 @@
  * 
    <header class=flexbox>
        
-       <div class=flexbox-item>
+       <div class=flexbox__item>
            <b>Welcome to</b>
        </div>
        
-       <div class=flexbox-item>
+       <div class=flexbox__item>
            <img src="//csswizardry.com/inuitcss/img/logo.jpg" alt="inuit.css">
        </div>
    
    </header>
  * 
- * We can also combine our grid system classes with `.flexbox-item` classes,
+ * We can also combine our grid system classes with `.flexbox__item` classes,
  * e.g.:
  * 
    <div class=flexbox>
-       <div class="flexbox-item  one-quarter">
+       <div class="flexbox__item  one-quarter">
        </div>
-       <div class="flexbox-item  three-quarters">
+       <div class="flexbox__item  three-quarters">
        </div>
    </div>
  * 
  * It’s pretty poorly named I’m afraid, but it works…
- * 
- * Demo: jsfiddle.net/inuitcss/ufUh2
- * 
  */
 .flexbox{
     display:table;
     width:100%;
 }
-    .flexbox-item{
+    .flexbox__item{
         display:table-cell;
         vertical-align:middle;
     }

@@ -5,13 +5,13 @@
  * Simple options object to provide multiple choices, e.g.:
  * 
    <h1 class=this-or-this>
-       <a href=# class="this two-fifths">
+       <a href=# class="this-or-this__this two-fifths">
            Free
        </a>
-       <span class="or one-fifth">
+       <span class="this-or-this__or one-fifth">
            or
        </span>
-       <a href=# class="this two-fifths">
+       <a href=# class="this-or-this__this two-fifths">
            Pro
        </a>
    </h1>
@@ -26,8 +26,8 @@
     width:100%;
     text-align:center;
 }
-    .this,
-    .or{
+    .this-or-this__this,
+    .this-or-this__or{
         display:table-cell;
         vertical-align:middle;
     }

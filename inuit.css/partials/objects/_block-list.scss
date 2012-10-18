@@ -8,7 +8,7 @@
       <li>Foo</li>
       <li>Bar</li>
       <li>Baz</li>
-      <li><a href=# class=block-list-link>Foo Bar Baz</a></li>
+      <li><a href=# class=block-list__link>Foo Bar Baz</a></li>
    </ul>
   *
   * Extend this object in your theme stylesheet.
@@ -29,7 +29,7 @@
         border-bottom-width:1px;
         padding:$half-spacing-unit +px;
     }
-        .block-list-link{
+        .block-list__link{
             display:block;
             padding:$half-spacing-unit +px;
             margin:-$half-spacing-unit +px;
