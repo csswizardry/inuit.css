@@ -21,8 +21,8 @@
 .complex-link:focus{
     text-decoration:none;
 }
-    .complex-link:hover .link-target,
-    .complex-link:active .link-target,
-    .complex-link:focus .link-target{
+    .complex-link:hover .complex-link__target,
+    .complex-link:active .complex-link__target,
+    .complex-link:focus .complex-link__target{
         text-decoration:underline;
     }
