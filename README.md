@@ -79,7 +79,7 @@ try help out and use your feedback to improve the documentation.
 ## Test-drive
 
 If you would like to try inuit.css out before you download anything there is a
-compiled version [on jsFiddle](http://jsfiddle.net/csswizardry/RJqdH/) that you
+compiled version [on jsFiddle](http://jsfiddle.net/inuitcss/a6yS3/) that you
 are encouraged to fork and play with. Refer back to
 [the source here on GitHub](https://github.com/csswizardry/inuit.css/blob/master/inuit.css/inuit.scss)
 for documentation.
