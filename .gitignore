@@ -1,5 +1,6 @@
 .DS_Store
 .sass-cache/
 # We don’t want to bundle any compiled CSS
-your-project.css
-your-project.min.css
+*.css
+# But still track inuit.css
+!inuit.css
