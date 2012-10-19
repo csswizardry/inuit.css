@@ -76,6 +76,12 @@ struggle with anything please tweet at [@inuitcss](http://twitter.com/inuitcss)
 and/or [open an issue](https://github.com/csswizardry/inuit.css/issues) and I’ll
 try help out and use your feedback to improve the documentation.
 
+### Demos
+
+Although there are no docs as such, there is [a dedicated inuit.css jsFiddle
+account](http://jsfiddle.net/user/inuitcss/fiddles/) which houses plenty of
+demos of various aspects of the framework.
+
 ## Test-drive
 
 If you would like to try inuit.css out before you download anything there is a
