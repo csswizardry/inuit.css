@@ -3,6 +3,6 @@
 # We don’t want to bundle any compiled CSS
 *.css
 # But still track inuit.css
-!inuit.css
+!inuit.css/
 # Ignore little test/tinkering file
 inuit.css.html
