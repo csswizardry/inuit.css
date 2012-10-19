@@ -46,7 +46,7 @@ maintainability, working in large teams, CSS performance, CSS architecture and a
 whole lot more.
 
 inuit.css is the result of years of my specialism in CSS (as CSS is all I do).
-It is a collection of design patterns, objects and abstractions that have been
+It is a collection of design patterns, objects, and abstractions that have been
 refined and bulletproofed over hours of development across an array of projects
 of varying sizes. inuit.css is the result of hundreds of hours of work all
 condensed into one powerful little framework.
