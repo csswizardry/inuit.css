@@ -5,7 +5,7 @@
 /**
  * inuit.css acts as a base stylesheet which you should extend with your own
  * theme stylesheet.
- *
+ * 
  * inuit.css aims to do the heavy lifting; sorting objects and abstractions,
  * design patterns and fiddly bits of CSS, whilst leaving as much design as
  * possible to you. inuit.css is the scaffolding to your decorator.
@@ -13,19 +13,21 @@
  * This stylesheet is heavily documented and contains lots of comments, please
  * take care to read and refer to them as you build. For further support please
  * tweet at @inuitcss.
- *
+ * 
  * Owing to the amount of comments please only ever use `inuit.min.css` in
  * production. This file is purely a dev document.
  * 
  * The table of contents below maps to section titles of the same name, to jump
  * to any section simply run a find for $[SECTION-TITLE].
- *
+ * 
  * Most objects and abstractions come with a chunk of markup that you should be
  * able to paste into any view to quickly see how the CSS works in conjunction
  * with the correct HTML.
- *
+ * 
+ * inuit.css is written to this standard: github.com/csswizardry/CSS-Guidelines
+ * 
  * LICENSE
- *
+ * 
  * Copyright 2012 Harry Roberts
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
