@@ -4,3 +4,5 @@
 *.css
 # But still track inuit.css
 !inuit.css
+# Ignore little test/tinkering file
+inuit.css.html
