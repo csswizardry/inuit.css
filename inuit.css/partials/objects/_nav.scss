@@ -94,14 +94,15 @@
 /**
  * Force a nav to occupy 100% of the available width of its parent. Extends
  * `.nav`, e.g.:
- *
+ * 
    <ul class="nav  nav--fit">
        <li><a href=#>Home</a></li>
        <li><a href=#>About</a></li>
        <li><a href=#>Portfolio</a></li>
        <li><a href=#>Contact</a></li>
    </ul>
- *
+ * 
+ * Thanks to @pimpl for this idea!
  */
 .nav--fit{
     display:table;
