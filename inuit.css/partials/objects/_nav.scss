@@ -32,7 +32,7 @@
 /**
  * `.stacked` extends `.nav` and throws the list into vertical mode, e.g.:
  *
-   <ul class="nav nav--stacked">
+   <ul class="nav  nav--stacked">
        <li><a href=#>Home</a></li>
        <li><a href=#>About</a></li>
        <li><a href=#>Portfolio</a></li>
@@ -54,7 +54,7 @@
 /**
  * `.banner-nav` extends `.nav` and centres the list, e.g.:
  *
-   <ul class="nav nav--banner">
+   <ul class="nav  nav--banner">
        <li><a href=#>Home</a></li>
        <li><a href=#>About</a></li>
        <li><a href=#>Portfolio</a></li>
@@ -67,7 +67,15 @@
 }
 
 /**
- * Give nav links a big, blocky hit area.
+ * Give nav links a big, blocky hit area. Extends `.nav`, e.g.:
+ *
+   <ul class="nav  nav--block">
+       <li><a href=#>Home</a></li>
+       <li><a href=#>About</a></li>
+       <li><a href=#>Portfolio</a></li>
+       <li><a href=#>Contact</a></li>
+   </ul>
+ *
  */
 .nav--block{
     
@@ -80,7 +88,16 @@
 }
 
 /**
- * Force a nav to occupy 100% of the available width of its parent.
+ * Force a nav to occupy 100% of the available width of its parent. Extends
+ * `.nav`, e.g.:
+ *
+   <ul class="nav  nav--fit">
+       <li><a href=#>Home</a></li>
+       <li><a href=#>About</a></li>
+       <li><a href=#>Portfolio</a></li>
+       <li><a href=#>Contact</a></li>
+   </ul>
+ *
  */
 .nav--fit{
     display:table;
