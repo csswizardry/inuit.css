@@ -1,6 +1,5 @@
 .DS_Store
 .sass-cache/
-*.html
 # We don’t want to bundle any compiled CSS
 your-project.css
 your-project.min.css
