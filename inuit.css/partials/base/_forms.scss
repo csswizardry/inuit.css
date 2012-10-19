@@ -10,6 +10,7 @@ fieldset{
     padding:$base-spacing-unit +px;
 }
 
+
 /**
  * Text inputs
  * 
@@ -26,6 +27,7 @@ textarea{
      * Style these via your theme stylesheet.
      */
 }
+
 
 /**
  * Group sets of form fields in a list, e.g.:
@@ -55,6 +57,7 @@ textarea{
     .form-fields > li:last-child{
         margin-bottom:0;
     }
+
 
 /**
  * Labels
@@ -97,6 +100,7 @@ label,
         font-weight:normal;
     }
 
+
 /*
  * Groups of checkboxes and radios, e.g.:
  *
@@ -124,6 +128,7 @@ label,
     .check-list .label{
         display:inline-block;
     }
+
 
 /**
  * Spoken forms are for forms that read like spoken word, e.g.:

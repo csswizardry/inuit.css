@@ -15,6 +15,7 @@
     text-align:center;
 }
 
+
 /**
  * Pull items full width of `.island` parents.
  */
@@ -28,6 +29,7 @@
     }
 }
 
+
 /**
  * Add a help cursor to any element that gives the user extra information on
  * `:hover`.
@@ -35,6 +37,7 @@
 .informative{
     cursor:help;
 }
+
 
 /**
  * Align items to the right where they imply progression/movement forward, e.g.:
@@ -46,6 +49,7 @@
     text-align:right;
 }
 
+
 /**
  * Add a right-angled quote to links that imply movement, e.g.:
  *
@@ -56,12 +60,14 @@
     content:" »";
 }
 
+
 /**
  * Apply capital case to an element (usually a `strong`).
  */
 .caps{
     text-transform:uppercase;
 }
+
 
 /**
  * Hide content off-screen without resorting to `display:none;`

@@ -29,6 +29,7 @@
         }
 }
 
+
 /**
  * `.stacked` extends `.nav` and throws the list into vertical mode, e.g.:
  *
@@ -51,6 +52,7 @@
     }
 }
 
+
 /**
  * `.banner-nav` extends `.nav` and centres the list, e.g.:
  *
@@ -65,6 +67,7 @@
 .nav--banner{
     text-align:center;
 }
+
 
 /**
  * Give nav links a big, blocky hit area. Extends `.nav`, e.g.:
@@ -86,6 +89,7 @@
         }
     }
 }
+
 
 /**
  * Force a nav to occupy 100% of the available width of its parent. Extends

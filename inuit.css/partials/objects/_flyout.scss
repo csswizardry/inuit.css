@@ -42,12 +42,14 @@
     .flyout--alt:hover{
         overflow:visible;
     }
+    
     /**
      * Regular flyouts sit all the way from the top, flush left.
      */
     .flyout:hover > .flyout__content{
         left:0;
     }
+    
     /**
      * Alternative flyouts sit all the way from the left, flush top.
      */

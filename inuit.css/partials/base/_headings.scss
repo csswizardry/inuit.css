@@ -27,6 +27,7 @@ h6,.zeta{
     @include font-size($h6-size);
 }
 
+
 /**
  * Heading groups and generic any-heading class.
  * To target any heading of any level simply apply a class of `.hN`, e.g.:
@@ -42,6 +43,7 @@ h6,.zeta{
 hgroup .hN{
     margin-bottom:0;
 }
+
 
 /**
  * A series of classes for setting massive type; for use in heroes, mastheads,

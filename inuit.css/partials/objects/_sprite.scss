@@ -12,13 +12,16 @@
    <a href=#><i class="s  s--question-mark"></i> Help and FAQ</a>
  * 
  * Giving an element a class of `.i` will throw it into ‘icon’ mode and will
- * not add a background, but should be used for icon fonts, e.g.:
+ * not add a background, but should be used for icon fonts and is populated
+ * through a `data-char` attribute and the `:after` pseudo-element, e.g.:
  * 
-   <a href=# class="i  i--star">Add to favorites</a>
+   <a href=# class=i data-char="C">Add to favorites</a>
  * 
  * or
  * 
-   <a href=#><i class="i  i--star"></i> View your favourites</a>
+   <a href=#><i class=i data-char="C"></i> View your favourites</a>
+ * 
+ * Where ‘C’ might map to a star in your particular font.
  * 
  * These all require extension in your theme stylesheet.
  * 
@@ -59,4 +62,8 @@
 }
 .i{
     vertical-align:top;
+    
+    &:after{
+        content:attr(data-char);
+    }
 }
