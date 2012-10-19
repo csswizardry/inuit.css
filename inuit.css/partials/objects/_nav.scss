@@ -20,13 +20,14 @@
     list-style:none;
     margin-left:0;
     @extend .cf;
-}
-    .nav > li,
-        .nav > li > a{
+
+    > li,
+        > li > a{
             display:inline-block;
            *display:inline;
             zoom:1;
         }
+}
 
 /**
  * `.stacked` extends `.nav` and throws the list into vertical mode, e.g.:
@@ -39,12 +40,16 @@
    </ul>
  *
  */
-    .nav--stacked > li{
+.nav--stacked{
+    
+    > li{
         display:list-item;
-    }
-        .nav--stacked > li > a{
+
+        > a{
             display:block;
         }
+    }
+}
 
 /**
  * `.banner-nav` extends `.nav` and centres the list, e.g.:
