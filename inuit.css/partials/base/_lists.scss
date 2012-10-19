@@ -4,7 +4,9 @@
 /**
  * Remove vertical spacing from nested lists.
  */
-li > ul,
-li > ol{
-    margin-bottom:0;
+li{
+    > ul,
+    > ol{
+         margin-bottom:0;
+     }
 }

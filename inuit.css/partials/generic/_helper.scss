@@ -21,10 +21,11 @@
 .full-bleed{
     margin-right:-$base-spacing-unit +px;
     margin-left: -$base-spacing-unit +px;
-}
-.islet > .full-bleed{
-    margin-right:-($half-spacing-unit) +px;
-    margin-left: -($half-spacing-unit) +px;
+    
+    .islet &{
+        margin-right:-($half-spacing-unit) +px;
+        margin-left: -($half-spacing-unit) +px;
+    }
 }
 
 /**
