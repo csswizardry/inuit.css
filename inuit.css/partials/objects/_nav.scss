@@ -60,3 +60,32 @@
 .nav--banner{
     text-align:center;
 }
+
+/**
+ * Give nav links a big, blocky hit area.
+ */
+.nav--block{
+    
+    > li{
+        
+        > a{
+            padding:$half-spacing-unit +px;
+        }
+    }
+}
+
+/**
+ * Force a nav to occupy 100% of the available width of its parent.
+ */
+.nav--fit{
+    display:table;
+    width:100%;
+    
+    > li{
+        display:table-cell;
+        
+        > a{
+            display:block;
+        }
+    }
+}
