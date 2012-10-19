@@ -4,16 +4,15 @@
 /**
  * For text-links etc that have an icon with them. Sometimes whitespace would
  * suffice in creating a gap between the icon and text, for example:
- *
+ * 
    <a href=#>
        <i class="s  s--help"></i> Help &amp; support
    </a>
- *
+ * 
  * However we will sometimes want a larger, explicity set gap:
    <a href=# class=icon-text>
        <i class="icon-text__icon  s s--help"></i>Help &amp; support
    </a>
- *
  * 
  * Demo: jsfiddle.net/inuitcss/Q6Lbf
  * 

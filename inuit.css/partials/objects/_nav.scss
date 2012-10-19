@@ -5,7 +5,7 @@
  * Nav abstraction as per: csswizardry.com/2011/09/the-nav-abstraction
  * When used on an `ol` or `ul`, this class throws the list into horizontal mode
  * e.g.:
- *
+ * 
    <ul class=nav>
        <li><a href=#>Home</a></li>
        <li><a href=#>About</a></li>
@@ -32,14 +32,14 @@
 
 /**
  * `.stacked` extends `.nav` and throws the list into vertical mode, e.g.:
- *
+ * 
    <ul class="nav  nav--stacked">
        <li><a href=#>Home</a></li>
        <li><a href=#>About</a></li>
        <li><a href=#>Portfolio</a></li>
        <li><a href=#>Contact</a></li>
    </ul>
- *
+ * 
  */
 .nav--stacked{
     
@@ -55,14 +55,14 @@
 
 /**
  * `.banner-nav` extends `.nav` and centres the list, e.g.:
- *
+ * 
    <ul class="nav  nav--banner">
        <li><a href=#>Home</a></li>
        <li><a href=#>About</a></li>
        <li><a href=#>Portfolio</a></li>
        <li><a href=#>Contact</a></li>
    </ul>
- *
+ * 
  */
 .nav--banner{
     text-align:center;
@@ -71,14 +71,14 @@
 
 /**
  * Give nav links a big, blocky hit area. Extends `.nav`, e.g.:
- *
+ * 
    <ul class="nav  nav--block">
        <li><a href=#>Home</a></li>
        <li><a href=#>About</a></li>
        <li><a href=#>Portfolio</a></li>
        <li><a href=#>Contact</a></li>
    </ul>
- *
+ * 
  */
 .nav--block{
     

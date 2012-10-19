@@ -19,7 +19,7 @@ fieldset{
    <input type=text class=text-input>
    <input type=email class=text-input>
    <input type=password class=text-input>
- *
+ * 
  */
 .text-input,
 textarea{
@@ -31,6 +31,7 @@ textarea{
 
 /**
  * Group sets of form fields in a list, e.g.:
+ * 
    <ul class=form-fields>
        <li>
            <label />
@@ -45,7 +46,7 @@ textarea{
            <input />
        </li>
    </ul>
- *
+ * 
  */
 .form-fields{
     list-style:none;
@@ -61,11 +62,11 @@ textarea{
 
 /**
  * Labels
- *
+ * 
  * Define a `.label` class as well as a `label` element. This means we can apply
  * label-like styling to meta-labels for groups of options where a `label`
  * element is not suitable, e.g.:
- *
+ * 
    <li>
        <span class=label>Select an option below:</span>
        <ul class="multi-list  four-cols">
@@ -83,7 +84,7 @@ textarea{
            </li>
        </ul>
    </li>
- *
+ * 
  */
 label,
 .label{
@@ -91,9 +92,9 @@ label,
 }
     /**
      * Extra help text in `label`s, e.g.:
-     *
+     * 
        <label>Card number <small class=additional>No spaces</small></label>
-     *
+     * 
      */
     .additional{
         display:block;
@@ -103,7 +104,7 @@ label,
 
 /*
  * Groups of checkboxes and radios, e.g.:
- *
+ * 
    <li>
        <ul class=check-list>
            <li>
@@ -114,7 +115,7 @@ label,
            </li>
        </ul>
    </li>
- *
+ * 
  */
 .check-list{
     list-style:none;
@@ -132,7 +133,7 @@ label,
 
 /**
  * Spoken forms are for forms that read like spoken word, e.g.:
- *
+ * 
    <li class=spoken-form>
        Hello, my <label for=spoken-name>name</label> is
        <input type=text class=text-input id=spoken-name>. My home
@@ -143,7 +144,7 @@ label,
            <option>Other</option>
        </select>
    </li>
- *
+ * 
  */
 .spoken-form label{
     display:inline-block;

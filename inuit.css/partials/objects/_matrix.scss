@@ -3,7 +3,7 @@
 \*------------------------------------*/
 /**
  * Create a grid of items out of a single list, e.g.:
- *
+ * 
    <ul class="matrix  three-cols">
        <li class=all-cols>Lorem</li>
        <li>Ipsum <a href=#>dolor</a></li>
@@ -11,7 +11,7 @@
        <li>Amet</li>
        <li class=all-cols>Consectetuer</li>
    </ul>
- *
+ * 
  * Extend this object in your theme stylesheet.
  * 
  * Demo: jsfiddle.net/inuitcss/Y2zrU
@@ -45,7 +45,7 @@
 /**
  * The `.multi-list` object is a lot like the `.matrix` object only without the
  * blocky borders and padding.
- *
+ * 
    <ul class="multi-list  four-cols">
        <li>Lorem</li>
        <li>Ipsum</li>

@@ -4,9 +4,9 @@
 /**
  * Create a fully formed type style (sizing and vertical rhythm) by passing in a
  * single value, e.g.:
- *
+ * 
    `@include font-size(10);`
- *
+ * 
  * Thanks to @redclov3r for the `line-height` Sass:
  * twitter.com/redclov3r/status/250301539321798657
  */
@@ -19,9 +19,9 @@
 
 /**
  * Create vendor-prefixed CSS in one go, e.g.
- *
+ * 
    `@include vendor(box-sizing, border-box);`
- *
+ * 
  */
 @mixin vendor($property, $value){
     -webkit-#{$property}:$value;

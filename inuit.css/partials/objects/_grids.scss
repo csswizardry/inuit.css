@@ -3,7 +3,7 @@
 \*------------------------------------*/
 /**
  * Fluid and nestable grid system, e.g.:
- *
+ * 
    <div class=gw>
        
        <div class="g  one-third">
@@ -140,7 +140,6 @@
     .seven-tenths       { width:70%; }
     .eight-tenths       { @extend .four-fifths; }
      .nine-tenths       { width:90%; }
-
 
     /**
      * Twelfths

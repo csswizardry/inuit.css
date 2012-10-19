@@ -41,9 +41,9 @@
 
 /**
  * Align items to the right where they imply progression/movement forward, e.g.:
- *
+ * 
    <p class=proceed><a href=#>Read more...</a></p>
- *
+ * 
  */
 .proceed{
     text-align:right;
@@ -52,9 +52,9 @@
 
 /**
  * Add a right-angled quote to links that imply movement, e.g.:
- *
+ * 
    <a href=# class=go>Read more</a>
- *
+ * 
  */
 .go:after{
     content:" »";
