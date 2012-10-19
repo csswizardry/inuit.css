@@ -4,7 +4,7 @@
 /**
  * We have a lot at our disposal for making very complex table constructs, e.g.:
  *
-   <table class="bordered-table striped-table data-table">
+   <table class="table--bordered  table--striped  table--data">
        <colgroup>
            <col class=t10>
            <col class=t10>
@@ -120,31 +120,37 @@ td{
 /**
  * Bordered tables
  */
-.bordered-table th,
-.bordered-table td{
-    border:1px solid #ccc; /* Override this color in your theme stylesheet */
-}
-.bordered-table thead tr:last-child th{
-    border-bottom-width:2px;
-}
-.bordered-table tbody tr th:last-of-type{
-    border-right-width:2px;
-}
-.bordered-table th:empty,
-.bordered-table td:empty{
-    border:none;
+.table--bordered{
+    
+    th,
+    td{
+        border:1px solid #ccc; /* Override this color in your theme stylesheet */
+        
+        &:empty{
+            border:none;
+        }
+    }
+    thead tr:last-child th{
+        border-bottom-width:2px;
+    }
+    tbody tr th:last-of-type{
+        border-right-width:2px;
+    }
 }
 
 /**
  * Striped tables
  */
-.striped-table tbody tr:nth-of-type(odd){
-    background-color:#ffc; /* Override this color in your theme stylesheet */
+.table--striped{
+    
+    tbody tr:nth-of-type(odd){
+        background-color:#ffc; /* Override this color in your theme stylesheet */
+    }
 }
 
 /**
  * Data table
  */
-.data-table{
+.table--data{
     font:12px/1.5 sans-serif;
 }
