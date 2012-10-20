@@ -6,6 +6,9 @@ It is a Sass based, Object Oriented framework that is full of objects and
 abstractions. inuit.css provides little-to-no design which means no undoing
 things, no deleting CSS and no adhering to other peoples’ design decisions.
 
+inuit.css is built on a [BEM](http://bem.info/)-style naming convention and
+honed based on [work done by Nicolas Gallagher](https://gist.github.com/1309546).
+
 inuit.css is ideally suited to designers who want to focus on the creative and
 not code, and developers who understand the need for abstraction and an OO
 approach.
