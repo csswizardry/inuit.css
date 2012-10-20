@@ -70,13 +70,14 @@
 
 
 /**
- * Give nav links a big, blocky hit area. Extends `.nav`, e.g.:
+ * Give nav links a big, blocky hit area. Extends `.nav` and needs whitespace
+ * caused by `inline-block` elements needs collapsing e.g.:
  * 
    <ul class="nav  nav--block">
-       <li><a href=#>Home</a></li>
-       <li><a href=#>About</a></li>
-       <li><a href=#>Portfolio</a></li>
-       <li><a href=#>Contact</a></li>
+       <li><a href=#>Home</a></li><!--
+    --><li><a href=#>About</a></li><!--
+    --><li><a href=#>Portfolio</a></li><!--
+    --><li><a href=#>Contact</a></li>
    </ul>
  * 
  */
