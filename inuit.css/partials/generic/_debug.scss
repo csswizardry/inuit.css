@@ -5,24 +5,27 @@
  * Enable this stylesheet to visually detect any improperly nested or
  * potentially invalid markup, or any potentially inaccessible code.
  * 
- * Red      ==      definite error
- * Yellow   ==      double-check
- * Green    ==      should be fine
+ * Red          ==      definite error
+ * Yellow       ==      double-check
+ * None         ==      should be fine
+ * 
+ * Please note that this method of checking markup quality should not be relied
+ * upon entirely. Validate your markup!
  */
 
 
 /**
  * Images require `alt` attributes, empty `alt`s are fine but should be
- * double-checked, no `alt` are bad and are flagged red.
+ * double-checked, no `alt` is bad and is flagged red.
  */
 img{
     outline:5px solid red;
 }
 img[alt]{
-    outline-color:green;
+    outline:none;
 }
 img[alt=""]{
-    outline-color:yellow;
+    outline:5px solid yellow;
 }
 
 
@@ -34,7 +37,7 @@ a{
     outline:5px solid yellow;
 }
 a[title]{
-    outline-color:green;
+    outline:none;
 }
 
 
@@ -43,7 +46,7 @@ a[title]{
  */
 a[href="#"],
 a[href*="javascript"]{
-    outline-color:yellow;
+    outline:5px solid yellow;
 }
 
 
@@ -51,7 +54,7 @@ a[href*="javascript"]{
  * The `target` attribute ain’t too nice…
  */
 a[target]{
-    outline-color:yellow;
+    outline:5px solid yellow;
 }
 
 
@@ -73,7 +76,7 @@ th{
     outline:5px solid yellow;
 }
 th[scope]{
-    outline-color:green;
+    outline:none;
 }
 
 
@@ -84,7 +87,7 @@ form{
     outline:5px solid red;
 }
 form[action]{
-    outline-color:green;
+    outline:none;
 }
 
 /**
@@ -97,16 +100,16 @@ input{
     outline:5px solid red;
 }
 input[type]{
-    outline-color:green;
+    outline:none;
 }
 textarea[rows][cols]{
-    outline-color:green;
+    outline:none;
 }
 input[type=submit]{
     outline:5px solid red;
 }
 input[type=submit][value]{
-    outline-color:green;
+    outline:none;
 }
 
 
@@ -123,4 +126,13 @@ input[type=submit][value]{
  */
 [id]{
 	outline:5px solid yellow;
+}
+
+
+/**
+ * Are you using the grid system correctly?
+ */
+.gw > :not(.g),
+.grid-wrapper > :not(.grid){
+	outline:5px solid red;
 }
