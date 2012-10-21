@@ -1,0 +1,126 @@
+/*------------------------------------*\
+    $DEBUG
+\*------------------------------------*/
+/**
+ * Enable this stylesheet to visually detect any improperly nested or
+ * potentially invalid markup, or any potentially inaccessible code.
+ * 
+ * Red      ==      definite error
+ * Yellow   ==      double-check
+ * Green    ==      should be fine
+ */
+
+
+/**
+ * Images require `alt` attributes, empty `alt`s are fine but should be
+ * double-checked, no `alt` are bad and are flagged red.
+ */
+img{
+    outline:5px solid red;
+}
+img[alt]{
+    outline-color:green;
+}
+img[alt=""]{
+    outline-color:yellow;
+}
+
+
+/**
+ * Links sometimes, though not always, benefit from `title` attributes. Links
+ * without are never inavlid but it’s a good idea to check.
+ */
+a{
+    outline:5px solid yellow;
+}
+a[title]{
+    outline-color:green;
+}
+
+
+/**
+ * Double-check any links whose `href` is something questionable.
+ */
+a[href="#"],
+a[href*="javascript"]{
+    outline-color:yellow;
+}
+
+
+/**
+ * The `target` attribute ain’t too nice…
+ */
+a[target]{
+    outline-color:yellow;
+}
+
+
+/**
+ * Ensure any lists only contain `li`s as children.
+ */
+ul,
+ol{
+    > *:not(li){
+        outline:5px solid red;
+    }
+}
+
+
+/**
+ * It’s always nice to give `th`s `scope` attributes.
+ */
+th{
+    outline:5px solid yellow;
+}
+th[scope]{
+    outline-color:green;
+}
+
+
+/**
+ * Forms require `action` attributes
+ */
+form{
+    outline:5px solid red;
+}
+form[action]{
+    outline-color:green;
+}
+
+/**
+ * Various form-field types have required attributes. `input`s need `type`
+ * attributes, `textarea`s need `rows` and `cols` attributes and submit buttons
+ * need a `value` attribute.
+ */
+textarea,
+input{
+    outline:5px solid red;
+}
+input[type]{
+    outline-color:green;
+}
+textarea[rows][cols]{
+    outline-color:green;
+}
+input[type=submit]{
+    outline:5px solid red;
+}
+input[type=submit][value]{
+    outline-color:green;
+}
+
+
+/**
+ * Avoid inline styles where possible.
+ */
+[style]{
+	outline:5px solid yellow;
+}
+
+
+/**
+ * You should avoid using IDs in CSS, is this doing any styling?
+ */
+[id]{
+	outline:5px solid yellow;
+}
