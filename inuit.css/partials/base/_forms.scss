@@ -150,3 +150,15 @@ label,
     display:inline-block;
     font:inherit;
 }
+
+
+/**
+ * Extra help text displayed when a field is in focus.
+ */
+/*small*/.extra-help{
+    display:none;
+}
+.text-input:active + .extra-help,
+.text-input:focus + .extra-help{
+    display:inline-block
+}
