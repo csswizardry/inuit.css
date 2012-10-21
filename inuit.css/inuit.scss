@@ -95,6 +95,7 @@
  * ICON-TEXT...........Icon and text couplings
  * BUTTONS.............
  * LOZENGES............Basic lozenge styles
+ * GREYBOX.............Wireframing styles
  * 
  * BRAND...............Helper class to apply brand treatment to elements
  * HELPER..............A series of helper classes to use arbitrarily
@@ -154,6 +155,8 @@
 
 /**
  * Objects and abstractions
+ * 
+ * Single-line comment (//) out any objects you do not need in your project.
  */
 @import "partials/objects/grids";
 @import "partials/objects/flexbox";
@@ -172,6 +175,7 @@
 @import "partials/objects/icon-text";
 @import "partials/objects/buttons";
 @import "partials/objects/lozenges";
+@import "partials/objects/greybox";
 
 
 /**
