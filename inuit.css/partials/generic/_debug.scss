@@ -90,6 +90,7 @@ form[action]{
     outline:none;
 }
 
+
 /**
  * Various form-field types have required attributes. `input`s need `type`
  * attributes, `textarea`s need `rows` and `cols` attributes and submit buttons
@@ -122,7 +123,7 @@ input[type=submit][value]{
 
 
 /**
- * You should avoid using IDs in CSS, is this doing any styling?
+ * You should avoid using IDs for CSS, is this doing any styling?
  */
 [id]{
 	outline:5px solid yellow;
