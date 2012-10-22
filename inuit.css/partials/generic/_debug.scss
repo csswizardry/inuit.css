@@ -90,6 +90,22 @@ th[scope]{
 
 
 /**
+ * `tr`s as children of `table`s ain’t great, did you need a `thead`/`tbody`?
+ */
+table > tr{
+    outline:5px solid yellow;
+}
+
+
+/**
+ * `tfoot` needs to come *before* `tbody`.
+ */
+tbody + tfoot{
+    outline:5px solid yellow;
+}
+
+
+/**
  * Forms require `action` attributes
  */
 form{
