@@ -69,8 +69,8 @@ to a minified version with:
 That’s it, your project is now set up on inuit.css.
 
 To begin adding your styles on top of inuit.css just begin including things in
-`[your-project].scss` after you’ve called in your variables and the inuit.css
-framework.
+[`[your-project].scss`](https://github.com/csswizardry/inuit.css/blob/master/your-project.scss#L22)
+_after_ you’ve called in your variables and the inuit.css framework.
 
 If there are any  objects and abstractions you _don’t_ use in your project, it
 is advisable that you comment out their inclusion in
