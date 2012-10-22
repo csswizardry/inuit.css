@@ -9,6 +9,13 @@
 
 
 /**
+ * Debug mode will visually highlight any potential markup/accessibility quirks
+ * in the browser. Set to `true` or `false`.
+ */
+$debugMode:         false;
+
+
+/**
  * Base stuff
  */
 $base-font-size:    16!default;

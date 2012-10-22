@@ -1,3 +1,4 @@
+@if $debugMode == true{
 /*------------------------------------*\
     $DEBUG
 \*------------------------------------*/
@@ -145,3 +146,5 @@ input[type=submit][value]{
 .grid-wrapper > :not(.grid){
 	outline:5px solid red;
 }
+
+}/* endif */
