@@ -68,7 +68,7 @@ to a minified version with:
 
 ## Footprint
 
-**inuit.css is tiny.** The full framework—_including_ debug mode—once minified
+**inuit.css is tiny.** The full framework – _including_ debug mode – once minified
 and gzipped weighs **less than 3.6kB**
 
 It is essential to **compile to a minified file** because inuit.css is packed
