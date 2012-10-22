@@ -31,6 +31,8 @@
  * Demo: jsfiddle.net/inuitcss/CLYUC
  * 
  */
+
+
 /**
  * Grid wrapper
  * 
@@ -53,8 +55,8 @@
 
 /**
  * Reverse grid order
- *
-   <div class="gw rev">
+ * 
+   <div class="gw  gw--rev">
        
        <div class="g  one-third">
            <p>Appears on the right</p>
@@ -65,11 +67,11 @@
        </div>
        
    </div>
- *
+ * 
  */
-.rev .g,
-.rev .grid {
-    float: right;
+.gw--rev .g,
+.grid-wrapper--rev .grid{
+    float:right;
 }
 
 
