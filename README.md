@@ -66,6 +66,39 @@ to a minified version with:
 
 …where `[your-project]` is the name you have chosen for your build.
 
+That’s it, your project is now set up on inuit.css.
+
+To begin adding your styles on top of inuit.css just begin including things in
+`[your-project].scss` after you’ve called in your variables and the inuit.css
+framework.
+
+If there are any  objects and abstractions you _don’t_ use in your project, it
+is advisable that you comment out their inclusion in
+[`inuit.scss`](https://github.com/csswizardry/inuit.css/blob/master/inuit.css/inuit.scss).
+For example, if your project doesn’t require any pagination, text columns or
+flyouts, you’d have:
+
+    @import "partials/objects/grids";
+    @import "partials/objects/flexbox";
+    // @import "partials/objects/columns";
+    @import "partials/objects/nav";
+    // @import "partials/objects/pagination";
+    @import "partials/objects/media";
+    @import "partials/objects/island";
+    @import "partials/objects/block-list";
+    @import "partials/objects/matrix";
+    @import "partials/objects/split";
+    @import "partials/objects/this-or-this";
+    @import "partials/objects/complex-link";
+    // @import "partials/objects/flyout";
+    @import "partials/objects/sprite";
+    @import "partials/objects/icon-text";
+    @import "partials/objects/buttons";
+    @import "partials/objects/lozenges";
+    @import "partials/objects/greybox";
+
+This ensures that you aren’t packaging more than you need to.
+
 ## Footprint
 
 **inuit.css is tiny.** The full framework – _including_ debug mode – once minified
