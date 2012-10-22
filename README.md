@@ -66,10 +66,14 @@ to a minified version with:
 
 …where `[your-project]` is the name you have chosen for your build.
 
-It is important to **compile to a minified file** because inuit.css is packed
+## Footprint
+
+**inuit.css is tiny.** The full framework—_including_ debug mode—once minified
+and gzipped weighs **less than 3.6kB**
+
+It is essential to **compile to a minified file** because inuit.css is packed
 full of comments and whitespace; so much so that it would be detrimental to
-your website’s performance to serve the unminified version. The current version
-of inuit.css, once minified and gzipped, weighs in at **just 3kB**.
+your website’s performance to serve the unminified version.
 
 ## Documentation
 
