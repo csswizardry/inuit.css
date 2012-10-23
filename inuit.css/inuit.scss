@@ -83,6 +83,7 @@
  * COLUMNS.............CSS3 columns
  * NAV.................A simple abstraction to put a list in horizontal nav mode
  * PAGINATION..........Very stripped back, basic paginator
+ * BREADCRUMB..........Simple breadcrumb trail object
  * MEDIA...............Media object
  * ISLAND..............Boxed off content
  * BLOCK-LIST..........Blocky lists of content
@@ -164,6 +165,7 @@
 @import "partials/objects/columns";
 @import "partials/objects/nav";
 @import "partials/objects/pagination";
+@import "partials/objects/breadcrumb";
 @import "partials/objects/media";
 @import "partials/objects/island";
 @import "partials/objects/block-list";
