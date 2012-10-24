@@ -98,6 +98,7 @@
  * LOZENGES............Basic lozenge styles
  * GREYBOX.............Wireframing styles
  * 
+ * WIDTHS..............Width classes for use alongside the grid system etc.
  * BRAND...............Helper class to apply brand treatment to elements
  * HELPER..............A series of helper classes to use arbitrarily
  * DEBUG...............Enable to add visual flags for debugging purposes
@@ -184,6 +185,7 @@
 /**
  * Style trumps; helper and brand classes
  */
+@import "partials/generic/widths";
 @import "partials/generic/brand";
 @import "partials/generic/helper";
 @import "partials/generic/debug";
