@@ -79,6 +79,7 @@
  * FORMS...............
  * 
  * GRIDS...............Fluid, proportional and nestable grids
+ * IE7-GRIDS...........Make the grids work in old IE
  * FLEXBOX.............Crudely emulate flexbox
  * COLUMNS.............CSS3 columns
  * NAV.................A simple abstraction to put a list in horizontal nav mode
@@ -162,6 +163,7 @@
  * Single-line comment (//) out any objects you do not need in your project.
  */
 @import "partials/objects/grids";
+@import "partials/objects/grids-ie7";
 @import "partials/objects/flexbox";
 @import "partials/objects/columns";
 @import "partials/objects/nav";
