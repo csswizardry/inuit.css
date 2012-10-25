@@ -25,6 +25,8 @@
    
    <!--[if lte IE 7]></div><![endif]-->
  * 
+ * Demo: jsfiddle.net/inuitcss/9Euvj
+ * 
  */
 .ie7-grid{
     overflow:hidden;
@@ -40,6 +42,6 @@
         }
             .ie7-grid .g__inner,
             .ie7-grid .grid__inner{
-                padding-right:-$half-spacing-unit +px;
-                padding-left: -$half-spacing-unit +px;
+                padding-right:$half-spacing-unit +px;
+                padding-left: $half-spacing-unit +px;
             }
