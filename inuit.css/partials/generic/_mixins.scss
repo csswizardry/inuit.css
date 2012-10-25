@@ -68,3 +68,18 @@
         @content;
     }
 }
+
+
+/**
+ * Force overly long spans of text to truncate, e.g.:
+ * 
+   `@include truncate(100%);`
+ * 
+ * Where `$truncation-boundary` is a united measurement.
+ */
+@mixin truncate($truncation-boundary){
+    max-width:$truncation-boundary;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
