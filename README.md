@@ -154,7 +154,7 @@ been possible without inspiration and work from an array of other people.
 
 * **[Nicole Sullivan](https://twitter.com/stubbornella)** for her work on OOCSS
 * **[Jonathan Snook](https://twitter.com/snookca)** for his work on SMACSS
-* **[Nicolas Gallagher](https://twitter.com/necolas)** for his work on various
+* **[Nicolas Gallagher](https://twitter.com/necolas)** for his work on numerous
   CSS things
 * **[Bryan James](https://twitter.com/WengersToyBus)** for the inuit.css logo
 
