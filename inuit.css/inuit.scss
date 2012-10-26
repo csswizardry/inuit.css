@@ -83,6 +83,7 @@
  * FLEXBOX.............Crudely emulate flexbox
  * COLUMNS.............CSS3 columns
  * NAV.................A simple abstraction to put a list in horizontal nav mode
+ * OPTIONS.............Grouped nav items
  * PAGINATION..........Very stripped back, basic paginator
  * BREADCRUMB..........Simple breadcrumb trail object
  * MEDIA...............Media object
@@ -167,6 +168,7 @@
 @import "partials/objects/flexbox";
 @import "partials/objects/columns";
 @import "partials/objects/nav";
+@import "partials/objects/options";
 @import "partials/objects/pagination";
 @import "partials/objects/breadcrumb";
 @import "partials/objects/media";
