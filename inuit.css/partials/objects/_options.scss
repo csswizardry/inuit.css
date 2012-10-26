@@ -20,15 +20,18 @@
     @extend .nav--block;
 
     > li{
-        border:0 solid #ccc; /* Extend in your theme stylesheet */
-        border-width:1px;
-        border-left-width:0;
 
-        &:first-child{
+        > a{
+            border:0 solid #ccc; /* Extend in your theme stylesheet */
+            border-width:1px;
+            border-left-width:0;
+        }
+
+        &:first-child > a{
             border-left-width:1px;
             @include vendor(border-radius, $brand-round +px 0 0 $brand-round +px);
         }
-        &:last-child{
+        &:last-child > a{
             @include vendor(border-radius, 0 $brand-round +px $brand-round +px 0);
         }
     }
