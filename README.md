@@ -78,24 +78,24 @@ is advisable that you comment out their inclusion in
 For example, if your project doesn’t require any pagination, text columns or
 flyouts, you’d have:
 
-    @import "partials/objects/grids";
-    @import "partials/objects/flexbox";
+       @import "partials/objects/grids";
+       @import "partials/objects/flexbox";
     // @import "partials/objects/columns";
-    @import "partials/objects/nav";
+       @import "partials/objects/nav";
     // @import "partials/objects/pagination";
-    @import "partials/objects/media";
-    @import "partials/objects/island";
-    @import "partials/objects/block-list";
-    @import "partials/objects/matrix";
-    @import "partials/objects/split";
-    @import "partials/objects/this-or-this";
-    @import "partials/objects/complex-link";
+       @import "partials/objects/media";
+       @import "partials/objects/island";
+       @import "partials/objects/block-list";
+       @import "partials/objects/matrix";
+       @import "partials/objects/split";
+       @import "partials/objects/this-or-this";
+       @import "partials/objects/complex-link";
     // @import "partials/objects/flyout";
-    @import "partials/objects/sprite";
-    @import "partials/objects/icon-text";
-    @import "partials/objects/buttons";
-    @import "partials/objects/lozenges";
-    @import "partials/objects/greybox";
+       @import "partials/objects/sprite";
+       @import "partials/objects/icon-text";
+       @import "partials/objects/buttons";
+       @import "partials/objects/lozenges";
+       @import "partials/objects/greybox";
 
 This ensures that you aren’t packaging more than you need to.
 
