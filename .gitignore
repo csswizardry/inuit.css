@@ -1,8 +1,11 @@
+# The usual...
 .DS_Store
 .sass-cache/
-# We don’t want to bundle any compiled CSS
+
+# We don’t want to bundle any compiled CSS...
 *.css
-# But still track inuit.css
+# ...but still track inuit.css
 !inuit.css/
-# Ignore little test/tinkering file
+
+# Ignore my little test/tinkering file
 inuit.css.html
