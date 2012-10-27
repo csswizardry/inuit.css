@@ -122,6 +122,11 @@ Although there are no docs as such, there is [a dedicated inuit.css jsFiddle
 account](http://jsfiddle.net/user/inuitcss/fiddles/) which houses plenty of
 demos of various aspects of the framework.
 
+## Looking for a little LESS?
+
+[Peter Wilson](http://twitter.com/pwcc) is maintaining a LESS port of inuit.css:
+check the [GitHub repo](https://github.com/peterwilsoncc/inuit.css).
+
 ## Test-drive
 
 If you would like to try inuit.css out before you download anything there is a
