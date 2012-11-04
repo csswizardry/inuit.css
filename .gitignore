@@ -1,6 +1,7 @@
 # The usual...
 .DS_Store
 .sass-cache/
+*.swp
 
 # We don’t want to bundle any compiled CSS...
 *.css
