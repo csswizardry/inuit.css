@@ -39,7 +39,6 @@
         .stat__title{
             @include vendor(box-ordinal-group, 2);
         }
-
         .stat__value{
             margin-left:0;
             @include vendor(box-ordinal-group, 1);
