@@ -15,7 +15,6 @@ blockquote,p,address,
 table,
 fieldset,figure,
 pre,
-hr,
 /**
  * Objects and abstractions
  */
@@ -39,6 +38,16 @@ hr,
 .landmark{
     margin-bottom:2 * $base-spacing-unit +px;
     margin-bottom:2 * $base-spacing-unit / $base-font-size +rem;
+}
+
+
+/**
+ * `hr` elements only take up a few pixels, so we need to give them special
+ * treatment regarding vertical rhythm.
+ */
+hr{
+    margin-bottom:($base-spacing-unit - 2) +px;
+    margin-bottom:($base-spacing-unit - 2) / $base-font-size +rem;
 }
 
 

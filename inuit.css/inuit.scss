@@ -98,6 +98,7 @@
  * ICON-TEXT...........Icon and text couplings
  * BUTTONS.............
  * LOZENGES............Basic lozenge styles
+ * RULES...............Horizontal rules
  * GREYBOX.............Wireframing styles
  * 
  * WIDTHS..............Width classes for use alongside the grid system etc.
@@ -184,6 +185,7 @@
    @import "partials/objects/icon-text";
    @import "partials/objects/buttons";
    @import "partials/objects/lozenges";
+   @import "partials/objects/rules";
    @import "partials/objects/greybox";
    @import "partials/objects/stats";
 
