@@ -9,10 +9,21 @@
 
 
 /**
+ * Debug mode will visually highlight any potential markup/accessibility quirks
+ * in the browser. Set to `true` or `false`.
+ */
+$debug-mode:        false;
+
+
+/**
  * Base stuff
  */
 $base-font-size:    16!default;
 $base-line-height:  24!default;
+/**
+ * How big would you like round corners to be by default?
+ */
+$brand-round:        4!default;
 
 
 /**

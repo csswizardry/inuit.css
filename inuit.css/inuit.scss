@@ -79,10 +79,13 @@
  * FORMS...............
  * 
  * GRIDS...............Fluid, proportional and nestable grids
+ * IE7-GRIDS...........Make the grids work in old IE
  * FLEXBOX.............Crudely emulate flexbox
  * COLUMNS.............CSS3 columns
  * NAV.................A simple abstraction to put a list in horizontal nav mode
+ * OPTIONS.............Grouped nav items
  * PAGINATION..........Very stripped back, basic paginator
+ * BREADCRUMB..........Simple breadcrumb trail object
  * MEDIA...............Media object
  * ISLAND..............Boxed off content
  * BLOCK-LIST..........Blocky lists of content
@@ -97,6 +100,7 @@
  * LOZENGES............Basic lozenge styles
  * GREYBOX.............Wireframing styles
  * 
+ * WIDTHS..............Width classes for use alongside the grid system etc.
  * BRAND...............Helper class to apply brand treatment to elements
  * HELPER..............A series of helper classes to use arbitrarily
  * DEBUG...............Enable to add visual flags for debugging purposes
@@ -159,29 +163,35 @@
  * 
  * Single-line comment (//) out any objects you do not need in your project.
  */
-@import "partials/objects/grids";
-@import "partials/objects/flexbox";
-@import "partials/objects/columns";
-@import "partials/objects/nav";
-@import "partials/objects/pagination";
-@import "partials/objects/media";
-@import "partials/objects/island";
-@import "partials/objects/block-list";
-@import "partials/objects/matrix";
-@import "partials/objects/split";
-@import "partials/objects/this-or-this";
-@import "partials/objects/complex-link";
-@import "partials/objects/flyout";
-@import "partials/objects/sprite";
-@import "partials/objects/icon-text";
-@import "partials/objects/buttons";
-@import "partials/objects/lozenges";
-@import "partials/objects/greybox";
+   @import "partials/objects/grids";
+   @import "partials/objects/grids-ie7";
+   @import "partials/objects/flexbox";
+   @import "partials/objects/columns";
+   @import "partials/objects/nav";
+   @import "partials/objects/options";
+   @import "partials/objects/pagination";
+   @import "partials/objects/breadcrumb";
+   @import "partials/objects/media";
+   @import "partials/objects/island";
+   @import "partials/objects/block-list";
+   @import "partials/objects/matrix";
+   @import "partials/objects/split";
+// @import "example/unnecessary/file";
+   @import "partials/objects/this-or-this";
+   @import "partials/objects/complex-link";
+   @import "partials/objects/flyout";
+   @import "partials/objects/sprite";
+   @import "partials/objects/icon-text";
+   @import "partials/objects/buttons";
+   @import "partials/objects/lozenges";
+   @import "partials/objects/greybox";
+   @import "partials/objects/stats";
 
 
 /**
  * Style trumps; helper and brand classes
  */
+@import "partials/generic/widths";
 @import "partials/generic/brand";
 @import "partials/generic/helper";
 @import "partials/generic/debug";

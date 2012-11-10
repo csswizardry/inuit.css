@@ -66,10 +66,47 @@ to a minified version with:
 
 …where `[your-project]` is the name you have chosen for your build.
 
-It is important to **compile to a minified file** because inuit.css is packed
+That’s it, your project is now set up on inuit.css.
+
+To begin adding your styles on top of inuit.css just begin including things in
+[`[your-project].scss`](https://github.com/csswizardry/inuit.css/blob/master/your-project.scss#L22)
+_after_ you’ve called in your variables and the inuit.css framework.
+
+If there are any  objects and abstractions you _don’t_ use in your project, it
+is advisable that you comment out their inclusion in
+[`inuit.scss`](https://github.com/csswizardry/inuit.css/blob/master/inuit.css/inuit.scss).
+For example, if your project doesn’t require any pagination, text columns or
+flyouts, you’d have:
+
+       @import "partials/objects/grids";
+       @import "partials/objects/flexbox";
+    // @import "partials/objects/columns";
+       @import "partials/objects/nav";
+    // @import "partials/objects/pagination";
+       @import "partials/objects/media";
+       @import "partials/objects/island";
+       @import "partials/objects/block-list";
+       @import "partials/objects/matrix";
+       @import "partials/objects/split";
+       @import "partials/objects/this-or-this";
+       @import "partials/objects/complex-link";
+    // @import "partials/objects/flyout";
+       @import "partials/objects/sprite";
+       @import "partials/objects/icon-text";
+       @import "partials/objects/buttons";
+       @import "partials/objects/lozenges";
+       @import "partials/objects/greybox";
+
+This ensures that you aren’t packaging more than you need to.
+
+## Footprint
+
+**inuit.css is tiny.** The full framework – _including_ debug mode – once minified
+and gzipped weighs **less than 3.6kB**
+
+It is essential to **compile to a minified file** because inuit.css is packed
 full of comments and whitespace; so much so that it would be detrimental to
-your website’s performance to serve the unminified version. The current version
-of inuit.css, once minified and gzipped, weighs in at **just 3kB**.
+your website’s performance to serve the unminified version.
 
 ## Documentation
 
@@ -85,6 +122,11 @@ Although there are no docs as such, there is [a dedicated inuit.css jsFiddle
 account](http://jsfiddle.net/user/inuitcss/fiddles/) which houses plenty of
 demos of various aspects of the framework.
 
+## Looking for a little LESS?
+
+[Peter Wilson](http://twitter.com/pwcc) is maintaining a LESS port of inuit.css:
+check the [GitHub repo](https://github.com/peterwilsoncc/inuit.css).
+
 ## Test-drive
 
 If you would like to try inuit.css out before you download anything there is a
@@ -98,6 +140,7 @@ for documentation.
 * [BSkyB](http://en.wikipedia.org/wiki/BSkyB)
 * [pr.ofile.me](http://pr.ofile.me)
 * [Lukas Bestle](http://lu-x.me)
+* [Matthew Tyas](http://matthewtyas.com/)
 
 ### Using inuit.css?
 
@@ -116,7 +159,7 @@ been possible without inspiration and work from an array of other people.
 
 * **[Nicole Sullivan](https://twitter.com/stubbornella)** for her work on OOCSS
 * **[Jonathan Snook](https://twitter.com/snookca)** for his work on SMACSS
-* **[Nicolas Gallagher](https://twitter.com/necolas)** for his work on various
+* **[Nicolas Gallagher](https://twitter.com/necolas)** for his work on numerous
   CSS things
 * **[Bryan James](https://twitter.com/WengersToyBus)** for the inuit.css logo
 

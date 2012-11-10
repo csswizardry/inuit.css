@@ -7,5 +7,5 @@
  */
 .lede,
 .lead{
-    font-size:1.125em;
+    @include font-size($base-font-size * 1.125);
 }

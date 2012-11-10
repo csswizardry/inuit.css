@@ -1,0 +1,87 @@
+/*------------------------------------*\
+    $WIDTHS
+\*------------------------------------*/
+/**
+ * Sizes in human readable format. These are used in conjunction with other
+ * objects and abstractions found in inuit.css, most commonly the grid system
+ * and faux flexbox.
+ */
+
+/**
+ * Whole
+ */
+.one-whole          { width:100%; }
+
+/**
+ * Halves
+ */
+.one-half           { width:50%; }
+
+/**
+ * Thirds
+ */
+.one-third          { width:33.333%; }
+.two-thirds         { width:66.666%; }
+
+/**
+ * Quarters
+ */
+  .one-quarter      { width:25%; }
+  .two-quarters     { @extend .one-half; }
+.three-quarters     { width:75%; }
+
+/**
+ * Fifths
+ */
+  .one-fifth        { width:20%; }
+  .two-fifths       { width:40%; }
+.three-fifths       { width:60%; }
+ .four-fifths       { width:80%; }
+
+/**
+ * Sixths
+ */
+  .one-sixth        { width:16.666%; }
+  .two-sixths       { @extend .one-third; }
+.three-sixths       { @extend .one-half; }
+ .four-sixths       { @extend .two-thirds; }
+ .five-sixths       { width:83.333%; }
+
+/**
+ * Eighths
+ */
+  .one-eighth       { width:12.5%; }
+  .two-eighths      { @extend .one-quarter; }
+.three-eighths      { width:37.5%; }
+ .four-eighths      { @extend .one-half; }
+ .five-eighths      { width:62.5%; }
+  .six-eighths      { @extend .three-quarters; }
+.seven-eighths      { width:87.5%; }
+
+/**
+ * Tenths
+ */
+  .one-tenth        { width:10%; }
+  .two-tenths       { @extend .one-fifth; }
+.three-tenths       { width:30%; }
+ .four-tenths       { @extend .one-fifth; }
+ .five-tenths       { @extend .one-half; }
+  .six-tenths       { @extend .three-fifths; }
+.seven-tenths       { width:70%; }
+.eight-tenths       { @extend .four-fifths; }
+ .nine-tenths       { width:90%; }
+
+/**
+ * Twelfths
+ */
+   .one-twelfth     { width:8.333%; }
+   .two-twelfths    { @extend .one-sixth; }
+ .three-twelfths    { @extend .one-quarter; }
+  .four-twelfths    { @extend .one-third; }
+  .five-twelfths    { width:41.666% }
+   .six-twelfths    { @extend .one-half; }
+ .seven-twelfths    { width:58.333%; }
+ .eight-twelfths    { @extend .two-thirds; }
+  .nine-twelfths    { @extend .three-quarters; }
+   .ten-twelfths    { @extend .five-sixths; }
+.eleven-twelfths    { width:91.666%; }

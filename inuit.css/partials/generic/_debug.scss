@@ -1,3 +1,4 @@
+@if $debug-mode == true{
 /*------------------------------------*\
     $DEBUG
 \*------------------------------------*/
@@ -12,6 +13,14 @@
  * Please note that this method of checking markup quality should not be relied
  * upon entirely. Validate your markup!
  */
+
+
+/**
+ * Are there any empty elements in your page?
+ */
+:empty{
+    outline:5px solid yellow;
+}
 
 
 /**
@@ -31,7 +40,7 @@ img[alt=""]{
 
 /**
  * Links sometimes, though not always, benefit from `title` attributes. Links
- * without are never inavlid but it’s a good idea to check.
+ * without are never invalid but it’s a good idea to check.
  */
 a{
     outline:5px solid yellow;
@@ -51,7 +60,7 @@ a[href*="javascript"]{
 
 
 /**
- * The `target` attribute ain’t too nice…
+ * The `target` attribute ain’t too nice...
  */
 a[target]{
     outline:5px solid yellow;
@@ -77,6 +86,22 @@ th{
 }
 th[scope]{
     outline:none;
+}
+
+
+/**
+ * `tr`s as children of `table`s ain’t great, did you need a `thead`/`tbody`?
+ */
+table > tr{
+    outline:5px solid yellow;
+}
+
+
+/**
+ * `tfoot` needs to come *before* `tbody`.
+ */
+tbody + tfoot{
+    outline:5px solid yellow;
 }
 
 
@@ -134,6 +159,10 @@ input[type=submit][value]{
  * Are you using the grid system correctly?
  */
 .gw > :not(.g),
-.grid-wrapper > :not(.grid){
+.grid-wrapper > :not(.grid),
+.gw--rev > :not(.g),
+.grid-wrapper--rev > :not(.grid){
 	outline:5px solid red;
 }
+
+}/* endif */

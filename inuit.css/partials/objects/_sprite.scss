@@ -51,15 +51,23 @@
     background-image:url(/path/to/your/sprite.png);
     vertical-align:middle;
     top:-1px;
-    
-    /**
-     * Kellum Method image replacement:
-     * zeldman.com/2012/03/01/replacing-the-9999px-hack-new-image-replacement
+
+    /*
+     * H5BP method image replacement:
+     * github.com/h5bp/html5-boilerplate/commit/adecc5da035d6d76b77e3fa95c6abde841073da2
      */
-    text-indent:100%;
-    white-space:nowrap;
     overflow:hidden;
+   *text-indent:-9999px;
+
+    &:before{
+        content:"";
+        display:block;
+        width:0;
+        height:100%;
+    }
 }
+
+
 .i{
     vertical-align:top;
     
