@@ -153,12 +153,22 @@ label,
 
 
 /**
- * Extra help text displayed when a field is in focus.
+ * Extra help text displayed after a field when that field is in focus, e.g.:
+ * 
+   <label for=email>Email:</label>
+   <input type=email class=text-input id=email> 
+   <small class=extra-help>.edu emails only</small>
+ * 
+ * We leave the help text in the document flow and merely set it to
+ * `visibility:hidden;`. This means that it won’t interfere with anything once
+ * it reappears.
+ * 
  */
 /*small*/.extra-help{
-    display:none;
+    display:inline-block;
+    visibility:hidden;
 }
 .text-input:active + .extra-help,
 .text-input:focus + .extra-help{
-    display:inline-block
+    visibility:visible;
 }
