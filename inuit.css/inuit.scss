@@ -99,6 +99,7 @@
  * BUTTONS.............
  * LOZENGES............Basic lozenge styles
  * RULES...............Horizontal rules
+ * STATS...............Simple stats object
  * GREYBOX.............Wireframing styles
  * 
  * WIDTHS..............Width classes for use alongside the grid system etc.
@@ -186,8 +187,8 @@
    @import "partials/objects/buttons";
    @import "partials/objects/lozenges";
    @import "partials/objects/rules";
-   @import "partials/objects/greybox";
    @import "partials/objects/stats";
+   @import "partials/objects/greybox";
 
 
 /**
