@@ -17,24 +17,28 @@
  * Demo: jsfiddle.net/inuitcss/Y2zrU
  * 
  */
-.matrix,
-    .matrix > li{
+.matrix{
+
+    &,
+    > li{
         border:0 solid #ccc; /* Override this color in your theme stylesheet */
     }
+}
 .matrix{
     list-style:none;
     margin-left:0;
     border-top-width: 1px;
     border-left-width:1px;
     @extend .cf;
-}
-    .matrix > li{
+
+     > li{
         padding:$half-spacing-unit +px;
         float:left;
         border-right-width: 1px;
         border-bottom-width:1px;
         @include vendor(box-sizing, border-box);
     }
+}
         .matrix__link{
             display:block;
             padding:$half-spacing-unit +px;
