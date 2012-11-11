@@ -11,7 +11,7 @@
  * 
  * However we will sometimes want a larger, explicity set gap:
    <a href=# class=icon-text>
-       <i class="icon-text__icon  s s--help"></i>Help &amp; support
+       <i class="icon-text__icon  s  s--help"></i>Help &amp; support
    </a>
  * 
  * Demo: jsfiddle.net/inuitcss/Q6Lbf
@@ -27,7 +27,7 @@
  * right of the text content, thus:
  *
    <a href=# class=icon-text--rev>
-       Help &amp; support<i class="icon-text__icon  s s--help"></i>
+       Help &amp; support<i class="icon-text__icon  s  s--help"></i>
    </a>
  *
  */
