@@ -4,19 +4,15 @@
 /**
  * Here we can set elements in columns of text using CSS3, e.g.:
  * 
-   <p class=text-cols-2>
+   <p class=text-cols--2>
  * 
  * Demo: jsfiddle.net/inuitcss/E26Yd
  * 
  */
-.text-cols,
-.text-cols--2,
-.text-cols--3,
-.text-cols--4,
-.text-cols--5{
+%text-cols{
     @include vendor(column-gap, $base-spacing-unit +px);
 }
-.text-cols--2    { @include vendor(column-count, 2); }
-.text-cols--3    { @include vendor(column-count, 3); }
-.text-cols--4    { @include vendor(column-count, 4); }
-.text-cols--5    { @include vendor(column-count, 5); }
+.text-cols--2    { @extend %text-cols; @include vendor(column-count, 2); }
+.text-cols--3    { @extend %text-cols; @include vendor(column-count, 3); }
+.text-cols--4    { @extend %text-cols; @include vendor(column-count, 4); }
+.text-cols--5    { @extend %text-cols; @include vendor(column-count, 5); }
