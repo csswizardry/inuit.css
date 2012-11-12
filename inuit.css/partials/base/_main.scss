@@ -2,6 +2,6 @@
     $MAIN
 \*------------------------------------*/
 html{
-    font:($base-font-size / 16 +em)/($base-line-height / $base-font-size) serif;
+    font:($base-font-size / 16 +em)/($line-height-ratio) serif;
     overflow-y:scroll;
 }
