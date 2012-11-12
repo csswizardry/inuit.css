@@ -2,25 +2,27 @@
     $LOZENGES
 \*------------------------------------*/
 /**
- * Create pill-like runs of text, e.g.:
+ * Create pill- and lozenge-like runs of text, e.g.:
  * 
-   <p>This <span class=loz>here</span> is a lozenge!</p>
+   <p>This <span class=pill>here</span> is a pill!</p>
  * 
-   <h1>This <span class=loz>here</span> is also a lozenge!</h1>
+   <p>This <span class=loz>here</span> is also a lozenge!</p>
+ * 
+ * Pills have fully rounded ends, lozenges have only their corners rounded.
  * 
  * Demo: jsfiddle.net/inuitcss/N3pGm
  * 
  */
-.loz{
+.pill{
     display:inline-block;
     /**
      * These numbers set in ems mean that, at its narrowest, a lozenge will be
-     * the same width as the 1.5 `line-height` set on the `html` element.
-     * This allows us to use the `.loz` in any `font-size` we wish.
+     * the same width as the `line-height` set on the `html` element.
+     * This allows us to use the `.loz` in almost any `font-size` we wish.
      */
-    min-width:    1.00em;
-    padding-right:0.25em;
-    padding-left: 0.25em;
+    min-width:    ($line-height-ratio * 0.666667) +em;
+    padding-right:($line-height-ratio * 0.166667) +em;
+    padding-left: ($line-height-ratio * 0.166667) +em;
               /* =1.50em */
     text-align:center;
     background-color:#ccc; /* Override this color in your theme stylesheet */
@@ -32,4 +34,9 @@
      * non-square elements whereas we just want to round the ends of an element.
      */
     @include vendor(border-radius, 100px);
+}
+
+.loz{
+    @extend .pill;
+    @include vendor(border-radius, $brand-round +px);
 }
