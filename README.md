@@ -124,6 +124,11 @@ Although there are no docs as such, there is [a dedicated inuit.css jsFiddle
 account](http://jsfiddle.net/user/inuitcss/fiddles/) which houses plenty of
 demos of various aspects of the framework.
 
+### Development
+
+You can keep up-to-date with upcoming features, suggestions and fixes by looking
+at the [inuit.css Trello board](https://trello.com/board/inuit-css/50a16487543dea585502f3d2).
+
 ## Looking for a little LESS?
 
 [Peter Wilson](http://twitter.com/pwcc) is maintaining a LESS port of inuit.css:
