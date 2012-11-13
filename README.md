@@ -64,14 +64,14 @@ of inuit.css from right here on GitHub, unpack the zip file, rename
 `your-project.scss` to whatever your project is called and then watch that file.
 
 You can watch the file by `cd`ing into the directory that houses the `.scss`
-file and running the following:
+and running the following:
 
     sass --watch [your-project].scss:[your-project].min.css --style compressed
 
 …where `[your-project]` is the name you have chosen for your build.
 
-Alternatively you can modify `watch.sh` to reflect the name of your project
-simply run:
+Alternatively you can modify [`watch.sh`](https://github.com/csswizardry/inuit.css/blob/master/watch.sh)
+to reflect the name of your project and simply run:
 
     sh watch.sh
 
