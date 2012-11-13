@@ -61,12 +61,21 @@ condensed into one powerful little framework.
 inuit.css is incredibly easy to get up and running (provided you’re all set for
 Sass). Simply [download the latest version](https://github.com/csswizardry/inuit.css/zipball/master)
 of inuit.css from right here on GitHub, unpack the zip file, rename
-`your-project.scss` to whatever your project is called and then watch that file
-to a minified version with:
+`your-project.scss` to whatever your project is called and then watch that file.
+
+You can watch the file by `cd`ing into the directory that houses the `.scss`
+file and running the following:
 
     sass --watch [your-project].scss:[your-project].min.css --style compressed
 
 …where `[your-project]` is the name you have chosen for your build.
+
+Alternatively you can modify `watch.sh` to reflect the name of your project
+simply run:
+
+    sh watch.sh
+
+…from the command line.
 
 That’s it, your project is now set up on inuit.css.
 
