@@ -7,7 +7,7 @@
  * 
  */
 /**
- * inuit.css acts as a base stylesheet which you should extend with your own
+ * inuit.scss acts as a base stylesheet which you should extend with your own
  * theme stylesheet.
  * 
  * inuit.css aims to do the heavy lifting; sorting objects and abstractions,
@@ -18,8 +18,8 @@
  * take care to read and refer to them as you build. For further support please
  * tweet at @inuitcss.
  * 
- * Owing to the amount of comments please only ever use `inuit.min.css` in
- * production. This file is purely a dev document.
+ * Owing to the amount of comments please only ever use the `--style compressed`
+ * option in the sass command for production. This file is purely a dev document.
  * 
  * The table of contents below maps to section titles of the same name, to jump
  * to any section simply run a find for $[SECTION-TITLE].
