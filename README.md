@@ -58,6 +58,8 @@ condensed into one powerful little framework.
 
 **Requires Sass 3.2**
 
+[**Watch _An introduction to inuit.css_ screencast**](http://www.youtube.com/watch?v=IkaILVOgGRA&hd=1)
+
 inuit.css is incredibly easy to get up and running (provided you’re all set for
 Sass). Simply [download the latest version](https://github.com/csswizardry/inuit.css/zipball/master)
 of inuit.css from right here on GitHub, unpack the zip file, rename
