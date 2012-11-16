@@ -3,8 +3,11 @@
 \*------------------------------------*/
 /**
  * Say no to negative hovers, as per: csswizardry.com/2011/05/on-negative-hovers
+ *
+ * Sometimes, particularly on larger projects, it is useful to scope link
+ * styling only to anchors which have `href` attributes.
  */
-a{
+a:link{
     /**
      * Set colors etc in your theme stylesheet.
      */
@@ -14,9 +17,14 @@ a{
     &:focus{
         text-decoration:underline;
     }
-    &:active,
-    &:focus{
+    &:active{
         outline:none;
+    }
+    /**
+     * Remove Chrome’s heavy-handed glow.
+     */
+    &:focus{
+        outline:thin dotted;
     }
 }
 
