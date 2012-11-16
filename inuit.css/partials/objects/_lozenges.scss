@@ -33,10 +33,10 @@
      * overly large number; `border-radius:100%;` would create an oval on
      * non-square elements whereas we just want to round the ends of an element.
      */
-    @include vendor(border-radius, 100px);
+    border-radius:100px;
 }
 
 .loz{
     @extend .pill;
-    @include vendor(border-radius, $brand-round +px);
+    border-radius:$brand-round +px;
 }
