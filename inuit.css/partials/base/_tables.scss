@@ -3,7 +3,7 @@
 \*------------------------------------*/
 /**
  * We have a lot at our disposal for making very complex table constructs, e.g.:
- * 
+ *
    <table class="table--bordered  table--striped  table--data">
        <colgroup>
            <col class=t10>
@@ -16,6 +16,7 @@
                <th colspan=3>Foo</th>
                <th>Bar</th>
            </tr>
+           <tr>
                <th>Lorem</th>
                <th>Ipsum</th>
                <th class=numerical>Dolor</th>
@@ -52,7 +53,7 @@
            </tr>
        </tbody>
    </table>
- * 
+ *
  */
 table{
     width:100%;
@@ -123,20 +124,20 @@ td{
  * Bordered tables
  */
 .table--bordered{
-    
+
     th,
     td{
         border:1px solid #ccc; /* Override this color in your theme stylesheet */
-        
+
         &:empty{
             border:none;
         }
     }
-    
+
     thead tr:last-child th{
         border-bottom-width:2px;
     }
-    
+
     tbody tr th:last-of-type{
         border-right-width:2px;
     }
@@ -147,7 +148,7 @@ td{
  * Striped tables
  */
 .table--striped{
-    
+
     tbody tr:nth-of-type(odd){
         background-color:#ffc; /* Override this color in your theme stylesheet */
     }
