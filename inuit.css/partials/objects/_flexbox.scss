@@ -36,6 +36,15 @@
     display:table;
     width:100%;
 }
+
+/**
+ * Nasty hack to circumvent Modernizr conflicts.
+ */
+html.flexbox{
+    display:block;
+    width:auto;
+}
+    
     .flexbox__item{
         display:table-cell;
         vertical-align:middle;
