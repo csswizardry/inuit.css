@@ -52,29 +52,6 @@
     @extend .cf;
 }
 
-
-/**
- * Reverse grid order
- * 
-   <div class="gw  gw--rev">
-       
-       <div class="g  one-third">
-           <p>Appears on the right</p>
-       </div>
-       
-       <div class="g  two-thirds">
-           <p>Appears on the left</p>
-       </div>
-       
-   </div>
- * 
- */
-.gw--rev .g,
-.grid-wrapper--rev .grid{
-    float:right;
-}
-
-
     /**
      * Very infrequently occuring grid wrappers as children of grid wrappers.
      */
@@ -89,9 +66,60 @@
      * 
      * Shorthand and verbose
      */
-    .g,
-    .grid{
+    .gw .g,
+    .grid-wrapper .grid{
         float:left;
         padding-left:$base-spacing-unit +px;
+        @include vendor(box-sizing, border-box);
+    }
+
+/**
+ * Reverse grid order
+ * 
+   <div class="gw  gw--rev">
+
+       <div class="g  one-third">
+           <p>Appears on the right</p>
+       </div>
+
+       <div class="g  two-thirds">
+           <p>Appears on the left</p>
+       </div>
+
+   </div>
+ * 
+ */
+.gw--rev,
+.grid-wrapper--rev{
+    /**
+     * Negative margin to negate the padding on the last grid child. 
+     */
+    margin-right:-($base-spacing-unit) +px;
+    /**
+     * The following declarations allow us to use the `.gw--rev` class on lists.
+     */
+    list-style:none;
+    margin-bottom:0;
+    @extend .cf;
+}
+
+    /**
+     * Very infrequently occuring grid wrappers as children of grid wrappers.
+     */
+    .gw--rev > .gw--rev,
+    .grid-wrapper--rev > .grid-wrapper--rev{
+        margin-right:0;
+    }
+
+
+    /**
+     * Grid
+     * 
+     * Shorthand and verbose
+     */
+    .gw--rev .g,
+    .grid-wrapper--rev .grid{
+        float:right;
+        padding-right:$base-spacing-unit +px;
         @include vendor(box-sizing, border-box);
     }
