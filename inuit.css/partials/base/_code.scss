@@ -4,9 +4,6 @@
 /**
  * Use an explicit font stack to ensure browsers render correct `line-height`.
  */
-pre,code,samp,kbd{
-    font-family:$code-face;
-}
 pre{
     overflow:auto;
 }

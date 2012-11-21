@@ -62,6 +62,7 @@
  * IMPORTS.............Begin importing the sections below
  * 
  * MIXINS..............Super-simple Sass stuff
+ * NORMALIZE...........normalize.css
  * RESET...............Set some defaults
  * CLEARFIX............
  * SHARED..............Shared declarations
@@ -79,7 +80,6 @@
  * FORMS...............
  * 
  * GRIDS...............Fluid, proportional and nestable grids
- * IE7-GRIDS...........Make the grids work in old IE
  * FLEXBOX.............Crudely emulate flexbox
  * COLUMNS.............CSS3 columns
  * NAV.................A simple abstraction to put a list in horizontal nav mode
@@ -141,6 +141,7 @@
  * Generic utility styles etc.
  */
 @import "partials/generic/mixins";
+@import "partials/generic/normalize";
 @import "partials/generic/reset";
 @import "partials/generic/clearfix";
 @import "partials/generic/shared";
@@ -168,7 +169,6 @@
  * Single-line comment (//) out any objects you do not need in your project.
  */
    @import "partials/objects/grids";
-   @import "partials/objects/grids-ie7";
    @import "partials/objects/flexbox";
    @import "partials/objects/columns";
    @import "partials/objects/nav";

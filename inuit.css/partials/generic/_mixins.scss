@@ -20,7 +20,7 @@
 /**
  * Create vendor-prefixed CSS in one go, e.g.
  * 
-   `@include vendor(box-sizing, border-box);`
+   `@include vendor(border-radius, 4px);`
  * 
  */
 @mixin vendor($property, $value){
