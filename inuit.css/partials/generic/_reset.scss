@@ -5,74 +5,60 @@
  * A more considered reset; more of a restart... 
  * As per: csswizardry.com/2011/10/reset-restarted
  */
-body,
+
+@if $global-border-box == true{
+    /**
+    * Let’s make the box model all nice, shall we…?
+    */
+    *{
+        &,
+        &:before,
+        &:after{
+            @include vendor(box-sizing, border-box);
+        }
+    }
+}
+
+/**
+ * The usual...
+ */
 h1,h2,h3,h4,h5,h6,
 p,blockquote,pre,
 dl,dd,ol,ul,
 form,fieldset,legend,
 table,th,td,caption,
-figure,
 hr{
     margin:0;
     padding:0;
 }
-article,aside,details,figcaption,figure,footer,
-header,hgroup,menu,nav,section{
-    display:block;
-}
-table{
-    border-collapse:collapse;
-    border-spacing:0;
-}
-strong,b,mark{
-    font-weight:bold;
-    font-style:inherit;
-}
-em,i,cite,q,address,dfn,var{
-    font-style:italic;
-    font-weight:inherit;
-}
+
+/**
+ * Give a help cursor to elements that give extra info on `:hover`.
+ */
 abbr[title],dfn[title]{
     cursor:help;
-    border-bottom:1px dotted;
 }
-ins{
-    border-bottom:1px solid;
-}
+
+/**
+ * Remove underlines from potentially troublesome elements.
+ */
 a,u,ins{
     text-decoration:none;
 }
-del,s{
-    text-decoration:line-through;
-}
-img{
-    border:none;
-    font-style:italic;
-}
-input,
-select,option,optgroup,
-textarea{
-    font:inherit;
-}
-
 
 /**
- * Normalize `sup` and `sub` elements.
+ * Apply faux underline via `border-bottom`.
  */
-sub,
-sup{
-    font-size:75%;
-    line-height:0;
-    position:relative;
-    vertical-align:baseline;
-}
-sup{
-    top:-0.5em;
-}
-sub{
-    bottom:-0.25em;
+ins{
+    border-bottom:1px solid;
 }
 
+/**
+ * So that `alt` text is visually offset if images don’t load.
+ */
+img{
+    font-style:italic;
+}
 
 /**
  * Give form elements some cursor interactions...

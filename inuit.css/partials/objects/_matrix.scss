@@ -36,7 +36,9 @@
         float:left;
         border-right-width: 1px;
         border-bottom-width:1px;
-        @include vendor(box-sizing, border-box);
+        @if $global-border-box == false{
+            @include vendor(box-sizing, border-box);
+        }
     }
 }
         .matrix__link{

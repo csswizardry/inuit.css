@@ -17,15 +17,6 @@ a:link{
     &:focus{
         text-decoration:underline;
     }
-    &:active{
-        outline:none;
-    }
-    /**
-     * Remove Chrome’s heavy-handed glow.
-     */
-    &:focus{
-        outline:thin dotted;
-    }
 }
 
 
