@@ -7,13 +7,17 @@
  * styling, e.g. if you need to float `.main-nav` left then add `float:left;` to
  * that ruleset as opposed to adding the `.fl` class to the markup.
  */
-.fr { float:right; }
-.fl { float:left; }
+.fr
+.float-right{ float:right; }
 
-.text-center,
-.text-centre{
-    text-align:center;
-}
+.fl
+.float-left{ float:left; }
+
+.ac,
+.align-center{ text-align:center; }
+
+.ar,
+.align-right{ text-align:right; }
 
 
 /**
