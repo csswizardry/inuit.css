@@ -94,6 +94,7 @@
  * THIS-OR-THIS........Options object
  * COMPLEX-LINK........
  * FLYOUT..............Flyout-on-hover object
+ * ARROWS..............CSS arrows
  * SPRITE..............Generic spriting element
  * ICON-TEXT...........Icon and text couplings
  * BUTTONS.............
@@ -184,6 +185,7 @@
    @import "partials/objects/this-or-this";
    @import "partials/objects/complex-link";
    @import "partials/objects/flyout";
+   @import "partials/objects/arrows";
    @import "partials/objects/sprite";
    @import "partials/objects/icon-text";
    @import "partials/objects/buttons";
