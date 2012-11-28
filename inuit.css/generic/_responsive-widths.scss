@@ -14,7 +14,7 @@
  * at ‘mobile’ sizes.
  */
 
-@include media-query(mobile-only){
+@include media-query($mobile-only){
     
     .m-one-whole          { width:100%; }
 
@@ -70,7 +70,7 @@
     
 }/* end mobile-only */
 
-@include media-query(tablet-only){
+@include media-query($tablet-only){
     
     .t-one-whole          { width:100%; }
 
@@ -126,7 +126,7 @@
     
 }/* end tablet-only */
 
-@include media-query(all-handheld){
+@include media-query($all-handheld){
     
     .h-one-whole          { width:100%; }
 
