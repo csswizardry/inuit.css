@@ -239,8 +239,13 @@
  * responsiveness. It’s flexible enough to allow you to set your own breakpoints
  * but solid enough to be frameworkified.
  * 
- * We define some broad media query mixins in our vars file that are picked up
- * here for use in a simple media query mixin.
+ * We define some broad breakpoints  in our vars file that are picked up here
+ * for use in a simple media query mixin. Our options are:
+ *
+ * mobile-only
+ * tablet-only
+ * all-handheld
+ * desktop-only
  * 
  * `@include media-query(mobile-only){ [styles here] }`
  * 
