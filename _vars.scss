@@ -37,11 +37,15 @@ $brand-round:        4!default;
 
 /**
  * Responsiveness?
- * Tell inuit.css when breakpoints start, in pixels.
+ * Tell inuit.css when breakpoints start, end, or both, in whichever unit 
+ * you want.
  */
 $responsive:            true;
-$tablet-start:          481;
-$desktop-start:         1024;
+$mobile-only:           max-width 480px!default;
+$tablet-only:           481px 1024px!default;
+$all-handheld:          max-width 1024px!default;
+$desktop-only:          1025px!default;
+$retina:                -webkit-min-device-pixel-ratio 2, min--moz-device-pixel-ratio 2, -o-min-device-pixel-ratio 2/1, min-device-pixel-ratio 2, min-resolution 192dpi, min-resolution 2dppx!default;
 
 
 /**

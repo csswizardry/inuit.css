@@ -247,37 +247,51 @@
  * all-handheld
  * desktop-only
  * 
- * `@include media-query(mobile-only){ [styles here] }`
+ * `@include media-query($mobile-only){ [styles here] }`
  * 
- * We work out your end points for you:
+ * The mixin interprets the variables with min-width as default.
  */
-$mobile-end:            $tablet-start +-1;
-$tablet-end:            $desktop-start +-1;
+$mq-default-feature: min-width !default;
 
-@mixin media-query($media-query){
+@function mq-concatenate($query-string, $new-value, $feature: $mq-default-feature){
+    $new-string: "";
+    @if $feature != false{
+        $new-string: #{$query-string}unquote("and (#{$feature}:  #{$new-value}) ");
+    }
+    @else{
+        $new-string: #{$query-string}unquote("and (#{$new-value}) ");
+    }
+    @return $new-string;
+}
 
-    @if $media-query == mobile-only{
-        
-        @media only screen and (max-width:$mobile-end +px) { @content; }
-        
+@mixin media-query($breakpoint, $media: "screen"){
+    $query-string: "#{$media} ";
+    @if type-of($breakpoint) == number{
+        $query-string: mq-concatenate($query-string, $breakpoint);
     }
-    
-    @if $media-query == tablet-only{
-        
-        @media only screen and (min-width:$tablet-start +px) and (max-width:$tablet-end +px) { @content; }
-        
+    @if type-of($breakpoint) == string{
+        $query-string: mq-concatenate($query-string, $breakpoint, false);
     }
-    
-    @if $media-query == all-handheld{
-        
-        @media only screen and (max-width:$tablet-end +px) { @content; }
-        
+    @else if type-of($breakpoint) == list{
+        @if type-of(nth($breakpoint, 1)) == number and type-of(nth($breakpoint, 2)) == number{
+            $query-string: mq-concatenate($query-string, nth($breakpoint, 1), "min-width");
+            $query-string: mq-concatenate($query-string, nth($breakpoint, 2), "max-width");
+        }
+        @else if type-of(nth($breakpoint, 1)) == string{
+            $query-string: mq-concatenate($query-string, nth($breakpoint, 2), nth($breakpoint, 1));
+        }
+        @else if type-of(nth($breakpoint, 1)) == list{
+            @each $item in $breakpoint{
+                @if type-of($item) == list{
+                    $query-string: mq-concatenate($query-string, nth($item, 2), nth($item, 1));
+                }
+                @else{
+                    $query-string: mq-concatenate($query-string, $item, false);
+                }
+            }
+        }
     }
-    
-    @if $media-query == desktop-only{
-        
-        @media only screen and (min-width:$desktop-start +px) { @content; }
-        
+    @media #{$query-string}{
+        @content;
     }
-    
 }
