@@ -201,6 +201,7 @@
     }
     
     @if $arrow-edge == left{
+        
         @extend %arrow--near;
         
         &:before{
@@ -222,6 +223,62 @@
         @if $arrow-location == bottom{
             @extend %arrow--lower;
         }
+        
+    }
+    
+}
+
+
+/**
+ * Media query mixin.
+ *
+ * It’s not great practice to define solid breakpoints up-front, preferring to
+ * modify your design when it needs it, rather than assuming you’ll want a
+ * change at ‘mobile’. However, as inuit.css is required to take a hands off
+ * approach to design decisions, this is the closest we can get to baked-in
+ * responsiveness. It’s flexible enough to allow you to set your own breakpoints
+ * but solid enough to be frameworkified.
+ * 
+ * We define some broad breakpoints in our vars file that are picked up here
+ * for use in a simple media query mixin. Our options are:
+ *
+ * palm
+ * lap
+ * portable
+ * desk
+ * 
+ * Not using a media query will, naturally, serve styles to all devices.
+ * 
+ * `@include media-query(palm){ [styles here] }`
+ * 
+ * We work out your end points for you:
+ */
+$palm-end:              $lap-start +-1;
+$lap-end:               $desk-start +-1;
+
+@mixin media-query($media-query){
+
+    @if $media-query == palm{
+        
+        @media only screen and (max-width:$palm-end +px) { @content; }
+        
+    }
+    
+    @if $media-query == lap{
+        
+        @media only screen and (min-width:$lap-start +px) and (max-width:$lap-end +px) { @content; }
+        
+    }
+    
+    @if $media-query == portable{
+        
+        @media only screen and (max-width:$lap-end +px) { @content; }
+        
+    }
+    
+    @if $media-query == desk{
+        
+        @media only screen and (min-width:$desk-start +px) { @content; }
         
     }
     
