@@ -36,6 +36,15 @@ $brand-round:        4!default;
 
 
 /**
+ * Responsiveness?
+ * Tell inuit.css when breakpoints start, in pixels.
+ */
+$responsive:            true;
+$tablet-start:          481;
+$desktop-start:         1024;
+
+
+/**
  * Font-sizes (in pixels). Refer to relevant sections for their implementations.
  */
 $giga-size:         96!default;
