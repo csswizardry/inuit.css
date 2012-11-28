@@ -104,6 +104,7 @@
  * GREYBOX.............Wireframing styles
  * 
  * WIDTHS..............Width classes for use alongside the grid system etc.
+ * RESPONSIVE-WIDTHS...As above, but media query specific.
  * PUSH................Push classes for manipulating grids
  * PULL................Pull classes for manipulating grids
  * BRAND...............Helper class to apply brand treatment to elements
@@ -199,6 +200,7 @@
  * Style trumps; helper and brand classes
  */
 @import "generic/widths";
+@import "generic/responsive-widths";
 @import "generic/push";
 @import "generic/pull";
 @import "generic/brand";
