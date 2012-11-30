@@ -30,11 +30,11 @@
 
     > li{
         border-bottom-width:1px;
-        padding:$half-spacing-unit +px;
+        padding:$half-spacing-unit;
     }
 }
         .block-list__link{
             display:block;
-            padding:$half-spacing-unit +px;
-            margin:-$half-spacing-unit +px;
+            padding:$half-spacing-unit;
+            margin:-$half-spacing-unit;
         }

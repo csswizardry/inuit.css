@@ -20,12 +20,12 @@
  * Pull items full width of `.island` parents.
  */
 .full-bleed{
-    margin-right:-$base-spacing-unit +px;
-    margin-left: -$base-spacing-unit +px;
+    margin-right:-$base-spacing-unit;
+    margin-left: -$base-spacing-unit;
     
     .islet &{
-        margin-right:-($half-spacing-unit) +px;
-        margin-left: -($half-spacing-unit) +px;
+        margin-right:-($half-spacing-unit);
+        margin-left: -($half-spacing-unit);
     }
 }
 

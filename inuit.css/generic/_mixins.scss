@@ -5,14 +5,14 @@
  * Create a fully formed type style (sizing and vertical rhythm) by passing in a
  * single value, e.g.:
  * 
-   `@include font-size(10);`
+   `@include font-size(10px);`
  * 
  * Thanks to @redclov3r for the `line-height` Sass:
  * twitter.com/redclov3r/status/250301539321798657
  */
 @mixin font-size($font-size){
-    font-size:$font-size +px;
-    font-size:$font-size / $base-font-size +rem;
+    font-size:$font-size;
+    font-size:($font-size / $base-font-size)*1rem;
     line-height:ceil($font-size / $base-line-height) * ($base-line-height / $font-size);
 }
 
@@ -253,32 +253,32 @@
  * 
  * We work out your end points for you:
  */
-$palm-end:              $lap-start +-1;
-$lap-end:               $desk-start +-1;
+$palm-end:              $lap-start - 1px;
+$lap-end:               $desk-start - 1px;
 
 @mixin media-query($media-query){
 
     @if $media-query == palm{
         
-        @media only screen and (max-width:$palm-end +px) { @content; }
+        @media only screen and (max-width:$palm-end) { @content; }
         
     }
     
     @if $media-query == lap{
         
-        @media only screen and (min-width:$lap-start +px) and (max-width:$lap-end +px) { @content; }
+        @media only screen and (min-width:$lap-start) and (max-width:$lap-end) { @content; }
         
     }
     
     @if $media-query == portable{
         
-        @media only screen and (max-width:$lap-end +px) { @content; }
+        @media only screen and (max-width:$lap-end) { @content; }
         
     }
     
     @if $media-query == desk{
         
-        @media only screen and (min-width:$desk-start +px) { @content; }
+        @media only screen and (min-width:$desk-start) { @content; }
         
     }
     

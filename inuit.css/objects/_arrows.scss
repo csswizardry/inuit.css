@@ -25,10 +25,10 @@ $arrow:                 $arrow-size - $arrow-border;
         border-collapse:separate;
     }
     &:before{
-        border:$border +px solid transparent;
+        border:$border solid transparent;
     }
     &:after{
-        border:$arrow +px solid transparent;
+        border:$arrow solid transparent;
     }
 }
 
@@ -49,10 +49,10 @@ $arrow:                 $arrow-size - $arrow-border;
     @extend %arrow;
     
     &:before{
-        top:$arrow +px;
+        top:$arrow;
     }
     &:after{
-        top:$border +px;
+        top:$border;
     }
 }
 
@@ -62,10 +62,10 @@ $arrow:                 $arrow-size - $arrow-border;
     &:before,
     &:after{
         top:50%;
-        margin-top:-($border +px);
+        margin-top:-$border;
     }
     &:after{
-        margin-top:-($arrow +px);
+        margin-top:-$arrow;
     }
 }
 
@@ -73,10 +73,10 @@ $arrow:                 $arrow-size - $arrow-border;
     @extend %arrow;
     
     &:before{
-        bottom:$arrow +px;
+        bottom:$arrow;
     }
     &:after{
-        bottom:$border +px;
+        bottom:$border;
     }
 }
 
@@ -102,10 +102,10 @@ $arrow:                 $arrow-size - $arrow-border;
     @extend %arrow;
     
     &:before{
-        left:$arrow +px;
+        left:$arrow;
     }
     &:after{
-        left:$border +px;
+        left:$border;
     }
 }
 
@@ -115,10 +115,10 @@ $arrow:                 $arrow-size - $arrow-border;
     &:before,
     &:after{
         left:50%;
-        margin-left:-($border +px);
+        margin-left:-$border;
     }
     &:after{
-        margin-left:-($arrow +px);
+        margin-left:-$arrow;
     }
 }
 
@@ -126,10 +126,10 @@ $arrow:                 $arrow-size - $arrow-border;
     @extend %arrow;
     
     &:before{
-        right:$arrow +px;
+        right:$arrow;
     }
     &:after{
-        right:$border +px;
+        right:$border;
     }
 }
 
