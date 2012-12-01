@@ -153,6 +153,10 @@ at the [inuit.css Trello board](https://trello.com/board/inuit-css/50a16487543de
 [Peter Wilson](http://twitter.com/pwcc) is maintaining a LESS port of inuit.css:
 check the [GitHub repo](https://github.com/peterwilsoncc/inuit.css).
 
+## Using Compass?
+
+[Stephen Way](http://github.com/stephenway) is maintaining a Compass port of inuit.css: check the [GitHub repo](https://github.com/stephenway/compass-inuit).
+
 ## Test-drive
 
 If you would like to try inuit.css out before you download anything there is a
