@@ -155,7 +155,8 @@ check the [GitHub repo](https://github.com/peterwilsoncc/inuit.css).
 
 ## Using Compass?
 
-[Stephen Way](http://github.com/stephenway) is maintaining a Compass port of inuit.css: check the [GitHub repo](https://github.com/stephenway/compass-inuit).
+[Stephen Way](http://github.com/stephenway) is maintaining a Compass port of
+inuit.css: check [the GitHub repo](https://github.com/stephenway/compass-inuit).
 
 ## Test-drive
 
