@@ -25,14 +25,14 @@ $global-border-box: true;
 /**
  * Base stuff
  */
-$base-font-size:    16!default;
-$base-line-height:  24!default;
+$base-font-size:    16px!default;
+$base-line-height:  24px!default;
 
 
 /**
  * How big would you like round corners to be by default?
  */
-$brand-round:        4!default;
+$brand-round:        4px!default;
 
 
 /**
@@ -40,26 +40,26 @@ $brand-round:        4!default;
  * Tell inuit.css when breakpoints start, in pixels.
  */
 $responsive:        true;
-$lap-start:         481;
-$desk-start:        1024;
+$lap-start:         481px;
+$desk-start:        1024px;
 
 
 /**
  * Font-sizes (in pixels). Refer to relevant sections for their implementations.
  */
-$giga-size:         96!default;
-$mega-size:         72!default;
-$kilo-size:         48!default;
+$giga-size:         96px!default;
+$mega-size:         72px!default;
+$kilo-size:         48px!default;
 
-$h1-size:           36!default; // .alpha
-$h2-size:           30!default; // .beta
-$h3-size:           24!default; // .gamma
-$h4-size:           20!default; // .delta
-$h5-size:           16!default; // .epsilon
-$h6-size:           14!default; // .zeta
+$h1-size:           36px!default; // .alpha
+$h2-size:           30px!default; // .beta
+$h3-size:           24px!default; // .gamma
+$h4-size:           20px!default; // .delta
+$h5-size:           16px!default; // .epsilon
+$h6-size:           14px!default; // .zeta
 
-$milli-size:        12!default;
-$micro-size:        10!default;
+$milli-size:        12px!default;
+$micro-size:        10px!default;
 
 
 /**

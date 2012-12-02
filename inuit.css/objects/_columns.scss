@@ -10,7 +10,7 @@
  * 
  */
 %text-cols{
-    @include vendor(column-gap, $base-spacing-unit +px);
+    @include vendor(column-gap, $base-spacing-unit);
 }
 .text-cols--2    { @extend %text-cols; @include vendor(column-count, 2); }
 .text-cols--3    { @extend %text-cols; @include vendor(column-count, 3); }

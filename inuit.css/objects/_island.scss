@@ -18,7 +18,7 @@
     @extend .cf;
 }
 .island{
-    padding:$base-spacing-unit +px;
+    padding:$base-spacing-unit;
 }
     .island > :last-child,
     .islet > :last-child{
@@ -30,5 +30,5 @@
  * Just like `.island`, only smaller.
  */
 .islet{
-    padding:$half-spacing-unit +px;
+    padding:$half-spacing-unit;
 }

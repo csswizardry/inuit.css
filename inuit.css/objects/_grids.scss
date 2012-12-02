@@ -43,7 +43,7 @@
     /**
      * Negative margin to negate the padding on the first grid child. 
      */
-    margin-left:-($base-spacing-unit) +px;
+    margin-left:-$base-spacing-unit;
     /**
      * The following declarations allow us to use the `.gw` class on lists.
      */
@@ -92,7 +92,7 @@
     .g,
     .grid{
         float:left;
-        padding-left:$base-spacing-unit +px;
+        padding-left:$base-spacing-unit;
         @if $global-border-box == false{
             @include vendor(box-sizing, border-box);
         }

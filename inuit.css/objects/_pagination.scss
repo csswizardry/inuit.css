@@ -25,11 +25,11 @@
     text-align:center;
 }
     .pagination > li{
-        padding:($base-spacing-unit / 2) +px;
+        padding:$base-spacing-unit / 2;
     }
         .pagination > li > a{
-            padding:($base-spacing-unit / 2) +px;
-            margin:-($base-spacing-unit / 2) +px;
+            padding:$base-spacing-unit / 2;
+            margin:-$base-spacing-unit / 2;
         }    
             .pagination__first a:before{
                 content:"« ";

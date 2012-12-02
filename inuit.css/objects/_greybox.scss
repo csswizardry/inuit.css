@@ -25,7 +25,7 @@
  */
 .greybox,
 .graybox{
-    @include font-size(12);
+    @include font-size(12px);
     font-family:sans-serif;
     text-align:center;
     background-color:rgba(0,0,0,0.2);
@@ -43,12 +43,12 @@
  * heights we apply incrementally larger line-heights:
  */
 .greybox--small,
-.graybox--small     { line-height: (2 * $base-line-height) +px; }
+.graybox--small     { line-height: 2 * $base-line-height; }
 .greybox--medium,
-.graybox--medium    { line-height: (4 * $base-line-height) +px; }
+.graybox--medium    { line-height: 4 * $base-line-height; }
 .greybox--large,
-.graybox--large     { line-height: (8 * $base-line-height) +px; }
+.graybox--large     { line-height: 8 * $base-line-height; }
 .greybox--huge,
-.graybox--huge      { line-height:(16 * $base-line-height) +px; }
+.graybox--huge      { line-height:16 * $base-line-height; }
 .greybox--gigantic,
-.graybox--gigantic  { line-height:(32 * $base-line-height) +px; }
+.graybox--gigantic  { line-height:32 * $base-line-height; }
