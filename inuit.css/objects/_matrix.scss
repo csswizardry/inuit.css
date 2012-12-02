@@ -80,7 +80,7 @@
         width:50%;
     }
     .three-cols > li{
-        width:33.333%;
+        width:quotient(1, 3)%;
     }
     .four-cols > li{
         width:25%;

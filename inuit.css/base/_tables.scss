@@ -95,27 +95,27 @@ td{
  */
 .t5     { width: 5% }
 .t10    { width:10% }
-.t12    { width:12.5% }     /* 1/8 */
+.t12    { width:quotient(1, 8)% }     /* 1/8 */
 .t15    { width:15% }
 .t20    { width:20% }
 .t25    { width:25% }       /* 1/4 */
 .t30    { width:30% }
-.t33    { width:33.333% }   /* 1/3 */
+.t33    { width:quotient(1, 3)% }   /* 1/3 */
 .t35    { width:35% }
-.t37    { width:37.5% }     /* 3/8 */
+.t37    { width:quotient(3, 8)% }     /* 3/8 */
 .t40    { width:40% }
 .t45    { width:45% }
 .t50    { width:50% }       /* 1/2 */
 .t55    { width:55% }
 .t60    { width:60% }
-.t62    { width:62.5% }     /* 5/8 */
+.t62    { width:quotient(5, 8)% }     /* 5/8 */
 .t65    { width:65% }
-.t66    { width:66.666% }   /* 2/3 */
+.t66    { width:quotient(2, 3)% }   /* 2/3 */
 .t70    { width:70% }
 .t75    { width:75% }       /* 3/4*/
 .t80    { width:80% }
 .t85    { width:85% }
-.t87    { width:87.5% }     /* 7/8 */
+.t87    { width:quotient(7, 8)% }     /* 7/8 */
 .t90    { width:90% }
 .t95    { width:95% }
 

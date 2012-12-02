@@ -18,8 +18,8 @@
 /**
  * Thirds
  */
-.pull--one-third            { @extend .pull; right:33.333%; }
-.pull--two-thirds           { @extend .pull; right:66.666%; }
+.pull--one-third            { @extend .pull; right:quotient(1, 3)%; }
+.pull--two-thirds           { @extend .pull; right:quotient(2, 3)%; }
 
 
 /**
@@ -42,23 +42,23 @@
 /**
  * Sixths
  */
-  .pull--one-sixth          { @extend .pull; right:16.666%; }
+  .pull--one-sixth          { @extend .pull; right:quotient(1, 6)%; }
   .pull--two-sixths         { @extend .pull--one-third; }
 .pull--three-sixths         { @extend .pull--one-half; }
  .pull--four-sixths         { @extend .pull--two-thirds; }
- .pull--five-sixths         { @extend .pull; right:83.333%; }
+ .pull--five-sixths         { @extend .pull; right:quotient(5, 6)%; }
 
 
 /**
  * Eighths
  */
-   .pull--one-eighth        { @extend .pull; right:12.5%; }
+   .pull--one-eighth        { @extend .pull; right:quotient(1, 8)%; }
    .pull--two-eighths       { @extend .pull--one-quarter; }
- .pull--three-eighths       { @extend .pull; right:37.5%; }
+ .pull--three-eighths       { @extend .pull; right:quotient(3, 8)%; }
   .pull--four-eighths       { @extend .pull--one-half; }
-  .pull--five-eighths       { @extend .pull; right:62.5%; }
+  .pull--five-eighths       { @extend .pull; right:quotient(5, 8)%; }
    .pull--six-eighths       { @extend .pull--three-quarters; }
- .pull--seven-eighths       { @extend .pull; right:87.5%; }
+ .pull--seven-eighths       { @extend .pull; right:quotient(7, 8)%; }
 
 
 /**
@@ -78,14 +78,14 @@
 /**
  * Twelfths
  */
-     .pull--one-twelfth     { @extend .pull; right:8.333%; }
+     .pull--one-twelfth     { @extend .pull; right:quotient(1, 12)%; }
      .pull--two-twelfths    { @extend .pull--one-sixth; }
    .pull--three-twelfths    { @extend .pull--one-quarter; }
     .pull--four-twelfths    { @extend .pull--one-third; }
-    .pull--five-twelfths    { @extend .pull; right:41.666%; }
+    .pull--five-twelfths    { @extend .pull; right:quotient(5, 12)%; }
      .pull--six-twelfths    { @extend .pull--one-half; }
-   .pull--seven-twelfths    { @extend .pull; right:58.333%; }
+   .pull--seven-twelfths    { @extend .pull; right:quotient(7, 12)%; }
    .pull--eight-twelfths    { @extend .pull--two-thirds; }
     .pull--nine-twelfths    { @extend .pull--three-quarters; }
      .pull--ten-twelfths    { @extend .pull--five-sixths; }
-  .pull--eleven-twelfths    { @extend .pull; right:91.666%; }
+  .pull--eleven-twelfths    { @extend .pull; right:quotient(11, 12)%; }
