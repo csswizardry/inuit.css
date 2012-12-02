@@ -151,7 +151,7 @@ at the [inuit.css Trello board](https://trello.com/board/inuit-css/50a16487543de
 ## Looking for a little LESS?
 
 [Peter Wilson](http://twitter.com/pwcc) is maintaining a LESS port of inuit.css:
-check the [GitHub repo](https://github.com/peterwilsoncc/inuit.css).
+check [the GitHub repo](https://github.com/peterwilsoncc/inuit.css).
 
 ## Using Compass?
 
