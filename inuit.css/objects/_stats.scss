@@ -26,11 +26,11 @@
   */
  .stat-group{
     @extend .cf;
-    margin-left:-$base-spacing-unit +px;
+    margin-left:-$base-spacing-unit;
 }
     .stat{
         float:left;
-        margin-left:$base-spacing-unit +px;
+        margin-left:$base-spacing-unit;
         display:-webkit-box;
         display:   -moz-box;
         display:        box;
