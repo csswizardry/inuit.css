@@ -244,6 +244,7 @@
  *
  * palm
  * lap
+ * lap-and-up
  * portable
  * desk
  * 
@@ -267,6 +268,12 @@ $lap-end:               $desk-start - 1px;
     @if $media-query == lap{
         
         @media only screen and (min-width:$lap-start) and (max-width:$lap-end) { @content; }
+        
+    }
+    
+    @if $media-query == lap-and-up{
+        
+        @media only screen and (min-width:$lap-start) { @content; }
         
     }
     
