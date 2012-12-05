@@ -103,6 +103,7 @@
  * RULES...............Horizontal rules
  * STATS...............Simple stats object
  * GREYBOX.............Wireframing styles
+ * BATCH...............Batch icon font
  * 
  * WIDTHS..............Width classes for use alongside the grid system etc.
  * PUSH................Push classes for manipulating grids
@@ -195,6 +196,7 @@
    @import "objects/rules";
    @import "objects/stats";
    @import "objects/greybox";
+   @import "objects/batch";
 
 
 /**
