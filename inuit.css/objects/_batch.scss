@@ -1,0 +1,15 @@
+/*------------------------------------*\
+    $BATCH
+\*------------------------------------*/
+@if $batch == true{
+    @font-face{
+        font-family:Batch;
+        src:url('assets/batch/batch.eot');
+        src:url('assets/batch/batch.eot?#iefix') format('embedded-opentype'),
+            url('assets/batch/batch.woff') format('woff'),
+            url('assets/batch/batch.ttf') format('truetype'),
+            url('assets/batch/batch.svg#batchregular') format('svg');
+        font-weight:normal;
+        font-style:normal;
+    }
+}
