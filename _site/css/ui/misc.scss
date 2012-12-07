@@ -1,0 +1,10 @@
+/*------------------------------------*\
+    $MISC
+\*------------------------------------*/
+.hilite{
+    background-color:$brand-color;
+    color:#fff;
+}
+
+::selection         { background-color:$brand-color; color:#fff; }
+::-moz-selection    { background-color:$brand-color; color:#fff; }

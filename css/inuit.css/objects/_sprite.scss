@@ -1,0 +1,77 @@
+/*------------------------------------*\
+    $SPRITE
+\*------------------------------------*/
+/**
+ * Giving an element a class of `.s` will throw it into ‘sprite’ mode and apply
+ * a background image e.g.:
+ * 
+   <a class="s  s--question-mark">More info&hellip;</a>
+ * 
+ * or
+ * 
+   <a href=#><i class="s  s--question-mark"></i> Help and FAQ</a>
+ * 
+ * Giving an element a class of `.i` will throw it into ‘icon’ mode and will
+ * not add a background, but should be used for icon fonts and is populated
+ * through a `data-char` attribute and the `:after` pseudo-element, e.g.:
+ * 
+   <a href=# class=i data-char="C">Add to favorites</a>
+ * 
+ * or
+ * 
+   <a href=#><i class=i data-char="C"></i> View your favourites</a>
+ * 
+ * Where ‘C’ might map to a star in your particular font.
+ * 
+ * These all require extension in your theme stylesheet.
+ * 
+ * Demo: jsfiddle.net/inuitcss/6TKuS
+ * 
+ */
+.s,
+.i{
+    display:inline-block;
+    /**
+     * The typical size of most icons. Override in your theme stylesheet.
+     */
+    width: 16px;
+    height:16px;
+    position:relative;
+    zoom:1;
+    /**
+     * So using `.i` on `i` elements doesn’t make a visual difference.
+     */
+    font-style:normal;
+    /**
+     * So icons added using `.i` sit in the centre of the element.
+     */
+    text-align:center;
+}
+.s{
+    background-image:url(/path/to/your/sprite.png);
+    vertical-align:middle;
+    top:-1px;
+
+    /*
+     * H5BP method image replacement:
+     * github.com/h5bp/html5-boilerplate/commit/adecc5da035d6d76b77e3fa95c6abde841073da2
+     */
+    overflow:hidden;
+   *text-indent:-9999px;
+
+    &:before{
+        content:"";
+        display:block;
+        width:0;
+        height:100%;
+    }
+}
+
+
+.i{
+    vertical-align:top;
+    
+    &:after{
+        content:attr(data-char);
+    }
+}

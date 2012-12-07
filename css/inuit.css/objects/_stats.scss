@@ -1,0 +1,45 @@
+ /*------------------------------------*\
+     $STATS
+ \*------------------------------------*/
+ /**
+  * Simple object to display key–value statistic-like information, e.g.: 
+  *
+    <div class=stat-group>
+        <dl class=stat>
+            <dt class=stat__title>Tweets</dt>
+            <dd class=stat__value>27,740</dd>
+        </dl>
+        
+        <dl class=stat>
+            <dt class=stat__title>Following</dt>
+            <dd class=stat__value>11,529</dd>
+        </dl>
+        
+        <dl class=stat>
+            <dt class=stat__title>Followers</dt>
+            <dd class=stat__value>12,105</dd>
+        </dl>
+    </div>
+  *
+  * Demo: jsfiddle.net/inuitcss/Bpwu6
+  *
+  */
+ .stat-group{
+    @extend .cf;
+    margin-left:-$base-spacing-unit;
+}
+    .stat{
+        float:left;
+        margin-left:$base-spacing-unit;
+        display:-webkit-box;
+        display:   -moz-box;
+        display:        box;
+        @include vendor(box-orient, vertical);
+    }
+        .stat__title{
+            @include vendor(box-ordinal-group, 2);
+        }
+        .stat__value{
+            margin-left:0;
+            @include vendor(box-ordinal-group, 1);
+        }

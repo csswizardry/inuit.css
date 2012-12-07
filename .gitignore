@@ -1,0 +1,5 @@
+# The usual...
+.DS_Store
+.sass-cache/
+*.swp
+*.swo

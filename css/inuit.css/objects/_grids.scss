@@ -1,0 +1,99 @@
+/*------------------------------------*\
+    $GRIDS
+\*------------------------------------*/
+/**
+ * Fluid and nestable grid system, e.g.:
+ * 
+   <div class=gw>
+       
+       <div class="g  one-third">
+           <p>One third grid</p>
+       </div>
+       
+       <div class="g  two-thirds">
+           <p>Two thirds grid</p>
+       </div>
+       
+       <div class="g  one-half">
+           <p>One half grid</p>
+       </div>
+       
+       <div class="g  one-quarter">
+           <p>One quarter grid</p>
+       </div>
+       
+       <div class="g  one-quarter">
+           <p>One quarter grid</p>
+       </div>
+       
+   </div>
+ * 
+ * Demo: jsfiddle.net/inuitcss/CLYUC
+ * 
+ */
+
+
+/**
+ * Grid wrapper
+ * 
+ * Shorthand and verbose
+ */
+.gw,
+.grid-wrapper{
+    /**
+     * Negative margin to negate the padding on the first grid child. 
+     */
+    margin-left:-$base-spacing-unit;
+    /**
+     * The following declarations allow us to use the `.gw` class on lists.
+     */
+    list-style:none;
+    margin-bottom:0;
+    @extend .cf;
+}
+
+
+/**
+ * Reverse grid order
+ * 
+   <div class="gw  gw--rev">
+       
+       <div class="g  one-third">
+           <p>Appears on the right</p>
+       </div>
+       
+       <div class="g  two-thirds">
+           <p>Appears on the left</p>
+       </div>
+       
+   </div>
+ * 
+ */
+.gw--rev .g,
+.grid-wrapper--rev .grid{
+    float:right;
+}
+
+
+    /**
+     * Very infrequently occuring grid wrappers as children of grid wrappers.
+     */
+    .gw > .gw,
+    .grid-wrapper > .grid-wrapper{
+        margin-left:0;
+    }
+    
+    
+    /**
+     * Grid
+     * 
+     * Shorthand and verbose
+     */
+    .g,
+    .grid{
+        float:left;
+        padding-left:$base-spacing-unit;
+        @if $global-border-box == false{
+            @include vendor(box-sizing, border-box);
+        }
+    }

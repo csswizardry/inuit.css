@@ -1,0 +1,76 @@
+/*------------------------------------*\
+    $HELPER
+\*------------------------------------*/
+/**
+ * A series of helper classes to use arbitrarily. Only use a helper class if an
+ * element/component doesn’t already have a class to which you could apply this
+ * styling, e.g. if you need to float `.main-nav` left then add `float:left;` to
+ * that ruleset as opposed to adding the `.fl` class to the markup.
+ */
+.fr { float:right; }
+.fl { float:left; }
+
+.text-center,
+.text-centre{
+    text-align:center;
+}
+
+
+/**
+ * Pull items full width of `.island` parents.
+ */
+.full-bleed{
+    margin-right:-$base-spacing-unit;
+    margin-left: -$base-spacing-unit;
+    
+    .islet &{
+        margin-right:-($half-spacing-unit);
+        margin-left: -($half-spacing-unit);
+    }
+}
+
+
+/**
+ * Add a help cursor to any element that gives the user extra information on
+ * `:hover`.
+ */
+.informative{
+    cursor:help;
+}
+
+
+/**
+ * Align items to the right where they imply progression/movement forward, e.g.:
+ * 
+   <p class=proceed><a href=#>Read more...</a></p>
+ * 
+ */
+.proceed{
+    text-align:right;
+}
+
+
+/**
+ * Add a right-angled quote to links that imply movement, e.g.:
+ * 
+   <a href=# class=go>Read more</a>
+ * 
+ */
+.go:after{
+    content:" »";
+}
+
+
+/**
+ * Apply capital case to an element (usually a `strong`).
+ */
+.caps{
+    text-transform:uppercase;
+}
+
+
+/**
+ * Hide content off-screen without resorting to `display:none;`
+ */
+.accessibility              { position:absolute; left:-99999px; }
+[dir=rtl] .accessibility    { left:auto; right:-99999px; }

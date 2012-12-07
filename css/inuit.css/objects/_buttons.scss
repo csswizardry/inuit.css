@@ -1,0 +1,44 @@
+/*------------------------------------*\
+    $BUTTONS
+\*------------------------------------*/
+/**
+ * Basic button structural styling. Extend in your theme stylesheet.
+ * 
+ * Demo: jsfiddle.net/inuitcss/RqHcp
+ * 
+ */
+.btn{
+    font:inherit;
+    cursor:pointer;
+    border:none;
+    display:inline-block;
+    margin: 0;
+    line-height:1;
+    /**
+     * Set padding in ems so we can change the size of a button by merely
+     * altering its `font-size`.
+     */
+    padding:0.5em;
+}
+    .btn,
+    .btn:hover{
+        text-decoration:none;
+    }
+
+/**
+ * Basic button modifiers
+ */
+.btn--sml { font-size: .75em; }
+.btn--lrg { font-size:1.50em; }
+
+.btn--full{
+    display:block;
+    text-align:center;
+    /**
+     * The following is so that `.btn-full` works properly on `input`s as well
+     * as `a`s.
+     */
+    padding-right:0;
+    padding-left: 0;
+    width:100%;
+}

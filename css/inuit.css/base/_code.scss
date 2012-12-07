@@ -1,0 +1,62 @@
+/*------------------------------------*\
+    $CODE
+\*------------------------------------*/
+/**
+ * Use an explicit font stack to ensure browsers render correct `line-height`.
+ */
+pre{
+    overflow:auto;
+}
+    pre mark{
+        background:none;
+        border-bottom:1px solid;
+        color:inherit;
+    }
+
+
+/**
+ * Add comments to your code examples, e.g.:
+ * 
+   <code>&lt;/div&gt;<span class=code-comment>&lt;!-- /wrapper --&gt;</span></code>
+ * 
+ */
+.code-comment{
+    /**
+     * Override this setting in your theme stylesheet
+     */
+    opacity:0.75;
+    filter:alpha(opacity=75);
+}
+
+
+/**
+ * You can add line numbers to your code examples but be warned, it requires
+ * some pretty funky looking (and technically invalid) markup, e.g.:
+ * 
+   <pre class=numbered>
+       <ol class=numbered__numbers>
+           <li><code>.nav{</code></li>
+           <li><code>    list-style:none;</code></li>
+           <li><code>    margin-left:0;</code></li>
+           <li><code>}</code></li>
+           <li><code>    .nav > li,</code></li>
+           <li><code>        .nav > li > a{</code></li>
+           <li><code>            display:inline-block;</code></li>
+           <li><code>           *display:inline-block;</code></li>
+           <li><code>            zoom:1;</code></li>
+           <li><code>        }</code></li>
+       </ol>
+   </pre>
+ * 
+ */
+.numbered{
+    white-space:nowrap;
+}
+    .numbered__numbers{
+        list-style:decimal-leading-zero inside;
+        margin-bottom:0;
+        margin-left:0;
+    }
+            .numbered__numbers code{
+                white-space:pre;
+            }

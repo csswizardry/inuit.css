@@ -1,0 +1,20 @@
+/*------------------------------------*\
+    $PAGE
+\*------------------------------------*/
+html{
+    font-family:Ubuntu, sans-serif;
+    font-weight:300;
+    color:#555;
+    background-color:#fff;
+}
+
+body{
+    max-width:1200px;
+    margin:0 auto;
+    padding:$base-spacing-unit;
+    padding-bottom:0;
+    
+    @include media-query(portable){
+        max-width:720px;
+    }
+}

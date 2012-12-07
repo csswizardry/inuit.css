@@ -1,0 +1,37 @@
+/*------------------------------------*\
+    $LINKS
+\*------------------------------------*/
+/**
+ * Say no to negative hovers, as per: csswizardry.com/2011/05/on-negative-hovers
+ *
+ * Sometimes, particularly on larger projects, it is useful to scope link
+ * styling only to anchors which have `href` attributes.
+ */
+a{
+    /**
+     * Set colors etc in your theme stylesheet.
+     */
+
+    &:hover,
+    &:active,
+    &:focus{
+        text-decoration:underline;
+    }
+}
+
+
+/**
+ * ‘Current’ states, e.g.:
+ * 
+   <ul class=nav>
+       <li><a href=#>Home</a></li>
+       <li><a href=#>About</a></li>
+       <li class=current><a href=#>Portfolio</a></li>
+       <li><a href=#>Contact</a></li>
+   </ul>
+ * 
+ */
+.current a{
+    cursor:text;
+    text-decoration:underline;
+}
