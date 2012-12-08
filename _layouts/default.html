@@ -6,7 +6,7 @@
     
     <title>{{ page.title }}</title>
     
-    <link rel=stylesheet href=css/inuit.min.css>
+    <link rel=stylesheet href={{ site.root }}css/inuit.min.css>
     <link href="http://fonts.googleapis.com/css?family=Ubuntu:300,500,300italic" rel=stylesheet>
     
     <link rel="shortcut icon" href=icon.png>
@@ -17,12 +17,10 @@
 <body>
 
     <header class="page-head">
-        <a href="/inuit.css/" class="logo">
+        <a href="{{ site.root }}" class="logo">
             <img src="https://a248.e.akamai.net/camo.github.com/b402c145cb1134727d8b1416c7f080731cca1244/687474703a2f2f63737377697a61726472792e636f6d2f696e7569746373732f696d672f6c6f676f2e6a7067" alt="">
         </a>
     </header>
-    
-    <h1 class="site-title"><b>inuit.css</b> &ndash; a powerful, scalable, Sass-based, BEM, OOCSS framework.</h1>
 
     <div class="gw  gw--rev">
         
