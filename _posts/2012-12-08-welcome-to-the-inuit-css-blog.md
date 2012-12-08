@@ -5,7 +5,7 @@ title: Welcome to the inuit.css blog
 
 # {{ page.title }}
 
-He there! Thanks for your interest in [inuit.css](http://github.com/csswizardry/inuit.css).
+Hey there! Thanks for your interest in [inuit.css](http://github.com/csswizardry/inuit.css).
 I’ve set up this little blog in order to share more in-depth, detailed tips,
 tutorials, update information and more… If you use inuit.css, or are considering
 it, hopefully this little site will aid you on your journey.
