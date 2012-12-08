@@ -1,5 +1,5 @@
-root: http://csswizardry.github.com/inuit.css/
 root: http://0.0.0.0:4000/
+root: http://csswizardry.github.com/inuit.css/
 auto: true
 server: true
 markdown: rdiscount
