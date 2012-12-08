@@ -2,7 +2,7 @@
     $IMAGES
 \*------------------------------------*/
 .logo{
-    @extend %sass-margin-bottom;
+    float:left;
 
     &,
     & > img{
