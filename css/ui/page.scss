@@ -15,6 +15,8 @@ body{
     padding-bottom:0;
     
     @include media-query(portable){
+        padding-right:$half-spacing-unit;
+        padding-left: $half-spacing-unit;
         max-width:720px;
     }
 }
