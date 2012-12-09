@@ -19,6 +19,8 @@ a{
 }
 
 pre{
+    white-space:pre;
+    word-wrap:normal;
     background-color:#333;
     color:#fff;
     padding:$half-spacing-unit;
