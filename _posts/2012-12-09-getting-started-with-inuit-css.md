@@ -54,7 +54,7 @@ Running inuit.css is simple, you can use a GUI like
 [CodeKit](http://incident57.com/codekit/) to watch the `css/` directory or you
 can run Sass from the command line via the `watch.sh` file, like so:
 
-    path/to/your-site/css$ sh watch.sh
+    ~/path/to/your-site/css$ sh watch.sh
 
 Now Sass is watching your CSS directory and will compile inuit.css and your
 theme stylesheets into your final, production file.
