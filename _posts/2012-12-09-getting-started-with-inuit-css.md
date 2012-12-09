@@ -23,9 +23,10 @@ If the above is all good, then let’s get going!
 
 There are a number of ways to get inuit.css into your project; you can
 [download the zip](https://github.com/csswizardry/inuit.css/archive/master.zip)
-or `git clone` it into a CSS directory, thus:
+or `git clone` it into a CSS directory in your project, thus:
 
-    path/to/your/site$ git clone https://github.com/csswizardry/inuit.css.git css
+    ~$ cd path/to/your/site
+    ~/path/to/your/site$ git clone https://github.com/csswizardry/inuit.css.git css
     Cloning into 'css'...
 
 ## Setting up your project
