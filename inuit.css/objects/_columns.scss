@@ -9,10 +9,18 @@
  * Demo: jsfiddle.net/inuitcss/E26Yd
  * 
  */
-%text-cols{
+%text-cols {
     @include vendor(column-gap, $base-spacing-unit);
 }
-.text-cols--2    { @extend %text-cols; @include vendor(column-count, 2); }
-.text-cols--3    { @extend %text-cols; @include vendor(column-count, 3); }
-.text-cols--4    { @extend %text-cols; @include vendor(column-count, 4); }
-.text-cols--5    { @extend %text-cols; @include vendor(column-count, 5); }
+
+@mixin text-cols--2    { @extend %text-cols; @include vendor(column-count, 2); }
+      .text-cols--2    { @include text-cols--2; }
+
+@mixin text-cols--3    { @extend %text-cols; @include vendor(column-count, 3); }
+      .text-cols--3    { @include text-cols--3; }
+
+@mixin text-cols--4    { @extend %text-cols; @include vendor(column-count, 4); }
+      .text-cols--4    { @include text-cols--4; }
+
+@mixin text-cols--5    { @extend %text-cols; @include vendor(column-count, 5); }
+      .text-cols--5    { @include text-cols--5; }
