@@ -1,0 +1,10 @@
+/*------------------------------------*\
+    $BOXES
+\*------------------------------------*/
+.note{
+    @include font-size(12px);
+    background-color:#fef8c4;
+    border:1px solid #d8d566;
+    border-radius:$brand-round;
+    @include vendor(box-shadow, 0 1px 0 #fff inset);
+}
