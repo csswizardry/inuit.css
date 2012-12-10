@@ -181,7 +181,7 @@ Then this grid item will have three different states. Its normal (in this case
 ‘mobile first’) state it will be full width. When it is on a ‘lap’ device it
 will occupy half of the available width and on a stationary ‘desk’ device it
 will take up a quarter. These classes can be combined to make all manner of
-crazy-cool layouts!
+[crazy-cool layouts!](http://jsfiddle.net/inuitcss/WS4Ge/embedded/result,html,css)
 
 ### Responsive push and pull
 
