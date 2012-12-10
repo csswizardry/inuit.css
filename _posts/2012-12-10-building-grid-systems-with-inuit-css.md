@@ -219,7 +219,8 @@ that grid item with a more explicit class, for example:
 
 You should never apply any styling _whatsoever_ to a grid item; they are for
 structural purposes **only**. Furthermore, you should never, _ever_, **ever**
-apply new box-model rules to a grid item under any circumstances.
+apply new box-model rules to a grid item under any circumstances, be it inuit.css
+or something else.
 
 ## Final word
 
