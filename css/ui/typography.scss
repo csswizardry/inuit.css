@@ -27,5 +27,6 @@ pre{
     border-radius:$brand-round;
 }
 pre,code,kbd,samp{
-    font-family:Consolas;
+    font-family:Inconsolata, Monaco, Consolas, "Andale Mono",
+                "Bitstream Vera Sans Mono", "Courier New", Courier, monospace;
 }

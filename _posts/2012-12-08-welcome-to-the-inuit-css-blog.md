@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Welcome to the inuit.css blog
+meta: Hello, and welcome to the brand new inuit.css blog!
 ---
 
 # {{ page.title }}

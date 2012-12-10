@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Getting started with inuit.css
+meta: A quick introduction to getting the inuit.css framework up and running in your project.
 ---
 
 # {{ page.title }}

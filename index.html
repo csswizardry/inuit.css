@@ -10,6 +10,9 @@ title: Home
     <li>
         <span class="post__time">{{ post.date | date: "%d %B, %Y" }}</span>
         <h2 class="post__title"><a href="{{ site.root }}{{ post.url }}">{{ post.title }}</a></h2>
+        {% if post.meta %}
+            <p class="post__meta">{{ post.meta }}</p>
+        {% endif %}
     </li>
     {% endfor %}
 </ul>
