@@ -26,3 +26,6 @@ pre{
     padding:$half-spacing-unit;
     border-radius:$brand-round;
 }
+pre,code,kbd,samp{
+    font-family:Consolas;
+}
