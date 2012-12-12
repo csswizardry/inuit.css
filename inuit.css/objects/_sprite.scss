@@ -28,6 +28,41 @@
  * Demo: jsfiddle.net/inuitcss/6TKuS
  * 
  */
+ 
+ /**
+ * Need compass.
+ */
+@import "compass";
+
+
+/**
+ * Retina Display?
+ * You can create a sprite for devices with retina display.
+ */
+$retina-display: false;
+
+/**
+ * Path of sprites
+ */
+$sprites: sprite-map("/path/to/your/sprite/*.png", $spacing: 20px);
+@if $retina-display == true { $sprites2x: sprite-map("/path/to/your/sprite2x/*.png", $spacing: 40px); }
+
+/**
+ * Mixin to create new sprites.
+ */
+@mixin sprite-img($name, $dimensions: true, $pad: 0, $sprites: $sprites) {
+
+    background-position: sprite-position($sprites, $name, -$pad, -$pad);
+
+    @if ($dimensions == true) {
+        @include sprite-dimensions($sprites, $name);
+    }
+
+    @if ($pad > 0) {
+        padding: $pad
+    }
+}
+
 .s,
 .i{
     display:inline-block;
@@ -48,9 +83,26 @@
     text-align:center;
 }
 .s{
-    background-image:url(/path/to/your/sprite.png);
+    background-image: sprite-url($sprites);
+    background-repeat: no-repeat;
+
     vertical-align:middle;
     top:-1px;
+    
+    /**
+     * Detects devices with retina display.
+     */
+    @if $retina-display == true {
+        @media (min--moz-device-pixel-ratio: 1.5),
+        (-webkit-min-device-pixel-ratio: 1.5),
+        (-o-min-device-pixel-ratio: 3/2),
+        (min-device-pixel-ratio: 1.5),
+        (min-resolution: 1.5dppx),
+        (min-resolution: 144dpi) {
+            @include background-size(ceil(image-width(sprite-path($sprites2x)) / 2) auto);
+            background-image: sprite-url($sprites2x);
+        }
+    }
 
     /*
      * H5BP method image replacement:
@@ -74,4 +126,21 @@
     &:after{
         content:attr(data-char);
     }
+}
+
+// sprite mods
+.s--facebook {
+    @include sprite-img(s--facebook, true);
+}
+
+.s--googleplus {
+    @include sprite-img(s--googleplus);
+}
+
+.s--rss {
+    @include sprite-img(s--rss);
+}
+
+.s--twitter {
+    @include sprite-img(s--twitter);
 }
