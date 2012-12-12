@@ -96,6 +96,7 @@
   .#{$namespace}eleven-twelfths    { width:91.666%; }
 }
 
+@include grid-setup();
 
 
 
