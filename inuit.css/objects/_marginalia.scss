@@ -1,0 +1,45 @@
+/*------------------------------------*\
+    $MARGINALIA
+\*------------------------------------*/
+/**
+ * Marginalia are, per definition, notes in the margin of a document. The
+ * `marginalia__body` class can be applied to all kinds of content, like text or
+ * images.
+ *
+   <div class="marginalia">
+       <div class="marginalia__body"></div>
+   </div>
+ *
+ * Demo: http://codepen.io/sacha/pen/Kodnb
+ *
+ */
+.marginalia {
+    font-size: 0.8em;
+    line-height: 1.875;
+}
+
+/**
+ * Wait for a certain breakpoint to trigger 'proper' marginalia. Up to this point,
+ * marginalia are inline with the other text.
+ */
+@media (min-width: $desk-start) {
+    .marginalia {
+        position: relative;
+    }
+
+    .marginalia__body,
+    .marginalia__body--right {
+        position: absolute;
+        left: -25%;
+        width: 20%;
+        text-align: right;
+    }
+
+    /**
+     * Align marginalia to the right of the text.
+     */
+    .marginalia__body--right {
+        right: -25%;
+        text-align: left;
+    }
+}
