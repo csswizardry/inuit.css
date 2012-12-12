@@ -14,8 +14,7 @@
  *
  */
 .marginalia {
-    font-size: 0.8em;
-    line-height: 1.875;
+    @include font-size($milli-size);
 }
 
 /**
