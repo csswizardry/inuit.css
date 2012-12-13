@@ -31,32 +31,33 @@ pre{
 
 /**
  * You can add line numbers to your code examples but be warned, it requires
- * some pretty funky looking (and technically invalid) markup, e.g.:
+ * some pretty funky looking markup, e.g.:
  * 
-   <pre class=numbered>
-       <ol class=numbered__numbers>
-           <li><code>.nav{</code></li>
-           <li><code>    list-style:none;</code></li>
-           <li><code>    margin-left:0;</code></li>
-           <li><code>}</code></li>
-           <li><code>    .nav > li,</code></li>
-           <li><code>        .nav > li > a{</code></li>
-           <li><code>            display:inline-block;</code></li>
-           <li><code>           *display:inline-block;</code></li>
-           <li><code>            zoom:1;</code></li>
-           <li><code>        }</code></li>
-       </ol>
-   </pre>
+   <ol class=line-numbers>
+       <li><code>.nav{</code></li>
+       <li><code>    list-style:none;</code></li>
+       <li><code>    margin-left:0;</code></li>
+       <li><code>}</code></li>
+       <li><code>    .nav > li,</code></li>
+       <li><code>        .nav > li > a{</code></li>
+       <li><code>            display:inline-block;</code></li>
+       <li><code>           *display:inline-block;</code></li>
+       <li><code>            zoom:1;</code></li>
+       <li><code>        }</code></li>
+   </ol>
  * 
+ * 1. Make the list look like code.
+ * 2. Give the list flush numbers with a leading zero.
+ * 3. Make sure lines of code don’t wrap.
+ * 4. Give the code form by forcing the `code` to honour white-space.
  */
-.numbered{
-    white-space:nowrap;
+.line-numbers{
+    font-family:monospace, serif;           /* [1] */
+    list-style:decimal-leading-zero inside; /* [2] */
+    white-space:nowrap;                     /* [3] */
+    overflow:auto;                          /* [3] */
+    margin-left:0;
 }
-    .numbered__numbers{
-        list-style:decimal-leading-zero inside;
-        margin-bottom:0;
-        margin-left:0;
+    .line-numbers code{
+        white-space:pre;                    /* [4] */
     }
-            .numbered__numbers code{
-                white-space:pre;
-            }

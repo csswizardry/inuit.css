@@ -31,15 +31,18 @@
     .stat{
         float:left;
         margin-left:$base-spacing-unit;
-        display:-webkit-box;
-        display:   -moz-box;
-        display:        box;
-        @include vendor(box-orient, vertical);
+        display:-ms-flexbox;
+        display:-webkit-flex;
+        display:   -moz-flex;
+        display:        flex;
+        @include vendor(flex-direction, column);
     }
         .stat__title{
-            @include vendor(box-ordinal-group, 2);
+            @include vendor(order, 2);
+            -ms-flex-order:2;
         }
         .stat__value{
             margin-left:0;
-            @include vendor(box-ordinal-group, 1);
+            @include vendor(order, 1);
+            -ms-flex-order:1;
         }
