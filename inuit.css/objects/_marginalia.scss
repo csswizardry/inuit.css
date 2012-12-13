@@ -31,17 +31,19 @@
         position: absolute;
         width: 20%;
     }
-    
+  
     .marginalia__body {
-        left: -25%;
-        text-align: right;
+      right: 100%;
+      padding-right: $base-spacing-unit;
+      text-align: right;
     }
 
     /**
      * Align marginalia to the right of the text.
      */
     .marginalia__body--right {
-        right: -25%;
+        left: 100%;
+        padding-left: $base-spacing-unit;
         text-align: left;
     }
 }
