@@ -29,8 +29,11 @@
     .marginalia__body,
     .marginalia__body--right {
         position: absolute;
-        left: -25%;
         width: 20%;
+    }
+    
+    .marginalia__body {
+        left: -25%;
         text-align: right;
     }
 
