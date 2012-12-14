@@ -1,10 +1,28 @@
 /*------------------------------------*\
     $IMAGES
 \*------------------------------------*/
+$img-size: $half-spacing-unit / 2;
+
 img{
     max-width:100%;
     height:auto;
 }
+
+.img--right {
+    float:right;
+    margin: $img-size 0 $base-spacing-unit $base-spacing-unit;
+}
+
+.img--left {
+    float: left;
+    margin: $img-size $base-spacing-unit $base-spacing-unit 0;
+}
+
+.img--center {
+    display: block;
+    margin: $half-spacing-unit auto;
+}
+
 figure > img{
     display:block;
 }
