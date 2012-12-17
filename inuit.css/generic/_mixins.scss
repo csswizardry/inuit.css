@@ -289,4 +289,15 @@ $lap-end:               $desk-start - 1px;
         
     }
     
+    @if $media-query == retina-diplay{
+        
+        @media (min--moz-device-pixel-ratio: 1.5),
+        (-webkit-min-device-pixel-ratio: 1.5),
+        (-o-min-device-pixel-ratio: 3/2),
+        (min-device-pixel-ratio: 1.5),
+        (min-resolution: 1.5dppx),
+        (min-resolution: 144dpi) { @content; }
+        
+    }
+    
 }
