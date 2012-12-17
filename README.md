@@ -196,6 +196,12 @@ been possible without inspiration and work from an array of other people.
 
 And probably more…
 
+## License
+
+Copyright 2012 Harry Roberts
+
+Licensed under the Apache License, Version 2.0.
+
 ---
 
 **inuit.css is the most powerful little framework out there, and it’s ready to
