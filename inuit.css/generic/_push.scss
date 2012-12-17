@@ -18,8 +18,8 @@
 /**
  * Thirds
  */
-.push--one-third            { @extend .push; left:33.333%; }
-.push--two-thirds           { @extend .push; left:66.666%; }
+.push--one-third            { @extend .push; left:quotient(1, 3)%; }
+.push--two-thirds           { @extend .push; left:quotient(2, 3)%; }
 
 
 /**
@@ -42,23 +42,23 @@
 /**
  * Sixths
  */
-  .push--one-sixth          { @extend .push; left:16.666%; }
+  .push--one-sixth          { @extend .push; left:quotient(1, 6)%; }
   .push--two-sixths         { @extend .push--one-third; }
 .push--three-sixths         { @extend .push--one-half; }
  .push--four-sixths         { @extend .push--two-thirds; }
- .push--five-sixths         { @extend .push; left:83.333%; }
+ .push--five-sixths         { @extend .push; left:quotient(5, 6)%; }
 
 
 /**
  * Eighths
  */
-   .push--one-eighth        { @extend .push; left:12.5%; }
+   .push--one-eighth        { @extend .push; left:quotient(1, 8)%; }
    .push--two-eighths       { @extend .push--one-quarter; }
- .push--three-eighths       { @extend .push; left:37.5%; }
+ .push--three-eighths       { @extend .push; left:quotient(3, 8)%; }
   .push--four-eighths       { @extend .push--one-half; }
-  .push--five-eighths       { @extend .push; left:62.5%; }
+  .push--five-eighths       { @extend .push; left:quotient(5, 8)%; }
    .push--six-eighths       { @extend .push--three-quarters; }
- .push--seven-eighths       { @extend .push; left:87.5%; }
+ .push--seven-eighths       { @extend .push; left:quotient(7, 8)%; }
 
 
 /**
@@ -78,14 +78,14 @@
 /**
  * Twelfths
  */
-     .push--one-twelfth     { @extend .push; left:8.333%; }
+     .push--one-twelfth     { @extend .push; left:quotient(1, 12)%; }
      .push--two-twelfths    { @extend .push--one-sixth; }
    .push--three-twelfths    { @extend .push--one-quarter; }
     .push--four-twelfths    { @extend .push--one-third; }
-    .push--five-twelfths    { @extend .push; left:41.666%; }
+    .push--five-twelfths    { @extend .push; left:quotient(5, 12)%; }
      .push--six-twelfths    { @extend .push--one-half; }
-   .push--seven-twelfths    { @extend .push; left:58.333%; }
+   .push--seven-twelfths    { @extend .push; left:quotient(7, 12)%; }
    .push--eight-twelfths    { @extend .push--two-thirds; }
     .push--nine-twelfths    { @extend .push--three-quarters; }
      .push--ten-twelfths    { @extend .push--five-sixths; }
-  .push--eleven-twelfths    { @extend .push; left:91.666%; }
+  .push--eleven-twelfths    { @extend .push; left:quotient(11, 12)%; }
