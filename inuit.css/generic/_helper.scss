@@ -40,6 +40,15 @@
 
 
 /**
+ * Mute an object by reducing its opacity.
+ */
+.muted{
+    opacity:0.5;
+    filter:alpha(opacity = 50);
+}
+
+
+/**
  * Align items to the right where they imply progression/movement forward, e.g.:
  * 
    <p class=proceed><a href=#>Read more...</a></p>
