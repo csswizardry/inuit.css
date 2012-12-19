@@ -39,9 +39,9 @@ $brand-round:        4px!default;
  * Responsiveness?
  * Tell inuit.css when breakpoints start, in pixels.
  */
-$responsive:        true;
-$lap-start:         481px;
-$desk-start:        1024px;
+$responsive:        true!default;
+$lap-start:         481px!default;
+$desk-start:        1024px!default;
 
 
 /**
