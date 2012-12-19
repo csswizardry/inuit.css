@@ -7,8 +7,8 @@ meta: New image styles and a marginalia object added in v4.3.3
 # {{ page.title }}
 
 I’ve just pushed [v4.3.3 of inuit.css to GitHub](https://github.com/csswizardry/inuit.css)
-which included some new image classes, thanks to [Anderson Juhasc](https://github.com/Anderson-Juhasc)
-and a marginalia object courtesy of [Sacha Schmid](https://github.com/RadLikeWhoa).
+which included some new image classes—thanks to [Anderson Juhasc](https://github.com/Anderson-Juhasc)—and
+a marginalia object, courtesy of [Sacha Schmid](https://github.com/RadLikeWhoa).
 
 ## Image classes
 
