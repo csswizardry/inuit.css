@@ -58,3 +58,15 @@ hgroup .hN{
 .kilo{
     @include font-size($kilo-size);
 }
+
+/**
+ * A series of classes for setting small type; for use in notices, copyright
+ * info, disclaimers etc.
+ */
+
+.milli{
+    @include font-size($milli-size);
+}
+.micro{
+    @include font-size($micro-size);
+}
