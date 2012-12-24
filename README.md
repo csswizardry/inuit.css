@@ -1,4 +1,4 @@
-# ![inuit.css](https://a248.e.akamai.net/camo.github.com/b402c145cb1134727d8b1416c7f080731cca1244/687474703a2f2f63737377697a61726472792e636f6d2f696e7569746373732f696d672f6c6f676f2e6a7067)
+# ![inuit.css](//inuitcss.com/img/content/logo.png)
 
 inuit.css is a powerful little framework designed for _serious_ developers.
 
