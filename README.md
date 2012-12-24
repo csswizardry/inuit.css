@@ -1,4 +1,4 @@
-# ![inuit.css](//inuitcss.com/img/content/logo.png)
+# ![inuit.css](http://inuitcss.com/img/content/logo.png)
 
 inuit.css is a powerful little framework designed for _serious_ developers.
 
