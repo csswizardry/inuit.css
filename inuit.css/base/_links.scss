@@ -31,7 +31,7 @@ a{
    </ul>
  * 
  */
-.current a{
+.current > a{
     cursor:text;
     text-decoration:underline;
 }
