@@ -37,9 +37,13 @@ $brand-round:        4px!default;
 
 /**
  * Responsiveness?
- * Tell inuit.css when breakpoints start, in pixels.
+ * Tell inuit.css when breakpoints start.
  */
 $responsive:        true!default;
+
+$responsive-push:   false!default;
+$responsive-pull:   false!default;
+
 $lap-start:         481px!default;
 $desk-start:        1024px!default;
 
