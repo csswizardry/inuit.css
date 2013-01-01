@@ -4,9 +4,13 @@
 /**
  * Pull classes, to move grid items over to the right by certain amounts.
  */
-@mixin pull-setup($namespace: "") {
 
-    .pull--#{$namespace}{ position:relative; }
+/**
+ * Not a particularly great selector, but the DRYest way to do things.
+ */
+[class*="pull--"]{ position:relative; }
+
+@mixin pull-setup($namespace: "") {
 
     /**
      * Whole
