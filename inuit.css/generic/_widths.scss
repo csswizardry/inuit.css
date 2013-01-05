@@ -5,335 +5,135 @@
  * Sizes in human readable format. These are used in conjunction with other
  * objects and abstractions found in inuit.css, most commonly the grid system
  * and faux flexbox.
+ *
+ * We have a mixin to generate our widths and their breakpoint-specific
+ * variations.
  */
 
-/**
- * Whole
- */
-.one-whole          { width:100%; }
+@mixin grid-setup($namespace: "") {
+    /**
+    * Whole
+    */
+    .#{$namespace}one-whole         { width:100%; }
 
 
-/**
- * Halves
- */
-.one-half           { width:50%; }
+    /**
+    * Halves
+    */
+    .#{$namespace}one-half          { width:50%; }
 
 
-/**
- * Thirds
- */
-.one-third          { width:33.333%; }
-.two-thirds         { width:66.666%; }
+    /**
+    * Thirds
+    */
+    .#{$namespace}one-third         { width:33.333%; }
+    .#{$namespace}two-thirds        { width:66.666%; }
 
 
-/**
- * Quarters
- */
-  .one-quarter      { width:25%; }
-  .two-quarters     { @extend .one-half; }
-.three-quarters     { width:75%; }
+    /**
+    * Quarters
+    */
+    .#{$namespace}one-quarter       { width:25%; }
+    .#{$namespace}two-quarters      { @extend .#{$namespace}one-half; }
+    .#{$namespace}three-quarters    { width:75%; }
 
 
-/**
- * Fifths
- */
-  .one-fifth        { width:20%; }
-  .two-fifths       { width:40%; }
-.three-fifths       { width:60%; }
- .four-fifths       { width:80%; }
+    /**
+    * Fifths
+    */
+    .#{$namespace}one-fifth         { width:20%; }
+    .#{$namespace}two-fifths        { width:40%; }
+    .#{$namespace}three-fifths      { width:60%; }
+    .#{$namespace}four-fifths       { width:80%; }
 
 
-/**
- * Sixths
- */
-  .one-sixth        { width:16.666%; }
-  .two-sixths       { @extend .one-third; }
-.three-sixths       { @extend .one-half; }
- .four-sixths       { @extend .two-thirds; }
- .five-sixths       { width:83.333%; }
+    /**
+    * Sixths
+    */
+    .#{$namespace}one-sixth         { width:16.666%; }
+    .#{$namespace}two-sixths        { @extend .#{$namespace}one-third; }
+    .#{$namespace}three-sixths      { @extend .#{$namespace}one-half; }
+    .#{$namespace}four-sixths       { @extend .#{$namespace}two-thirds; }
+    .#{$namespace}five-sixths       { width:83.333%; }
 
 
-/**
- * Eighths
- */
-  .one-eighth       { width:12.5%; }
-  .two-eighths      { @extend .one-quarter; }
-.three-eighths      { width:37.5%; }
- .four-eighths      { @extend .one-half; }
- .five-eighths      { width:62.5%; }
-  .six-eighths      { @extend .three-quarters; }
-.seven-eighths      { width:87.5%; }
+    /**
+    * Eighths
+    */
+    .#{$namespace}one-eighth        { width:12.5%; }
+    .#{$namespace}two-eighths       { @extend .#{$namespace}one-quarter; }
+    .#{$namespace}three-eighths     { width:37.5%; }
+    .#{$namespace}four-eighths      { @extend .#{$namespace}one-half; }
+    .#{$namespace}five-eighths      { width:62.5%; }
+    .#{$namespace}six-eighths       { @extend .#{$namespace}three-quarters; }
+    .#{$namespace}seven-eighths     { width:87.5%; }
 
 
-/**
- * Tenths
- */
-  .one-tenth        { width:10%; }
-  .two-tenths       { @extend .one-fifth; }
-.three-tenths       { width:30%; }
- .four-tenths       { @extend .two-fifths; }
- .five-tenths       { @extend .one-half; }
-  .six-tenths       { @extend .three-fifths; }
-.seven-tenths       { width:70%; }
-.eight-tenths       { @extend .four-fifths; }
- .nine-tenths       { width:90%; }
+    /**
+    * Tenths
+    */
+    .#{$namespace}one-tenth         { width:10%; }
+    .#{$namespace}two-tenths        { @extend .#{$namespace}one-fifth; }
+    .#{$namespace}three-tenths      { width:30%; }
+    .#{$namespace}four-tenths       { @extend .#{$namespace}two-fifths; }
+    .#{$namespace}five-tenths       { @extend .#{$namespace}one-half; }
+    .#{$namespace}six-tenths        { @extend .#{$namespace}three-fifths; }
+    .#{$namespace}seven-tenths      { width:70%; }
+    .#{$namespace}eight-tenths      { @extend .#{$namespace}four-fifths; }
+    .#{$namespace}nine-tenths       { width:90%; }
 
 
-/**
- * Twelfths
- */
-   .one-twelfth     { width:8.333%; }
-   .two-twelfths    { @extend .one-sixth; }
- .three-twelfths    { @extend .one-quarter; }
-  .four-twelfths    { @extend .one-third; }
-  .five-twelfths    { width:41.666% }
-   .six-twelfths    { @extend .one-half; }
- .seven-twelfths    { width:58.333%; }
- .eight-twelfths    { @extend .two-thirds; }
-  .nine-twelfths    { @extend .three-quarters; }
-   .ten-twelfths    { @extend .five-sixths; }
-.eleven-twelfths    { width:91.666%; }
+    /**
+    * Twelfths
+    */
+    .#{$namespace}one-twelfth       { width:8.333%; }
+    .#{$namespace}two-twelfths      { @extend .#{$namespace}one-sixth; }
+    .#{$namespace}three-twelfths    { @extend .#{$namespace}one-quarter; }
+    .#{$namespace}four-twelfths     { @extend .#{$namespace}one-third; }
+    .#{$namespace}five-twelfths     { width:41.666% }
+    .#{$namespace}six-twelfths      { @extend .#{$namespace}one-half; }
+    .#{$namespace}seven-twelfths    { width:58.333%; }
+    .#{$namespace}eight-twelfths    { @extend .#{$namespace}two-thirds; }
+    .#{$namespace}nine-twelfths     { @extend .#{$namespace}three-quarters; }
+    .#{$namespace}ten-twelfths      { @extend .#{$namespace}five-sixths; }
+    .#{$namespace}eleven-twelfths   { width:91.666%; }
+}
+
+@include grid-setup();
+
 
 
 /**
  * If you have set `$responsive` to ‘true’ in `_vars.scss` then you now have
  * access to these classes. You can define at which breakpoing you’d like an
  * element to be a certain size, e.g.:
- * 
+ *
  * `<div class="g  one-quarter  lap-one-half  palm-one-whole"> ... </div>`
- * 
+ *
  * This would create a `div` that, at ‘desktop’ sizes, takes up a quarter of the
  * horizontal space, a half of that space at ‘tablet’ sizes, and goes full width
  * at ‘mobile’ sizes.
- * 
+ *
  * Demo: jsfiddle.net/inuitcss/WS4Ge
- * 
+ *
  */
 
 @if $responsive == true{
 
 @include media-query(palm){
-    
-    .palm-one-whole         { width:100%; }
-
-    .palm-one-half          { width:50%; }
-
-    .palm-one-third         { width:33.333%; }
-    .palm-two-thirds        { width:66.666%; }
-
-      .palm-one-quarter     { width:25%; }
-      .palm-two-quarters    { @extend .palm-one-half; }
-    .palm-three-quarters    { width:75%; }
-
-      .palm-one-fifth       { width:20%; }
-      .palm-two-fifths      { width:40%; }
-    .palm-three-fifths      { width:60%; }
-     .palm-four-fifths      { width:80%; }
-
-      .palm-one-sixth       { width:16.666%; }
-      .palm-two-sixths      { @extend .palm-one-third; }
-    .palm-three-sixths      { @extend .palm-one-half; }
-     .palm-four-sixths      { @extend .palm-two-thirds; }
-     .palm-five-sixths      { width:83.333%; }
-
-      .palm-one-eighth      { width:12.5%; }
-      .palm-two-eighths     { @extend .palm-one-quarter; }
-    .palm-three-eighths     { width:37.5%; }
-     .palm-four-eighths     { @extend .palm-one-half; }
-     .palm-five-eighths     { width:62.5%; }
-      .palm-six-eighths     { @extend .palm-three-quarters; }
-    .palm-seven-eighths     { width:87.5%; }
-
-      .palm-one-tenth       { width:10%; }
-      .palm-two-tenths      { @extend .palm-one-fifth; }
-    .palm-three-tenths      { width:30%; }
-     .palm-four-tenths      { @extend .palm-two-fifths; }
-     .palm-five-tenths      { @extend .palm-one-half; }
-      .palm-six-tenths      { @extend .palm-three-fifths; }
-    .palm-seven-tenths      { width:70%; }
-    .palm-eight-tenths      { @extend .palm-four-fifths; }
-     .palm-nine-tenths      { width:90%; }
-
-       .palm-one-twelfth    { width:8.333%; }
-       .palm-two-twelfths   { @extend .palm-one-sixth; }
-     .palm-three-twelfths   { @extend .palm-one-quarter; }
-      .palm-four-twelfths   { @extend .palm-one-third; }
-      .palm-five-twelfths   { width:41.666% }
-       .palm-six-twelfths   { @extend .palm-one-half; }
-     .palm-seven-twelfths   { width:58.333%; }
-     .palm-eight-twelfths   { @extend .palm-two-thirds; }
-      .palm-nine-twelfths   { @extend .palm-three-quarters; }
-       .palm-ten-twelfths   { @extend .palm-five-sixths; }
-    .palm-eleven-twelfths   { width:91.666%; }
-    
-}/* end palm */
+    @include grid-setup("palm-");
+}
 
 @include media-query(lap){
-    
-    .lap-one-whole          { width:100%; }
-
-    .lap-one-half           { width:50%; }
-
-    .lap-one-third          { width:33.333%; }
-    .lap-two-thirds         { width:66.666%; }
-
-      .lap-one-quarter      { width:25%; }
-      .lap-two-quarters     { @extend .lap-one-half; }
-    .lap-three-quarters     { width:75%; }
-
-      .lap-one-fifth        { width:20%; }
-      .lap-two-fifths       { width:40%; }
-    .lap-three-fifths       { width:60%; }
-     .lap-four-fifths       { width:80%; }
-
-      .lap-one-sixth        { width:16.666%; }
-      .lap-two-sixths       { @extend .lap-one-third; }
-    .lap-three-sixths       { @extend .lap-one-half; }
-     .lap-four-sixths       { @extend .lap-two-thirds; }
-     .lap-five-sixths       { width:83.333%; }
-
-      .lap-one-eighth       { width:12.5%; }
-      .lap-two-eighths      { @extend .lap-one-quarter; }
-    .lap-three-eighths      { width:37.5%; }
-     .lap-four-eighths      { @extend .lap-one-half; }
-     .lap-five-eighths      { width:62.5%; }
-      .lap-six-eighths      { @extend .lap-three-quarters; }
-    .lap-seven-eighths      { width:87.5%; }
-
-      .lap-one-tenth        { width:10%; }
-      .lap-two-tenths       { @extend .lap-one-fifth; }
-    .lap-three-tenths       { width:30%; }
-     .lap-four-tenths       { @extend .lap-two-fifths; }
-     .lap-five-tenths       { @extend .lap-one-half; }
-      .lap-six-tenths       { @extend .lap-three-fifths; }
-    .lap-seven-tenths       { width:70%; }
-    .lap-eight-tenths       { @extend .lap-four-fifths; }
-     .lap-nine-tenths       { width:90%; }
-
-       .lap-one-twelfth     { width:8.333%; }
-       .lap-two-twelfths    { @extend .lap-one-sixth; }
-     .lap-three-twelfths    { @extend .lap-one-quarter; }
-      .lap-four-twelfths    { @extend .lap-one-third; }
-      .lap-five-twelfths    { width:41.666% }
-       .lap-six-twelfths    { @extend .lap-one-half; }
-     .lap-seven-twelfths    { width:58.333%; }
-     .lap-eight-twelfths    { @extend .lap-two-thirds; }
-      .lap-nine-twelfths    { @extend .lap-three-quarters; }
-       .lap-ten-twelfths    { @extend .lap-five-sixths; }
-    .lap-eleven-twelfths    { width:91.666%; }
-    
-}/* end lap */
+    @include grid-setup("lap-");
+}
 
 @include media-query(portable){
-    
-    .portable-one-whole         { width:100%; }
-
-    .portable-one-half          { width:50%; }
-
-    .portable-one-third         { width:33.333%; }
-    .portable-two-thirds        { width:66.666%; }
-
-      .portable-one-quarter     { width:25%; }
-      .portable-two-quarters    { @extend .portable-one-half; }
-    .portable-three-quarters    { width:75%; }
-
-      .portable-one-fifth       { width:20%; }
-      .portable-two-fifths      { width:40%; }
-    .portable-three-fifths      { width:60%; }
-     .portable-four-fifths      { width:80%; }
-
-      .portable-one-sixth       { width:16.666%; }
-      .portable-two-sixths      { @extend .portable-one-third; }
-    .portable-three-sixths      { @extend .portable-one-half; }
-     .portable-four-sixths      { @extend .portable-two-thirds; }
-     .portable-five-sixths      { width:83.333%; }
-
-      .portable-one-eighth      { width:12.5%; }
-      .portable-two-eighths     { @extend .portable-one-quarter; }
-    .portable-three-eighths     { width:37.5%; }
-     .portable-four-eighths     { @extend .portable-one-half; }
-     .portable-five-eighths     { width:62.5%; }
-      .portable-six-eighths     { @extend .portable-three-quarters; }
-    .portable-seven-eighths     { width:87.5%; }
-
-      .portable-one-tenth       { width:10%; }
-      .portable-two-tenths      { @extend .portable-one-fifth; }
-    .portable-three-tenths      { width:30%; }
-     .portable-four-tenths      { @extend .portable-two-fifths; }
-     .portable-five-tenths      { @extend .portable-one-half; }
-      .portable-six-tenths      { @extend .portable-three-fifths; }
-    .portable-seven-tenths      { width:70%; }
-    .portable-eight-tenths      { @extend .portable-four-fifths; }
-     .portable-nine-tenths      { width:90%; }
-
-       .portable-one-twelfth    { width:8.333%; }
-       .portable-two-twelfths   { @extend .portable-one-sixth; }
-     .portable-three-twelfths   { @extend .portable-one-quarter; }
-      .portable-four-twelfths   { @extend .portable-one-third; }
-      .portable-five-twelfths   { width:41.666% }
-       .portable-six-twelfths   { @extend .portable-one-half; }
-     .portable-seven-twelfths   { width:58.333%; }
-     .portable-eight-twelfths   { @extend .portable-two-thirds; }
-      .portable-nine-twelfths   { @extend .portable-three-quarters; }
-       .portable-ten-twelfths   { @extend .portable-five-sixths; }
-    .portable-eleven-twelfths   { width:91.666%; }
-    
-}/* end portable */
+    @include grid-setup("portable-");
+}
 
 @include media-query(desk){
-    
-    .desk-one-whole         { width:100%; }
-
-    .desk-one-half          { width:50%; }
-
-    .desk-one-third         { width:33.333%; }
-    .desk-two-thirds        { width:66.666%; }
-
-      .desk-one-quarter     { width:25%; }
-      .desk-two-quarters    { @extend .desk-one-half; }
-    .desk-three-quarters    { width:75%; }
-
-      .desk-one-fifth       { width:20%; }
-      .desk-two-fifths      { width:40%; }
-    .desk-three-fifths      { width:60%; }
-     .desk-four-fifths      { width:80%; }
-
-      .desk-one-sixth       { width:16.666%; }
-      .desk-two-sixths      { @extend .desk-one-third; }
-    .desk-three-sixths      { @extend .desk-one-half; }
-     .desk-four-sixths      { @extend .desk-two-thirds; }
-     .desk-five-sixths      { width:83.333%; }
-
-      .desk-one-eighth      { width:12.5%; }
-      .desk-two-eighths     { @extend .desk-one-quarter; }
-    .desk-three-eighths     { width:37.5%; }
-     .desk-four-eighths     { @extend .desk-one-half; }
-     .desk-five-eighths     { width:62.5%; }
-      .desk-six-eighths     { @extend .desk-three-quarters; }
-    .desk-seven-eighths     { width:87.5%; }
-
-      .desk-one-tenth       { width:10%; }
-      .desk-two-tenths      { @extend .desk-one-fifth; }
-    .desk-three-tenths      { width:30%; }
-     .desk-four-tenths      { @extend .desk-two-fifths; }
-     .desk-five-tenths      { @extend .desk-one-half; }
-      .desk-six-tenths      { @extend .desk-three-fifths; }
-    .desk-seven-tenths      { width:70%; }
-    .desk-eight-tenths      { @extend .desk-four-fifths; }
-     .desk-nine-tenths      { width:90%; }
-
-       .desk-one-twelfth    { width:8.333%; }
-       .desk-two-twelfths   { @extend .desk-one-sixth; }
-     .desk-three-twelfths   { @extend .desk-one-quarter; }
-      .desk-four-twelfths   { @extend .desk-one-third; }
-      .desk-five-twelfths   { width:41.666% }
-       .desk-six-twelfths   { @extend .desk-one-half; }
-     .desk-seven-twelfths   { width:58.333%; }
-     .desk-eight-twelfths   { @extend .desk-two-thirds; }
-      .desk-nine-twelfths   { @extend .desk-three-quarters; }
-       .desk-ten-twelfths   { @extend .desk-five-sixths; }
-    .desk-eleven-twelfths   { width:91.666%; }
-    
-}/* end desk */
+    @include grid-setup("desk-");
+}
 
 } /* endif */

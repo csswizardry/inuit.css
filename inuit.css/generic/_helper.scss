@@ -40,6 +40,15 @@
 
 
 /**
+ * Mute an object by reducing its opacity.
+ */
+.muted{
+    opacity:0.5;
+    filter:alpha(opacity = 50);
+}
+
+
+/**
  * Align items to the right where they imply progression/movement forward, e.g.:
  * 
    <p class=proceed><a href=#>Read more...</a></p>
@@ -74,3 +83,20 @@
  */
 .accessibility              { position:absolute; left:-99999px; }
 [dir=rtl] .accessibility    { left:auto; right:-99999px; }
+
+
+/**
+ * Hide content based on breakpoint
+ */
+.hide{
+    position:absolute;
+    left:-9999px;
+}
+@each $state in palm, lap, portable, desk{
+    @include media-query(#{$state}){
+        .hide--#{$state}{
+            position:absolute;
+            left:-9999px;
+        }
+    }
+}

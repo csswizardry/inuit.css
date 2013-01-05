@@ -87,6 +87,7 @@
  * PAGINATION..........Very stripped back, basic paginator
  * BREADCRUMB..........Simple breadcrumb trail object
  * MEDIA...............Media object
+ * MARGINALIA..........Simple marginalia content
  * ISLAND..............Boxed off content
  * BLOCK-LIST..........Blocky lists of content
  * MATRIX..............Gridded lists
@@ -178,6 +179,7 @@
    @import "objects/pagination";
    @import "objects/breadcrumb";
    @import "objects/media";
+   @import "objects/marginalia";
    @import "objects/island";
    @import "objects/block-list";
    @import "objects/matrix";

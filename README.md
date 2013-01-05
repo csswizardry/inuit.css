@@ -1,4 +1,4 @@
-# ![inuit.css](https://a248.e.akamai.net/camo.github.com/b402c145cb1134727d8b1416c7f080731cca1244/687474703a2f2f63737377697a61726472792e636f6d2f696e7569746373732f696d672f6c6f676f2e6a7067)
+# ![inuit.css](http://inuitcss.com/img/content/logo.png)
 
 inuit.css is a powerful little framework designed for _serious_ developers.
 
@@ -123,7 +123,7 @@ This ensures that you aren’t packaging more than you need to.
 ## Footprint
 
 **inuit.css is tiny.** The full framework – _including_ debug mode – once minified
-and gzipped weighs **less than 4.8kB**
+and gzipped weighs **less than 5.6kB**
 
 It is essential to **compile to a minified file** because inuit.css is packed
 full of comments and whitespace; so much so that it would be detrimental to
@@ -195,6 +195,12 @@ been possible without inspiration and work from an array of other people.
 * **[Bryan James](https://twitter.com/WengersToyBus)** for the inuit.css logo
 
 And probably more…
+
+## License
+
+Copyright 2012 Harry Roberts
+
+Licensed under the Apache License, Version 2.0.
 
 ---
 

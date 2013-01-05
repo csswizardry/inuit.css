@@ -44,11 +44,21 @@ $brand-round:        4px!default;
 
 /**
  * Responsiveness?
- * Tell inuit.css when breakpoints start, in pixels.
  */
-$responsive:        true;
-$lap-start:         481px;
-$desk-start:        1024px;
+$responsive:        true!default;
+
+/**
+ * Responsive push and pull produce a LOT of code, only turn them on if you
+ * definitely need them.
+ */
+$responsive-push:   false!default;
+$responsive-pull:   false!default;
+
+/**
+ * Tell inuit.css when breakpoints start.
+ */
+$lap-start:         481px!default;
+$desk-start:        1024px!default;
 
 
 /**
