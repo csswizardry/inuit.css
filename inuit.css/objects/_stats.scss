@@ -35,14 +35,14 @@
         display:-webkit-flex;
         display:   -moz-flex;
         display:        flex;
-        @include vendor(flex-direction, column);
+        @include vendor((-ms-, -webkit-, -moz-), flex-direction, column);
     }
         .stat__title{
-            @include vendor(order, 2);
             -ms-flex-order:2;
+            @include vendor((-webkit-, -moz-), order, 2);
         }
         .stat__value{
             margin-left:0;
-            @include vendor(order, 1);
             -ms-flex-order:1;
+            @include vendor((-webkit-, -moz-), order, 1);
         }
