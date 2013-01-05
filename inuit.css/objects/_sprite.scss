@@ -13,13 +13,13 @@
  * 
  * Giving an element a class of `.i` will throw it into ‘icon’ mode and will
  * not add a background, but should be used for icon fonts and is populated
- * through a `data-char` attribute and the `:after` pseudo-element, e.g.:
+ * through a `data-icon` attribute and the `:after` pseudo-element, e.g.:
  * 
-   <a href=# class=i data-char="C">Add to favorites</a>
+   <a href=# class=i data-icon="C">Add to favorites</a>
  * 
  * or
  * 
-   <a href=#><i class=i data-char="C"></i> View your favourites</a>
+   <a href=#><i class=i data-icon="C"></i> View your favourites</a>
  * 
  * Where ‘C’ might map to a star in your particular font.
  * 
@@ -84,7 +84,7 @@
     height:1em;
 
     &:before{
-        content:attr(data-char);
+        content:attr(data-icon);
     }
 }
 
