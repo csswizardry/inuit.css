@@ -15,13 +15,9 @@
  * not add a background, but should be used for icon fonts and is populated
  * through a `data-icon` attribute and the `:after` pseudo-element, e.g.:
  * 
-   <a href=# class=i data-icon="C">Add to favorites</a>
+   <a href=#><i class=i data-icon="&#xF000;"></i> View your favourites</a>
  * 
- * or
- * 
-   <a href=#><i class=i data-icon="C"></i> View your favourites</a>
- * 
- * Where ‘C’ might map to a star in your particular font.
+ * Where ‘&#xF000;’ might map to a star in your particular font.
  * 
  * These all require extension in your theme stylesheet.
  * 
