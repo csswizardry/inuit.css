@@ -13,15 +13,11 @@
  * 
  * Giving an element a class of `.i` will throw it into ‘icon’ mode and will
  * not add a background, but should be used for icon fonts and is populated
- * through a `data-char` attribute and the `:after` pseudo-element, e.g.:
+ * through a `data-icon` attribute and the `:after` pseudo-element, e.g.:
  * 
-   <a href=# class=i data-char="C">Add to favorites</a>
+   <a href=#><i class=i data-icon="&#xF000;"></i> View your favourites</a>
  * 
- * or
- * 
-   <a href=#><i class=i data-char="C"></i> View your favourites</a>
- * 
- * Where ‘C’ might map to a star in your particular font.
+ * Where ‘&#xF000;’ might map to a star in your particular font.
  * 
  * These all require extension in your theme stylesheet.
  * 
@@ -31,17 +27,15 @@
 .s,
 .i{
     display:inline-block;
-    /**
-     * The typical size of most icons. Override in your theme stylesheet.
-     */
-    width: 16px;
-    height:16px;
+    line-height:1;
     position:relative;
+    vertical-align:middle;
     zoom:1;
     /**
-     * So using `.i` on `i` elements doesn’t make a visual difference.
+     * So using `.i` on certain elements doesn’t make a visual difference.
      */
     font-style:normal;
+    font-weight:normal;
     /**
      * So icons added using `.i` sit in the centre of the element.
      */
@@ -49,7 +43,11 @@
 }
 .s{
     background-image:url(/path/to/your/sprite.png);
-    vertical-align:middle;
+    /**
+     * The typical size of most icons. Override in your theme stylesheet.
+     */
+    width: 16px;
+    height:16px;
     top:-1px;
 
     /*
@@ -67,11 +65,28 @@
     }
 }
 
-
+/**
+ * Set up Batch icon font
+ */
 .i{
-    vertical-align:top;
-    
-    &:after{
-        content:attr(data-char);
+    @if $batch == true{
+        font-family:Batch;
+    }
+    font-size:16px;
+    /**
+     * Place the icon in a box the exact same dimensions as the icon itself.
+     */
+    width:1em;
+    height:1em;
+
+    &:before{
+        content:attr(data-icon);
     }
 }
+
+/**
+ * Icon size modifiers.
+ */
+.i--large   { font-size:32px; }
+.i--huge    { font-size:64px; }
+.i--natural { font-size:inherit; }

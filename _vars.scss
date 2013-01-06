@@ -23,6 +23,13 @@ $global-border-box: true;
 
 
 /**
+ * Would you like to use Adam Whitcroft’s Batch icon font, as per:
+ * adamwhitcroft.com/batch ?
+ */
+$batch:             false!default;
+
+
+/**
  * Base stuff
  */
 $base-font-size:    16px!default;
