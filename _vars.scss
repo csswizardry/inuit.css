@@ -12,14 +12,14 @@
  * Debug mode will visually highlight any potential markup/accessibility quirks
  * in the browser. Set to `true` or `false`.
  */
-$debug-mode:        false;
+$debug-mode:        false!default;
 
 
 /**
  * Do you want all elements to adopt `box-sizing:border-box;` as per
  * paulirish.com/2012/box-sizing-border-box-ftw ?
  */
-$global-border-box: true;
+$global-border-box: true!default;
 
 
 /**
@@ -77,6 +77,27 @@ $h6-size:           14px!default; // .zeta
 
 $milli-size:        12px!default;
 $micro-size:        10px!default;
+
+
+/**
+ * English quote marks?
+ */
+$english-quotes:    true!default;
+
+/**
+ * If you want English quotes then please do not edit these; they’re only here
+ * because Sass needs them.
+ */
+$open-quote:    null;
+$close-quote:   null;
+
+/**
+ * If you need non-English quotes, please alter the following values accordingly:
+ */
+@if $english-quotes != true{
+    $open-quote:    «;
+    $close-quote:   »;
+}
 
 
 /**
