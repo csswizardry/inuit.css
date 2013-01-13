@@ -73,21 +73,28 @@
 
 
 /**
- * Give nav links a big, blocky hit area. Extends `.nav` and needs whitespace
- * caused by `inline-block` elements collapsing e.g.:
+ * Give nav links a big, blocky hit area. Extends `.nav`, e.g.:
  * 
    <ul class="nav  nav--block">
-       <li><a href=#>Home</a></li><!--
-    --><li><a href=#>About</a></li><!--
-    --><li><a href=#>Portfolio</a></li><!--
-    --><li><a href=#>Contact</a></li>
+       <li><a href=#>Home</a></li>
+       <li><a href=#>About</a></li>
+       <li><a href=#>Portfolio</a></li>
+       <li><a href=#>Contact</a></li>
    </ul>
  * 
  */
 .nav--block{
     line-height:1;
+    /**
+     * Remove whitespace caused by `inline-block`.
+     */
+    letter-spacing:-0.31em;
+    word-spacing:-0.43em;
+    white-space:nowrap;
     
     > li{
+        letter-spacing:normal;
+        word-spacing:normal;
         
         > a{
             padding:$half-spacing-unit;
