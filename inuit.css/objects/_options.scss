@@ -25,15 +25,25 @@
             border:0 solid #ccc; /* Extend in your theme stylesheet */
             border-width:1px;
             border-left-width:0;
+            border-radius:$brand-round;
         }
 
         &:first-child > a{
             border-left-width:1px;
-            border-radius:$brand-round 0 0 $brand-round;
         }
+    }
 
-        &:last-child > a{
-            border-radius:0 $brand-round $brand-round 0;
-        }
+    > li:not(:first-child):not(:last-child) > a{
+        border-radius:0;
+    }
+
+    > li:first-child > a{
+        border-top-right-radius:0;
+        border-bottom-right-radius:0;
+    }
+
+    > li:last-child > a{
+        border-top-left-radius:0;
+        border-bottom-left-radius:0;
     }
 }
