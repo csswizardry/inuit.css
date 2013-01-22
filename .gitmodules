@@ -1,0 +1,6 @@
+[submodule "inuit.css/base/normalize"]
+	path = inuit.css/base/normalize
+	url = git://github.com/necolas/normalize.css.git
+[submodule "inuit.css/generic/normalize"]
+	path = inuit.css/generic/normalize
+	url = git://github.com/necolas/normalize.css.git
