@@ -7,8 +7,8 @@
  * generate these arbitrarily with a mixin, `@arrow()`.
  */
 
-$arrow-size:            $half-spacing-unit;
-$arrow-border:          1;
+$arrow-size:            $half-spacing-unit!default;
+$arrow-border:          1!default;
 $border:                $arrow-size;
 $arrow:                 $arrow-size - $arrow-border;
 
