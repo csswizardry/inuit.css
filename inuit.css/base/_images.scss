@@ -4,11 +4,21 @@
 /**
  * Demo: jsfiddle.net/inuitcss/yMtur
  */
+/**
+ * Fluid images.
+ */
 img{
-    @if $flexible-media == true{
-        max-width:100%;
-        height:auto;
-    }
+    max-width:100%;
+    height:auto;
+}
+
+
+/**
+ * Non-fluid images if you specify `width` and/or `height` attributes.
+ */
+img[width],
+img[height]{
+    max-width:none;
 }
 
 
