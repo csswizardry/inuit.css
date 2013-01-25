@@ -255,7 +255,7 @@
  * We work out your end points for you:
  */
 $palm-end:              $lap-start - 1px;
-$lap-end:               $desk-start - 1px;
+$lap-end:               $desk-start - 1px;  
 
 @mixin media-query($media-query){
 
@@ -287,6 +287,12 @@ $lap-end:               $desk-start - 1px;
         
         @media only screen and (min-width:$desk-start) { @content; }
         
+    }
+
+    @if $media-query == desk-wide{
+
+        @media only screen and (min-width: $desk-wide-start) { @content; }
+
     }
     
 }
