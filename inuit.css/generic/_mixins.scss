@@ -288,5 +288,11 @@ $lap-end:               $desk-start - 1px;
         @media only screen and (min-width:$desk-start) { @content; }
         
     }
+
+    @if $media-query == desk-wide{
+
+        @media only screen and (min-width: $desk-wide-start) { @content; }
+
+    }
     
 }

@@ -136,4 +136,19 @@
     @include grid-setup("desk-");
 }
 
+/**
+ * If you have set the additional `$responsive-extra` variable to ‘true’ in `_vars.scss` 
+ * then you now have access to the following class available to accomodate much larger 
+ * screen resolutions.
+ *
+ */
+
+@if $responsive-extra == true {
+
+@include media-query(desk-wide){
+    @include grid-setup("deskwide-");
+}
+
+}
+
 } /* endif */

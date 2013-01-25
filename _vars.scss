@@ -49,6 +49,12 @@ $responsive:        true!default;
 $flexible-media:    true!default;
 
 /**
+ * Responsiveness for widescreen/high resolution desktop monitors and beyond?
+ * Note: $responsive parameter above must be enabled before enabling this.
+ */
+$responsive-extra:  false!default;
+
+/**
  * Responsive push and pull produce a LOT of code, only turn them on if you
  * definitely need them.
  */
@@ -60,6 +66,8 @@ $responsive-pull:   false!default;
  */
 $lap-start:         481px!default;
 $desk-start:        1024px!default;
+
+$desk-wide-start: 	1200px!default;
 
 
 /**
