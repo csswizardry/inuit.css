@@ -4,8 +4,14 @@
 /**
  * Demo: jsfiddle.net/inuitcss/yMtur
  */
-img{
-    @if $flexible-media == true{
+
+@if $flexible-media == true{
+    img{
+        max-width:100%;
+        height:auto;
+    }
+} @else {
+    .img--responsive {
         max-width:100%;
         height:auto;
     }
