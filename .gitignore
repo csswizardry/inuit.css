@@ -12,3 +12,6 @@
 
 # Ignore my little test/tinkering file
 inuit.css.html
+
+# Ignore compile script
+compile.sh
