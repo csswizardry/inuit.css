@@ -29,11 +29,13 @@
 
         &:first-child > a{
             border-left-width:1px;
-            border-radius:$brand-round 0 0 $brand-round;
+            border-top-left-radius:$brand-round;
+            border-bottom-left-radius:$brand-round;
         }
 
         &:last-child > a{
-            border-radius:0 $brand-round $brand-round 0;
+            border-top-right-radius:$brand-round;
+            border-bottom-right-radius:$brand-round;
         }
     }
 }
