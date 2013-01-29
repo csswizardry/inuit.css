@@ -204,9 +204,9 @@
 /**
  * Style trumps; helper and brand classes
  */
-   @import "generic/widths";
-   @import "generic/push";
-   @import "generic/pull";
-   @import "generic/brand";
-   @import "generic/helper";
-   @import "generic/debug";
+   @import "helpers/widths";
+   @import "helpers/push";
+   @import "helpers/pull";
+   @import "helpers/brand";
+   @import "helpers/helper";
+   @import "helpers/debug";
