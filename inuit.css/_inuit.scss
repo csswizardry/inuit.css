@@ -60,7 +60,8 @@
  * CONTENTS............You’re reading it!
  * WARNING.............Here be dragons!
  * IMPORTS.............Begin importing the sections below
- * 
+ *
+ * VARIABLES...........Default variables, expected to be overridden by users
  * MIXINS..............Super-simple Sass stuff
  * NORMALIZE...........normalize.css
  * RESET...............Set some defaults
@@ -143,6 +144,7 @@
 /**
  * Generic utility styles etc.
  */
+   @import "generic/variables";
    @import "generic/mixins";
    @import "generic/normalize";
    @import "generic/reset";
