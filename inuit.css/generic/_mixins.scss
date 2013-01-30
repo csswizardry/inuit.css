@@ -127,11 +127,11 @@
         @extend %arrow--top;
         
         &:before{
-            border-bottom-color:$border-color;
+            border-bottom-color:$border-color!important;
         }
         
         &:after{
-            border-bottom-color:$arrow-color;
+            border-bottom-color:$arrow-color!important;
         }
         
         @if $arrow-location == left{
@@ -153,11 +153,11 @@
         @extend %arrow--far;
         
         &:before{
-            border-left-color:$border-color;
+            border-left-color:$border-color!important;
         }
         
         &:after{
-            border-left-color:$arrow-color;
+            border-left-color:$arrow-color!important;
         }
         
         @if $arrow-location == top{
@@ -179,11 +179,11 @@
         @extend %arrow--bottom;
         
         &:before{
-            border-top-color:$border-color;
+            border-top-color:$border-color!important;
         }
         
         &:after{
-            border-top-color:$arrow-color;
+            border-top-color:$arrow-color!important;
         }
         
         @if $arrow-location == left{
@@ -205,11 +205,11 @@
         @extend %arrow--near;
         
         &:before{
-            border-right-color:$border-color;
+            border-right-color:$border-color!important;
         }
         
         &:after{
-            border-right-color:$arrow-color;
+            border-right-color:$arrow-color!important;
         }
         
         @if $arrow-location == top{
