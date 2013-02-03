@@ -60,58 +60,11 @@
  * CONTENTS............You’re reading it!
  * WARNING.............Here be dragons!
  * IMPORTS.............Begin importing the sections below
- *
- * VARIABLES...........Default variables, expected to be overridden by users
- * MIXINS..............Super-simple Sass stuff
- * NORMALIZE...........normalize.css
- * RESET...............Set some defaults
- * CLEARFIX............
- * SHARED..............Shared declarations
  * 
- * MAIN................High-level elements like `html`, `body`, etc.
- * HEADINGS............Double-stranded heading hierarchy
- * PARAGRAPHS..........
- * SMALLPRINT..........Smaller text elements like `small`
- * QUOTES..............
- * CODE................
- * LINKS...............
- * LISTS...............
- * IMAGES..............
- * TABLES..............
- * FORMS...............
- * 
- * GRIDS...............Fluid, proportional and nestable grids
- * FLEXBOX.............Crudely emulate flexbox
- * COLUMNS.............CSS3 columns
- * NAV.................A simple abstraction to put a list in horizontal nav mode
- * OPTIONS.............Grouped nav items
- * PAGINATION..........Very stripped back, basic paginator
- * BREADCRUMB..........Simple breadcrumb trail object
- * MEDIA...............Media object
- * MARGINALIA..........Simple marginalia content
- * ISLAND..............Boxed off content
- * BLOCK-LIST..........Blocky lists of content
- * MATRIX..............Gridded lists
- * SPLIT...............A simple split-in-two object
- * THIS-OR-THIS........Options object
- * LINK-COMPLEX........
- * FLYOUT..............Flyout-on-hover object
- * ARROWS..............CSS arrows
- * SPRITE..............Generic spriting element
- * ICON-TEXT...........Icon and text couplings
- * BUTTONS.............
- * LOZENGES............Basic lozenge styles
- * RULES...............Horizontal rules
- * STATS...............Simple stats object
- * GREYBOX.............Wireframing styles
- * BATCH...............Batch icon font
- * 
- * WIDTHS..............Width classes for use alongside the grid system etc.
- * PUSH................Push classes for manipulating grids
- * PULL................Pull classes for manipulating grids
- * BRAND...............Helper class to apply brand treatment to elements
- * HELPER..............A series of helper classes to use arbitrarily
- * DEBUG...............Enable to add visual flags for debugging purposes
+ * GENERIC.............Generic utility styles etc.
+ * BASE................Base styles; unclassed HTML elements etc.
+ * OBJECTS.............Objects and abstractions
+ * HELPERS.............Style trumps; helper and brand classes
  */
 
 
@@ -141,72 +94,7 @@
 /*------------------------------------*\
     $IMPORTS
 \*------------------------------------*/
-/**
- * Generic utility styles etc.
- */
-   @import "generic/variables";
-   @import "generic/mixins";
-   @import "generic/normalize";
-   @import "generic/reset";
-   @import "generic/clearfix";
-   @import "generic/shared";
-
-
-/**
- * Base styles; unclassed HTML elements etc.
- */
-   @import "base/main";
-   @import "base/headings";
-   @import "base/paragraphs";
-   @import "base/smallprint";
-   @import "base/quotes";
-   @import "base/code";
-   @import "base/links";
-   @import "base/images";
-   @import "base/lists";
-   @import "base/tables";
-   @import "base/forms";
-
-
-/**
- * Objects and abstractions
- * 
- * Single-line comment (//) out any objects you do not need in your project.
- */
-   @import "objects/grids";
-   @import "objects/flexbox";
-   @import "objects/columns";
-   @import "objects/nav";
-   @import "objects/options";
-   @import "objects/pagination";
-   @import "objects/breadcrumb";
-   @import "objects/media";
-   @import "objects/marginalia";
-   @import "objects/island";
-   @import "objects/block-list";
-   @import "objects/matrix";
-   @import "objects/split";
-// @import "example/unnecessary/file";
-   @import "objects/this-or-this";
-   @import "objects/link-complex";
-   @import "objects/flyout";
-   @import "objects/arrows";
-   @import "objects/sprite";
-   @import "objects/icon-text";
-   @import "objects/buttons";
-   @import "objects/lozenges";
-   @import "objects/rules";
-   @import "objects/stats";
-   @import "objects/greybox";
-   @import "objects/batch";
-
-
-/**
- * Style trumps; helper and brand classes
- */
-   @import "helpers/widths";
-   @import "helpers/push";
-   @import "helpers/pull";
-   @import "helpers/brand";
-   @import "helpers/helper";
-   @import "helpers/debug";
+@import "generic";
+@import "base";
+@import "objects";
+@import "helpers";

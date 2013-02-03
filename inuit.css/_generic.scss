@@ -1,0 +1,21 @@
+/*------------------------------------*\
+    $GENERIC
+\*------------------------------------*/
+/**
+ * Provides initial scaffolding for inuit.css. If you are customizing what
+ * parts of Inuit to build then this file MUST be included first.
+ *
+ * VARIABLES...........Default variables, expected to be overridden by users
+ * MIXINS..............Super-simple Sass stuff
+ * NORMALIZE...........normalize.css
+ * RESET...............Set some defaults
+ * CLEARFIX............
+ * SHARED..............Shared declarations
+ */
+
+@import "generic/variables";
+@import "generic/mixins";
+@import "generic/normalize";
+@import "generic/reset";
+@import "generic/clearfix";
+@import "generic/shared";
