@@ -48,6 +48,11 @@ $brand-round:        4px!default;
 $responsive:        true!default;
 
 /**
+ * Mobile first
+ */
+$mobile-first:      true!default;
+
+/**
  * Responsiveness for widescreen/high resolution desktop monitors and beyond?
  * Note: $responsive parameter above must be enabled before enabling this.
  */
