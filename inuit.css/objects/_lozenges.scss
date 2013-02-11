@@ -3,15 +3,15 @@
 \*------------------------------------*/
 /**
  * Create pill- and lozenge-like runs of text, e.g.:
- * 
+ *
    <p>This <span class=pill>here</span> is a pill!</p>
- * 
+ *
    <p>This <span class=loz>here</span> is also a lozenge!</p>
- * 
+ *
  * Pills have fully rounded ends, lozenges have only their corners rounded.
- * 
+ *
  * Demo: jsfiddle.net/inuitcss/N3pGm
- * 
+ *
  */
 .pill{
     display:inline-block;
@@ -27,7 +27,7 @@
     text-align:center;
     background-color:#ccc; /* Override this color in your theme stylesheet */
     color:#fff; /* Override this color in your theme stylesheet */
-    
+
     /**
      * Normally we’d use border-radius:100%; but instead here we just use an
      * overly large number; `border-radius:100%;` would create an oval on
