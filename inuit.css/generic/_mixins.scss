@@ -20,15 +20,14 @@
 /**
  * Create vendor-prefixed CSS in one go, e.g.
  * 
-   `@include vendor(border-radius, 4px);`
+   `@include vendor((-webkit-, -moz-), box-sizing, border-box);`
  * 
  */
-@mixin vendor($property, $value...){
-    -webkit-#{$property}:$value;
-       -moz-#{$property}:$value;
-        -ms-#{$property}:$value;
-         -o-#{$property}:$value;
-            #{$property}:$value;
+@mixin vendor($prefixes, $property, $value...){
+    @each $prefix in $prefixes {
+        #{$prefix}#{$property}: #{$value};
+    }
+    #{$property}:$value;
 }
 
 
@@ -36,7 +35,7 @@
  * Create CSS keyframe animations for all vendors in one go, e.g.:
  * 
    .foo{
-       @include vendor(animation, shrink 3s);
+       @include vendor((-webkit-), animation, shrink 3s);
    }
    
    @include keyframe(shrink){

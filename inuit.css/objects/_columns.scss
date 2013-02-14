@@ -10,9 +10,9 @@
  * 
  */
 %text-cols{
-    @include vendor(column-gap, $base-spacing-unit);
+    @include vendor((-webkit-, -moz-), column-gap, $base-spacing-unit);
 }
-.text-cols--2    { @extend %text-cols; @include vendor(column-count, 2); }
-.text-cols--3    { @extend %text-cols; @include vendor(column-count, 3); }
-.text-cols--4    { @extend %text-cols; @include vendor(column-count, 4); }
-.text-cols--5    { @extend %text-cols; @include vendor(column-count, 5); }
+.text-cols--2    { @extend %text-cols; @include vendor((-webkit-, -moz-), column-count, 2); }
+.text-cols--3    { @extend %text-cols; @include vendor((-webkit-, -moz-), column-count, 3); }
+.text-cols--4    { @extend %text-cols; @include vendor((-webkit-, -moz-), column-count, 4); }
+.text-cols--5    { @extend %text-cols; @include vendor((-webkit-, -moz-), column-count, 5); }

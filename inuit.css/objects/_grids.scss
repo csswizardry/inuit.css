@@ -94,6 +94,6 @@
         float:left;
         padding-left:$base-spacing-unit;
         @if $global-border-box == false{
-            @include vendor(box-sizing, border-box);
+            @include vendor((-webkit-, -moz-), box-sizing, border-box);
         }
     }
