@@ -3,7 +3,7 @@
 \*------------------------------------*/
 /**
  * Simple options object to provide multiple choices, e.g.:
- * 
+ *
    <h1 class=this-or-this>
        <a href=# class="this-or-this__this  two-fifths">
            Free
@@ -15,12 +15,12 @@
            Pro
        </a>
    </h1>
- * 
+ *
  * The `.this-or-this__this` and `.this-or-this__or` objects can be sized using
  * the grid-system classes.
- * 
+ *
  * Demo: jsfiddle.net/inuitcss/R3sks
- * 
+ *
  */
 .this-or-this{
     display:table;

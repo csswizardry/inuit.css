@@ -3,7 +3,7 @@
 \*------------------------------------*/
 /**
  * As per: csswizardry.com/2012/02/pragmatic-practical-font-sizing-in-css
- * 
+ *
  * When we define a heading we also define a corresponding class to go with it.
  * This allows us to apply, say, `class=alpha` to a `h3`; a double-stranded
  * heading hierarchy.
@@ -31,12 +31,12 @@ h6,.zeta{
 /**
  * Heading groups and generic any-heading class.
  * To target any heading of any level simply apply a class of `.hN`, e.g.:
- * 
+ *
    <hgroup>
        <h1 class=hN>inuit.css</h1>
        <h2 class=hN>Best. Framework. Ever!</h2>
    </hgroup>
- * 
+ *
  */
 .hN{
 }

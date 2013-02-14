@@ -4,24 +4,24 @@
 /**
  * Quickly throw together greybox wireframes. Use in conjunction with other
  * inuit.css objects to create simple greybox prototypes, e.g.:
- * 
+ *
    <div class="island  greybox  greybox--medium">Header</div>
-   
+
    <ul class="nav  nav--fit  nav--block  greybox">
        <li><a href=#>Home</a></li>
        <li><a href=#>About</a></li>
        <li><a href=#>Portfolio</a></li>
        <li><a href=#>Contact</a></li>
    </ul>
- * 
+ *
  * The beauty of combining the greyboxing with inuit.css objects is that any
  * prototyping can quickly be converted into/used as production code.
- * 
+ *
  * For a more complete prototyping framework, consider Adam Whitcroft’s Proto:
  * adamwhitcroft.com/proto
- * 
+ *
  * Demo: jsfiddle.net/inuitcss/qCXfh/
- * 
+ *
  */
 .greybox,
 .graybox{
