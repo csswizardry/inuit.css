@@ -24,11 +24,61 @@
  *
  */
 @mixin vendor($property, $value...){
-    -webkit-#{$property}:$value;
-       -moz-#{$property}:$value;
-        -ms-#{$property}:$value;
-         -o-#{$property}:$value;
-            #{$property}:$value;
+	@if $property == border-image {
+	    -webkit-#{$property}:$value;
+	       -moz-#{$property}:$value;
+	            #{$property}:$value;
+	}
+	@else if $property == border-radius {
+	    -webkit-#{$property}:$value;
+	         -o-#{$property}:$value;
+	            #{$property}:$value;
+	}
+	@else if $property == box_shadow {
+	    -webkit-#{$property}:$value;
+	            #{$property}:$value;
+	}
+	@else if $property == box-sizing {
+	    -webkit-#{$property}:$value;
+	       -moz-#{$property}:$value;
+	            #{$property}:$value;
+	}
+	@else if $property == background-size {
+	    -webkit-#{$property}:$value;
+	            #{$property}:$value;
+	}
+	@else if $property == column-count {
+	    -webkit-#{$property}:$value;
+	       -moz-#{$property}:$value;
+	            #{$property}:$value;
+	}
+	@else if $property == column-gap {
+	    -webkit-#{$property}:$value;
+	       -moz-#{$property}:$value;
+	            #{$property}:$value;
+	}
+	@else if $property == hyphens {
+	    -webkit-#{$property}:$value;
+	       -moz-#{$property}:$value;
+	        -ms-#{$property}:$value;
+	            #{$property}:$value;
+	}
+	@else if $property == text-overflow {
+	         -o-#{$property}:$value;
+	            #{$property}:$value;
+	}
+	@else if $property == tab-size {
+	       -moz-#{$property}:$value;
+	         -o-#{$property}:$value;
+	            #{$property}:$value;
+	}
+	@else {
+	    -webkit-#{$property}:$value;
+	       -moz-#{$property}:$value;
+	        -ms-#{$property}:$value;
+	         -o-#{$property}:$value;
+	            #{$property}:$value;
+	}
 }
 
 
