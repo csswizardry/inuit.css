@@ -17,7 +17,7 @@ $arrow:                 $arrow-size - $arrow-border;
  */
 %arrow{
     position:relative;
-    
+
     &:before,
     &:after{
         content:"";
@@ -38,7 +38,7 @@ $arrow:                 $arrow-size - $arrow-border;
  */
 %arrow--top{
     @extend %arrow;
-    
+
     &:before,
     &:after{
         bottom:100%;
@@ -47,7 +47,7 @@ $arrow:                 $arrow-size - $arrow-border;
 
 %arrow--upper{
     @extend %arrow;
-    
+
     &:before{
         top:$arrow;
     }
@@ -71,7 +71,7 @@ $arrow:                 $arrow-size - $arrow-border;
 
 %arrow--lower{
     @extend %arrow;
-    
+
     &:before{
         bottom:$arrow;
     }
@@ -82,7 +82,7 @@ $arrow:                 $arrow-size - $arrow-border;
 
 %arrow--bottom{
     @extend %arrow;
-    
+
     &:before,
     &:after{
         top:100%;
@@ -91,7 +91,7 @@ $arrow:                 $arrow-size - $arrow-border;
 
 %arrow--near{
     @extend %arrow;
-    
+
     &:before,
     &:after{
         right:100%;
@@ -100,7 +100,7 @@ $arrow:                 $arrow-size - $arrow-border;
 
 %arrow--left{
     @extend %arrow;
-    
+
     &:before{
         left:$arrow;
     }
@@ -111,7 +111,7 @@ $arrow:                 $arrow-size - $arrow-border;
 
 %arrow--center{
     @extend %arrow;
-    
+
     &:before,
     &:after{
         left:50%;
@@ -124,7 +124,7 @@ $arrow:                 $arrow-size - $arrow-border;
 
 %arrow--right{
     @extend %arrow;
-    
+
     &:before{
         right:$arrow;
     }
@@ -135,7 +135,7 @@ $arrow:                 $arrow-size - $arrow-border;
 
 %arrow--far{
     @extend %arrow;
-    
+
     &:before,
     &:after{
         left:100%;
