@@ -112,6 +112,10 @@
     @include push-setup("lap-");
 }
 
+@include media-query(lap-and-up){
+    @include push-setup("lap-and-up-");
+}
+
 @include media-query(portable){
     @include push-setup("portable-");
 }
