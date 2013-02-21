@@ -131,24 +131,34 @@
 
 
 /**
- * Hide content off-screen without resorting to `display:none;`
+ * Hide content off-screen without resorting to `display:none;`, also provide
+ * breakpoint specific hidden elements.
  */
-.accessibility              { position:absolute; left:-99999px; }
-[dir=rtl] .accessibility    { left:auto; right:-99999px; }
-
-
-/**
- * Hide content based on breakpoint
- */
-.hide{
-    position:absolute;
-    left:-9999px;
+.accessibility,
+.visuallyhidden{
+    border:0;
+    clip:rect(0 0 0 0);
+    height:1px;
+    margin:-1px;
+    overflow: hidden;
+    padding:0;
+    position: absolute;
+    width:1px;
 }
-@each $state in palm, lap, lap-and-up, portable, desk, desk-wide{
-    @include media-query(#{$state}){
-        .hide--#{$state}{
-            position:absolute;
-            left:-9999px;
+@if $responsive{
+    @each $state in palm, lap, lap-and-up, portable, desk, desk-wide{
+        @include media-query(#{$state}){
+            .accessibility--#{$state},
+            .visuallyhidden--#{$state}{
+                border:0;
+                clip:rect(0 0 0 0);
+                height:1px;
+                margin:-1px;
+                overflow: hidden;
+                padding:0;
+                position: absolute;
+                width:1px;
+            }
         }
     }
 }
