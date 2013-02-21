@@ -134,30 +134,26 @@
  * Hide content off-screen without resorting to `display:none;`, also provide
  * breakpoint specific hidden elements.
  */
+@mixin accessibility{
+    border:0!important;
+    clip:rect(0 0 0 0)!important;
+    height:1px!important;
+    margin:-1px!important;
+    overflow:hidden!important;
+    padding:0!important;
+    position: absolute!important;
+    width:1px!important;
+}
 .accessibility,
 .visuallyhidden{
-    border:0;
-    clip:rect(0 0 0 0);
-    height:1px;
-    margin:-1px;
-    overflow: hidden;
-    padding:0;
-    position: absolute;
-    width:1px;
+    @include accessibility;
 }
 @if $responsive{
     @each $state in palm, lap, lap-and-up, portable, desk, desk-wide{
         @include media-query(#{$state}){
             .accessibility--#{$state},
             .visuallyhidden--#{$state}{
-                border:0;
-                clip:rect(0 0 0 0);
-                height:1px;
-                margin:-1px;
-                overflow: hidden;
-                padding:0;
-                position: absolute;
-                width:1px;
+                @include accessibility;
             }
         }
     }
