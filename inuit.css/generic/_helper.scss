@@ -10,8 +10,14 @@
  * A lot of these classes carry `!important` as you will always want them to win
  * out over other selectors.
  */
+
+
+/**
+ * Add/remove floats
+ */
 .float--right   { float:right!important; }
 .float--left    { float:left !important; }
+.float--none    { float:none !important; }
 
 .text--left     { text-align:left  !important; }
 .text--center   { text-align:center!important; }
