@@ -18,33 +18,20 @@
  *
  */
 .matrix{
-
-    &,
-    > li{
-        border:0 solid #ccc; /* Override this color in your theme stylesheet */
-    }
-}
-.matrix{
-    list-style:none;
-    margin-left:0;
-    border-top-width: 1px;
+    @extend .block-list;
     border-left-width:1px;
     @extend .cf;
 
      > li{
-        padding:$half-spacing-unit;
         float:left;
-        border-right-width: 1px;
-        border-bottom-width:1px;
+        border-right-width:1px;
         @if $global-border-box == false{
             @include vendor(box-sizing, border-box);
         }
     }
 }
         .matrix__link{
-            display:block;
-            padding:$half-spacing-unit;
-            margin:-$half-spacing-unit;
+            @extend .block-list__link;
         }
 
 
