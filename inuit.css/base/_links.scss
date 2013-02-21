@@ -7,21 +7,10 @@
  * Sometimes, particularly on larger projects, it is useful to scope link
  * styling only to anchors which have `href` attributes.
  */
-a{
-    /**
-     * Set colors etc in your theme stylesheet.
-     */
-
-    &:hover,
-    &:active,
-    &:focus{
-        text-decoration:underline;
-    }
-}
 
 
 /**
- * ‘Current’ states, e.g.:
+ * ‘Current’ states make text look unclickable, e.g.:
  *
    <ul class=nav>
        <li><a href=#>Home</a></li>
@@ -33,5 +22,4 @@ a{
  */
 .current > a{
     cursor:text;
-    text-decoration:underline;
 }
