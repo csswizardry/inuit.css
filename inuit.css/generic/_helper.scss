@@ -27,6 +27,18 @@
 .text--center   { text-align:center!important; }
 .text--right    { text-align:right !important; }
 
+
+/**
+ * Add/remove margins
+ */
+.push           { margin:       $base-spacing-unit!important; }
+.push--top      { margin-top:   $base-spacing-unit!important; }
+.push--right    { margin-right: $base-spacing-unit!important; }
+.push--bottom   { margin-bottom:$base-spacing-unit!important; }
+.push--left     { margin-left:  $base-spacing-unit!important; }
+.push--ends     { margin-top:   $base-spacing-unit!important; margin-bottom:$base-spacing-unit!important; }
+.push--sides    { margin-right: $base-spacing-unit!important; margin-left:  $base-spacing-unit!important; }
+
 .flush          { margin:       0!important; }
 .flush--top     { margin-top:   0!important; }
 .flush--right   { margin-right: 0!important; }
@@ -34,6 +46,26 @@
 .flush--left    { margin-left:  0!important; }
 .flush--ends    { margin-top:   0!important; margin-bottom:0!important; }
 .flush--sides   { margin-right: 0!important; margin-left:  0!important; }
+
+
+/**
+ * Add/remove paddings
+ */
+.soft           { padding:       $base-spacing-unit!important; }
+.soft--top      { padding-top:   $base-spacing-unit!important; }
+.soft--right    { padding-right: $base-spacing-unit!important; }
+.soft--bottom   { padding-bottom:$base-spacing-unit!important; }
+.soft--left     { padding-left:  $base-spacing-unit!important; }
+.soft--ends     { padding-top:   $base-spacing-unit!important; padding-bottom:$base-spacing-unit!important; }
+.soft--sides    { padding-right: $base-spacing-unit!important; padding-left:  $base-spacing-unit!important; }
+
+.hard           { padding:       0!important; }
+.hard--top      { padding-top:   0!important; }
+.hard--right    { padding-right: 0!important; }
+.hard--bottom   { padding-bottom:0!important; }
+.hard--left     { padding-left:  0!important; }
+.hard--ends     { padding-top:   0!important; padding-bottom:0!important; }
+.hard--sides    { padding-right: 0!important; padding-left:  0!important; }
 
 
 /**
