@@ -87,7 +87,7 @@
  * `:hover`.
  */
 .informative{
-    cursor:help;
+    cursor:help!important;
 }
 
 
@@ -95,8 +95,8 @@
  * Mute an object by reducing its opacity.
  */
 .muted{
-    opacity:0.5;
-    filter:alpha(opacity = 50);
+    opacity:0.5!important;
+    filter:alpha(opacity = 50)!important;
 }
 
 
@@ -107,7 +107,7 @@
  *
  */
 .proceed{
-    text-align:right;
+    text-align:right!important;
 }
 
 
@@ -118,7 +118,7 @@
  *
  */
 .go:after{
-    content:"\00A0»";
+    content:"\00A0»"!important;
 }
 
 
@@ -126,7 +126,7 @@
  * Apply capital case to an element (usually a `strong`).
  */
 .caps{
-    text-transform:uppercase;
+    text-transform:uppercase!important;
 }
 
 
