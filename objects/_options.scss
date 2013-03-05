@@ -24,7 +24,7 @@
     > li{
 
         > a{
-            border:0 solid #ccc; /* Extend in your theme stylesheet */
+            border:0 solid $base-ui-color;
             border-width:1px;
             border-left-width:0;
         }
