@@ -1,3 +1,5 @@
+@if $use-icon-text == true{
+
 /*------------------------------------*\
     $ICON-TEXT
 \*------------------------------------*/
@@ -34,3 +36,5 @@
 .icon-text--rev > .icon-text__icon{
     margin-left:$half-spacing-unit / 2;
 }
+
+}//endif

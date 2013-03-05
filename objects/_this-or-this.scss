@@ -1,3 +1,5 @@
+@if $use-this-or-this == true{
+
 /*------------------------------------*\
     $THIS-OR-THIS
 \*------------------------------------*/
@@ -32,3 +34,5 @@
         display:table-cell;
         vertical-align:middle;
     }
+
+}//endif
