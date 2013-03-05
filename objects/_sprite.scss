@@ -71,7 +71,7 @@
  * Set up Batch icon font
  */
 .i{
-    @if $batch == true{
+    @if $use-batch == true{
         font-family:Batch;
     }
     font-size:16px;
