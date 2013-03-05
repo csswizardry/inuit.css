@@ -1,13 +1,18 @@
 /*------------------------------------*\
-    $VARS
+    $DEFAULTS
 \*------------------------------------*/
 /**
- * Set up project-specific variables here which are then used throughout your
- * build. These variables are automatically picked up by inuit.css so you should
- * never need to modify any framework code.
+ * inuit.css’ default variables. Redefine these in your `_vars.scss` file (found
+ * in the inuit.css-web-template) to override them.
  */
 
 
+
+
+
+/*------------------------------------*\
+    $DEBUG
+\*------------------------------------*/
 /**
  * Debug mode will visually highlight any potential markup/accessibility quirks
  * in the browser. Set to `true` or `false`.
@@ -15,6 +20,12 @@
 $debug-mode:        false!default;
 
 
+
+
+
+/*------------------------------------*\
+    $BORDER-BOX
+\*------------------------------------*/
 /**
  * Do you want all elements to adopt `box-sizing:border-box;` as per
  * paulirish.com/2012/box-sizing-border-box-ftw ?
@@ -22,6 +33,12 @@ $debug-mode:        false!default;
 $global-border-box: true!default;
 
 
+
+
+
+/*------------------------------------*\
+    $BATCH
+\*------------------------------------*/
 /**
  * Would you like to use Adam Whitcroft’s Batch icon font, as per:
  * adamwhitcroft.com/batch ?
@@ -29,19 +46,30 @@ $global-border-box: true!default;
 $batch:             false!default;
 
 
+
+
+
+/*------------------------------------*\
+    $BASE
+\*------------------------------------*/
 /**
  * Base stuff
  */
 $base-font-size:    16px!default;
 $base-line-height:  24px!default;
 
-
 /**
- * How big would you like round corners to be by default?
+ * Base font-family. 
  */
-$brand-round:        4px!default;
+$base-font-family:  sans-serif!default;
 
 
+
+
+
+/*------------------------------------*\
+    $RESPONSIVE
+\*------------------------------------*/
 /**
  * Responsiveness?
  */
@@ -77,12 +105,12 @@ $desk-start:        1024px!default;
 $desk-wide-start:   1200px!default;
 
 
-/**
- * Base font-family. 
- */
-$base-font-family:  sans-serif!default;
 
 
+
+/*------------------------------------*\
+    $FONT-SIZES
+\*------------------------------------*/
 /**
  * Font-sizes (in pixels). Refer to relevant sections for their implementations.
  */
@@ -101,6 +129,12 @@ $milli-size:        12px!default;
 $micro-size:        10px!default;
 
 
+
+
+
+/*------------------------------------*\
+    $QUOTES
+\*------------------------------------*/
 /**
  * English quote marks?
  */
@@ -122,15 +156,68 @@ $close-quote:   null;
 }
 
 
+
+
+
+/*------------------------------------*\
+    $BRAND
+\*------------------------------------*/
 /**
  * Brand stuff
  */
 $brand-color:       #4a8ec2!default;
 $brand-face:        "Helvetica Neue", sans-serif!default;
 
-
 /**
- * inuit.css will work these next ones out for you.
+ * How big would you like round corners to be by default?
+ */
+$brand-round:        4px!default;
+
+
+
+
+
+/*------------------------------------*\
+    $OBJECTS AND ABSTRACTIONS
+\*------------------------------------*/
+/**
+ * Which objects and abstractions would you like to use?
+ */
+$use-grids:         false!default;
+$use-flexbox:       false!default;
+$use-columns:       false!default;
+$use-nav:           false!default;
+$use-options:       false!default;
+$use-pagination:    false!default;
+$use-breadcrumb:    false!default;
+$use-media:         false!default;
+$use-marginalia:    false!default;
+$use-island:        false!default;
+$use-block-list:    false!default;
+$use-matrix:        false!default;
+$use-split:         false!default;
+$use-this-or-this:  false!default;
+$use-link-complex:  false!default;
+$use-flyout:        false!default;
+$use-arrows:        false!default;
+$use-sprite:        false!default;
+$use-icon-text:     false!default;
+$use-buttons:       false!default;
+$use-lozenges:      false!default;
+$use-rules:         false!default;
+$use-stats:         false!default;
+$use-greybox:       false!default;
+$use-batch:         false!default;
+
+
+
+
+
+/*------------------------------------*\
+    $FRAMEWORK
+\*------------------------------------*/
+/**
+ * inuit.css will work these next ones out for use within the framework.
  *
  * Assign our `$base-line-height` to a new spacing var for more transparency.
  */
