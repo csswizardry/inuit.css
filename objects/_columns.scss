@@ -1,3 +1,5 @@
+@if $use-columns == true{
+
 /*------------------------------------*\
     $COLUMNS
 \*------------------------------------*/
@@ -16,3 +18,5 @@
 .text-cols--3    { @extend %text-cols; @include vendor(column-count, 3); }
 .text-cols--4    { @extend %text-cols; @include vendor(column-count, 4); }
 .text-cols--5    { @extend %text-cols; @include vendor(column-count, 5); }
+
+}//endif

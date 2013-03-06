@@ -1,3 +1,5 @@
+@if $use-lozenges == true{
+
 /*------------------------------------*\
     $LOZENGES
 \*------------------------------------*/
@@ -25,7 +27,7 @@
     padding-left: ($line-height-ratio * 0.166667) * 1em;
               /* =1.50em */
     text-align:center;
-    background-color:#ccc; /* Override this color in your theme stylesheet */
+    background-color:$base-ui-color;
     color:#fff; /* Override this color in your theme stylesheet */
 
     /**
@@ -40,3 +42,5 @@
     @extend .pill;
     border-radius:$brand-round;
 }
+
+}//endif

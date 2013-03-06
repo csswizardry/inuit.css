@@ -1,3 +1,5 @@
+@if $use-link-complex == true{
+
 /*------------------------------------*\
     $LINK-COMPLEX
 \*------------------------------------*/
@@ -26,3 +28,5 @@
     .link-complex:focus .link-complex__target{
         text-decoration:underline;
     }
+
+}//endif

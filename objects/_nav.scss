@@ -1,3 +1,5 @@
+@if $use-nav == true or $use-options == true or $use-pagination == true or $use-breadcrumb == true{
+
 /*------------------------------------*\
     $NAV
 \*------------------------------------*/
@@ -149,3 +151,5 @@
         }
     }
 }
+
+}//endif

@@ -1,3 +1,5 @@
+@if $use-rules == true{
+
 /*------------------------------------*\
     $RULES
 \*------------------------------------*/
@@ -8,7 +10,7 @@
  *
  */
 .rule{
-    color:#ccc; /* Sets border color, extend in your theme stylesheet. */
+    color:$base-ui-color;
     border:none;
     border-bottom-width:1px;
     border-bottom-style:solid;
@@ -59,3 +61,5 @@
         content:attr(data-ornament);
     }
 }
+
+}//endif

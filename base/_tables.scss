@@ -127,7 +127,7 @@ td{
 
     th,
     td{
-        border:1px solid #ccc; /* Override this color in your theme stylesheet */
+        border:1px solid $base-ui-color;
 
         &:empty{
             border:none;

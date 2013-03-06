@@ -1,3 +1,5 @@
+@if $use-block-list == true or $use-matrix == true{
+
 /*------------------------------------*\
     $BLOCK-LIST
 \*------------------------------------*/
@@ -20,7 +22,7 @@
 
     &,
     > li{
-        border:0 solid #ccc; /* Override this color in your theme stylesheet */
+        border:0 solid $base-ui-color;
     }
 }
 .block-list{
@@ -38,3 +40,5 @@
             padding:$half-spacing-unit;
             margin:-$half-spacing-unit;
         }
+
+}//endif
