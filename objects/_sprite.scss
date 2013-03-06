@@ -68,12 +68,9 @@
 }
 
 /**
- * Set up Batch icon font
+ * Set up icon font
  */
 .i{
-    @if $use-batch == true{
-        font-family:Batch;
-    }
     font-size:16px;
     /**
      * Place the icon in a box the exact same dimensions as the icon itself.
