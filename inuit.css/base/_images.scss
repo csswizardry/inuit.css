@@ -22,6 +22,12 @@ img[height]{
 
 
 /**
+ * Image brand round.
+ */
+.img--round { @include vendor(border-radius, $brand-round); }
+
+
+/**
  * Image placement variations.
  */
 .img--right{
