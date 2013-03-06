@@ -10,12 +10,50 @@
  * A lot of these classes carry `!important` as you will always want them to win
  * out over other selectors.
  */
+
+
+/**
+ * Add/remove floats
+ */
 .float--right   { float:right!important; }
 .float--left    { float:left !important; }
+.float--none    { float:none !important; }
 
+
+/**
+ * Text alignment
+ */
 .text--left     { text-align:left  !important; }
 .text--center   { text-align:center!important; }
 .text--right    { text-align:right !important; }
+
+
+/**
+ * Font-weight
+ */
+.weight--light      { font-weight:300 !important; }
+.weight--normal     { font-weight:400 !important; }
+.weight--semibold   { font-weight:600 !important; }
+
+
+/**
+ * Add/remove margins
+ */
+.push           { margin:       $base-spacing-unit!important; }
+.push--top      { margin-top:   $base-spacing-unit!important; }
+.push--right    { margin-right: $base-spacing-unit!important; }
+.push--bottom   { margin-bottom:$base-spacing-unit!important; }
+.push--left     { margin-left:  $base-spacing-unit!important; }
+.push--ends     { margin-top:   $base-spacing-unit!important; margin-bottom:$base-spacing-unit!important; }
+.push--sides    { margin-right: $base-spacing-unit!important; margin-left:  $base-spacing-unit!important; }
+
+.push-half          { margin:       $half-spacing-unit!important; }
+.push-half--top     { margin-top:   $half-spacing-unit!important; }
+.push-half--right   { margin-right: $half-spacing-unit!important; }
+.push-half--bottom  { margin-bottom:$half-spacing-unit!important; }
+.push-half--left    { margin-left:  $half-spacing-unit!important; }
+.push-half--ends    { margin-top:   $half-spacing-unit!important; margin-bottom:$half-spacing-unit!important; }
+.push-half--sides   { margin-right: $half-spacing-unit!important; margin-left:  $half-spacing-unit!important; }
 
 .flush          { margin:       0!important; }
 .flush--top     { margin-top:   0!important; }
@@ -24,6 +62,34 @@
 .flush--left    { margin-left:  0!important; }
 .flush--ends    { margin-top:   0!important; margin-bottom:0!important; }
 .flush--sides   { margin-right: 0!important; margin-left:  0!important; }
+
+
+/**
+ * Add/remove paddings
+ */
+.soft           { padding:       $base-spacing-unit!important; }
+.soft--top      { padding-top:   $base-spacing-unit!important; }
+.soft--right    { padding-right: $base-spacing-unit!important; }
+.soft--bottom   { padding-bottom:$base-spacing-unit!important; }
+.soft--left     { padding-left:  $base-spacing-unit!important; }
+.soft--ends     { padding-top:   $base-spacing-unit!important; padding-bottom:$base-spacing-unit!important; }
+.soft--sides    { padding-right: $base-spacing-unit!important; padding-left:  $base-spacing-unit!important; }
+
+.soft-half           { padding:       $half-spacing-unit!important; }
+.soft-half--top      { padding-top:   $half-spacing-unit!important; }
+.soft-half--right    { padding-right: $half-spacing-unit!important; }
+.soft-half--bottom   { padding-bottom:$half-spacing-unit!important; }
+.soft-half--left     { padding-left:  $half-spacing-unit!important; }
+.soft-half--ends     { padding-top:   $half-spacing-unit!important; padding-bottom:$half-spacing-unit!important; }
+.soft-half--sides    { padding-right: $half-spacing-unit!important; padding-left:  $half-spacing-unit!important; }
+
+.hard           { padding:       0!important; }
+.hard--top      { padding-top:   0!important; }
+.hard--right    { padding-right: 0!important; }
+.hard--bottom   { padding-bottom:0!important; }
+.hard--left     { padding-left:  0!important; }
+.hard--ends     { padding-top:   0!important; padding-bottom:0!important; }
+.hard--sides    { padding-right: 0!important; padding-left:  0!important; }
 
 
 /**
@@ -45,7 +111,7 @@
  * `:hover`.
  */
 .informative{
-    cursor:help;
+    cursor:help!important;
 }
 
 
@@ -53,8 +119,8 @@
  * Mute an object by reducing its opacity.
  */
 .muted{
-    opacity:0.5;
-    filter:alpha(opacity = 50);
+    opacity:0.5!important;
+    filter:alpha(opacity = 50)!important;
 }
 
 
@@ -65,7 +131,7 @@
  *
  */
 .proceed{
-    text-align:right;
+    text-align:right!important;
 }
 
 
@@ -76,7 +142,7 @@
  *
  */
 .go:after{
-    content:" »";
+    content:"\00A0»"!important;
 }
 
 
@@ -84,29 +150,35 @@
  * Apply capital case to an element (usually a `strong`).
  */
 .caps{
-    text-transform:uppercase;
+    text-transform:uppercase!important;
 }
 
 
 /**
- * Hide content off-screen without resorting to `display:none;`
+ * Hide content off-screen without resorting to `display:none;`, also provide
+ * breakpoint specific hidden elements.
  */
-.accessibility              { position:absolute; left:-99999px; }
-[dir=rtl] .accessibility    { left:auto; right:-99999px; }
-
-
-/**
- * Hide content based on breakpoint
- */
-.hide{
-    position:absolute;
-    left:-9999px;
+@mixin accessibility{
+    border:0!important;
+    clip:rect(0 0 0 0)!important;
+    height:1px!important;
+    margin:-1px!important;
+    overflow:hidden!important;
+    padding:0!important;
+    position: absolute!important;
+    width:1px!important;
 }
-@each $state in palm, lap, lap-and-up, portable, desk, desk-wide{
-    @include media-query(#{$state}){
-        .hide--#{$state}{
-            position:absolute;
-            left:-9999px;
+.accessibility,
+.visuallyhidden{
+    @include accessibility;
+}
+@if $responsive{
+    @each $state in palm, lap, lap-and-up, portable, desk, desk-wide{
+        @include media-query(#{$state}){
+            .accessibility--#{$state},
+            .visuallyhidden--#{$state}{
+                @include accessibility;
+            }
         }
     }
 }
