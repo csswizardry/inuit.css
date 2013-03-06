@@ -20,6 +20,29 @@
 
 
 /**
+ * Style any number of headings in one fell swoop, e.g.:
+ *
+   .foo{
+       @include headings(1, 3){
+           color:#BADA55;
+       }
+    }
+*
+ */
+@mixin headings($from: 1, $to: 6){
+    @if $from >= 1 and $to <= 6{
+        $heading-selector: (unquote(""));
+        @for $i from $from through $to {
+            $heading-selector: $heading-selector, unquote("h#{$i}")
+        }
+        #{$heading-selector}{
+            @content
+        }
+    }
+}
+
+
+/**
  * Create vendor-prefixed CSS in one go, e.g.
  *
    `@include vendor(border-radius, 4px);`
