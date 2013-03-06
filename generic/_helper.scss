@@ -29,6 +29,14 @@
 
 
 /**
+ * Font weights
+ */
+.weight--light      { font-weight:300!important; }
+.weight--normal     { font-weight:400!important; }
+.weight--semibold   { font-weight:600!important; }
+
+
+/**
  * Add/remove margins
  */
 .push           { margin:       $base-spacing-unit!important; }
