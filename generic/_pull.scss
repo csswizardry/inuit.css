@@ -5,11 +5,6 @@
  * Pull classes, to move grid items over to the right by certain amounts.
  */
 
-/**
- * Not a particularly great selector, but the DRYest way to do things.
- */
-[class*="pull--"]{ position:relative; }
-
 @mixin pull-setup($namespace: "") {
 
     /**
@@ -100,6 +95,13 @@
     .pull--#{$namespace}eleven-twelfths     { right:91.666%; }
 }
 
+@if $pull == true{
+
+/**
+ * Not a particularly great selector, but the DRYest way to do things.
+ */
+[class*="pull--"]{ position:relative; }
+
 @include pull-setup();
 
 @if $palm-pull == true{
@@ -141,3 +143,5 @@
     }
 
 }
+
+}//endif

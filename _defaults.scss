@@ -77,12 +77,14 @@ $responsive-extra:  false!default;
  * Responsive push and pull produce a LOT of code, only turn them on if you
  * definitely need them.
  */
+$push:              false!default;
 $palm-push:         false!default;
 $lap-push:          false!default;
 $lap-and-up-push:   false!default;
 $portable-push:     false!default;
 $desk-push:         false!default;
 
+$pull:              false!default;
 $palm-pull:         false!default;
 $lap-pull:          false!default;
 $lap-and-up-pull:   false!default;
