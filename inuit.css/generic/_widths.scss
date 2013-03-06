@@ -128,6 +128,10 @@
     @include grid-setup("lap-");
 }
 
+@include media-query(lap-and-up){
+    @include grid-setup("lap-and-up-");
+}
+
 @include media-query(portable){
     @include grid-setup("portable-");
 }
@@ -146,7 +150,7 @@
 @if $responsive-extra == true{
 
 @include media-query(desk-wide){
-    @include grid-setup("deskwide-");
+    @include grid-setup("desk-wide-");
 }
 
 }

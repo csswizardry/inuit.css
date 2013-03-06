@@ -73,7 +73,6 @@
  * SMALLPRINT..........Smaller text elements like `small`
  * QUOTES..............
  * CODE................
- * LINKS...............
  * LISTS...............
  * IMAGES..............
  * TABLES..............
@@ -98,7 +97,7 @@
  * ARROWS..............CSS arrows
  * SPRITE..............Generic spriting element
  * ICON-TEXT...........Icon and text couplings
- * BUTTONS.............
+ * BEAUTONS............Use the beautons micro library
  * LOZENGES............Basic lozenge styles
  * RULES...............Horizontal rules
  * STATS...............Simple stats object
@@ -159,7 +158,6 @@
    @import "base/smallprint";
    @import "base/quotes";
    @import "base/code";
-   @import "base/links";
    @import "base/images";
    @import "base/lists";
    @import "base/tables";
@@ -191,7 +189,7 @@
    @import "objects/arrows";
    @import "objects/sprite";
    @import "objects/icon-text";
-   @import "objects/buttons";
+   @import "objects/beautons";
    @import "objects/lozenges";
    @import "objects/rules";
    @import "objects/stats";
