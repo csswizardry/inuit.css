@@ -7,44 +7,49 @@
  * Giving an element a class of `.s` will throw it into ‘sprite’ mode and apply
  * a background image e.g.:
  *
-   <a class="s  s--question-mark">More info&hellip;</a>
+   <a class="sprite  sprite--question-mark">More info&hellip;</a>
  *
  * or
  *
-   <a href=#><i class="s  s--question-mark"></i> Help and FAQ</a>
+   <a href=#><i class="sprite  sprite--question-mark"></i> Help and FAQ</a>
  *
  * Giving an element a class of `.i` will throw it into ‘icon’ mode and will
  * not add a background, but should be used for icon fonts and is populated
  * through a `data-icon` attribute and the `:after` pseudo-element, e.g.:
  *
-   <a href=#><i class=i data-icon="&#xF000;"></i> View your favourites</a>
+   <a href=#><i class=icon data-icon="&#xF000;"></i> View your favourites</a>
  *
- * Where ‘&#xF000;’ might map to a star in your particular font.
+ * Where ‘&#xF000;’ might map to a star in your particular icon font.
  *
- * These all require extension in your theme stylesheet.
+ * These all require extension in your theme stylesheet, e.g. in your own CSS:
+ *
+   .sprite{
+       background-image:url(path/to/your/sprite.png);
+   }
+   .sprite--link{ background-position:0   0  ; }
+   .sprite--star{ background-position:0 -16px; }
  *
  * Demo: jsfiddle.net/inuitcss/6TKuS
  *
  */
-.s,
-.i{
+.sprite,
+.icon{
     display:inline-block;
     line-height:1;
     position:relative;
     vertical-align:middle;
     zoom:1;
     /**
-     * So using `.i` on certain elements doesn’t make a visual difference.
+     * So using `.icon` on certain elements doesn’t make a visual difference.
      */
     font-style:normal;
     font-weight:normal;
     /**
-     * So icons added using `.i` sit in the centre of the element.
+     * So icons added using `.icon` sit in the centre of the element.
      */
     text-align:center;
 }
-.s{
-    background-image:url(/path/to/your/sprite.png);
+.sprite{
     /**
      * The typical size of most icons. Override in your theme stylesheet.
      */
@@ -70,7 +75,7 @@
 /**
  * Set up icon font
  */
-.i{
+.icon{
     font-size:16px;
     /**
      * Place the icon in a box the exact same dimensions as the icon itself.
