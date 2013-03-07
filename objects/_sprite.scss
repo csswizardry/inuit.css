@@ -21,7 +21,13 @@
  *
  * Where ‘&#xF000;’ might map to a star in your particular icon font.
  *
- * These all require extension in your theme stylesheet.
+ * These all require extension in your theme stylesheet, e.g. in your own CSS:
+ *
+   .sprite{
+       background-image:url(path/to/your/sprite.png);
+   }
+   .sprite--link{ background-position:0   0  ; }
+   .sprite--star{ background-position:0 -16px; }
  *
  * Demo: jsfiddle.net/inuitcss/6TKuS
  *
@@ -44,7 +50,6 @@
     text-align:center;
 }
 .sprite{
-    background-image:url(/path/to/your/sprite.png);
     /**
      * The typical size of most icons. Override in your theme stylesheet.
      */
