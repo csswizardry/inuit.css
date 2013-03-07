@@ -350,6 +350,8 @@ been possible without inspiration and work from an array of other people.
 * **[Nicolas Gallagher](https://twitter.com/necolas)** for his work on numerous
   CSS things
 * **[Bryan James](https://twitter.com/WengersToyBus)** for the inuit.css logo
+* **[Nick Payne](https://twitter.com/makeusabrew)** for helping with v5.0’s
+  submodule architecture.
 
 And probably more…
 
