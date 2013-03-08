@@ -42,8 +42,6 @@
     margin-left:-$base-spacing-unit;
     list-style:none;
     margin-bottom:0;
-    letter-spacing:-0.31em;
-    word-spacing:-0.43em;
 }
 
 
@@ -63,8 +61,6 @@
         width:100%;
         padding-left:$base-spacing-unit;
         vertical-align:top;
-        letter-spacing:normal;
-        word-spacing:normal;
         @if $global-border-box == false{
             @include vendor(box-sizing, border-box);
         }
