@@ -69,7 +69,7 @@ $responsive:        true!default;
 
 /**
  * Responsiveness for widescreen/high resolution desktop monitors and beyond?
- * Note: $responsive parameter above must be enabled before enabling this.
+ * Note: `$responsive` variable above must be set to true before enabling this.
  */
 $responsive-extra:  false!default;
 
@@ -78,6 +78,9 @@ $responsive-extra:  false!default;
  * definitely need them.
  */
 $push:              false!default;
+/**
+ * Note: `$push` variable above must be set to true before enabling these.
+ */
 $palm-push:         false!default;
 $lap-push:          false!default;
 $lap-and-up-push:   false!default;
@@ -85,6 +88,9 @@ $portable-push:     false!default;
 $desk-push:         false!default;
 
 $pull:              false!default;
+/**
+ * Note: `$pull` variable above must be set to true before enabling these.
+ */
 $palm-pull:         false!default;
 $lap-pull:          false!default;
 $lap-and-up-pull:   false!default;
