@@ -27,7 +27,9 @@
            color:#BADA55;
        }
     }
-*
+ *
+ * With thanks to @lar_zzz, @paranoida and @rowanmanning for refining and
+ * improving my initial mixin.
  */
 @mixin headings($from: 1, $to: 6){
     @if $from >= 1 and $to <= 6{
