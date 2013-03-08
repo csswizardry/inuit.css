@@ -1,6 +1,6 @@
 ![inuit.css](http://inuitcss.com/img/content/logo.png)
 
-# inuit.css – v5.0
+# inuit.css – v5.0-rc1
 
 inuit.css is a powerful little framework designed for _serious_ developers.
 
@@ -128,9 +128,9 @@ Your CSS directory holds everything you need to get building:
   If you `cd` into here you should see that this submodule will initially be on
   `(no branch)`, this is because the submodule points at a specific commit and
   not a branch. You can treat this directory like any other Git project which
-  means you can `$ git checkout master` to get your submodule on the most
+  means you can `$ git checkout v5.0-rc1` to get your submodule on the most
   up-to-date stable version of inuit.css. To grab any new changes simply run
-  `$ git pull` on the `master` branch.
+  `$ git pull` on the `v5.0-rc1` branch.
 * `_vars.scss` contains any project variables you need, as well as any overrides
   you wish to make to the inuit.css library. It also houses feature switches to
   turn inuit.css’ objects and abstractions on and off as you need them.
