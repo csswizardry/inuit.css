@@ -161,7 +161,7 @@ are all scaffolding type constructs that hold no styling, but do heavy lifting.
 In here we have things like
 [the media object](http://www.stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code/),
 [the nav abstraction](http://csswizardry.com/2011/09/the-nav-abstraction/) and
-other unstyled objects that you can use to contruct design patterns _without_
+other unstyled objects that you can use to construct design patterns _without_
 design (that bit is left up to you).
 
 Finally we have our helper classes (though these live back in the `inuit.css/generic/`
