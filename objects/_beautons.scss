@@ -177,7 +177,7 @@
  * Positive actions; e.g. sign in, purchase, submit, etc.
  */
 .btn--positive{
-    background-color:#4A993E;
+    background-color:$beautons-positive;
     color:#fff;
 }
 
@@ -185,7 +185,7 @@
  * Negative actions; e.g. close account, delete photo, remove friend, etc.
  */
 .btn--negative{
-    background-color:#b33630;
+    background-color:$beautons-negative;
     color:#fff;
 }
 
@@ -198,7 +198,7 @@
     .btn--inactive:hover,
     .btn--inactive:active,
     .btn--inactive:focus{
-        background-color:#ddd;
+        background-color:$beautons-inactive;
         color:#777;
         cursor:text;            /* [1] */
     }
