@@ -66,4 +66,19 @@
         }
     }
 
+
+/**
+ * Reversed grids
+ */
+.grid--rev{
+    @extend .grid;
+    direction:rtl;
+    text-align:right;
+}
+
+    .grid--rev > .grid__item{
+        direction:ltr;
+        text-align:left;
+    }
+
 }//endif
