@@ -118,7 +118,7 @@ structure a little like this:
         css/
             inuit.css/
             _vars.scss
-            style.scss 
+            style.scss
             watch
         index.html
 
