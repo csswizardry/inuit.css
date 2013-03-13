@@ -68,7 +68,8 @@
 
 
 /**
- * Reversed grids
+ * Reversed grids allow you to structure your source different to how your
+ * rendered layout will appear.
  */
 .grid--rev{
     @extend .grid;
@@ -79,6 +80,19 @@
     .grid--rev > .grid__item{
         direction:ltr;
         text-align:left;
+    }
+
+
+/**
+ * Gutterless grids have all the properties of regular grids, minus any spacing.
+ */
+.grid--full{
+    @extend .grid;
+    margin-left:0;
+}
+
+    .grid--full > .grid__item{
+        padding-left:0;
     }
 
 }//endif
