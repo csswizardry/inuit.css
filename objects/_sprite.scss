@@ -4,7 +4,7 @@
     $SPRITE
 \*------------------------------------*/
 /**
- * Giving an element a class of `.s` will throw it into ‘sprite’ mode and apply
+ * Giving an element a class of `.sprite` will throw it into ‘sprite’ mode and apply
  * a background image e.g.:
  *
    <a class="sprite  sprite--question-mark">More info&hellip;</a>
@@ -13,7 +13,7 @@
  *
    <a href=#><i class="sprite  sprite--question-mark"></i> Help and FAQ</a>
  *
- * Giving an element a class of `.i` will throw it into ‘icon’ mode and will
+ * Giving an element a class of `.icon` will throw it into ‘icon’ mode and will
  * not add a background, but should be used for icon fonts and is populated
  * through a `data-icon` attribute and the `:after` pseudo-element, e.g.:
  *
