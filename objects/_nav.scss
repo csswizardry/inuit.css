@@ -143,7 +143,7 @@
     > li{
 
         &:after{
-            content:", ";
+            content:"\002C" "\00A0";
         }
 
         &:last-child:after{
