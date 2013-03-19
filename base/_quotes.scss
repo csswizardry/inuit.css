@@ -5,8 +5,8 @@
  * If English quotes are set in `_vars.scss`, define them here.
  */
 @if $english-quotes == true{
-    $open-quote:    “;
-    $close-quote:   ”;
+    $open-quote:    \201C;
+    $close-quote:   \201D;
 }
 
 
@@ -18,23 +18,23 @@
  * Inline quotes.
  */
 q{
-    quotes:"‘" "’" "#{$open-quote}" "#{$close-quote}";
+    quotes:"\2018" "\2019" "#{$open-quote}" "#{$close-quote}";
 
     &:before{
-        content:"‘";
+        content:"\2018";
         content:open-quote;
     }
     &:after{
-        content:"’";
+        content:"\2019";
         content:close-quote;
     }
 
     q:before{
-        content:"“";
+        content:"\201C";
         content:open-quote;
     }
     q:after{
-        content:"”";
+        content:"\201D";
         content:close-quote;
     }
 }
@@ -56,11 +56,11 @@ blockquote{
     }
 
     q:before{
-        content:"‘";
+        content:"\2018";
         content:open-quote;
     }
     q:after{
-        content:"’";
+        content:"\2019";
         content:close-quote;
     }
 }
@@ -91,6 +91,6 @@ blockquote{
     text-indent:0;
 
     &:before{
-        content:"—";
+        content:"\2014";
     }
 }
