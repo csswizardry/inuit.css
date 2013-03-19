@@ -30,6 +30,10 @@
 
    </div>
  *
+ * The grid system is based on csswizardry-grids: github.com/csswizardry/csswizardry-grids
+ * If you would like to use the full features of csswizardry-grids then you can
+ * simply use it in conjunction with inuit.css as a second library.
+ *
  * Demo: jsfiddle.net/inuitcss/CLYUC
  *
  */
@@ -74,11 +78,38 @@
     @extend .grid;
     direction:rtl;
     text-align:right;
-}
 
-    .grid--rev > .grid__item{
+    > .grid__item{
         direction:ltr;
         text-align:left;
     }
+}
+
+
+/**
+ * Gutterless grids have all the properties of regular grids, minus any spacing.
+ */
+.grid--full{
+    @extend #{$class-type}grid;
+    margin-left:0;
+
+    > .grid__item{
+        padding-left:0;
+    }
+}
+
+
+/**
+ * Centered grids align grid items centrally without needing to use push or pull
+ * classes.
+ */
+.grid--center{
+    @extend #{$class-type}grid;
+    text-align:center;
+
+    > .grid__item{
+        text-align:left;
+    }
+}
 
 }//endif
