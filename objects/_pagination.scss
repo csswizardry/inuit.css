@@ -41,10 +41,10 @@
             margin:-$base-spacing-unit / 2;
         }
             .pagination__first a:before{
-                content:"« ";
+                content:"\00AB" "\00A0";
             }
             .pagination__last a:after{
-                content:" »";
+                content:"\00A0" "\00BB";
             }
 
 }//endif
