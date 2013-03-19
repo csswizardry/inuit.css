@@ -42,10 +42,10 @@
  * blocky borders and padding.
  *
    <ul class="multi-list  four-cols">
-       <li>Lorem</li>
-       <li>Ipsum</li>
-       <li>Dolor</li>
-       <li>Sit</li>
+       <li>Lorem</li><!--
+    --><li>Ipsum</li><!--
+    --><li>Dolor</li><!--
+    --><li>Sit</li>
    </ul>
  *
  * Demo: jsfiddle.net/inuitcss/Y2zrU
@@ -54,10 +54,10 @@
 .multi-list{
     list-style:none;
     margin-left:0;
-    @extend .cf;
 }
     .multi-list > li{
-        float:left;
+        display:inline-block;
+        vertical-align:top;
     }
 
 
