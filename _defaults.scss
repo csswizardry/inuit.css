@@ -46,7 +46,7 @@ $base-font-size:    16px!default;
 $base-line-height:  24px!default;
 
 /**
- * Base font-family. 
+ * Base font-family.
  */
 $base-font-family:  sans-serif!default;
 
@@ -166,8 +166,8 @@ $close-quote:   null;
  * If you need non-English quotes, please alter the following values accordingly:
  */
 @if $english-quotes != true{
-    $open-quote:    «;
-    $close-quote:   »;
+    $open-quote:    \00AB;
+    $close-quote:   \00BB;
 }
 
 
