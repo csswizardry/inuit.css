@@ -7,11 +7,11 @@
  * Create a grid of items out of a single list, e.g.:
  *
    <ul class="matrix  three-cols">
-       <li class=all-cols>Lorem</li>
-       <li>Ipsum <a href=#>dolor</a></li>
-       <li><a href=# class=matrix__link>Sit</a></li>
-       <li>Amet</li>
-       <li class=all-cols>Consectetuer</li>
+       <li class=all-cols>Lorem</li><!--
+    --><li>Ipsum <a href=#>dolor</a></li><!--
+    --><li><a href=# class=matrix__link>Sit</a></li><!--
+    --><li>Amet</li><!--
+    --><li class=all-cols>Consectetuer</li>
    </ul>
  *
  * Extend this object in your theme stylesheet.
@@ -20,13 +20,22 @@
  *
  */
 .matrix{
-    @extend .block-list;
-    border-left-width:1px;
-    @extend .cf;
+    
+    &,
+    > li{
+        border:0 solid $base-ui-color;
+    }
+}
+.matrix{
+    list-style:none;
+    margin-left:0;
+    border-bottom-width:1px;
 
      > li{
-        float:left;
-        border-right-width:1px;
+        display:inline-block;
+        vertical-align:top;
+        border-top-width:1px;
+        padding:$half-spacing-unit;
         @if $global-border-box == false{
             @include vendor(box-sizing, border-box);
         }
