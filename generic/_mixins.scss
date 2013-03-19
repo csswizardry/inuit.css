@@ -115,6 +115,27 @@
 
 
 /**
+ * Media query for targetting retina devices, e.g.:
+ *
+   .foo{
+       background-image:url(1x.png);
+       @include retina(){
+           background-image:url(2x.png);
+       }
+   }
+ *
+ */
+@mixin retina{
+    @media print,
+           (-webkit-min-device-pixel-ratio:1.25),
+                (-o-min-device-pixel-ratio:5/4),
+           (min-resolution:120dpi){
+            @content;
+    }
+}
+
+
+/**
  * CSS arrows!!! But... before you read on, you might want to grab a coffee...
  *
  * This mixin creates a CSS arrow on a given element. We can have the arrow
