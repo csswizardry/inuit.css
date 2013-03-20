@@ -90,7 +90,7 @@
  * Gutterless grids have all the properties of regular grids, minus any spacing.
  */
 .grid--full{
-    @extend #{$class-type}grid;
+    @extend .grid;
     margin-left:0;
 
     > .grid__item{
@@ -104,7 +104,7 @@
  * classes.
  */
 .grid--center{
-    @extend #{$class-type}grid;
+    @extend .grid;
     text-align:center;
 
     > .grid__item{
