@@ -91,6 +91,8 @@ The command line install of inuit.css is _incredibly_ simple:
     $ cd your-project-folder
     $ ./go
 
+If you are not familiar with installing via github and ssh-keys, please read this setup-config: https://help.github.com/articles/set-up-git
+
 What we are doing here is cloning an instance of the inuit.css-web-template and
 its submodules (that’s what the `--recursive` does) into a directory which you
 specify. Next we `cd` into that directory and run [our `go` script](https://github.com/csswizardry/inuit.css-web-template/blob/master/go).
