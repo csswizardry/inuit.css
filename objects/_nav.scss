@@ -90,8 +90,19 @@
     /**
      * Remove whitespace caused by `inline-block`.
      */
-    letter-spacing:-0.31em;
-    word-spacing:-0.43em;
+     
+
+    /** 
+     * best to avoid magic numbers (which it seems like -.31em and -.43em are)
+     * try floating & clearing the float, or something similar, instead
+     */
+    
+    // letter-spacing:-0.31em;
+    // word-spacing:-0.43em;
+    
+    float: left;
+    @extend .cf;
+    
     white-space:nowrap;
 
     > li{
