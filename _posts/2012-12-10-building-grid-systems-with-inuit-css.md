@@ -9,8 +9,8 @@ meta: Look at how inuit.css’ grid system work and how to implement and use it.
 Hey there! The first proper tutorial on this site is gonna be a real simple one,
 covering inuit.css’ grid system, what it can do, and how best to use it.  For
 starters, you’ll probably want to have the files
-[`_grids.scss`](https://github.com/csswizardry/inuit.css/blob/master/inuit.css/objects/_grids.scss)
-and [`_widths.css`](https://github.com/csswizardry/inuit.css/blob/master/inuit.css/generic/_widths.scss)
+[`_grids.scss`](https://github.com/csswizardry/inuit.css/blob/master/objects/_grids.scss)
+and [`_widths.css`](https://github.com/csswizardry/inuit.css/blob/master/generic/_widths.scss)
 open.
 
 inuit.css’ grid system has a few things worth noting:
