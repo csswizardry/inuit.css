@@ -1,0 +1,152 @@
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p{
+	color:$brand-color;
+}
+a{
+	color:$brand-color;
+}
+
+body{
+	max-width:1100px;
+	margin:0 auto;
+	padding:em(24px);
+}
+
+//Masthead
+.masthead{
+	position:relative;
+}
+.masthead__logo{
+	display:inline-block;
+	width:em(280px, $h1-size);
+	height:em(130px,$h1-size);
+	background:url(/img/content/logo.png) no-repeat;
+}
+.masthead__text{
+	display:block;
+}
+
+@media screen and (min-width:570px){
+	.masthead__text{
+		position:absolute;
+		top:em(47px, $h1-size);
+		left:em(285px, $h1-size);
+	}
+}
+
+.section-title{
+	margin-top:2em;
+	border-bottom:1px solid #ccc;
+	&:first-child{
+		margin-top:0;
+	}
+}
+
+//Arrows
+.test-arrow{
+	display:inline-block;
+	width:em(100px);
+	height:em(100px);
+	margin:0 em(15px) em(15px) 0;
+	padding-top:em(40px);
+	background-color:$brand-color;
+	color:#fff;
+	text-align:center;
+}
+.test-arrow--top-left{
+	@include arrow(top, left, $brand-color);
+}
+.test-arrow--top-right{
+	@include arrow(top, right, $brand-color);
+}
+.test-arrow--top-center{
+	@include arrow(top, center, $brand-color);
+}
+.test-arrow--right-top{
+	@include arrow(right, top, $brand-color);
+}
+.test-arrow--right-center{
+	@include arrow(right, center, $brand-color);
+}
+.test-arrow--right-bottom{
+	@include arrow(right, bottom, $brand-color);
+}
+.test-arrow--bottom-left{
+	@include arrow(bottom, left, $brand-color);
+}
+.test-arrow--bottom-center{
+	@include arrow(bottom, center, $brand-color);
+}
+.test-arrow--bottom-right{
+	@include arrow(bottom, right, $brand-color);
+}
+.test-arrow--left-top{
+	@include arrow(left, top, $brand-color);
+}
+.test-arrow--left-center{
+	@include arrow(left, center, $brand-color);
+}
+.test-arrow--left-bottom{
+	@include arrow(left, bottom, $brand-color);
+}
+
+//Beautons
+.btn-demo{
+	margin-bottom:0.5em;
+	color:#fff;
+}
+
+//Full Bleed
+.bleed-demo{
+	background-color:$brand-color;
+	color:#fff;
+}
+
+//Flexbox
+.flexbox-demo{
+	margin-bottom: 1em;
+	border:1px solid ;
+}
+
+//Floats
+.float-demo{
+	width:em(100px);
+	+ hr {
+		clear:both;
+	}
+}
+
+//Margins/Paddings Demo
+.margins-demo,
+.paddings-demo{
+	display:inline-block;
+	margin-bottom:em(10px);
+	background-color:orange;
+	text-align:center;
+}
+.margins-demo__item,
+.paddings-demo__item{
+	display:inline-block;
+	width:em(100px);
+	height:em(100px);
+	vertical-align:top;
+	background:#ace;
+}
+.margins-demo--full-margin{
+	margin:$base-spacing-unit;
+}
+.paddings-demo--full-padding{
+	padding:$base-spacing-unit;
+}
+
+//Grids
+.grid-demo{
+	border:1px solid darken(#ccc, 40%);
+}
