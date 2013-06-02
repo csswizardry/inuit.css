@@ -147,6 +147,17 @@
 
 
 /**
+ * Add a left-angled quote to links that imply backwards movement, e.g.:
+ *
+   <a href=# class=back>Read more</a>
+ *
+ */
+.back:before{
+    content:"\00AB" "\00A0"!important;
+}
+
+
+/**
  * Apply capital case to an element (usually a `strong`).
  */
 .caps{
