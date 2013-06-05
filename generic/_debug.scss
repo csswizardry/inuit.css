@@ -18,7 +18,7 @@
 /**
  * Are there any empty elements in your page?
  */
-:empty{
+:empty:not(hr){
     outline:5px solid yellow;
 }
 
