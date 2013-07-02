@@ -33,6 +33,7 @@
  *
  */
 .sprite,
+%sprite,
 .icon{
     display:inline-block;
     line-height:1;
@@ -49,7 +50,8 @@
      */
     text-align:center;
 }
-.sprite{
+.sprite,
+%sprite{
     /**
      * The typical size of most icons. Override in your theme stylesheet.
      */
