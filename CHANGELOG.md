@@ -19,7 +19,7 @@ updates from GitHub whilst avoiding having to touch any library code.
 * Added a few more helper classes and mixins.
 * Introduced switches to turn objects and abstractions on/off.
 
-## v5.1.1
+## v5.0.1
 
 * Convert special character to unicode.
 * Fix/change the `headings` mixin.
