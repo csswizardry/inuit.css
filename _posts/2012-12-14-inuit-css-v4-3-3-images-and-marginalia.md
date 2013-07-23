@@ -16,7 +16,7 @@ The additional image classes allow us to now position images left, right or
 centrally, as well as some classes I added which can be used to size images
 vertically to keep them on your baseline.
 
-You can [browse the code](https://github.com/csswizardry/inuit.css/blob/master/inuit.css/base/_images.scss)
+You can [browse the code](https://github.com/csswizardry/inuit.css/blob/master/base/_images.scss)
 or [view a demo](http://jsfiddle.net/inuitcss/yMtur/embedded/result,html,css).
 
 ## Marginalia object
@@ -26,5 +26,5 @@ notes and asides often included in the margin of a piece of work (usually a book
 Sacha Schmid built and submitted a marginalia object for inuit.css which got
 included as part of v4.3.3.
 
-You can [browse the code](https://github.com/csswizardry/inuit.css/blob/master/inuit.css/objects/_marginalia.scss)
+You can [browse the code](https://github.com/csswizardry/inuit.css/blob/master/objects/_marginalia.scss)
 or [view a demo](http://jsfiddle.net/inuitcss/AemkH/embedded/result,html,css).
