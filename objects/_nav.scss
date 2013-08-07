@@ -90,13 +90,10 @@
     /**
      * Remove whitespace caused by `inline-block`.
      */
-    letter-spacing:-0.31em;
-    word-spacing:-0.43em;
-    white-space:nowrap;
+    display: inline-block;
 
     > li{
-        letter-spacing:normal;
-        word-spacing:normal;
+        float: left;
 
         > a{
             padding:$half-spacing-unit;

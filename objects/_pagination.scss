@@ -5,8 +5,6 @@
 \*------------------------------------*/
 /**
  * Basic pagination object, extends `.nav`.
- * Requires some funky commenting to collapse any white-space caused by the
- * `display:inline-block;` rules.
  *
    <ol class="nav  pagination">
        <li class=pagination__first>First</li>
@@ -25,16 +23,11 @@
  */
 .pagination{
     text-align:center;
-    /**
-     * Remove whitespace caused by `inline-block`.
-     */
-    letter-spacing:-0.31em;
-    word-spacing:-0.43em;
+    display: inline-block;
 }
     .pagination > li{
         padding:$base-spacing-unit / 2;
-        letter-spacing:normal;
-        word-spacing:normal;
+        float: left;
     }
         .pagination > li > a{
             padding:$base-spacing-unit / 2;
