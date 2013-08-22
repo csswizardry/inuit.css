@@ -1,0 +1,31 @@
+/*------------------------------------*\
+    $COMPONENT - PAGINATION
+\*------------------------------------*/
+
+.pagination{
+	margin: 0;
+	@include section-margin;
+	list-style: none;
+	font-size: 0;
+
+	> li{
+		display: inline-block;
+		border: 1px $base-ui-color solid;		
+		@include font-size($base-font-size);
+		margin-right: -1px;
+	}
+
+	> li > a{
+		display: inline-block;
+		padding: 5px 10px;
+	}
+
+	.active > a, .active > a:hover{
+		background: $brand-color;
+		color: #fff;
+	}
+
+	a:hover{
+		background: #eee;
+	}
+}

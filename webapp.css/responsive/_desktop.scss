@@ -1,0 +1,30 @@
+/*------------------------------------*\
+    DESKTOP.CSS
+\*------------------------------------*/
+
+/*
+ * Add Grids for tablets and desktops
+ */
+
+@import "grid";
+
+/*
+ * Container
+ */
+
+.container{
+	width: $site-width;
+	margin: 0 auto;
+}
+
+/*
+ * Show Hide Sections
+ */
+ 
+.show-for-desktop{
+  display:inherit;
+}
+
+.hide-for-desktop{
+  display:none;
+}

@@ -1,0 +1,40 @@
+/*------------------------------------*\
+    PORTABLE.CSS
+    All portable devices
+\*------------------------------------*/
+
+/*
+ * Add Grids for tablet
+ */
+
+@import "grid-tablet";
+
+/*
+ * Show Hide Sections
+ */
+ 
+.show-for-desktop-above{
+  display: inherit;
+}
+
+.hide-for-tablet-above{
+  display:none;
+}
+
+/**
+ * Buttons
+ */
+
+.btn{
+	padding: $button-padding-desktop;
+}
+
+/**
+ * Inline Label
+ */
+
+.label--inline{
+	@include section-margin(0.5);
+	padding: 0.5em 0;
+	line-height: 1;
+}

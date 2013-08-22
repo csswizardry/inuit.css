@@ -1,0 +1,18 @@
+/*------------------------------------*\
+    Grids for Phones Only
+\*------------------------------------*/
+
+
+
+/**
+ * Phone - Specify number of columns
+ * <div class="columns three three--phone"></div>  => Two phone in tablet
+ */
+
+@for $i from 1 through $columns{
+  .#{convert-number-to-word($i)}--phone{
+			float: left;
+			padding: 0 $grid-gutter/2;
+			width: gridCalc($i, $columns);
+  }
+}

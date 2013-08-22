@@ -1,0 +1,17 @@
+/*------------------------------------*\
+    PHONE ONLY
+\*------------------------------------*/
+
+/*
+ * Show Hide Sections
+ */
+
+.hide-for-phone{
+  display:none;
+}
+
+/*
+ * Add Grids for Phones only
+ */
+
+@import "grid-phone";

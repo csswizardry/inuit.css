@@ -1,0 +1,345 @@
+/*------------------------------------*\
+    $DEFAULTS
+\*------------------------------------*/
+/**
+ * inuit.css’ default variables. Redefine these in your `_vars.scss` file (found
+ * in the inuit.css-web-template) to override them.
+ */
+
+
+
+
+
+/*------------------------------------*\
+    $DEBUG
+\*------------------------------------*/
+/**
+ * Debug mode will visually highlight any potential markup/accessibility quirks
+ * in the browser. Set to `true` or `false`.
+ */
+$debug-mode : false!default;
+
+
+
+
+
+/*------------------------------------*\
+    $BORDER-BOX
+\*------------------------------------*/
+/**
+ * Do you want all elements to adopt `box-sizing:border-box;` as per
+ * paulirish.com/2012/box-sizing-border-box-ftw ?
+ */
+$global-border-box : true!default;
+
+
+
+
+
+/*------------------------------------*\
+    $BASE
+\*------------------------------------*/
+/**
+ * Base stuff
+ */
+$base-font-size   : 16px;
+$base-line-height : 24px;
+$direction        : ltr;
+
+/**
+ * Text Direction Support
+ */
+
+$dir-default : "left";
+$dir-reverse : "right";
+
+@if $direction == "rtl" {
+  $dir-default : "right";
+  $dir-reverse : "left";
+}
+
+/**
+ * Base font-family.
+ */
+$base-font-family : "Helvetica Neue", Helvetica, Arial, sans-serif!default;
+
+
+/**
+ * Default colour for objects’ borders etc.
+ */
+$base-ui-color : #ccc!default;
+
+
+
+/*------------------------------------*\
+    $RESPONSIVE
+\*------------------------------------*/
+/**
+ * Responsiveness?
+ */
+$responsive : false !default;
+
+/**
+ * Responsiveness for widescreen/high resolution desktop monitors and beyond?
+ * Note: `$responsive` variable above must be set to true before enabling this.
+ */
+$responsive-extra : false!default;
+
+/**
+ * Responsive push and pull produce a LOT of code, only turn them on if you
+ * definitely need them.
+ */
+$push : false!default;
+/**
+ * Note: `$push` variable above must be set to true before enabling these.
+ */
+$palm-push       : false!default;
+$lap-push        : false!default;
+$lap-and-up-push : false!default;
+$portable-push   : false!default;
+$desk-push       : false!default;
+ 
+$pull            : false!default;
+/**
+ * Note: `$pull` variable above must be set to true before enabling these.
+ */
+$palm-pull       : false!default;
+$lap-pull        : false!default;
+$lap-and-up-pull : false!default;
+$portable-pull   : false!default;
+$desk-pull       : false!default;
+
+/**
+ * Tell inuit.css when breakpoints start.
+ */
+$lap-start       : 481px!default;
+$desk-start      : 960px!default;
+$desk-wide-start : 1200px!default;
+
+
+
+
+
+/*------------------------------------*\
+    $FONT-SIZES
+\*------------------------------------*/
+/**
+ * Font-sizes (in pixels). Refer to relevant sections for their implementations.
+ */
+$giga-size  : 96px!default;
+$mega-size  : 72px!default;
+$kilo-size  : 48px!default;
+ 
+$h1-size    : 36px!default;//.alpha
+$h2-size    : 24px!default;//.beta
+$h3-size    : 20px!default;//.gamma
+$h4-size    : 18px!default;//.delta
+$h5-size    : 16px!default;//.epsilon
+$h6-size    : 14px!default;//.zeta
+ 
+$milli-size : 14px!default;
+$micro-size : 12px!default;
+
+
+
+
+
+/*------------------------------------*\
+    $QUOTES
+\*------------------------------------*/
+/**
+ * English quote marks?
+ */
+$english-quotes : true!default;
+
+/**
+ * If you want English quotes then please do not edit these; they’re only here
+ * because Sass needs them.
+ */
+$open-quote  : null;
+$close-quote : null;
+
+/**
+ * If you need non-English quotes, please alter the following values accordingly:
+ */
+@if $english-quotes != true{
+    $open-quote  : \00AB;
+    $close-quote : \00BB;
+}
+
+
+
+
+
+/*------------------------------------*\
+    $BRAND
+\*------------------------------------*/
+/**
+ * Brand stuff
+ */
+$brand-color : #EE7814;
+$brand-face  : $base-font-family;
+$grey        : #D8D8D8;
+$base-color  : #333;
+
+/**
+ * How big would you like round corners to be by default?
+ */
+$brand-round : 4px!default;
+
+
+
+
+
+/*------------------------------------*\
+    $OBJECTS AND ABSTRACTIONS
+\*------------------------------------*/
+/**
+ * Which objects and abstractions would you like to use?
+ */
+$use-grids        : false!default;
+$use-flexbox      : false!default;
+$use-columns      : false!default;
+$use-nav          : false!default;
+$use-options      : false!default;
+$use-pagination   : false!default;
+$use-breadcrumb   : false!default;
+$use-media        : false!default;
+$use-marginalia   : false!default;
+$use-island       : false!default;
+$use-block-list   : false!default;
+$use-matrix       : false!default;
+$use-split        : false!default;
+$use-this-or-this : false!default;
+$use-link-complex : false!default;
+$use-flyout       : false!default;
+$use-arrows       : false!default;
+$use-sprite       : false!default;
+$use-icon-text    : false!default;
+$use-beautons     : true;
+$use-lozenges     : false!default;
+$use-rules        : true;
+$use-stats        : false!default;
+$use-greybox      : false!default;
+
+
+
+
+
+/*------------------------------------*\
+    $FRAMEWORK
+\*------------------------------------*/
+/**
+ * inuit.css will work these next ones out for use within the framework.
+ *
+ * Assign our `$base-line-height` to a new spacing var for more transparency.
+ */
+$base-spacing-unit : $base-line-height!default;
+$half-spacing-unit : $base-spacing-unit / 2!default;
+$line-height-ratio : $base-line-height / $base-font-size;
+
+
+
+/*------------------------------------*\
+    $LINKS
+\*------------------------------------*/
+
+$link-color              : #EE7814;
+$link-hover-color        : #4A4A4A;
+$link-visited-color      : $link-color;
+$link-underline          : false !default;
+$link-underline-on-hover : false !default;
+
+
+/*------------------------------------*\
+    $TYPOGRAPHY
+\*------------------------------------*/
+
+$base-heading-margin-bottom : 15px;
+$section-margin             : 2.5rem;
+$content-gutter             : 1.25rem;
+
+/*------------------------------------*\
+    $FORMS
+\*------------------------------------*/
+
+$input-border-color     : #ccc;
+$input-padding          : 0.6em 1em; 
+
+/* 
+    Left and right padding should be uniform for 
+    input and button elements to get a 
+    good vertical rythm 
+*/
+
+$button-default-background : #d9d9d9;
+$button-padding            : 0.6em 1em;
+$button-padding-desktop    : 0.6em 1em;
+$input-border-radius       : $brand-round;
+
+/*------------------------------------*\
+    $TABLE
+\*------------------------------------*/
+
+$table-border-color : #ddd;
+$table-zebra-color  : #eee;
+$table-hover-color  : #ffc;    
+
+/*------------------------------------*\
+    $DROPDOWN
+\*------------------------------------*/
+
+$dropdown-hover-color: $brand-color;
+$dropdown-border-radius: $brand-round;
+
+/*------------------------------------*\
+    $PANELS
+\*------------------------------------*/
+
+$panel-border-color     : #ccc;
+$panel-title-background : #eee;
+
+/*------------------------------------*\
+    $ALERTS
+\*------------------------------------*/
+
+$alert-success-background : #DFF0D8;
+$alert-success-border     : #D6E9C6;
+$alert-success-color      : #468847;
+
+$alert-error-background   : #F2DEDE;
+$alert-error-border       : #EED3D7;
+$alert-error-color        : #B94A48;
+
+$alert-warning-background : #FCF8E3;
+$alert-warning-border     : #FBEED5;
+$alert-warning-color      : #C09853;
+
+$alert-info-background    : #D9EDF7;
+$alert-info-border        : #BCE8F1;
+$alert-info-color         : #3A87AD;
+
+
+/*------------------------------------*\
+    $GRID SETTINGS
+\*------------------------------------*/
+
+$columns        : 12 !default; /* 12 Column Grid */
+$site-width     : 960px;
+$min-site-width : 0;
+$max-site-width : $site-width;
+$grid-gutter    : 30px;
+$mobile         : true;
+$desk-start     : $max-site-width;
+
+
+/*------------------------------------*\
+    $BREAK POINT SETTINGS
+\*------------------------------------*/
+
+$mobile-break-point-end   : 480px;
+$tablet-break-point-start : 600px; 
+$phone-break-point-end    : $tablet-break-point-start; /* Default: 480px; */
+$tablet-break-point-end   : $site-width - 1; /* Default: 768px */
+$desktop-start            : $site-width;
+$wide-screen-start        : 1200px;

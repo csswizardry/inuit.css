@@ -1,0 +1,130 @@
+/*------------------------------------*\
+    $COMPONENT - CAROUSEL
+\*------------------------------------*/
+
+.carousel{
+
+	@include section-margin;
+	position: relative;
+
+	/*
+	Reset Any List Items
+	 */
+
+	ul{
+		list-style: none;
+		margin: 0;
+	}
+
+	li{
+		margin: 0;
+	}	
+
+	/* Bootstrap */
+
+	.next, .prev{
+		position: absolute;
+		top: 0;
+		width: 100%;
+		display: block;
+	}
+
+	.next{
+		left: 100%;
+	}
+
+	.prev{
+		left: -100%;
+	}
+
+	.next.left, .prev.right{
+		left: 0;
+	}
+
+	.carousel__item--active.left{
+		left: -100%;
+	}
+
+	.carousel__item--active.right{
+		left: 100%;
+	}
+
+}
+
+/**
+ * Carousel Viewport
+ */
+
+.carousel__viewport{
+	overflow: hidden;	
+	position: relative;
+	width: 100%;
+}
+
+/**
+ * Carousel Item
+ */
+
+.carousel__item{
+	
+  display: none;
+  position: relative;
+  transition: 0.6s ease-in-out left;
+
+ 
+}
+
+	/*
+		Carousel Active Item
+	 */
+	
+	.carousel__item--active{
+		display: block;
+		left: 0;
+	}
+
+/**
+ * Carousel Navigation
+ */
+
+
+.carousel__control{
+	position: absolute;
+	width: 150px;
+	height: 100%;
+	top: 0;
+	text-align: center;
+}
+
+/*
+	Previous Slide
+ */
+
+.carousel__control--prev{	
+	left: 0;	
+}
+
+/*
+	Next Slide
+ */
+
+.carousel__control--next{
+	right: 0;
+}
+
+/**
+ * Carousel Indicators
+ */
+
+.carousel__indicators{
+	position: absolute;
+	width: 100%;
+	bottom: 0;
+	text-align: center;
+	z-index: 1;
+
+	.carousel__item--active{
+		display: inline;
+		font-weight: bold;
+	}
+}

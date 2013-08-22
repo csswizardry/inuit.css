@@ -1,0 +1,169 @@
+// Clearfix
+
+%clearfix {
+  &:before,
+  &:after {
+      content: ".";
+      display: block;
+      clear: both;
+      visibility: hidden;
+      line-height: 0;
+      height: 0;
+  }
+}
+
+/**
+ * Focus Styles
+ */
+
+%focus-style{
+  box-shadow :  0 1px 2px rgba(0,0,0,0.075) inset, 
+                  0 0 5px rgba(81,167,232,0.5);
+  border-color: #51A7E8;
+}
+
+/*
+ *  Bottom Margin: Based on Line Height
+ */
+
+@mixin section-margin($multiplier: 1){
+  
+  margin-bottom :$base-spacing-unit * $multiplier;
+  margin-bottom :($base-spacing-unit / $base-font-size)*1rem * $multiplier;
+
+}
+
+/*
+ *  Section Margin: Based on Line Height
+ */
+
+@mixin section-padding($multiplier: 1){
+  
+  padding-top:$base-spacing-unit * $multiplier;
+  padding-top:($base-spacing-unit / $base-font-size)*1rem * $multiplier;
+
+}
+
+/* No List Style */
+
+@mixin nolist{
+  list-style: none;
+  margin-left:0;
+  padding-left:0;
+}
+
+// Font Size
+
+$rem-ratio: $base-font-size / 1rem;
+$base-rem-ratio: 10px/1rem;
+
+@mixin rem($key,$px) {
+  #{$key}: $px;
+  #{$key}: $px/$base-rem-ratio;
+}
+
+@mixin font-size-2($sizeValue: 16){
+  font-size: ($sizeValue * 1) + px;
+  font-size: $sizeValue / 10 + rem;
+}
+
+
+// Clearfix
+
+@mixin clearfix {
+  @extend %clearfix;
+}
+
+
+// Hover Link Mixin
+
+@mixin hover-link {
+  text-decoration: none;
+  &:hover {
+    text-decoration: if($underline-on-hover, underline, none );
+  }
+}
+
+// Convert Numbers to Work
+
+@function convert-number-to-word($num) {
+  $count:1;
+  @each $word in one,two,three,four,five,six,seven,eight,nine,ten,eleven, twelve,thirteen,fourteen,fifteen,sixteen,seventeen,eighteen,nineteen, twenty,twentyone,twentytwo,twentythree,twentyfour{
+    @if ($count == $num) { @return $word; }
+    $count: $count + 1;
+  }
+  @return "invalid";
+}
+
+// Convert Pixel to Em
+
+@function calc-em($target-px) {
+  @return ($target-px / 16px) * 1em;
+}
+
+
+// Grid Calculation for Percentages
+
+@function gridCalc($colNumber, $columns) {
+  @return percentage(($colNumber / $columns));
+}
+
+
+
+/**
+ * Font Face
+ */
+
+@mixin font-face($font-family, $file-path, $weight: normal, $style: normal, $asset-pipeline: false ) {
+  @font-face {
+    font-family: $font-family;
+    font-weight: $weight;
+    font-style: $style;
+
+    @if $asset-pipeline == true {
+      src: font-url('#{$file-path}.eot');
+      src: font-url('#{$file-path}.eot?#iefix')          format('embedded-opentype'),
+           font-url('#{$file-path}.woff')                format('woff'),
+           font-url('#{$file-path}.ttf')                 format('truetype'),
+           font-url('#{$file-path}.svg##{$font-family}') format('svg');
+    } @else {
+      src: url('#{$file-path}.eot');
+      src: local('☺'),
+           url('#{$file-path}.eot?#iefix')               format('embedded-opentype'),
+           url('#{$file-path}.woff')                     format('woff'),
+           url('#{$file-path}.ttf')                      format('truetype'),
+           url('#{$file-path}.svg##{$font-family}')      format('svg');
+    }
+  }
+}
+
+/**
+ * Panels
+ */
+
+// We use these to set default font colors
+
+$panel-font-color     : $base-ui-color !default;
+$panel-font-color-alt : #fff !default;
+
+@mixin panel($bg, $padding, $adjust: true){
+  @extend %sass-margin-bottom;
+
+  @if $bg {
+    $bg-lightness : lightness($bg);
+    border        : 1px solid darken($bg, 10%);
+    padding       : $padding;
+    background    : $bg;
+
+    // Respect the padding, fool.
+    &>:first-child { margin-top: 0; }
+    &>:last-child { margin-bottom: 0; }
+
+    @if $adjust {
+      // We set the font color based on the darkness of the bg.
+      @if $bg-lightness >= 50% and $bg == blue { h1,h2,h3,h4,h5,h6,p { color: $panel-font-color-alt; } }
+      @else if $bg-lightness >= 50%            { h1,h2,h3,h4,h5,h6,p { color: $panel-font-color; } }
+      @else                                    { h1,h2,h3,h4,h5,h6,p { color: $panel-font-color-alt; } }
+    }
+  }
+}

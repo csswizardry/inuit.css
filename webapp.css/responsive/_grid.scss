@@ -1,0 +1,95 @@
+/*------------------------------------*\
+    GRIDS    
+\*------------------------------------*/
+
+/**
+ * Calculates Percentage for each column
+ */
+
+@function gridCalc($colNumber, $columns) {
+  @return percentage(($colNumber / $columns));
+}
+
+/**
+ * Convert numbers to words
+ * 1 => 'one'
+ */
+
+@function convert-number-to-word($num) {
+  $count:1;
+  @each $word in one,two,three,four,five,six,seven,eight,nine,ten,eleven,
+    twelve,thirteen,fourteen,fifteen,sixteen,seventeen,eighteen,nineteen,
+    twenty,twentyone,twentytwo,twentythree,twentyfour{
+    @if ($count == $num) { @return $word; }
+    $count: $count + 1;
+  }
+  @return "invalid";
+}
+
+.row {
+	//max-width: $max-site-width;
+	//min-width: $min-site-width;
+	//width: $site-width;		
+}
+
+/**
+ * Nested Row
+ */
+
+.row .row, .row--wide{
+	width: auto;
+	max-width: none;
+	min-width: 0;
+	margin-left:(-$grid-gutter/2);
+  margin-right:(-$grid-gutter/2);
+}
+
+/**
+ * Collapsed Row
+ */
+
+.row--collapse{
+
+  .columns{
+    padding-left: 0;
+    padding-right: 0;
+  } 
+
+  .row &{
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+}
+
+
+
+/* Columns */
+
+.columns {
+	float: #{$dir-default};
+	min-height: 1px;
+	padding:0 $grid-gutter/2;
+	position: relative;
+}
+
+
+/**
+ * Generates grids columns
+ * .one, .two....
+ */
+
+@for $i from 1 through $columns{
+  .#{convert-number-to-word($i)}{//, .row .#{convert-number-to-word($i)}{
+    width: gridCalc($i, $columns);
+  }
+}
+
+/**
+ * Creates Push Pull classes for alignment in mobile
+ */
+
+@for $i from 1 through $columns - 1 {
+  .push--#{convert-number-to-word($i)} { #{$dir-default}: gridCalc($i, $columns); }
+  .pull--#{convert-number-to-word($i)} { #{$dir-reverse}: gridCalc($i, $columns); }
+}

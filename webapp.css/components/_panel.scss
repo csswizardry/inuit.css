@@ -1,0 +1,30 @@
+/*------------------------------------*\
+    $COMPONENT - PANELS
+\*------------------------------------*/
+
+/**
+ * Panel
+ */
+
+.panel{
+	@include section-margin;
+	border: 1px $panel-border-color solid;
+}
+
+
+/**
+ * Panel Title
+ */
+
+.panel__title{
+	background: $panel-title-background;
+	padding: 1em;
+}
+
+/**
+ * Panel Body
+ */
+
+.panel__body{
+	padding: 1em;
+}

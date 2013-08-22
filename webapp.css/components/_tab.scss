@@ -1,0 +1,40 @@
+/*------------------------------------*\
+    $COMPONENT - TABS
+\*------------------------------------*/
+
+.tabs{
+	list-style: none;
+	margin: 0;
+	@include section-margin;
+	border-bottom: 1px $base-ui-color solid;
+	font-size: 0;
+
+	> li{
+		margin: 0;
+		display: inline-block;
+		border: 1px $base-ui-color solid;
+		border-bottom-color: transparent;
+		border-width: 1px 1px 1px 1px;
+		@include font-size($base-font-size);
+		margin-right: 2px;
+		position: relative;
+		margin-bottom: -1px;
+	}
+
+	/*
+		Active Tab
+	 */
+
+	> .active{
+		border-bottom-color: #fff;
+	}
+
+	/*
+		Tab Links
+	 */
+
+	> li > a{
+		display: inline-block;
+		padding: 5px 10px;
+	}
+}

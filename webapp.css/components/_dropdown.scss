@@ -1,0 +1,54 @@
+/*------------------------------------*\
+    DROPDOWN.SCSS    
+\*------------------------------------*/
+
+/**
+ * Dropdown Link
+ */
+
+.has-dropdown{
+	position: relative;
+
+	&:hover > .dropdown-menu{
+		display: block;
+	}
+}
+
+/**
+ * Dropdown menu
+ */
+
+.dropdown-menu{
+	position: absolute;	
+	left: 0;
+	top: 100%;
+	min-width: 160px;
+	border: 1px $base-ui-color solid;
+	background: #fff;
+	padding: 5px 0;
+	margin: 0;
+	border-radius: $dropdown-border-radius;
+	list-style: none;
+	display: none;
+	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+
+	li{
+		margin: 0;
+	}
+
+	a{
+		display: block;
+		padding: 3px 1em;
+	}
+
+	a:hover{
+		background: $dropdown-hover-color;
+		color: #fff;
+	}
+
+	.seperator{
+		border-bottom: 1px $base-ui-color solid;
+		height: 1px;
+		margin: 8px 0;
+	}
+}

@@ -1,0 +1,3703 @@
+// IMPORTING compass/utilities
+// IMPORTING utilities/color
+// IMPORTING color/contrast
+$contrasted-dark-default:   #000 !default;
+$contrasted-light-default:  #fff !default;
+$contrasted-lightness-threshold: 30% !default;
+
+// Returns the `$light` color when the `$color` is dark
+// and the `$dark` color when the `$color` is light.
+// The `$threshold` is a percent between `0%` and `100%` and it determines
+// when the lightness of `$color` changes from "dark" to "light".
+@function contrast-color(
+  $color,
+  $dark: $contrasted-dark-default,
+  $light: $contrasted-light-default,
+  $threshold: $contrasted-lightness-threshold
+) {
+  @return if(lightness($color) < $threshold, $light, $dark)
+}
+
+// Sets the specified background color and calculates a dark or light contrasted text color.
+// The arguments are passed through to the [contrast-color function](#function-contrast-color).
+@mixin contrasted(
+  $background-color,
+  $dark: $contrasted-dark-default,
+  $light: $contrasted-light-default,
+  $threshold: $contrasted-lightness-threshold
+) {
+  background-color: $background-color;
+  color: contrast-color($background-color, $dark, $light, $threshold);
+}
+// IMPORTING utilities/general
+// IMPORTING general/reset
+// This module has moved.
+// IMPORTING compass/reset/utilities
+// Based on [Eric Meyer's reset 2.0](http://meyerweb.com/eric/tools/css/reset/index.html)
+// Global reset rules.
+// For more specific resets, use the reset mixins provided below
+@mixin global-reset {
+  html, body, div, span, applet, object, iframe,
+  h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+  a, abbr, acronym, address, big, cite, code,
+  del, dfn, em, img, ins, kbd, q, s, samp,
+  small, strike, strong, sub, sup, tt, var,
+  b, u, i, center,
+  dl, dt, dd, ol, ul, li,
+  fieldset, form, label, legend,
+  table, caption, tbody, tfoot, thead, tr, th, td,
+  article, aside, canvas, details, embed, 
+  figure, figcaption, footer, header, hgroup, 
+  menu, nav, output, ruby, section, summary,
+  time, mark, audio, video {
+    @include reset-box-model;
+    @include reset-font; }
+  // Unlike Eric's original reset, we reset the html element to be compatible
+  // with the vertical rhythm mixins.
+  html {
+    @include reset-body; }
+  ol, ul {
+    @include reset-list-style; }
+  table {
+    @include reset-table; }
+  caption, th, td {
+    @include reset-table-cell; }
+  q, blockquote {
+    @include reset-quotation; }
+  a img {
+    @include reset-image-anchor-border; }
+  @include reset-html5; }
+
+// Reset all elements within some selector scope. To reset the selector itself,
+// mixin the appropriate reset mixin for that element type as well. This could be
+// useful if you want to style a part of your page in a dramatically different way.
+@mixin nested-reset {
+  div, span, applet, object, iframe,
+  h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+  a, abbr, acronym, address, big, cite, code,
+  del, dfn, em, img, ins, kbd, q, s, samp,
+  small, strike, strong, sub, sup, tt, var,
+  b, u, i, center,
+  dl, dt, dd, ol, ul, li,
+  fieldset, form, label, legend,
+  table, caption, tbody, tfoot, thead, tr, th, td,
+  article, aside, canvas, details, embed, 
+  figure, figcaption, footer, header, hgroup, 
+  menu, nav, output, ruby, section, summary,
+  time, mark, audio, video {
+    @include reset-box-model;
+    @include reset-font; }
+  table {
+    @include reset-table; }
+  caption, th, td {
+    @include reset-table-cell; }
+  q, blockquote {
+    @include reset-quotation; }
+  a img {
+    @include reset-image-anchor-border; } }
+
+// Reset the box model measurements.
+@mixin reset-box-model {
+  margin: 0;
+  padding: 0;
+  border: 0; }
+
+// Reset the font and vertical alignment.
+@mixin reset-font {
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline; }
+
+// Resets the outline when focus.
+// For accessibility you need to apply some styling in its place.
+@mixin reset-focus {
+  outline: 0; }
+
+// Reset a body element.
+@mixin reset-body {
+  line-height: 1; }
+
+// Reset the list style of an element.
+@mixin reset-list-style {
+  list-style: none; }
+
+// Reset a table
+@mixin reset-table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+// Reset a table cell (`th`, `td`)
+@mixin reset-table-cell {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle; }
+
+// Reset a quotation (`q`, `blockquote`)
+@mixin reset-quotation {
+  quotes: none;
+  &:before, &:after {
+    content: ""; 
+    content: none; } }
+
+// Resets the border.
+@mixin reset-image-anchor-border {
+  border: none; }
+
+// Unrecognized elements are displayed inline.
+// This reset provides a basic reset for block html5 elements
+// so they are rendered correctly in browsers that don't recognize them
+// and reset in browsers that have default styles for them.
+@mixin reset-html5 {
+  #{elements-of-type(html5-block)} {
+    display: block; } }
+
+// Resets the display of inline and block elements to their default display
+// according to their tag type. Elements that have a default display that varies across
+// versions of html or browser are not handled here, but this covers the 90% use case.
+// Usage Example:
+//
+//     // Turn off the display for both of these classes
+//     .unregistered-only, .registered-only
+//       display: none
+//     // Now turn only one of them back on depending on some other context.
+//     body.registered
+//       +reset-display(".registered-only")
+//     body.unregistered
+//       +reset-display(".unregistered-only")
+@mixin reset-display($selector: "", $important: false) {
+  #{append-selector(elements-of-type("inline"), $selector)} {
+    @if $important {
+      display: inline !important; }
+    @else {
+      display: inline; } }
+  #{append-selector(elements-of-type("block"), $selector)} {
+    @if $important {
+      display: block !important; }
+    @else {
+      display: block; } } }
+// IMPORTING general/clearfix
+// @doc off
+// Extends the bottom of the element to enclose any floats it contains.
+// @doc on
+
+// IMPORTING hacks
+// IMPORTING compass/support
+// Usually compass hacks apply to both ie6 & 7 -- set this to false to disable support for both.
+$legacy-support-for-ie: true !default;
+
+// Setting this to false will result in smaller output, but no support for ie6 hacks
+$legacy-support-for-ie6: $legacy-support-for-ie !default;
+
+// Setting this to false will result in smaller output, but no support for ie7 hacks
+$legacy-support-for-ie7: $legacy-support-for-ie !default;
+
+// Setting this to false will result in smaller output, but no support for legacy ie8 hacks
+$legacy-support-for-ie8: $legacy-support-for-ie !default;
+
+// @private
+// The user can simply set $legacy-support-for-ie and 6, 7, and 8 will be set accordingly,
+// But in case the user set each of those explicitly, we need to sync the value of
+// this combined variable.
+$legacy-support-for-ie: $legacy-support-for-ie6 or $legacy-support-for-ie7 or $legacy-support-for-ie8;
+
+// Whether to output legacy support for mozilla.
+// Usually this means hacks to support Firefox 3.6 or earlier.
+$legacy-support-for-mozilla: true;
+
+// Support for mozilla in experimental css3 properties (-moz).
+$experimental-support-for-mozilla      : true !default;
+// Support for webkit in experimental css3 properties (-webkit).
+$experimental-support-for-webkit       : true !default;
+// Support for webkit's original (non-standard) gradient syntax.
+$support-for-original-webkit-gradients : true !default;
+// Support for opera in experimental css3 properties (-o).
+$experimental-support-for-opera        : true !default;
+// Support for microsoft in experimental css3 properties (-ms).
+$experimental-support-for-microsoft    : true !default;
+// Support for khtml in experimental css3 properties (-khtml).
+$experimental-support-for-khtml        : false !default;
+// Support for svg in experimental css3 properties.
+// Setting this to true might add significant size to your
+// generated stylesheets.
+$experimental-support-for-svg          : false !default;
+// Support for CSS PIE in experimental css3 properties (-pie).
+$experimental-support-for-pie          : false !default;
+
+// The `zoom` approach generates less CSS but does not validate.
+// Set this to `block` to use the display-property to hack the
+// element to gain layout.
+$default-has-layout-approach: zoom !default;
+
+// This mixin causes an element matching the selector
+// to gain the "hasLayout" property in internet explorer.
+// More information on [hasLayout](http://reference.sitepoint.com/css/haslayout).
+@mixin has-layout($approach: $default-has-layout-approach) {
+  @if $legacy-support-for-ie {
+    @if $approach == zoom {
+      @include has-layout-zoom;
+    } @else if $approach == block {
+      @include has-layout-block;
+    } @else {
+      @warn "Unknown has-layout approach: #{$approach}";
+      @include has-layout-zoom;
+    }
+  }
+}
+
+@mixin has-layout-zoom {
+  @if $legacy-support-for-ie6 or $legacy-support-for-ie7 {
+    *zoom: 1;
+  }
+}
+
+@mixin has-layout-block {
+  @if $legacy-support-for-ie {
+    // This makes ie6 get layout
+    display: inline-block;
+    // and this puts it back to block
+    & { display: block; }
+  }
+}
+
+// A hack to supply IE6 (and below) with a different property value.
+// [Read more](http://www.cssportal.com/css-hacks/#in_css-important).
+@mixin bang-hack($property, $value, $ie6-value) {
+  @if $legacy-support-for-ie6 {
+    #{$property}: #{$value} !important;
+    #{$property}: #{$ie6-value};
+  }
+}
+
+// This basic method is preferred for the usual case, when positioned
+// content will not show outside the bounds of the container.
+//
+// Recommendations include using this in conjunction with a width.
+// Credit: [quirksmode.org](http://www.quirksmode.org/blog/archives/2005/03/clearing_floats.html)
+@mixin clearfix {
+  overflow: hidden;
+  @include has-layout;
+}
+
+// This older method from Position Is Everything called
+// [Easy Clearing](http://www.positioniseverything.net/easyclearing.html)
+// has the advantage of allowing positioned elements to hang
+// outside the bounds of the container at the expense of more tricky CSS.
+@mixin legacy-pie-clearfix {
+  &:after {
+    content    : "\0020";
+    display    : block;
+    height     : 0;
+    clear      : both;
+    overflow   : hidden;
+    visibility : hidden;
+  }
+  @include has-layout;
+}
+
+// This is an updated version of the PIE clearfix method that reduces the amount of CSS output.
+// If you need to support Firefox before 3.5 you need to use `legacy-pie-clearfix` instead.
+//
+// Adapted from: [A new micro clearfix hack](http://nicolasgallagher.com/micro-clearfix-hack/)
+@mixin pie-clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  @include has-layout;
+}
+// IMPORTING general/float
+// Implementation of float:left with fix for the
+// [double-margin bug in IE5/6](http://www.positioniseverything.net/explorer/doubled-margin.html)
+@mixin float-left {
+  @include float(left); }
+
+// Implementation of float:right with fix for the
+// [double-margin bug in IE5/6](http://www.positioniseverything.net/explorer/doubled-margin.html)
+@mixin float-right {
+  @include float(right); }
+
+// Direction independent float mixin that fixes the
+// [double-margin bug in IE5/6](http://www.positioniseverything.net/explorer/doubled-margin.html)
+@mixin float($side: left) {
+  display: inline;
+  float: unquote($side); }
+
+// Resets floated elements back to their default of `float: none` and defaults
+// to `display: block` unless you pass `inline` as an argument
+//
+// Usage Example:
+//
+//     body.homepage
+//       #footer li
+//         +float-left
+//     body.signup
+//       #footer li
+//         +reset-float
+@mixin reset-float($display: block) {
+  float: none;
+  display: $display; }
+// IMPORTING general/tag-cloud
+// Emits styles for a tag cloud
+@mixin tag-cloud($base-size: 1em) {
+  font-size: $base-size;
+  line-height: 1.2 * $base-size;
+  .xxs, .xs, .s, .l, .xl, .xxl {
+    line-height: 1.2 * $base-size; }
+  .xxs {
+    font-size: $base-size / 2; }
+  .xs {
+    font-size: 2 * $base-size / 3; }
+  .s {
+    font-size: 3 * $base-size / 4; }
+  .l {
+    font-size: 4 * $base-size / 3; }
+  .xl {
+    font-size: 3 * $base-size / 2; }
+  .xxl {
+    font-size: 2 * $base-size; } }
+// IMPORTING general/hacks
+
+// The `zoom` approach generates less CSS but does not validate.
+// Set this to `block` to use the display-property to hack the
+// element to gain layout.
+$default-has-layout-approach: zoom !default;
+
+// This mixin causes an element matching the selector
+// to gain the "hasLayout" property in internet explorer.
+// More information on [hasLayout](http://reference.sitepoint.com/css/haslayout).
+@mixin has-layout($approach: $default-has-layout-approach) {
+  @if $legacy-support-for-ie {
+    @if $approach == zoom {
+      @include has-layout-zoom;
+    } @else if $approach == block {
+      @include has-layout-block;
+    } @else {
+      @warn "Unknown has-layout approach: #{$approach}";
+      @include has-layout-zoom;
+    }
+  }
+}
+
+@mixin has-layout-zoom {
+  @if $legacy-support-for-ie6 or $legacy-support-for-ie7 {
+    *zoom: 1;
+  }
+}
+
+@mixin has-layout-block {
+  @if $legacy-support-for-ie {
+    // This makes ie6 get layout
+    display: inline-block;
+    // and this puts it back to block
+    & { display: block; }
+  }
+}
+
+// A hack to supply IE6 (and below) with a different property value.
+// [Read more](http://www.cssportal.com/css-hacks/#in_css-important).
+@mixin bang-hack($property, $value, $ie6-value) {
+  @if $legacy-support-for-ie6 {
+    #{$property}: #{$value} !important;
+    #{$property}: #{$ie6-value};
+  }
+}
+// IMPORTING general/min
+
+//**
+// Cross browser min-height mixin.
+@mixin min-height($value) {
+  @include hacked-minimum(height, $value); }
+
+//**
+// Cross browser min-width mixin.
+@mixin min-width($value) {
+  @include hacked-minimum(width, $value); }
+
+// @private This mixin is not meant to be used directly.
+@mixin hacked-minimum($property, $value) {
+  min-#{$property}: $value;
+  @include bang-hack($property, auto, $value); }
+// IMPORTING utilities/sprites
+// IMPORTING sprites/base
+// Determines those states for which you want to enable magic sprite selectors
+$sprite-selectors: hover, target, active !default;
+
+// Set the width and height of an element to the original
+// dimensions of an image before it was included in the sprite.
+@mixin sprite-dimensions($map, $sprite) {
+  height: image-height(sprite-file($map, $sprite));
+  width: image-width(sprite-file($map, $sprite));
+}
+
+// Set the background position of the given sprite `$map` to display the
+// sprite of the given `$sprite` name. You can move the image relative to its
+// natural position by passing `$offset-x` and `$offset-y`.
+@mixin sprite-background-position($map, $sprite, $offset-x: 0, $offset-y: 0) {
+  background-position: sprite-position($map, $sprite, $offset-x, $offset-y);  
+}
+
+
+// Determines if you want to include magic selectors in your sprites
+$disable-magic-sprite-selectors:false !default;
+
+// Include the position and (optionally) dimensions of this `$sprite`
+// in the given sprite `$map`. The sprite url should come from either a base
+// class or you can specify the `sprite-url` explicitly like this:
+//
+//     background: $map no-repeat;
+@mixin sprite($map, $sprite, $dimensions: false, $offset-x: 0, $offset-y: 0) {
+  @include sprite-background-position($map, $sprite, $offset-x, $offset-y);
+  @if $dimensions {
+    @include sprite-dimensions($map, $sprite);
+  }
+  @if not $disable-magic-sprite-selectors {
+    @include sprite-selectors($map, $sprite, $sprite, $offset-x, $offset-y);
+  }
+}
+
+// Include the selectors for the `$sprite` given the `$map` and the 
+// `$full-sprite-name`
+// @private
+@mixin sprite-selectors($map, $sprite-name, $full-sprite-name, $offset-x: 0, $offset-y: 0) {
+  @each $selector in $sprite-selectors {
+    @if sprite_has_selector($map, $sprite-name, $selector) {
+      &:#{$selector}, &.#{$full-sprite-name}_#{$selector}, &.#{$full-sprite-name}-#{$selector} {
+          @include sprite-background-position($map, "#{$sprite-name}_#{$selector}", $offset-x, $offset-y);
+      }
+    }
+  }
+}
+
+// Generates a class for each space separated name in `$sprite-names`.
+// The class will be of the form .<map-name>-<sprite-name>.
+//
+// If a base class is provided, then each class will extend it.
+//
+// If `$dimensions` is `true`, the sprite dimensions will specified.
+@mixin sprites($map, $sprite-names, $base-class: false, $dimensions: false, $prefix: sprite-map-name($map), $offset-x: 0, $offset-y: 0) {
+  @each $sprite-name in $sprite-names {
+    @if sprite_does_not_have_parent($map, $sprite-name) {
+      $full-sprite-name: "#{$prefix}-#{$sprite-name}";
+      .#{$full-sprite-name} {
+        @if $base-class { @extend #{$base-class}; }
+        @include sprite($map, $sprite-name, $dimensions, $offset-x, $offset-y);
+      }
+    }
+  }
+}
+// IMPORTING sprites/sprite-img
+// @doc off
+// Example 1:
+//
+//     a.twitter
+//       +sprite-img("icons-32.png", 1)
+//     a.facebook
+//       +sprite-img("icons-32png", 2)
+//
+// Example 2:
+//
+//     a
+//       +sprite-background("icons-32.png")
+//       a.twitter
+//         +sprite-column(1)
+//       a.facebook
+//         +sprite-row(2)
+// @doc on
+
+$sprite-default-size: 32px !default;
+
+$sprite-default-margin: 0px !default;
+
+$sprite-image-default-width: $sprite-default-size !default;
+
+$sprite-image-default-height: $sprite-default-size !default;
+
+// Sets all the rules for a sprite from a given sprite image to show just one of the sprites.
+// To reduce duplication use a sprite-bg mixin for common properties and a sprite-select mixin for positioning.
+@mixin sprite-img($img, $col, $row: 1, $width: $sprite-image-default-width, $height: $sprite-image-default-height, $margin: $sprite-default-margin) {
+  @include sprite-background($img, $width, $height);
+  @include sprite-position($col, $row, $width, $height, $margin); 
+}
+
+// Sets rules common for all sprites, assumes you want a square, but allows a rectangular region.
+@mixin sprite-background($img, $width: $sprite-default-size, $height: $width) {
+  @include sprite-background-rectangle($img, $width, $height); 
+}
+
+// Sets rules common for all sprites, assumes a rectangular region.
+@mixin sprite-background-rectangle($img, $width: $sprite-image-default-width, $height: $sprite-image-default-height) {
+  background: image-url($img) no-repeat;
+  width: $width;
+  height: $height;
+  overflow: hidden; 
+}
+
+// Allows horizontal sprite positioning optimized for a single row of sprites.
+@mixin sprite-column($col, $width: $sprite-image-default-width, $margin: $sprite-default-margin) {
+  @include sprite-position($col, 1, $width, 0px, $margin); 
+}
+
+// Allows vertical sprite positioning optimized for a single column of sprites.
+@mixin sprite-row($row, $height: $sprite-image-default-height, $margin: $sprite-default-margin) {
+  @include sprite-position(1, $row, 0px, $height, $margin); 
+}
+
+// Allows vertical and horizontal sprite positioning from a grid of equal dimensioned sprites.
+@mixin sprite-position($col, $row: 1, $width: $sprite-image-default-width, $height: $sprite-image-default-height, $margin: $sprite-default-margin) {
+  $x: ($col - 1) * -$width - ($col - 1) * $margin;
+  $y: ($row - 1) * -$height - ($row - 1) * $margin;
+  background-position: $x $y; 
+}
+
+
+
+// Similar to 'sprite-replace-text-with-dimensions' but does not autmaticly set the demensions
+@mixin sprite-replace-text ($map, $sprite, $dimensions: false, $offset-x: 0, $offset-y: 0) {    
+  @include hide-text;
+  @include sprite($map, $sprite, $dimensions, $offset-x, $offset-y);
+  background-image: $map;
+  background-repeat: no-repeat;
+}
+
+// Similar to 'replace-text-with-dimensions' but with sprites
+// To use, create your sprite and then pass it in the `$map` param
+// The name of the image in the sprite folder should be `$img-name`
+@mixin sprite-replace-text-with-dimensions ($map, $sprite, $offset-x: 0, $offset-y: 0){    
+  @include sprite-replace-text ($map, $sprite, true, $offset-x, $offset-y);
+}
+// IMPORTING utilities/tables
+// IMPORTING tables/alternating-rows-and-columns
+@mixin alternating-rows-and-columns($even-row-color, $odd-row-color, $dark-intersection, $header-color: white, $footer-color: white) {
+  th {
+    background-color: $header-color;
+    &.even, &:nth-child(2n) {
+      background-color: $header-color - $dark-intersection; } }
+  tr {
+    &.odd, &:nth-child(2n+1) {
+      td {
+       background-color: $odd-row-color;
+       &.even, &:nth-child(2n) {
+         background-color: $odd-row-color - $dark-intersection; } } }
+    }
+  tr.even {
+    td {
+      background-color: $even-row-color;
+      &.even, &:nth-child(2n) {
+        background-color: $even-row-color - $dark-intersection; } } }
+  tfoot {
+    th, td {
+      background-color: $footer-color;
+      &.even, &:nth-child(2n) {
+        background-color: $footer-color - $dark-intersection; } } } }
+// IMPORTING tables/borders
+@mixin outer-table-borders($width: 2px, $color: black) {
+  border: $width solid $color;
+  thead {
+    th {
+      border-bottom: $width solid $color; } }
+  tfoot {
+    th, td {
+      border-top: $width solid $color; } }
+  th {
+    &:first-child {
+      border-right: $width solid $color; } } }
+
+@mixin inner-table-borders($width: 2px, $color: black) {
+  th, td {
+    border: {
+      right: $width solid $color;
+      bottom: $width solid $color;
+      left-width: 0px;
+      top-width: 0px; };
+    &:last-child,
+    &.last {
+      border-right-width: 0px; } }
+
+// IE8 ignores rules that are included on the same line as :last-child
+// see http://www.richardscarrott.co.uk/posts/view/ie8-last-child-bug for details
+
+  tbody, tfoot {
+    tr:last-child {
+      th, td {
+        border-bottom-width: 0px; } }
+    tr.last {
+      th, td {
+        border-bottom-width: 0px; } } } }
+// IMPORTING tables/scaffolding
+@mixin table-scaffolding {
+  th {
+    text-align: center;
+    font-weight: bold; }
+  td,
+  th {
+    padding: 2px;
+    &.numeric {
+      text-align: right; } } }
+
+// deprecated
+// IMPORTING typography/links
+// IMPORTING links/hover-link
+// a link that only has an underline when you hover over it
+@mixin hover-link {
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline; } }
+// IMPORTING links/link-colors
+// Set all the colors for a link with one mixin call.
+// Order of arguments is:
+//
+// 1. normal
+// 2. hover
+// 3. active
+// 4. visited
+// 5. focus
+//
+// Those states not specified will inherit.
+// Mixin to an anchor link like so:
+//     a
+//       +link-colors(#00c, #0cc, #c0c, #ccc, #cc0)
+
+@mixin link-colors($normal, $hover: false, $active: false, $visited: false, $focus: false) {
+  color: $normal;
+  @if $visited {
+    &:visited {
+      color: $visited; } }
+  @if $focus {
+    &:focus {
+      color: $focus; } }
+  @if $hover {
+    &:hover {
+      color: $hover; } }
+  @if $active {
+    &:active {
+      color: $active; } } }
+// IMPORTING links/unstyled-link
+// A link that looks and acts like the text it is contained within
+@mixin unstyled-link {
+  color: inherit;
+  text-decoration: inherit;
+  cursor: inherit;
+  &:active, &:focus {
+    outline: none; } }
+// IMPORTING typography/lists
+// IMPORTING lists/horizontal-list
+// Horizontal list layout module.
+//
+// Easy mode using simple descendant li selectors:
+//
+//   ul.nav
+//     +horizontal-list
+//
+// Advanced mode:
+// If you need to target the list items using a different selector then use
+// +horizontal-list-container on your ul/ol and +horizontal-list-item on your li.
+// This may help when working on layouts involving nested lists. For example:
+//
+//   ul.nav
+//     +horizontal-list-container
+//     > li
+//       +horizontal-list-item
+
+// IMPORTING bullets
+// Turn off the bullet for an element of a list
+@mixin no-bullet {
+  list-style-image : none;
+  list-style-type  : none;
+  margin-left      : 0;
+}
+
+// turns off the bullets for an entire list
+@mixin no-bullets {
+  list-style: none;
+  li { @include no-bullet; }
+}
+
+// Make a list(ul/ol) have an image bullet.
+//
+// The mixin should be used like this for an icon that is 5x7:
+//
+//     ul.pretty
+//       +pretty-bullets("my-icon.png", 5px, 7px)
+//
+// Additionally, if the image dimensions are not provided,
+// The image dimensions will be extracted from the image itself.
+//
+//     ul.pretty
+//       +pretty-bullets("my-icon.png")
+//
+@mixin pretty-bullets($bullet-icon, $width: image-width($bullet-icon), $height: image-height($bullet-icon), $line-height: 18px, $padding: 14px) {
+  margin-left: 0;
+  li {
+    padding-left: $padding;
+    background: image-url($bullet-icon) no-repeat ($padding - $width) / 2 ($line-height - $height) / 2;
+    list-style-type: none;
+  }
+}
+// IMPORTING compass/utilities/general/clearfix
+// @doc off
+// Extends the bottom of the element to enclose any floats it contains.
+// @doc on
+
+
+// This basic method is preferred for the usual case, when positioned
+// content will not show outside the bounds of the container.
+//
+// Recommendations include using this in conjunction with a width.
+// Credit: [quirksmode.org](http://www.quirksmode.org/blog/archives/2005/03/clearing_floats.html)
+@mixin clearfix {
+  overflow: hidden;
+  @include has-layout;
+}
+
+// This older method from Position Is Everything called
+// [Easy Clearing](http://www.positioniseverything.net/easyclearing.html)
+// has the advantage of allowing positioned elements to hang
+// outside the bounds of the container at the expense of more tricky CSS.
+@mixin legacy-pie-clearfix {
+  &:after {
+    content    : "\0020";
+    display    : block;
+    height     : 0;
+    clear      : both;
+    overflow   : hidden;
+    visibility : hidden;
+  }
+  @include has-layout;
+}
+
+// This is an updated version of the PIE clearfix method that reduces the amount of CSS output.
+// If you need to support Firefox before 3.5 you need to use `legacy-pie-clearfix` instead.
+//
+// Adapted from: [A new micro clearfix hack](http://nicolasgallagher.com/micro-clearfix-hack/)
+@mixin pie-clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  @include has-layout;
+}
+// IMPORTING compass/utilities/general/reset
+// This module has moved.
+// IMPORTING compass/utilities/general/float
+// Implementation of float:left with fix for the
+// [double-margin bug in IE5/6](http://www.positioniseverything.net/explorer/doubled-margin.html)
+@mixin float-left {
+  @include float(left); }
+
+// Implementation of float:right with fix for the
+// [double-margin bug in IE5/6](http://www.positioniseverything.net/explorer/doubled-margin.html)
+@mixin float-right {
+  @include float(right); }
+
+// Direction independent float mixin that fixes the
+// [double-margin bug in IE5/6](http://www.positioniseverything.net/explorer/doubled-margin.html)
+@mixin float($side: left) {
+  display: inline;
+  float: unquote($side); }
+
+// Resets floated elements back to their default of `float: none` and defaults
+// to `display: block` unless you pass `inline` as an argument
+//
+// Usage Example:
+//
+//     body.homepage
+//       #footer li
+//         +float-left
+//     body.signup
+//       #footer li
+//         +reset-float
+@mixin reset-float($display: block) {
+  float: none;
+  display: $display; }
+
+// Can be mixed into any selector that target a ul or ol that is meant
+// to have a horizontal layout. Used to implement +horizontal-list.
+@mixin horizontal-list-container {
+  @include reset-box-model;
+  @include clearfix; }
+
+// Can be mixed into any li selector that is meant to participate in a horizontal layout.
+// Used to implement +horizontal-list.
+//
+// :last-child is not fully supported
+// see http://www.quirksmode.org/css/contents.html#t29 for the support matrix
+// 
+// IE8 ignores rules that are included on the same line as :last-child
+// see http://www.richardscarrott.co.uk/posts/view/ie8-last-child-bug for details
+//
+// Setting `$padding` to `false` disables the padding between list elements
+@mixin horizontal-list-item($padding: 4px, $direction: left) {
+  @include no-bullet;
+  white-space: nowrap;
+  @include float($direction);
+  @if $padding {
+    padding: {
+      left: $padding;
+      right: $padding;
+    }
+    &:first-child, &.first { padding-#{$direction}: 0; }
+    &:last-child { padding-#{opposite-position($direction)}: 0; }
+    &.last { padding-#{opposite-position($direction)}: 0; }
+  }
+}
+
+// A list(ol,ul) that is layed out such that the elements are floated left and won't wrap.
+// This is not an inline list.
+//
+// Setting `$padding` to `false` disables the padding between list elements
+@mixin horizontal-list($padding: 4px, $direction: left) {
+  @include horizontal-list-container;
+  li {
+    @include horizontal-list-item($padding, $direction); } }
+// IMPORTING lists/inline-list
+// makes a list inline.
+
+@mixin inline-list {
+  list-style-type: none;
+  &, & li {
+    margin: 0px;
+    padding: 0px;
+    display: inline;
+  }
+}
+
+// makes an inline list delimited with the passed string.
+// Defaults to making a comma-separated list.
+//
+// Please make note of the browser support issues before using this mixin:
+//
+// use of `content` and `:after` is not fully supported in all browsers.
+// See quirksmode for the [support matrix](http://www.quirksmode.org/css/contents.html#t15)
+//
+// `:last-child` is not fully supported.
+// see quirksmode for the [support matrix](http://www.quirksmode.org/css/contents.html#t29).
+//
+// IE8 ignores rules that are included on the same line as :last-child
+// see http://www.richardscarrott.co.uk/posts/view/ie8-last-child-bug for details
+
+@mixin delimited-list($separator: ", ") {
+  @include inline-list;
+  li {
+    &:after { content: $separator; }
+    &:last-child {
+      &:after { content: ""; }
+    }
+    &.last {
+      &:after { content: ""; }
+    }
+  }
+}
+
+// See [delimited-list](#mixin-delimited-list)
+// @deprecated
+@mixin comma-delimited-list {
+  @warn "comma-delimited-list is deprecated. Please use delimited-list instead.";
+  @include delimited-list;
+}
+// IMPORTING lists/inline-block-list
+// Inline-Block list layout module.
+//
+// Easy mode using simple descendant li selectors:
+//
+//     ul.nav {
+//       @import inline-block-list;
+//     }
+//
+// Advanced mode:
+// If you need to target the list items using a different selector then use
+// `@include inline-block-list-container` on your ul/ol and
+// `@include inline-block-list-item` on your li. This may help when working
+// on layouts involving nested lists. For example:
+//
+//     ul.nav {
+//       @include inline-block-list-container;
+//       > li {
+//         @include inline-block-list-item;
+//       }
+//     }
+
+// IMPORTING horizontal-list
+// Horizontal list layout module.
+//
+// Easy mode using simple descendant li selectors:
+//
+//   ul.nav
+//     +horizontal-list
+//
+// Advanced mode:
+// If you need to target the list items using a different selector then use
+// +horizontal-list-container on your ul/ol and +horizontal-list-item on your li.
+// This may help when working on layouts involving nested lists. For example:
+//
+//   ul.nav
+//     +horizontal-list-container
+//     > li
+//       +horizontal-list-item
+
+
+// Can be mixed into any selector that target a ul or ol that is meant
+// to have a horizontal layout. Used to implement +horizontal-list.
+@mixin horizontal-list-container {
+  @include reset-box-model;
+  @include clearfix; }
+
+// Can be mixed into any li selector that is meant to participate in a horizontal layout.
+// Used to implement +horizontal-list.
+//
+// :last-child is not fully supported
+// see http://www.quirksmode.org/css/contents.html#t29 for the support matrix
+// 
+// IE8 ignores rules that are included on the same line as :last-child
+// see http://www.richardscarrott.co.uk/posts/view/ie8-last-child-bug for details
+//
+// Setting `$padding` to `false` disables the padding between list elements
+@mixin horizontal-list-item($padding: 4px, $direction: left) {
+  @include no-bullet;
+  white-space: nowrap;
+  @include float($direction);
+  @if $padding {
+    padding: {
+      left: $padding;
+      right: $padding;
+    }
+    &:first-child, &.first { padding-#{$direction}: 0; }
+    &:last-child { padding-#{opposite-position($direction)}: 0; }
+    &.last { padding-#{opposite-position($direction)}: 0; }
+  }
+}
+
+// A list(ol,ul) that is layed out such that the elements are floated left and won't wrap.
+// This is not an inline list.
+//
+// Setting `$padding` to `false` disables the padding between list elements
+@mixin horizontal-list($padding: 4px, $direction: left) {
+  @include horizontal-list-container;
+  li {
+    @include horizontal-list-item($padding, $direction); } }
+// IMPORTING compass/css3/inline-block
+// IMPORTING shared
+
+// This mixin provides basic support for CSS3 properties and
+// their corresponding experimental CSS2 properties when
+// the implementations are identical except for the property
+// prefix.
+@mixin experimental($property, $value,
+  $moz      : $experimental-support-for-mozilla,
+  $webkit   : $experimental-support-for-webkit,
+  $o        : $experimental-support-for-opera,
+  $ms       : $experimental-support-for-microsoft,
+  $khtml    : $experimental-support-for-khtml,
+  $official : true
+) {
+  @if $webkit  and $experimental-support-for-webkit    { -webkit-#{$property} : $value; }
+  @if $khtml   and $experimental-support-for-khtml     {  -khtml-#{$property} : $value; }
+  @if $moz     and $experimental-support-for-mozilla   {    -moz-#{$property} : $value; }
+  @if $ms      and $experimental-support-for-microsoft {     -ms-#{$property} : $value; }
+  @if $o       and $experimental-support-for-opera     {      -o-#{$property} : $value; }
+  @if $official                                        {         #{$property} : $value; }
+}
+
+// Same as experimental(), but for cases when the property is the same and the value is vendorized
+@mixin experimental-value($property, $value,
+  $moz      : $experimental-support-for-mozilla,
+  $webkit   : $experimental-support-for-webkit,
+  $o        : $experimental-support-for-opera,
+  $ms       : $experimental-support-for-microsoft,
+  $khtml    : $experimental-support-for-khtml,
+  $official : true
+) {
+  @if $webkit  and $experimental-support-for-webkit    { #{$property} : -webkit-#{$value}; }
+  @if $khtml   and $experimental-support-for-khtml     { #{$property} :  -khtml-#{$value}; }
+  @if $moz     and $experimental-support-for-mozilla   { #{$property} :    -moz-#{$value}; }
+  @if $ms      and $experimental-support-for-microsoft { #{$property} :     -ms-#{$value}; }
+  @if $o       and $experimental-support-for-opera     { #{$property} :      -o-#{$value}; }
+  @if $official                                        { #{$property} :         #{$value}; }
+}
+
+// Set `$inline-block-alignment` to `none` or `false` to disable the output
+// of a vertical-align property in the inline-block mixin.
+// Or set it to a legal value for `vertical-align` to change the default.
+$inline-block-alignment: middle !default;
+
+// Provides a cross-browser method to implement `display: inline-block;`
+@mixin inline-block($alignment: $inline-block-alignment) {
+  @if $legacy-support-for-mozilla {
+    display: -moz-inline-stack;
+  }
+  display: inline-block;
+  @if $alignment and $alignment != none {
+    vertical-align: $alignment;
+  }
+  @if $legacy-support-for-ie {
+    *vertical-align: auto;
+    zoom: 1;
+    *display: inline;
+  }
+}
+
+// Can be mixed into any selector that target a ul or ol that is meant
+// to have an inline-block layout. Used to implement `inline-block-list`.
+@mixin inline-block-list-container {
+  @include horizontal-list-container; }
+
+// Can be mixed into any li selector that is meant to participate in a horizontal layout.
+// Used to implement `inline-block-list`.
+@mixin inline-block-list-item($padding: false) {
+  @include no-bullet;
+  @include inline-block;
+  white-space: nowrap;
+  @if $padding {
+    padding: {
+      left: $padding;
+      right: $padding;
+    };    
+  }
+}
+
+// A list(ol,ul) that is layed out such that the elements are inline-block and won't wrap.
+@mixin inline-block-list($padding: false) {
+  @include inline-block-list-container;
+  li {
+    @include inline-block-list-item($padding); } }
+// IMPORTING lists/bullets
+// Turn off the bullet for an element of a list
+@mixin no-bullet {
+  list-style-image : none;
+  list-style-type  : none;
+  margin-left      : 0;
+}
+
+// turns off the bullets for an entire list
+@mixin no-bullets {
+  list-style: none;
+  li { @include no-bullet; }
+}
+
+// Make a list(ul/ol) have an image bullet.
+//
+// The mixin should be used like this for an icon that is 5x7:
+//
+//     ul.pretty
+//       +pretty-bullets("my-icon.png", 5px, 7px)
+//
+// Additionally, if the image dimensions are not provided,
+// The image dimensions will be extracted from the image itself.
+//
+//     ul.pretty
+//       +pretty-bullets("my-icon.png")
+//
+@mixin pretty-bullets($bullet-icon, $width: image-width($bullet-icon), $height: image-height($bullet-icon), $line-height: 18px, $padding: 14px) {
+  margin-left: 0;
+  li {
+    padding-left: $padding;
+    background: image-url($bullet-icon) no-repeat ($padding - $width) / 2 ($line-height - $height) / 2;
+    list-style-type: none;
+  }
+}
+// IMPORTING typography/text
+// IMPORTING text/ellipsis
+// IMPORTING compass/css3/shared
+
+// This mixin provides basic support for CSS3 properties and
+// their corresponding experimental CSS2 properties when
+// the implementations are identical except for the property
+// prefix.
+@mixin experimental($property, $value,
+  $moz      : $experimental-support-for-mozilla,
+  $webkit   : $experimental-support-for-webkit,
+  $o        : $experimental-support-for-opera,
+  $ms       : $experimental-support-for-microsoft,
+  $khtml    : $experimental-support-for-khtml,
+  $official : true
+) {
+  @if $webkit  and $experimental-support-for-webkit    { -webkit-#{$property} : $value; }
+  @if $khtml   and $experimental-support-for-khtml     {  -khtml-#{$property} : $value; }
+  @if $moz     and $experimental-support-for-mozilla   {    -moz-#{$property} : $value; }
+  @if $ms      and $experimental-support-for-microsoft {     -ms-#{$property} : $value; }
+  @if $o       and $experimental-support-for-opera     {      -o-#{$property} : $value; }
+  @if $official                                        {         #{$property} : $value; }
+}
+
+// Same as experimental(), but for cases when the property is the same and the value is vendorized
+@mixin experimental-value($property, $value,
+  $moz      : $experimental-support-for-mozilla,
+  $webkit   : $experimental-support-for-webkit,
+  $o        : $experimental-support-for-opera,
+  $ms       : $experimental-support-for-microsoft,
+  $khtml    : $experimental-support-for-khtml,
+  $official : true
+) {
+  @if $webkit  and $experimental-support-for-webkit    { #{$property} : -webkit-#{$value}; }
+  @if $khtml   and $experimental-support-for-khtml     { #{$property} :  -khtml-#{$value}; }
+  @if $moz     and $experimental-support-for-mozilla   { #{$property} :    -moz-#{$value}; }
+  @if $ms      and $experimental-support-for-microsoft { #{$property} :     -ms-#{$value}; }
+  @if $o       and $experimental-support-for-opera     { #{$property} :      -o-#{$value}; }
+  @if $official                                        { #{$property} :         #{$value}; }
+}
+
+// To get full firefox support, you must install the ellipsis pattern:
+//
+//     compass install compass/ellipsis
+$use-mozilla-ellipsis-binding: false !default;
+
+// This technique, by [Justin Maxwell](http://code404.com/), was originally
+// published [here](http://mattsnider.com/css/css-string-truncation-with-ellipsis/).
+// Firefox implementation by [Rikkert Koppes](http://www.rikkertkoppes.com/thoughts/2008/6/).
+@mixin ellipsis($no-wrap: true) {
+  @if $no-wrap { white-space: nowrap; }
+  overflow: hidden;
+  @include experimental(text-overflow, ellipsis,
+    not -moz,
+    not -webkit,
+    -o,
+    -ms,
+    not -khtml,
+    official
+  );
+  @if $experimental-support-for-mozilla and $use-mozilla-ellipsis-binding {
+    -moz-binding: stylesheet-url(unquote("xml/ellipsis.xml#ellipsis"));    
+  }
+}
+// IMPORTING text/nowrap
+// When remembering whether or not there's a hyphen in white-space is too hard
+@mixin nowrap { white-space: nowrap; }
+// IMPORTING text/replacement
+// Indicates the direction you prefer to move your text
+// when hiding it.
+//
+// `left` is more robust, especially in older browsers.
+// `right` seems have better runtime performance.
+$hide-text-direction: left !default;
+
+// Hides html text and replaces it with an image.
+// If you use this on an inline element, you will need to change the display to block or inline-block.
+// Also, if the size of the image differs significantly from the font size, you'll need to set the width and/or height.
+//
+// Parameters:
+//
+// * `img` -- the relative path from the project image directory to the image, or a url literal.
+// * `x` -- the x position of the background image.
+// * `y` -- the y position of the background image.
+@mixin replace-text($img, $x: 50%, $y: 50%) {
+  @include hide-text;
+  background: {
+    @if is-url($img) {
+      image: $img;
+    } @else {
+      image: image-url($img);
+    }
+    repeat: no-repeat;
+    position: $x $y;
+  };
+}
+
+// Like the `replace-text` mixin, but also sets the width
+// and height of the element according the dimensions of the image.
+//
+// If you set `$inline` to true, then an inline image (data uri) will be used.
+@mixin replace-text-with-dimensions($img, $x: 50%, $y: 50%, $inline: false) {
+  @include replace-text(if($inline, inline-image($img), $img), $x, $y);
+  width: image-width($img);
+  height: image-height($img);
+}
+
+// Hides text in an element so you can see the background.
+//
+// The direction indicates how the text should be moved out of view.
+//
+// See `$hide-text-direction` for more information and to set this globally
+// for your application.
+@mixin hide-text($direction: $hide-text-direction) {
+  @if $direction == left {
+    $approximate-em-value: 12px / 1em;
+    $wider-than-any-screen: -9999em;
+    text-indent: $wider-than-any-screen * $approximate-em-value;
+    overflow: hidden;
+    text-align: left;
+  } @else {
+    // slightly wider than the box prevents issues with inline-block elements
+    text-indent: 110%;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+}
+
+// Hides text in an element by squishing the text into oblivion.
+// Use this if you need to hide text contained in an inline element
+// but still have it read by a screen reader.
+@mixin squish-text {
+  font: 0/0 serif;
+  text-shadow: none;
+  color: transparent;
+}
+// IMPORTING text/force-wrap
+// Prevent long urls and text from breaking layouts
+// [originally from perishablepress.com](http://perishablepress.com/press/2010/06/01/wrapping-content/)
+@mixin force-wrap {
+  white-space: pre;           // CSS 2.0
+  white-space: pre-wrap;      // CSS 2.1
+  white-space: pre-line;      // CSS 3.0
+  white-space: -pre-wrap;     // Opera 4-6
+  white-space: -o-pre-wrap;   // Opera 7
+  white-space: -moz-pre-wrap; // Mozilla
+  white-space: -hp-pre-wrap;  // HP Printers
+  word-wrap: break-word;      // IE 5+
+}
+// IMPORTING compass/typography
+// IMPORTING typography/vertical_rhythm
+// IMPORTING compass/layout/grid-background
+// IMPORTING compass/css3/images
+// IMPORTING compass/utilities/general/hacks
+
+// The `zoom` approach generates less CSS but does not validate.
+// Set this to `block` to use the display-property to hack the
+// element to gain layout.
+$default-has-layout-approach: zoom !default;
+
+// This mixin causes an element matching the selector
+// to gain the "hasLayout" property in internet explorer.
+// More information on [hasLayout](http://reference.sitepoint.com/css/haslayout).
+@mixin has-layout($approach: $default-has-layout-approach) {
+  @if $legacy-support-for-ie {
+    @if $approach == zoom {
+      @include has-layout-zoom;
+    } @else if $approach == block {
+      @include has-layout-block;
+    } @else {
+      @warn "Unknown has-layout approach: #{$approach}";
+      @include has-layout-zoom;
+    }
+  }
+}
+
+@mixin has-layout-zoom {
+  @if $legacy-support-for-ie6 or $legacy-support-for-ie7 {
+    *zoom: 1;
+  }
+}
+
+@mixin has-layout-block {
+  @if $legacy-support-for-ie {
+    // This makes ie6 get layout
+    display: inline-block;
+    // and this puts it back to block
+    & { display: block; }
+  }
+}
+
+// A hack to supply IE6 (and below) with a different property value.
+// [Read more](http://www.cssportal.com/css-hacks/#in_css-important).
+@mixin bang-hack($property, $value, $ie6-value) {
+  @if $legacy-support-for-ie6 {
+    #{$property}: #{$value} !important;
+    #{$property}: #{$ie6-value};
+  }
+}
+
+// Background property support for vendor prefixing within values.
+@mixin background(
+  $background-1,
+  $background-2: false,
+  $background-3: false,
+  $background-4: false,
+  $background-5: false,
+  $background-6: false,
+  $background-7: false,
+  $background-8: false,
+  $background-9: false,
+  $background-10: false
+) {
+  $backgrounds: compact($background-1, $background-2, $background-3, $background-4, $background-5,
+                        $background-6, $background-7, $background-8, $background-9, $background-10);
+  $mult-bgs: -compass-list-size($backgrounds) > 1;
+  $add-pie-bg: prefixed(-pie,   $backgrounds) or $mult-bgs;
+  @if $experimental-support-for-svg          and prefixed(-svg,    $backgrounds) {      background:    -svg($backgrounds); }
+  @if $support-for-original-webkit-gradients and prefixed(-owg,    $backgrounds) {      background:    -owg($backgrounds); }
+  @if $experimental-support-for-webkit       and prefixed(-webkit, $backgrounds) {      background: -webkit($backgrounds); }
+  @if $experimental-support-for-mozilla      and prefixed(-moz,    $backgrounds) {      background:    -moz($backgrounds); }
+  @if $experimental-support-for-opera        and prefixed(-o,      $backgrounds) {      background:      -o($backgrounds); }
+  @if $experimental-support-for-pie          and $add-pie-bg                     { -pie-background:    -pie($backgrounds); }
+                                                                                        background:         $backgrounds ;
+}
+
+@mixin background-with-css2-fallback(
+  $background-1,
+  $background-2: false,
+  $background-3: false,
+  $background-4: false,
+  $background-5: false,
+  $background-6: false,
+  $background-7: false,
+  $background-8: false,
+  $background-9: false,
+  $background-10: false
+) {
+  $backgrounds: compact($background-1, $background-2, $background-3, $background-4, $background-5,
+                        $background-6, $background-7, $background-8, $background-9, $background-10);
+  $mult-bgs: -compass-list-size($backgrounds) > 1;
+  $simple-background: if($mult-bgs or prefixed(-css2, $backgrounds), -css2(-compass-nth($backgrounds, last)), false);
+  @if not blank($simple-background) { background: $simple-background; }
+  @include background($background-1, $background-2, $background-3, $background-4, $background-5,
+                      $background-6, $background-7, $background-8, $background-9, $background-10);
+}
+
+
+// Background image property support for vendor prefixing within values.
+@mixin background-image(
+  $image-1,
+  $image-2: false,
+  $image-3: false,
+  $image-4: false,
+  $image-5: false,
+  $image-6: false,
+  $image-7: false,
+  $image-8: false,
+  $image-9: false,
+  $image-10: false
+) {
+  $images: compact($image-1, $image-2, $image-3, $image-4, $image-5, $image-6, $image-7, $image-8, $image-9, $image-10);
+  $add-pie-bg: prefixed(-pie,   $images) or -compass-list-size($images) > 1;
+
+  @if $experimental-support-for-svg          and prefixed(-svg,    $images) { background-image:    -svg($images); background-size: 100%; }
+  @if $support-for-original-webkit-gradients and prefixed(-owg,    $images) { background-image:    -owg($images); }
+  @if $experimental-support-for-webkit       and prefixed(-webkit, $images) { background-image: -webkit($images); }
+  @if $experimental-support-for-mozilla      and prefixed(-moz,    $images) { background-image:    -moz($images); }
+  @if $experimental-support-for-opera        and prefixed(-o,      $images) { background-image:      -o($images); }
+  @if $experimental-support-for-pie          and $add-pie-bg                { @warn "PIE does not support background-image. Use @include background(#{$images}) instead." }
+                                                                              background-image:         $images ;
+}
+
+// Emit a IE-Specific filters that renders a simple linear gradient.
+// For use in IE 6 - 8. Best practice would have you apply this via a
+// conditional IE stylesheet, but if you must, you should place this before
+// any background-image properties that you have specified.
+//
+// For the `$orientation` parameter, you can pass `vertical` or `horizontal`.
+@mixin filter-gradient($start-color, $end-color, $orientation: vertical) {
+  @include has-layout;
+  $gradient-type: if($orientation == vertical, 0, 1);
+  @if $legacy-support-for-ie6 or $legacy-support-for-ie7 or $legacy-support-for-ie8 {
+    filter: progid:DXImageTransform.Microsoft.gradient(gradientType=#{$gradient-type}, startColorstr='#{ie-hex-str($start-color)}', endColorstr='#{ie-hex-str($end-color)}');
+  }
+}
+
+
+// Border image property support for vendor prefixing properties and values.
+@mixin border-image($value) {
+  @if $experimental-support-for-mozilla      {    -moz-border-image:    -moz(reject(-compass-list($value), fill)); }
+  @if $support-for-original-webkit-gradients { -webkit-border-image:    -owg(reject(-compass-list($value), fill)); }
+  @if $experimental-support-for-webkit       { -webkit-border-image: -webkit(reject(-compass-list($value), fill)); }
+  @if $experimental-support-for-opera        {      -o-border-image:      -o(reject(-compass-list($value), fill)); }
+  @if $experimental-support-for-svg          {         border-image:    -svg(reject(-compass-list($value), fill)); }
+                                                       border-image:                              $value;
+}
+
+// List style image property support for vendor prefixing within values.
+@mixin list-style-image($image) {
+  @if $experimental-support-for-mozilla      and prefixed(-moz,    $image) { list-style-image:    -moz($image); }
+  @if $support-for-original-webkit-gradients and prefixed(-owg,    $image) { list-style-image:    -owg($image); }
+  @if $experimental-support-for-webkit       and prefixed(-webkit, $image) { list-style-image: -webkit($image); }
+  @if $experimental-support-for-opera        and prefixed(-o,      $image) { list-style-image:      -o($image); }
+  @if $experimental-support-for-svg          and prefixed(-svg,    $image) { list-style-image:    -svg($image); }
+                                                                             list-style-image:         $image ;
+}
+
+// List style property support for vendor prefixing within values.
+@mixin list-style($value) {
+  $value: -compass-list($value);
+  @if $experimental-support-for-mozilla      and prefixed(-moz,    $value) { list-style-image:    -moz($value); }
+  @if $support-for-original-webkit-gradients and prefixed(-owg,    $value) { list-style-image:    -owg($value); }
+  @if $experimental-support-for-webkit       and prefixed(-webkit, $value) { list-style-image: -webkit($value); }
+  @if $experimental-support-for-opera        and prefixed(-o,      $value) { list-style-image:      -o($value); }
+  @if $experimental-support-for-svg          and prefixed(-svg,    $value) { list-style-image:    -svg($value); }
+                                                                             list-style-image:         $value ;
+}
+
+// content property support for vendor prefixing within values.
+@mixin content($value) {
+  $value: -compass-list($value);
+  @if $experimental-support-for-mozilla      and prefixed(-moz,    $value) { content:    -moz($value); }
+  @if $support-for-original-webkit-gradients and prefixed(-owg,    $value) { content:    -owg($value); }
+  @if $experimental-support-for-webkit       and prefixed(-webkit, $value) { content: -webkit($value); }
+  @if $experimental-support-for-opera        and prefixed(-o,      $value) { content:      -o($value); }
+  @if $experimental-support-for-svg          and prefixed(-svg,    $value) { content:    -svg($value); }
+                                                                             content:         $value ;
+}
+// IMPORTING compass/css3/background-size
+
+//  override to change the default
+$default-background-size: 100% auto !default;
+
+// Set the size of background images using px, width and height, or percentages.
+// Currently supported in: Opera, Gecko, Webkit.
+//
+// * percentages are relative to the background-origin (default = padding-box)
+// * mixin defaults to: `$default-background-size`
+@mixin background-size(
+  $size-1: $default-background-size,
+  $size-2: false,
+  $size-3: false,
+  $size-4: false,
+  $size-5: false,
+  $size-6: false,
+  $size-7: false,
+  $size-8: false,
+  $size-9: false,
+  $size-10: false
+) {
+  $size-1: if(type-of($size-1) == string, unquote($size-1), $size-1);
+  $sizes: compact($size-1, $size-2, $size-3, $size-4, $size-5, $size-6, $size-7, $size-8, $size-9, $size-10);
+  @include experimental(background-size, $sizes, -moz, -webkit, -o, not -ms, not -khtml);
+}
+
+// Set the color of your columns
+$grid-background-column-color     : rgba(100, 100, 225, 0.25)   !default;
+// Set the color of your gutters
+$grid-background-gutter-color     : rgba(0, 0, 0, 0)            !default;
+
+// Set the total number of columns in your grid
+$grid-background-total-columns    : 24                          !default;
+// Set the width of your columns
+$grid-background-column-width     : 30px                        !default;
+// Set the width of your gutters
+$grid-background-gutter-width     : 10px                        !default;
+// Set the offset, if your columns are padded in from the container edge
+$grid-background-offset           : 0px                         !default;
+
+// Set the color of your baseline
+$grid-background-baseline-color   : rgba(0, 0, 0, 0.5)          !default;
+// Set the height of your baseline grid
+$grid-background-baseline-height  : 1.5em                       !default;
+
+// toggle your columns grids on and off
+$show-column-grid-backgrounds     : true                        !default;
+// toggle your vertical grids on and off
+$show-baseline-grid-backgrounds   : true                        !default;
+// toggle all your grids on and off
+$show-grid-backgrounds            : true                        !default;
+
+// optionally force your grid-image to remain fluid
+// no matter what units you used to declared your grid.
+$grid-background-force-fluid      : false                       !default;
+
+
+// Create the gradient needed for baseline grids
+@function get-baseline-gradient(
+  $color : $grid-background-baseline-color
+) {
+  $gradient: linear-gradient(bottom, $color 5%, rgba($color,0) 5%);
+  @return $gradient;
+}
+
+// Create the color-stops needed for horizontal grids
+@function build-grid-background(
+  $total          : $grid-background-total-columns,
+  $column         : $grid-background-column-width,
+  $gutter         : $grid-background-gutter-width,
+  $offset         : $grid-background-offset,
+  $column-color   : $grid-background-column-color,
+  $gutter-color   : $grid-background-gutter-color
+) {
+  $grid: compact();
+  $grid: append($grid, $gutter-color $offset, comma);
+  @for $i from 0 to $total {
+
+    // $a represents the start of this column, initially equal to the offset
+    $a: $offset;
+    @if $i > 0 { $a: $a + (($column + $gutter) * $i); }
+
+    // $g represents the start of this gutter, equal to $a plus one column-width
+    $g: $a + $column;
+
+    // $z represents the end of a gutter, equal to $g plus one gutter-width
+    $z: $g + $gutter;
+
+    @if (unit($a) == "%") and ($i == ($total - 1)) {
+      $z: 100%;
+    }
+
+    // and we add this column/gutter pair to our grid
+    $grid: join($grid, ($column-color $a, $column-color $g, $gutter-color $g, $gutter-color $z));
+  }
+
+  @return $grid;
+}
+
+// Return the gradient needed for horizontal grids
+@function get-column-gradient(
+  $total          : $grid-background-total-columns,
+  $column         : $grid-background-column-width,
+  $gutter         : $grid-background-gutter-width,
+  $offset         : $grid-background-offset,
+  $column-color   : $grid-background-column-color,
+  $gutter-color   : $grid-background-gutter-color,
+  $force-fluid    : $grid-background-force-fluid
+) {
+  $grid: unquote("");
+
+  // don't force fluid grids when they are already fluid.
+  @if unit($column) == "%" { $force-fluid: false; }
+
+  @if $force-fluid {
+    $grid: get-column-fluid-grid($total,$column,$gutter,$offset,$column-color,$gutter-color);
+  } @else {
+    $grid: build-grid-background($total,$column,$gutter,$offset,$column-color,$gutter-color);
+  }
+
+  // return the horizontal grid as a gradient
+  $gradient: linear-gradient(left, $grid);
+  @return $gradient;
+}
+
+// Convert a grid from fixed units into percentages.
+@function get-column-fluid-grid(
+  $total          : $grid-background-total-columns,
+  $column         : $grid-background-column-width,
+  $gutter         : $grid-background-gutter-width,
+  $offset         : $grid-background-offset,
+  $column-color   : $grid-background-column-color,
+  $gutter-color   : $grid-background-gutter-color
+) {
+  $context: ($column * $total) + ($gutter * ($total - 1) + ($offset * 2));
+  $offset: $offset / $context * 100%;
+  $column: $column / $context * 100%;
+  $gutter: $gutter / $context * 100%;
+
+  // return the horizontal grid as a set of color-stops
+  $grid: build-grid-background($total,$column,$gutter,$offset,$column-color,$gutter-color);
+  @return $grid;
+}
+
+
+// Add just the baseline grid to an element's background
+@mixin baseline-grid-background(
+  $baseline : $grid-background-baseline-height,
+  $color    : $grid-background-baseline-color
+) {
+  @if $show-grid-backgrounds and $show-baseline-grid-backgrounds {
+    @include background-image(get-baseline-gradient($color));
+    @include background-size(100% $baseline);
+    background-position: left top;
+  }
+}
+
+// Add just the horizontal grid to an element's background
+@mixin column-grid-background(
+  $total          : $grid-background-total-columns,
+  $column         : $grid-background-column-width,
+  $gutter         : $grid-background-gutter-width,
+  $offset         : $grid-background-offset,
+  $column-color   : $grid-background-column-color,
+  $gutter-color   : $grid-background-gutter-color,
+  $force-fluid    : $grid-background-force-fluid
+) {
+  @if $show-grid-backgrounds and $show-column-grid-backgrounds {
+    @include background-image(
+      get-column-gradient($total,$column,$gutter,$offset,$column-color,$gutter-color, $force-fluid)
+    );
+    background-position: left top;
+  }
+}
+
+// Add both horizontal and baseline grids to an element's background
+@mixin grid-background(
+  $total          : $grid-background-total-columns,
+  $column         : $grid-background-column-width,
+  $gutter         : $grid-background-gutter-width,
+  $baseline       : $grid-background-baseline-height,
+  $offset         : $grid-background-offset,
+  $column-color   : $grid-background-column-color,
+  $gutter-color   : $grid-background-gutter-color,
+  $baseline-color : $grid-background-baseline-color,
+  $force-fluid    : $grid-background-force-fluid
+) {
+  @if $show-grid-backgrounds {
+    @if $show-baseline-grid-backgrounds and $show-column-grid-backgrounds {
+      @include background-image(
+        get-baseline-gradient($baseline-color),
+        get-column-gradient($total,$column,$gutter,$offset,$column-color,$gutter-color, $force-fluid)
+      );
+      @include background-size(100% $baseline, auto);
+      background-position: left top;
+    } @else {
+      @include baseline-grid-background($baseline, $baseline-color);
+      @include column-grid-background($total,$column,$gutter,$offset,$column-color,$gutter-color, $force-fluid);
+    }
+  }
+}
+
+// The base font size.
+$base-font-size: 16px !default;
+
+// The base line height determines the basic unit of vertical rhythm.
+$base-line-height: 24px !default;
+
+// Set the default border style for rhythm borders.
+$default-rhythm-border-style: solid !default;
+
+// The default font size in all browsers.
+$browser-default-font-size: 16px;
+
+// Set to false if you want to use absolute pixels in sizing your typography.
+$relative-font-sizing: true !default;
+
+// Allows the `adjust-font-size-to` mixin and the `lines-for-font-size` function
+// to round the line height to the nearest half line height instead of the
+// nearest integral line height to avoid large spacing between lines.
+$round-to-nearest-half-line: false !default;
+
+// Ensure there is at least this many pixels
+// of vertical padding above and below the text.
+$min-line-padding: 2px !default;
+
+// $base-font-size but in your output unit of choice.
+// Defaults to 1em when `$relative-font-sizing` is true.
+$font-unit: if($relative-font-sizing, 1em, $base-font-size) !default;
+
+// The basic unit of font rhythm.
+$base-rhythm-unit: $base-line-height / $base-font-size * $font-unit;
+
+// The leader is the amount of whitespace in a line.
+// It might be useful in your calculations.
+$base-leader: ($base-line-height - $base-font-size) * $font-unit / $base-font-size;
+
+// The half-leader is the amount of whitespace above and below a line.
+// It might be useful in your calculations.
+$base-half-leader: $base-leader / 2;
+
+// True if a number has a relative unit.
+@function relative-unit($number) {
+  @return unit($number) == "%" or unit($number) == "em" or unit($number) == "rem"
+}
+
+// True if a number has an absolute unit.
+@function absolute-unit($number) {
+  @return not (relative-unit($number) or unitless($number));
+}
+
+@if $relative-font-sizing and not relative-unit($font-unit) {
+  @warn "$relative-font-sizing is true but $font-unit is set to #{$font-unit} which is not a relative unit.";
+}
+
+// Establishes a font baseline for the given font-size.
+@mixin establish-baseline($font-size: $base-font-size) {
+  // IE 6 refuses to resize fonts set in pixels and it weirdly resizes fonts
+  // whose root is set in ems. So we set the root font size in percentages of
+  // the default font size.
+  * html {
+    font-size: 100% * ($font-size / $browser-default-font-size);
+  }
+  html {
+    font-size: $font-size;
+    @include adjust-leading-to(1, if($relative-font-sizing, $font-size, $base-font-size));
+  }
+}
+
+// Resets the line-height to 1 vertical rhythm unit.
+// Does not work on elements whose font-size is different from $base-font-size.
+//
+// @deprecated This mixin will be removed in the next release.
+// Please use the `adjust-leading-to` mixin instead.
+@mixin reset-baseline {
+  @include adjust-leading-to(1, if($relative-font-sizing, $base-font-size, $base-font-size));
+}
+
+// Show a background image that can be used to debug your alignments.
+// Include the $img argument if you would rather use your own image than the
+// Compass default gradient image.
+@mixin debug-vertical-alignment($img: false) {
+  @if $img {
+    background: image-url($img);
+  } @else {
+    @include baseline-grid-background($base-rhythm-unit);
+  }
+}
+
+// Adjust a block to have a different font size and line height to maintain the
+// rhythm. $lines specifies how many multiples of the baseline rhythm each line
+// of this font should use up. It does not have to be an integer, but it
+// defaults to the smallest integer that is large enough to fit the font.
+// Use $from-size to adjust from a font-size other than the base font-size.
+@mixin adjust-font-size-to($to-size, $lines: lines-for-font-size($to-size), $from-size: $base-font-size) {
+  @if not $relative-font-sizing and $from-size != $base-font-size {
+    @warn "$relative-font-sizing is false but a relative font size was passed to adjust-font-size-to";
+  }
+  font-size: $font-unit * $to-size / $from-size;
+  @include adjust-leading-to($lines, if($relative-font-sizing, $to-size, $base-font-size));
+}
+
+// Adjust a block to have different line height to maintain the rhythm.
+// $lines specifies how many multiples of the baseline rhythm each line of this
+// font should use up. It does not have to be an integer, but it defaults to the
+// smallest integer that is large enough to fit the font.
+@mixin adjust-leading-to($lines, $font-size: $base-font-size) {
+  line-height: rhythm($lines, $font-size);
+}
+
+// Calculate rhythm units.
+@function rhythm(
+  $lines: 1,
+  $font-size: $base-font-size,
+  $offset: 0
+) {
+  @if not $relative-font-sizing and $font-size != $base-font-size {
+    @warn "$relative-font-sizing is false but a relative font size was passed to the rhythm function";
+  }
+  $rhythm: $font-unit * ($lines * $base-line-height - $offset) / $font-size;
+  // Round the pixels down to nearest integer.
+  @if unit($rhythm) == px {
+    $rhythm: floor($rhythm);
+  }
+  @return $rhythm;
+}
+
+// Calculate the minimum multiple of rhythm units needed to contain the font-size.
+@function lines-for-font-size($font-size) {
+  $lines: if($round-to-nearest-half-line,
+              ceil(2 * $font-size / $base-line-height) / 2,
+              ceil($font-size / $base-line-height));
+  @if $lines * $base-line-height - $font-size < $min-line-padding * 2 {
+    $lines: $lines + if($round-to-nearest-half-line, 0.5, 1);
+  }
+  @return $lines;
+}
+
+// Apply leading whitespace. The $property can be margin or padding.
+@mixin leader($lines: 1, $font-size: $base-font-size, $property: margin) {
+  #{$property}-top: rhythm($lines, $font-size);
+}
+
+// Apply leading whitespace as padding.
+@mixin padding-leader($lines: 1, $font-size: $base-font-size) {
+  padding-top: rhythm($lines, $font-size);
+}
+
+// Apply leading whitespace as margin.
+@mixin margin-leader($lines: 1, $font-size: $base-font-size) {
+  margin-top: rhythm($lines, $font-size);
+}
+
+// Apply trailing whitespace. The $property can be margin or padding.
+@mixin trailer($lines: 1, $font-size: $base-font-size, $property: margin) {
+  #{$property}-bottom: rhythm($lines, $font-size);
+}
+
+// Apply trailing whitespace as padding.
+@mixin padding-trailer($lines: 1, $font-size: $base-font-size) {
+  padding-bottom: rhythm($lines, $font-size);
+}
+
+// Apply trailing whitespace as margin.
+@mixin margin-trailer($lines: 1, $font-size: $base-font-size) {
+  margin-bottom: rhythm($lines, $font-size);
+}
+
+// Shorthand mixin to apply whitespace for top and bottom margins and padding.
+@mixin rhythm($leader: 0, $padding-leader: 0, $padding-trailer: 0, $trailer: 0, $font-size: $base-font-size) {
+  @include leader($leader, $font-size);
+  @include padding-leader($padding-leader, $font-size);
+  @include padding-trailer($padding-trailer, $font-size);
+  @include trailer($trailer, $font-size);
+}
+
+// Apply a border and whitespace to any side without destroying the vertical
+// rhythm. The whitespace must be greater than the width of the border.
+@mixin apply-side-rhythm-border($side, $width: 1px, $lines: 1, $font-size: $base-font-size, $border-style: $default-rhythm-border-style) {
+  @if not $relative-font-sizing and $font-size != $base-font-size {
+    @warn "$relative-font-sizing is false but a relative font size was passed to apply-side-rhythm-border";
+  }
+  border-#{$side}: {
+    style: $border-style;
+    width: $font-unit * $width / $font-size;
+  };
+  padding-#{$side}: rhythm($lines, $font-size, $offset: $width);
+}
+
+// Apply borders and whitespace equally to all sides.
+@mixin rhythm-borders($width: 1px, $lines: 1, $font-size: $base-font-size, $border-style: $default-rhythm-border-style) {
+  @if not $relative-font-sizing and $font-size != $base-font-size {
+    @warn "$relative-font-sizing is false but a relative font size was passed to rhythm-borders";
+  }
+  border: {
+    style: $border-style;
+    width: $font-unit * $width / $font-size;
+  };
+  padding: rhythm($lines, $font-size, $offset: $width);
+}
+
+// Apply a leading border.
+@mixin leading-border($width: 1px, $lines: 1, $font-size: $base-font-size, $border-style: $default-rhythm-border-style) {
+  @include apply-side-rhythm-border(top, $width, $lines, $font-size, $border-style);
+}
+
+// Apply a trailing border.
+@mixin trailing-border($width: 1px, $lines: 1, $font-size: $base-font-size, $border-style: $default-rhythm-border-style) {
+  @include apply-side-rhythm-border(bottom, $width, $lines, $font-size, $border-style);
+}
+
+// Apply both leading and trailing borders.
+@mixin horizontal-borders($width: 1px, $lines: 1, $font-size: $base-font-size, $border-style: $default-rhythm-border-style) {
+  @include leading-border($width, $lines, $font-size, $border-style);
+  @include trailing-border($width, $lines, $font-size, $border-style);
+}
+
+// Alias for `horizontal-borders` mixin.
+@mixin h-borders($width: 1px, $lines: 1, $font-size: $base-font-size, $border-style: $default-rhythm-border-style) {
+  @include horizontal-borders($width, $lines, $font-size, $border-style);
+}
+// IMPORTING compass/css3
+// IMPORTING css3/border-radius
+
+$default-border-radius: 5px !default;
+
+// Round all corners by a specific amount, defaults to value of `$default-border-radius`.
+//
+// When two values are passed, the first is the horizontal radius
+// and the second is the vertical radius.
+//
+// Note: webkit does not support shorthand syntax for several corners at once.
+// So in the case where you pass several values only the first will be passed to webkit.
+//
+// Examples:
+//
+//     .simple   { @include border-radius(4px, 4px); }
+//     .compound { @include border-radius(2px 5px, 3px 6px); }
+//     .crazy    { @include border-radius(1px 3px 5px 7px, 2px 4px 6px 8px)}
+//
+// Which generates:
+//
+//    .simple {
+//      -webkit-border-radius: 4px 4px;
+//      -moz-border-radius: 4px / 4px;
+//      -khtml-border-radius: 4px / 4px;
+//      border-radius: 4px / 4px; }
+//    
+//    .compound {
+//      -webkit-border-radius: 2px 3px;
+//      -moz-border-radius: 2px 5px / 3px 6px;
+//      -khtml-border-radius: 2px 5px / 3px 6px;
+//      border-radius: 2px 5px / 3px 6px; }
+//    
+//    .crazy {
+//      -webkit-border-radius: 1px 2px;
+//      -moz-border-radius: 1px 3px 5px 7px / 2px 4px 6px 8px;
+//      -khtml-border-radius: 1px 3px 5px 7px / 2px 4px 6px 8px;
+//      border-radius: 1px 3px 5px 7px / 2px 4px 6px 8px; }
+
+@mixin border-radius($radius: $default-border-radius, $vertical-radius: false) {
+
+  @if $vertical-radius {
+    // Webkit doesn't understand the official shorthand syntax for specifying
+    // a vertical radius unless so in case there's several we only take the first.
+    @include experimental(border-radius, first-value-of($radius) first-value-of($vertical-radius),
+      not -moz,
+      -webkit,
+      not -o,
+      not -ms,
+      not -khtml,
+      not official
+    );
+    @include experimental("border-radius", $radius unquote("/") $vertical-radius,
+      -moz,
+      not -webkit,
+      not -o,
+      not -ms,
+      -khtml,
+      official
+    );
+  }
+  @else {
+    @include experimental(border-radius, $radius);
+  }
+}
+
+// Round radius at position by amount.
+//
+// * legal values for `$vert`: `top`, `bottom`
+// * legal values for `$horz`: `left`, `right`
+
+@mixin border-corner-radius($vert, $horz, $radius: $default-border-radius) {
+  // Support for mozilla's syntax for specifying a corner
+  @include experimental("border-radius-#{$vert}#{$horz}", $radius,
+    -moz,
+    not -webkit,
+    not -o,
+    not -ms,
+    not -khtml,
+    not official
+  );
+  @include experimental("border-#{$vert}-#{$horz}-radius", $radius,
+    not -moz,
+    -webkit,
+    not -o,
+    not -ms,
+    -khtml,
+    official
+  );
+  
+}
+
+// Round top-left corner only
+
+@mixin border-top-left-radius($radius: $default-border-radius) {
+  @include border-corner-radius(top, left, $radius); }
+
+// Round top-right corner only
+
+@mixin border-top-right-radius($radius: $default-border-radius) {
+  @include border-corner-radius(top, right, $radius); }
+
+// Round bottom-left corner only
+
+@mixin border-bottom-left-radius($radius: $default-border-radius) {
+  @include border-corner-radius(bottom, left, $radius); }
+
+// Round bottom-right corner only
+
+@mixin border-bottom-right-radius($radius: $default-border-radius) {
+  @include border-corner-radius(bottom, right, $radius); }
+
+// Round both top corners by amount
+@mixin border-top-radius($radius: $default-border-radius) {
+  @include border-top-left-radius($radius);
+  @include border-top-right-radius($radius); }
+
+// Round both right corners by amount
+@mixin border-right-radius($radius: $default-border-radius) {
+  @include border-top-right-radius($radius);
+  @include border-bottom-right-radius($radius); }
+
+// Round both bottom corners by amount
+@mixin border-bottom-radius($radius: $default-border-radius) {
+  @include border-bottom-left-radius($radius);
+  @include border-bottom-right-radius($radius); }
+
+// Round both left corners by amount
+@mixin border-left-radius($radius: $default-border-radius) {
+  @include border-top-left-radius($radius);
+  @include border-bottom-left-radius($radius); }
+// IMPORTING css3/inline-block
+
+// Set `$inline-block-alignment` to `none` or `false` to disable the output
+// of a vertical-align property in the inline-block mixin.
+// Or set it to a legal value for `vertical-align` to change the default.
+$inline-block-alignment: middle !default;
+
+// Provides a cross-browser method to implement `display: inline-block;`
+@mixin inline-block($alignment: $inline-block-alignment) {
+  @if $legacy-support-for-mozilla {
+    display: -moz-inline-stack;
+  }
+  display: inline-block;
+  @if $alignment and $alignment != none {
+    vertical-align: $alignment;
+  }
+  @if $legacy-support-for-ie {
+    *vertical-align: auto;
+    zoom: 1;
+    *display: inline;
+  }
+}
+// IMPORTING css3/opacity
+
+// Provides cross-browser CSS opacity. Takes a number between 0 and 1 as the argument, e.g. 0.5 for 50% opacity.
+//
+//     @param $opacity
+//         A number between 0 and 1, where 0 is transparent and 1 is opaque.
+
+@mixin opacity($opacity) {
+  @if $legacy-support-for-ie6 or $legacy-support-for-ie7 or $legacy-support-for-ie8 {
+    filter: unquote("progid:DXImageTransform.Microsoft.Alpha(Opacity=#{round($opacity * 100)})");
+  }
+  opacity: $opacity;
+}
+
+// Make an element completely transparent.
+@mixin transparent { @include opacity(0); }
+
+// Make an element completely opaque.
+@mixin opaque { @include opacity(1); }
+// IMPORTING css3/box-shadow
+// @doc off
+// These defaults make the arguments optional for this mixin
+// If you like, set different defaults before importing.
+// @doc on
+
+
+
+// The default color for box shadows
+$default-box-shadow-color: #333333 !default;
+
+// The default horizontal offset. Positive is to the right.
+$default-box-shadow-h-offset: 0px !default;
+
+// The default vertical offset. Positive is down.
+$default-box-shadow-v-offset: 0px !default;
+
+// The default blur length.
+$default-box-shadow-blur: 5px !default;
+
+// The default spread length.
+$default-box-shadow-spread : false !default;
+
+// The default shadow inset: inset or false (for standard shadow).
+$default-box-shadow-inset : false !default;
+
+// Provides cross-browser for Webkit, Gecko, and CSS3 box shadows when one or more box
+// shadows are needed.
+// Each shadow argument should adhere to the standard css3 syntax for the
+// box-shadow property.
+@mixin box-shadow(
+  $shadow-1 : default,
+  $shadow-2 : false,
+  $shadow-3 : false,
+  $shadow-4 : false,
+  $shadow-5 : false,
+  $shadow-6 : false,
+  $shadow-7 : false,
+  $shadow-8 : false,
+  $shadow-9 : false,
+  $shadow-10: false
+) {
+  @if $shadow-1 == default {
+    $shadow-1 : -compass-space-list(compact(if($default-box-shadow-inset, inset, false), $default-box-shadow-h-offset, $default-box-shadow-v-offset, $default-box-shadow-blur, $default-box-shadow-spread, $default-box-shadow-color));
+  }
+  $shadow : compact($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10);
+  @include experimental(box-shadow, $shadow,
+    -moz, -webkit, not -o, not -ms, not -khtml, official
+  );
+}
+
+// Provides a single cross-browser CSS box shadow for Webkit, Gecko, and CSS3.
+// Includes default arguments for color, horizontal offset, vertical offset, blur length, spread length, and inset.
+@mixin single-box-shadow(
+  $color  : $default-box-shadow-color,
+  $hoff   : $default-box-shadow-h-offset,
+  $voff   : $default-box-shadow-v-offset,
+  $blur   : $default-box-shadow-blur,
+  $spread : $default-box-shadow-spread,
+  $inset  : $default-box-shadow-inset
+) {
+  @if not ($inset == true or $inset == false or $inset == inset) {
+    @warn "$inset expected to be true or the inset keyword. Got #{$inset} instead. Using: inset";
+  }
+
+  @if $color == none {
+    @include box-shadow(none);
+  } @else {
+    $full   : $hoff $voff;
+    @if $blur   { $full: $full $blur;   }
+    @if $spread { $full: $full $spread; }
+    @if $color  { $full: $full $color;  }
+    @if $inset  { $full: inset $full;   }
+    @include box-shadow($full);
+  }
+}
+// IMPORTING css3/text-shadow
+
+// These defaults make the arguments optional for this mixin
+// If you like, set different defaults in your project
+
+$default-text-shadow-color:    #aaa !default;
+$default-text-shadow-h-offset: 0px  !default;
+$default-text-shadow-v-offset: 0px  !default;
+$default-text-shadow-blur:     1px  !default;
+$default-text-shadow-spread:   false  !default;
+
+// Provides cross-browser text shadows when one or more shadows are needed.
+// Each shadow argument should adhere to the standard css3 syntax for the
+// text-shadow property.
+//
+// Note: if any shadow has a spread parameter, this will cause the mixin
+// to emit the shadow declaration twice, first without the spread,
+// then with the spread included. This allows you to progressively
+// enhance the browsers that do support the spread parameter.
+@mixin text-shadow(
+  $shadow-1 : default,
+  $shadow-2 : false,
+  $shadow-3 : false,
+  $shadow-4 : false,
+  $shadow-5 : false,
+  $shadow-6 : false,
+  $shadow-7 : false,
+  $shadow-8 : false,
+  $shadow-9 : false,
+  $shadow-10: false
+) {
+  @if $shadow-1 == default {
+    $shadow-1: compact($default-text-shadow-h-offset $default-text-shadow-v-offset $default-text-shadow-blur $default-text-shadow-spread $default-text-shadow-color);
+  }
+  $shadows-without-spread: join((),(),comma);
+  $shadows: join((),(),comma);
+  $has-spread: false;
+  @each $shadow in compact($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5,
+                           $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10) {
+    @if length($shadow) > 4 {
+      $has-spread: true;
+      $shadows-without-spread: append($shadows-without-spread, nth($shadow,1) nth($shadow,2) nth($shadow,3) nth($shadow,5));
+      $shadows: append($shadows, $shadow);
+    } else {
+      $shadows-without-spread: append($shadows-without-spread, $shadow);
+      $shadows: append($shadows, $shadow);
+    }
+  }
+  @if $has-spread {
+    text-shadow: $shadows-without-spread;
+  }
+  text-shadow: $shadows;
+}
+
+// Provides a single cross-browser CSS text shadow.
+//
+// Provides sensible defaults for the color, horizontal offset, vertical offset, blur, and spread
+// according to the configuration defaults above.
+@mixin single-text-shadow(
+  $hoff: false,
+  $voff: false,
+  $blur: false,
+  $spread: false,
+  $color: false
+) {
+  // A lot of people think the color comes first. It doesn't.
+  @if type-of($hoff) == color {
+    $temp-color: $hoff;
+    $hoff: $voff;
+    $voff: $blur;
+    $blur: $spread;
+    $spread: $color;
+    $color: $temp-color;
+  }
+  // Can't rely on default assignment with multiple supported argument orders.
+  $hoff:   if($hoff,   $hoff,   $default-text-shadow-h-offset);
+  $voff:   if($voff,   $voff,   $default-text-shadow-v-offset);
+  $blur:   if($blur,   $blur,   $default-text-shadow-blur    );
+  $spread: if($spread, $spread, $default-text-shadow-spread  );
+  $color:  if($color,  $color,  $default-text-shadow-color   );
+  // We don't need experimental support for this property.
+  @if $color == none or $hoff == none {
+    @include text-shadow(none);
+  } @else {
+    @include text-shadow(compact($hoff $voff $blur $spread $color));
+  }
+}
+// IMPORTING css3/columns
+
+// Specify the shorthand `columns` property.
+//
+// Example:
+//
+//     @include columns(20em 2)
+@mixin columns($width-and-count) {
+  @include experimental(columns, $width-and-count,
+    -moz, -webkit, -o, -ms, not -khtml, official
+  );
+}
+
+// Specify the number of columns
+@mixin column-count($count) {
+  @include experimental(column-count, $count,
+    -moz, -webkit, -o, -ms, not -khtml, official
+  );
+}
+
+// Specify the gap between columns e.g. `20px`
+@mixin column-gap($width) {
+  @include experimental(column-gap, $width,
+    -moz, -webkit, -o, -ms, not -khtml, official
+  );
+}
+
+// Specify the width of columns e.g. `100px`
+@mixin column-width($width) {
+  @include experimental(column-width, $width,
+    -moz, -webkit, -o, -ms, not -khtml, official
+  );
+}
+
+// Specify the width of the rule between columns e.g. `1px`
+@mixin column-rule-width($width) {
+  @include experimental(column-rule-width, $width,
+    -moz, -webkit, -o, -ms, not -khtml, official
+  );
+}
+
+// Specify the style of the rule between columns e.g. `dotted`.
+// This works like border-style.
+@mixin column-rule-style($style) {
+  @include experimental(column-rule-style, unquote($style),
+    -moz, -webkit, -o, -ms, not -khtml, official
+  );
+}
+
+// Specify the color of the rule between columns e.g. `blue`.
+// This works like border-color.
+@mixin column-rule-color($color) {
+  @include experimental(column-rule-color, $color,
+    -moz, -webkit, -o, -ms, not -khtml, official
+  );
+}
+
+// Mixin encompassing all column rule properties
+// For example:
+//
+//     @include column-rule(1px, solid, #c00)
+//
+// Or the values can be space separated:
+//
+//     @include column-rule(1px solid #c00)
+@mixin column-rule($width, $style: false, $color: false) {
+  $full : -compass-space-list(compact($width, $style, $color));
+  @include experimental(column-rule, $full,
+    -moz, -webkit, -o, -ms, not -khtml, official
+  );
+}
+
+// Mixin for setting column-break-before
+//
+// * legal values are auto, always, avoid, left, right, page, column, avoid-page, avoid-column
+//
+//  Example: 
+//    h2.before {@include column-break-before(always);}
+//
+//  Which generates: 
+//
+//  h2.before {    
+//    -webkit-column-break-before: always;
+//    column-break-before: always;}
+@mixin column-break-before($value: auto){
+   @include experimental(column-break-before, $value, not -moz, -webkit, not -o, not -ms, not -khtml, official );
+}
+
+// Mixin for setting column-break-after
+//
+// * legal values are auto, always, avoid, left, right, page, column, avoid-page, avoid-column
+//
+//  Example: 
+//    h2.after {@include column-break-after(always); }
+//
+//  Which generates: 
+//
+//  h2.after {
+//    -webkit-column-break-after: always;
+//    column-break-after: always; }
+@mixin column-break-after($value: auto){
+   @include experimental(column-break-after, $value, not -moz, -webkit, not -o, not -ms, not -khtml, official );
+}
+
+// Mixin for setting column-break-inside
+//
+// * legal values are auto, avoid, avoid-page, avoid-column
+//
+//  Example: 
+//    h2.inside {@include column-break-inside();}
+//  Which generates: 
+//  
+//  h2.inside {
+//    -webkit-column-break-inside: auto;
+//    column-break-inside: auto;}
+@mixin column-break-inside($value: auto){
+   @include experimental(column-break-inside, $value, not -moz, -webkit, not -o, not -ms, not -khtml, official );
+}
+
+// All-purpose mixin for setting column breaks.
+//
+// * legal values for $type : before, after, inside 
+// * legal values for '$value' are dependent on $type
+//    * when $type = before, legal values are auto, always, avoid, left, right, page, column, avoid-page, avoid-column
+//    * when $type = after, legal values are auto, always, avoid, left, right, page, column, avoid-page, avoid-column
+//    * when $type = inside, legal values are auto, avoid, avoid-page, avoid-column
+//  
+//  Examples: 
+//    h2.before {@include column-break(before, always);}
+//    h2.after {@include column-break(after, always); }
+//    h2.inside {@include column-break(inside); }
+//
+//  Which generates: 
+//  h2.before {    
+//    -webkit-column-break-before: always;
+//    column-break-before: always;}
+//  
+//  h2.after {
+//    -webkit-column-break-after: always;
+//    column-break-after: always; }
+//
+//  h2.inside {
+//    -webkit-column-break-inside: auto;
+//    column-break-inside: auto;}
+ 
+@mixin column-break($type: before, $value: auto){
+   @include experimental("column-break-#{$type}", $value, not -moz, -webkit, not -o, not -ms, not -khtml, official );
+}
+// IMPORTING css3/box-sizing
+
+// Change the box model for Mozilla, Webkit, IE8 and the future
+//
+// @param $bs
+//   [ content-box | border-box ]
+
+@mixin box-sizing($bs) {
+  $bs: unquote($bs);
+  @include experimental(box-sizing, $bs,
+    -moz, -webkit, not -o, not -ms, not -khtml, official
+  );
+}
+// IMPORTING css3/box
+
+// display:box; must be used for any of the other flexbox mixins to work properly
+@mixin display-box {
+  @include experimental-value(display, box,
+    -moz, -webkit, not -o, -ms, not -khtml, official
+  );
+}
+
+// Default box orientation, assuming that the user wants something less block-like
+$default-box-orient: horizontal !default;
+
+// Box orientation [ horizontal | vertical | inline-axis | block-axis | inherit ]
+@mixin box-orient(
+  $orientation: $default-box-orient
+) {
+  $orientation : unquote($orientation);
+  @include experimental(box-orient, $orientation,
+    -moz, -webkit, not -o, -ms, not -khtml, official
+  );
+}
+
+// Default box-align
+$default-box-align: stretch !default;
+
+// Box align [ start | end | center | baseline | stretch ]
+@mixin box-align(
+  $alignment: $default-box-align
+) {
+  $alignment : unquote($alignment);
+  @include experimental(box-align, $alignment,
+    -moz, -webkit, not -o, -ms, not -khtml, official
+  );
+}
+
+// Default box flex
+$default-box-flex: 0 !default;
+
+// mixin which takes an int argument for box flex. Apply this to the children inside the box.
+//
+// For example: "div.display-box > div.child-box" would get the box flex mixin.
+@mixin box-flex(
+  $flex: $default-box-flex
+) {
+  @include experimental(box-flex, $flex,
+    -moz, -webkit, not -o, -ms, not -khtml, official
+  );
+}
+
+// Default flex group
+$default-box-flex-group: 1 !default;
+
+// mixin which takes an int argument for flexible grouping
+@mixin box-flex-group(
+  $group: $default-box-flex-group
+) {
+  @include experimental(box-flex-group, $group,
+    -moz, -webkit, not -o, -ms, not -khtml, official
+  );
+}
+
+// default for ordinal group
+$default-box-ordinal-group: 1 !default;
+
+// mixin which takes an int argument for ordinal grouping and rearranging the order
+@mixin box-ordinal-group(
+  $group: $default-ordinal-flex-group
+) {
+  @include experimental(box-ordinal-group, $group,
+    -moz, -webkit, not -o, -ms, not -khtml, official
+  );
+}
+
+// Box direction default value
+$default-box-direction: normal !default;
+
+// mixin for box-direction [ normal | reverse | inherit ]
+@mixin box-direction(
+  $direction: $default-box-direction
+) {
+  $direction: unquote($direction);
+  @include experimental(box-direction, $direction,
+    -moz, -webkit, not -o, -ms, not -khtml, official
+  );
+}
+
+// default for box lines
+$default-box-lines: single !default;
+
+// mixin for box lines [ single | multiple ]
+@mixin box-lines(
+  $lines: $default-box-lines
+) {
+  $lines: unquote($lines);
+  @include experimental(box-lines, $lines,
+    -moz, -webkit, not -o, -ms, not -khtml, official
+  );
+}
+
+// default for box pack
+$default-box-pack: start !default;
+
+// mixin for box pack [ start | end | center | justify ]
+@mixin box-pack(
+  $pack: $default-box-pack
+) {
+  $pack: unquote($pack);
+  @include experimental(box-pack, $pack,
+    -moz, -webkit, not -o, -ms, not -khtml, official
+  );
+}
+// IMPORTING css3/images
+
+// Background property support for vendor prefixing within values.
+@mixin background(
+  $background-1,
+  $background-2: false,
+  $background-3: false,
+  $background-4: false,
+  $background-5: false,
+  $background-6: false,
+  $background-7: false,
+  $background-8: false,
+  $background-9: false,
+  $background-10: false
+) {
+  $backgrounds: compact($background-1, $background-2, $background-3, $background-4, $background-5,
+                        $background-6, $background-7, $background-8, $background-9, $background-10);
+  $mult-bgs: -compass-list-size($backgrounds) > 1;
+  $add-pie-bg: prefixed(-pie,   $backgrounds) or $mult-bgs;
+  @if $experimental-support-for-svg          and prefixed(-svg,    $backgrounds) {      background:    -svg($backgrounds); }
+  @if $support-for-original-webkit-gradients and prefixed(-owg,    $backgrounds) {      background:    -owg($backgrounds); }
+  @if $experimental-support-for-webkit       and prefixed(-webkit, $backgrounds) {      background: -webkit($backgrounds); }
+  @if $experimental-support-for-mozilla      and prefixed(-moz,    $backgrounds) {      background:    -moz($backgrounds); }
+  @if $experimental-support-for-opera        and prefixed(-o,      $backgrounds) {      background:      -o($backgrounds); }
+  @if $experimental-support-for-pie          and $add-pie-bg                     { -pie-background:    -pie($backgrounds); }
+                                                                                        background:         $backgrounds ;
+}
+
+@mixin background-with-css2-fallback(
+  $background-1,
+  $background-2: false,
+  $background-3: false,
+  $background-4: false,
+  $background-5: false,
+  $background-6: false,
+  $background-7: false,
+  $background-8: false,
+  $background-9: false,
+  $background-10: false
+) {
+  $backgrounds: compact($background-1, $background-2, $background-3, $background-4, $background-5,
+                        $background-6, $background-7, $background-8, $background-9, $background-10);
+  $mult-bgs: -compass-list-size($backgrounds) > 1;
+  $simple-background: if($mult-bgs or prefixed(-css2, $backgrounds), -css2(-compass-nth($backgrounds, last)), false);
+  @if not blank($simple-background) { background: $simple-background; }
+  @include background($background-1, $background-2, $background-3, $background-4, $background-5,
+                      $background-6, $background-7, $background-8, $background-9, $background-10);
+}
+
+
+// Background image property support for vendor prefixing within values.
+@mixin background-image(
+  $image-1,
+  $image-2: false,
+  $image-3: false,
+  $image-4: false,
+  $image-5: false,
+  $image-6: false,
+  $image-7: false,
+  $image-8: false,
+  $image-9: false,
+  $image-10: false
+) {
+  $images: compact($image-1, $image-2, $image-3, $image-4, $image-5, $image-6, $image-7, $image-8, $image-9, $image-10);
+  $add-pie-bg: prefixed(-pie,   $images) or -compass-list-size($images) > 1;
+
+  @if $experimental-support-for-svg          and prefixed(-svg,    $images) { background-image:    -svg($images); background-size: 100%; }
+  @if $support-for-original-webkit-gradients and prefixed(-owg,    $images) { background-image:    -owg($images); }
+  @if $experimental-support-for-webkit       and prefixed(-webkit, $images) { background-image: -webkit($images); }
+  @if $experimental-support-for-mozilla      and prefixed(-moz,    $images) { background-image:    -moz($images); }
+  @if $experimental-support-for-opera        and prefixed(-o,      $images) { background-image:      -o($images); }
+  @if $experimental-support-for-pie          and $add-pie-bg                { @warn "PIE does not support background-image. Use @include background(#{$images}) instead." }
+                                                                              background-image:         $images ;
+}
+
+// Emit a IE-Specific filters that renders a simple linear gradient.
+// For use in IE 6 - 8. Best practice would have you apply this via a
+// conditional IE stylesheet, but if you must, you should place this before
+// any background-image properties that you have specified.
+//
+// For the `$orientation` parameter, you can pass `vertical` or `horizontal`.
+@mixin filter-gradient($start-color, $end-color, $orientation: vertical) {
+  @include has-layout;
+  $gradient-type: if($orientation == vertical, 0, 1);
+  @if $legacy-support-for-ie6 or $legacy-support-for-ie7 or $legacy-support-for-ie8 {
+    filter: progid:DXImageTransform.Microsoft.gradient(gradientType=#{$gradient-type}, startColorstr='#{ie-hex-str($start-color)}', endColorstr='#{ie-hex-str($end-color)}');
+  }
+}
+
+
+// Border image property support for vendor prefixing properties and values.
+@mixin border-image($value) {
+  @if $experimental-support-for-mozilla      {    -moz-border-image:    -moz(reject(-compass-list($value), fill)); }
+  @if $support-for-original-webkit-gradients { -webkit-border-image:    -owg(reject(-compass-list($value), fill)); }
+  @if $experimental-support-for-webkit       { -webkit-border-image: -webkit(reject(-compass-list($value), fill)); }
+  @if $experimental-support-for-opera        {      -o-border-image:      -o(reject(-compass-list($value), fill)); }
+  @if $experimental-support-for-svg          {         border-image:    -svg(reject(-compass-list($value), fill)); }
+                                                       border-image:                              $value;
+}
+
+// List style image property support for vendor prefixing within values.
+@mixin list-style-image($image) {
+  @if $experimental-support-for-mozilla      and prefixed(-moz,    $image) { list-style-image:    -moz($image); }
+  @if $support-for-original-webkit-gradients and prefixed(-owg,    $image) { list-style-image:    -owg($image); }
+  @if $experimental-support-for-webkit       and prefixed(-webkit, $image) { list-style-image: -webkit($image); }
+  @if $experimental-support-for-opera        and prefixed(-o,      $image) { list-style-image:      -o($image); }
+  @if $experimental-support-for-svg          and prefixed(-svg,    $image) { list-style-image:    -svg($image); }
+                                                                             list-style-image:         $image ;
+}
+
+// List style property support for vendor prefixing within values.
+@mixin list-style($value) {
+  $value: -compass-list($value);
+  @if $experimental-support-for-mozilla      and prefixed(-moz,    $value) { list-style-image:    -moz($value); }
+  @if $support-for-original-webkit-gradients and prefixed(-owg,    $value) { list-style-image:    -owg($value); }
+  @if $experimental-support-for-webkit       and prefixed(-webkit, $value) { list-style-image: -webkit($value); }
+  @if $experimental-support-for-opera        and prefixed(-o,      $value) { list-style-image:      -o($value); }
+  @if $experimental-support-for-svg          and prefixed(-svg,    $value) { list-style-image:    -svg($value); }
+                                                                             list-style-image:         $value ;
+}
+
+// content property support for vendor prefixing within values.
+@mixin content($value) {
+  $value: -compass-list($value);
+  @if $experimental-support-for-mozilla      and prefixed(-moz,    $value) { content:    -moz($value); }
+  @if $support-for-original-webkit-gradients and prefixed(-owg,    $value) { content:    -owg($value); }
+  @if $experimental-support-for-webkit       and prefixed(-webkit, $value) { content: -webkit($value); }
+  @if $experimental-support-for-opera        and prefixed(-o,      $value) { content:      -o($value); }
+  @if $experimental-support-for-svg          and prefixed(-svg,    $value) { content:    -svg($value); }
+                                                                             content:         $value ;
+}
+// IMPORTING css3/background-clip
+
+// The default value is `padding-box` -- the box model used by modern browsers.
+//
+// If you wish to do so, you can override the default constant with `border-box`
+//
+// To override to the default border-box model, use this code:
+//     $default-background-clip: border-box
+
+$default-background-clip: padding-box !default;
+
+// Clip the background (image and color) at the edge of the padding or border.
+//
+// Legal Values:
+//
+//   * padding-box
+//   * border-box
+//   * text
+
+@mixin background-clip($clip: $default-background-clip) {
+  // webkit and mozilla use the deprecated short [border | padding]
+  $clip: unquote($clip);
+  $deprecated: $clip;
+  @if $clip == padding-box { $deprecated: padding; }
+  @if $clip == border-box { $deprecated: border; }
+  // Support for webkit and mozilla's use of the deprecated short form
+  @include experimental(background-clip, $deprecated,
+    -moz,
+    -webkit,
+    not -o,
+    not -ms,
+    not -khtml,
+    not official
+  );
+  @include experimental(background-clip, $clip,
+    not -moz,
+    not -webkit,
+    not -o,
+    not -ms,
+    -khtml,
+    official
+  );
+}
+// IMPORTING css3/background-origin
+// Override `$default-background-origin` to change the default.
+
+
+$default-background-origin: content-box !default;
+
+// Position the background off the edge of the padding, border or content
+//
+// * Possible values:
+//   * `padding-box`
+//   * `border-box`
+//   * `content-box`
+// * browser defaults to `padding-box`
+// * mixin defaults to `content-box`
+
+
+@mixin background-origin($origin: $default-background-origin) {
+  $origin: unquote($origin);
+  // webkit and mozilla use the deprecated short [border | padding | content]
+  $deprecated: $origin;
+  @if $origin == padding-box { $deprecated: padding; }
+  @if $origin == border-box  { $deprecated: border;  }
+  @if $origin == content-box { $deprecated: content; }
+
+  // Support for webkit and mozilla's use of the deprecated short form
+  @include experimental(background-origin, $deprecated,
+    -moz,
+    -webkit,
+    not -o,
+    not -ms,
+    not -khtml,
+    not official
+  );
+  @include experimental(background-origin, $origin,
+    not -moz,
+    not -webkit,
+    -o,
+    -ms,
+    -khtml,
+    official
+  );
+}
+// IMPORTING css3/background-size
+
+//  override to change the default
+$default-background-size: 100% auto !default;
+
+// Set the size of background images using px, width and height, or percentages.
+// Currently supported in: Opera, Gecko, Webkit.
+//
+// * percentages are relative to the background-origin (default = padding-box)
+// * mixin defaults to: `$default-background-size`
+@mixin background-size(
+  $size-1: $default-background-size,
+  $size-2: false,
+  $size-3: false,
+  $size-4: false,
+  $size-5: false,
+  $size-6: false,
+  $size-7: false,
+  $size-8: false,
+  $size-9: false,
+  $size-10: false
+) {
+  $size-1: if(type-of($size-1) == string, unquote($size-1), $size-1);
+  $sizes: compact($size-1, $size-2, $size-3, $size-4, $size-5, $size-6, $size-7, $size-8, $size-9, $size-10);
+  @include experimental(background-size, $sizes, -moz, -webkit, -o, not -ms, not -khtml);
+}
+// IMPORTING css3/font-face
+
+// Cross-browser support for @font-face. Supports IE, Gecko, Webkit, Opera.
+//
+// * $name is required, arbitrary, and what you will use in font stacks.
+// * $font-files is required using font-files('relative/location', 'format').
+//   for best results use this order: woff, opentype/truetype, svg
+// * $eot is required by IE, and is a relative location of the eot file.
+// * $weight shows if the font is bold, defaults to normal
+// * $style defaults to normal, might be also italic
+// * For android 2.2 Compatiblity, please ensure that your web page has
+//   a meta viewport tag.
+// * To support iOS < 4.2, an SVG file must be provided
+//
+// If you need to generate other formats check out the Font Squirrel
+// [font generator](http://www.fontsquirrel.com/fontface/generator)
+//
+
+// In order to refer to a specific style of the font in your stylesheets as 
+// e.g. "font-style: italic;",  you may add a couple of @font-face includes
+// containing the respective font files for each style and specying
+// respective the $style parameter.
+
+// Order of the includes matters, and it is: normal, bold, italic, bold+italic.
+
+@mixin font-face(
+  $name, 
+  $font-files, 
+  $eot: false,
+  $weight: false,
+  $style: false
+) {
+  $iefont: unquote("#{$eot}?#iefix");
+  @font-face {
+    font-family: quote($name);
+    @if $eot {
+      src: font-url($eot);
+      $font-files: font-url($iefont) unquote("format('eot')"), $font-files; 
+    }
+    src: $font-files;
+    @if $weight {
+      font-weight: $weight;
+    }
+    @if $style {
+      font-style: $style;
+    }
+  }
+}
+// IMPORTING css3/transform
+
+// @doc off
+// Note ----------------------------------------------------------------------
+// Safari, Chrome, and Firefox all support 3D transforms. However,
+// only in the most recent builds. You should also provide fallback 2d support for
+// Opera and IE. IE10 is slated to have 3d enabled, but is currently unreleased.
+// To make that easy, all 2D transforms include an browser-targeting toggle ($only3d)
+// to switch between the two support lists. The toggle defaults to 'false' (2D),
+// and also accepts 'true' (3D). Currently the lists are as follows:
+// 2D: Mozilla, Webkit, Opera, Official
+// 3D: Webkit, Firefox.
+
+// Available Transforms ------------------------------------------------------
+// - Scale (2d and 3d)
+// - Rotate (2d and 3d)
+// - Translate (2d and 3d)
+// - Skew (2d only)
+
+// Transform Parameters ------------------------------------------------------
+// - Transform Origin (2d and 3d)
+// - Perspective (3d)
+// - Perspective Origin (3d)
+// - Transform Style (3d)
+// - Backface Visibility (3d)
+
+// Mixins --------------------------------------------------------------------
+// transform-origin
+//  - shortcuts:  transform-origin2d, transform-origin3d
+//  - helpers:    apply-origin
+// transform
+//  - shortcuts:  transform2d, transform3d
+//  - helpers:    simple-transform, create-transform
+// perspective
+//  - helpers:    perspective-origin
+// transform-style
+// backface-visibility
+// scale
+//  - shortcuts:  scaleX, scaleY, scaleZ, scale3d
+// rotate
+//  - shortcuts:  rotateX, rotateY, rotate3d
+// translate
+//  - shortcuts:  translateX, translateY, translateZ, translate3d
+// skew
+//  - shortcuts:  skewX, skewY
+
+// Defaults ------------------------------------------------------------------
+// @doc on
+
+// The default x-origin for transforms
+$default-origin-x    : 50%                   !default;
+// The default y-origin for transforms
+$default-origin-y    : 50%                   !default;
+// The default z-origin for transforms
+$default-origin-z    : 50%                   !default;
+
+
+// The default x-multiplier for scaling
+$default-scale-x     : 1.25                  !default;
+// The default y-multiplier for scaling
+$default-scale-y     : $default-scale-x      !default;
+// The default z-multiplier for scaling
+$default-scale-z     : $default-scale-x      !default;
+
+
+// The default angle for rotations
+$default-rotate      : 45deg                 !default;
+
+
+// The default x-vector for the axis of 3d rotations
+$default-vector-x    : 1                     !default;
+// The default y-vector for the axis of 3d rotations
+$default-vector-y    : 1                     !default;
+// The default z-vector for the axis of 3d rotations
+$default-vector-z    : 1                     !default;
+
+
+// The default x-length for translations
+$default-translate-x : 1em                   !default;
+// The default y-length for translations
+$default-translate-y : $default-translate-x  !default;
+// The default z-length for translations
+$default-translate-z : $default-translate-x  !default;
+
+
+// The default x-angle for skewing
+$default-skew-x      : 5deg                  !default;
+// The default y-angle for skewing
+$default-skew-y      : 5deg                  !default;
+
+
+// **Transform-origin**
+// Transform-origin sent as a complete string
+//
+//     @include apply-origin( origin [, 3D-only ] )
+//
+// where 'origin' is a space separated list containing 1-3 (x/y/z) coordinates
+// in percentages, absolute (px, cm, in, em etc..) or relative
+// (left, top, right, bottom, center) units
+//
+// @param only3d Set this to true to only apply this
+// mixin where browsers have 3D support.
+@mixin apply-origin($origin, $only3d) {
+  $only3d: $only3d or -compass-list-size(-compass-list($origin)) > 2;
+  @if $only3d {
+    @include experimental(transform-origin, $origin,
+      -moz, -webkit, -o, -ms, not -khtml, official
+    );
+  } @else {
+    @include experimental(transform-origin, $origin,
+      -moz, -webkit, -o, -ms, not -khtml, official
+    );
+  }
+}
+
+// Transform-origin sent as individual arguments:
+//
+//     @include transform-origin( [ origin-x, origin-y, origin-z, 3D-only ] )
+//
+// where the 3 'origin-' arguments represent x/y/z coordinates.
+//
+// **NOTE:** setting z coordinates triggers 3D support list, leave false for 2D support
+@mixin transform-origin(
+  $origin-x: $default-origin-x,
+  $origin-y: $default-origin-y,
+  $origin-z: false,
+  $only3d:   if($origin-z, true, false)
+) {
+  $origin: unquote('');
+  @if $origin-x or $origin-y or $origin-z {
+    @if $origin-x { $origin: $origin-x; } @else { $origin: 50%; }
+    @if $origin-y { $origin: $origin $origin-y; } @else { @if $origin-z { $origin: $origin 50%; }}
+    @if $origin-z { $origin: $origin $origin-z; }
+    @include apply-origin($origin, $only3d);
+  }
+}
+
+
+// Transform sent as a complete string:
+//
+//     @include transform( transforms [, 3D-only ] )
+//
+// where 'transforms' is a space separated list of all the transforms to be applied.
+@mixin transform(
+  $transform,
+  $only3d: false
+) {
+  @if $only3d {
+    @include experimental(transform, $transform,
+      -moz, -webkit, -o, -ms, not -khtml, official
+    );
+  } @else {
+    @include experimental(transform, $transform,
+      -moz, -webkit, -o, -ms, not -khtml, official
+    );
+  }
+}
+
+// Shortcut to target all browsers with 2D transform support
+@mixin transform2d($trans) {
+  @include transform($trans, false);
+}
+
+// Shortcut to target only browsers with 3D transform support
+@mixin transform3d($trans) {
+  @include transform($trans, true);
+}
+
+// @doc off
+// 3D Parameters -------------------------------------------------------------
+// @doc on
+
+// Set the perspective of 3D transforms on the children of an element:
+//
+//      @include perspective( perspective )
+//
+// where 'perspective' is a unitless number representing the depth of the
+// z-axis. The higher the perspective, the more exaggerated the foreshortening.
+// values from 500 to 1000 are more-or-less "normal" - a good starting-point.
+@mixin perspective($p) {
+  @include experimental(perspective, $p,
+    -moz, -webkit, -o, -ms, not -khtml, official
+  );
+}
+
+// Set the origin position for the perspective
+//
+//      @include perspective-origin(origin-x [origin-y])
+//
+// where the two arguments represent x/y coordinates
+@mixin perspective-origin($origin: 50%) {
+  @include experimental(perspective-origin, $origin,
+    -moz, -webkit, -o, -ms, not -khtml, official
+  );
+}
+
+// Determine whether a 3D objects children also live in the given 3D space
+//
+//      @include transform-style( [ style ] )
+//
+// where `style` can be either `flat` or `preserve-3d`.
+// Browsers default to `flat`, mixin defaults to `preserve-3d`.
+@mixin transform-style($style: preserve-3d) {
+  @include experimental(transform-style, $style,
+    -moz, -webkit, -o, -ms, not -khtml, official
+  );
+}
+
+// Determine the visibility of an element when it's back is turned
+//
+//     @include backface-visibility( [ visibility ] )
+//
+// where `visibility` can be either `visible` or `hidden`.
+// Browsers default to visible, mixin defaults to hidden
+@mixin backface-visibility($visibility: hidden) {
+  @include experimental(backface-visibility, $visibility,
+    -moz, -webkit, -o, -ms, not -khtml, official
+  );
+}
+
+// @doc off
+// Transform Partials --------------------------------------------------------
+// These work well on their own, but they don't add to each other, they override.
+// Use along with transform parameter mixins to adjust origin, perspective and style
+// ---------------------------------------------------------------------------
+
+
+// Scale ---------------------------------------------------------------------
+// @doc on
+
+// Scale an object along the x and y axis:
+//
+//      @include scale( [ scale-x, scale-y, perspective, 3D-only ] )
+//
+// where the 'scale-' arguments are unitless multipliers of the x and y dimensions
+// and perspective, which works the same as the stand-alone perspective property/mixin
+// but applies to the individual element (multiplied with any parent perspective)
+//
+// **Note** This mixin cannot be combined with other transform mixins.
+@mixin scale(
+  $scale-x:     $default-scale-x,
+  $scale-y:     $scale-x,
+  $perspective: false,
+  $only3d:      false
+) {
+  $trans: scale($scale-x, $scale-y);
+  @if $perspective { $trans: perspective($perspective) $trans; }
+  @include transform($trans, $only3d);
+}
+
+// Scale an object along the x axis
+// @include scaleX( [ scale-x, perspective, 3D-only ] )
+//
+// **Note** This mixin cannot be combined with other transform mixins.
+@mixin scaleX(
+  $scale:       $default-scale-x,
+  $perspective: false,
+  $only3d:      false
+) {
+  $trans: scaleX($scale);
+  @if $perspective { $trans: perspective($perspective) $trans; }
+  @include transform($trans, $only3d);
+}
+
+// Scale an object along the y axis
+// @include scaleY( [ scale-y, perspective, 3D-only ] )
+//
+// **Note** This mixin cannot be combined with other transform mixins.
+@mixin scaleY(
+  $scale:       $default-scale-y,
+  $perspective: false,
+  $only3d:      false
+) {
+  $trans: scaleY($scale);
+  @if $perspective { $trans: perspective($perspective) $trans; }
+  @include transform($trans, $only3d);
+}
+
+// Scale an object along the z axis
+// @include scaleZ( [ scale-z, perspective ] )
+//
+// **Note** This mixin cannot be combined with other transform mixins.
+@mixin scaleZ(
+  $scale: $default-scale-z,
+  $perspective: false
+) {
+  $trans: scaleZ($scale);
+  @if $perspective { $trans: perspective($perspective) $trans; }
+  @include transform3d($trans);
+}
+
+// Scale and object along all three axis
+// @include scale3d( [ scale-x, scale-y, scale-z, perspective ] )
+//
+// **Note** This mixin cannot be combined with other transform mixins.
+@mixin scale3d(
+  $scale-x:     $default-scale-x,
+  $scale-y:     $default-scale-y,
+  $scale-z:     $default-scale-z,
+  $perspective: false
+) {
+  $trans: scale3d($scale-x, $scale-y, $scale-z);
+  @if $perspective { $trans: perspective($perspective) $trans; }
+  @include transform3d($trans);
+}
+
+// @doc off
+// Rotate --------------------------------------------------------------------
+// @doc on
+
+// Rotate an object around the z axis  (2D)
+// @include rotate( [ rotation, perspective, 3D-only ] )
+// where 'rotation' is an angle set in degrees (deg) or radian (rad) units
+//
+// **Note** This mixin cannot be combined with other transform mixins.
+@mixin rotate(
+  $rotate:      $default-rotate,
+  $perspective: false,
+  $only3d:      false
+) {
+  $trans: rotate($rotate);
+  @if $perspective { $trans: perspective($perspective) $trans; }
+  @include transform($trans, $only3d);
+}
+
+// A longcut for 'rotate' in case you forget that 'z' is implied
+//
+// **Note** This mixin cannot be combined with other transform mixins.
+@mixin rotateZ(
+  $rotate:      $default-rotate,
+  $perspective: false,
+  $only3d:      false
+) {
+  @include rotate($rotate, $perspective, $only3d);
+}
+
+// Rotate an object around the x axis (3D)
+// @include rotateX( [ rotation, perspective ] )
+//
+// **Note** This mixin cannot be combined with other transform mixins.
+@mixin rotateX(
+  $rotate: $default-rotate,
+  $perspective: false
+) {
+  $trans: rotateX($rotate);
+  @if $perspective { $trans: perspective($perspective) $trans; }
+  @include transform3d($trans);
+}
+
+// Rotate an object around the y axis (3D)
+// @include rotate( [ rotation, perspective ] )
+//
+// **Note** This mixin cannot be combined with other transform mixins.
+@mixin rotateY(
+  $rotate: $default-rotate,
+  $perspective: false
+) {
+  $trans: rotateY($rotate);
+  @if $perspective { $trans: perspective($perspective) $trans; }
+  @include transform3d($trans);
+}
+
+// Rotate an object around an arbitrary axis (3D)
+// @include rotate( [ vector-x, vector-y, vector-z, rotation, perspective ] )
+// where the 'vector-' arguments accept unitless numbers.
+// These numbers are not important on their own, but in relation to one another
+// creating an axis from your transform-origin, along the axis of Xx = Yy = Zz.
+//
+// **Note** This mixin cannot be combined with other transform mixins.
+@mixin rotate3d(
+  $vector-x: $default-vector-x,
+  $vector-y: $default-vector-y,
+  $vector-z: $default-vector-z,
+  $rotate: $default-rotate,
+  $perspective: false
+) {
+  $trans: rotate3d($vector-x, $vector-y, $vector-z, $rotate);
+  @if $perspective { $trans: perspective($perspective) $trans; }
+  @include transform3d($trans);
+}
+
+// @doc off
+// Translate -----------------------------------------------------------------
+// @doc on
+
+// Move an object along the x or y axis (2D)
+// @include translate( [ translate-x, translate-y, perspective, 3D-only ] )
+// where the 'translate-' arguments accept any distance in percentages or absolute (px, cm, in, em etc..) units.
+//
+// **Note** This mixin cannot be combined with other transform mixins.
+@mixin translate(
+  $translate-x: $default-translate-x,
+  $translate-y: $default-translate-y,
+  $perspective: false,
+  $only3d:      false
+) {
+  $trans: translate($translate-x, $translate-y);
+  @if $perspective { $trans: perspective($perspective) $trans; }
+  @include transform($trans, $only3d);
+}
+
+// Move an object along the x axis (2D)
+// @include translate( [ translate-x, perspective, 3D-only ] )
+//
+// **Note** This mixin cannot be combined with other transform mixins.
+@mixin translateX(
+  $trans-x:     $default-translate-x,
+  $perspective: false,
+  $only3d:      false
+) {
+  $trans: translateX($trans-x);
+  @if $perspective { $trans: perspective($perspective) $trans; }
+  @include transform($trans, $only3d);
+}
+
+// Move an object along the y axis (2D)
+// @include translate( [ translate-y, perspective, 3D-only ] )
+//
+// **Note** This mixin cannot be combined with other transform mixins.
+@mixin translateY(
+  $trans-y:     $default-translate-y,
+  $perspective: false,
+  $only3d:      false
+) {
+  $trans: translateY($trans-y);
+  @if $perspective { $trans: perspective($perspective) $trans; }
+  @include transform($trans, $only3d);
+}
+
+// Move an object along the z axis (3D)
+// @include translate( [ translate-z, perspective ] )
+//
+// **Note** This mixin cannot be combined with other transform mixins.
+@mixin translateZ(
+  $trans-z:     $default-translate-z,
+  $perspective: false
+) {
+  $trans: translateZ($trans-z);
+  @if $perspective { $trans: perspective($perspective) $trans; }
+  @include transform3d($trans);
+}
+
+// Move an object along the x, y and z axis (3D)
+// @include translate( [ translate-x, translate-y, translate-z, perspective ] )
+//
+// **Note** This mixin cannot be combined with other transform mixins.
+@mixin translate3d(
+  $translate-x: $default-translate-x,
+  $translate-y: $default-translate-y,
+  $translate-z: $default-translate-z,
+  $perspective: false
+) {
+  $trans: translate3d($translate-x, $translate-y, $translate-z);
+  @if $perspective { $trans: perspective($perspective) $trans; }
+  @include transform3d($trans);
+}
+
+// @doc off
+// Skew ----------------------------------------------------------------------
+// @doc on
+
+// Skew an element:
+//
+//     @include skew( [ skew-x, skew-y, 3D-only ] )
+//
+// where the 'skew-' arguments accept css angles in degrees (deg) or radian (rad) units.
+//
+// **Note** This mixin cannot be combined with other transform mixins.
+@mixin skew(
+  $skew-x: $default-skew-x,
+  $skew-y: $default-skew-y,
+  $only3d: false
+) {
+  $trans: skew($skew-x, $skew-y);
+  @include transform($trans, $only3d);
+}
+
+// Skew an element along the x axiz
+//
+//     @include skew( [ skew-x, 3D-only ] )
+//
+// **Note** This mixin cannot be combined with other transform mixins.
+@mixin skewX(
+  $skew-x: $default-skew-x,
+  $only3d: false
+) {
+  $trans: skewX($skew-x);
+  @include transform($trans, $only3d);
+}
+
+// Skew an element along the y axis
+//
+//     @include skew( [ skew-y, 3D-only ] )
+//
+// **Note** This mixin cannot be combined with other transform mixins.
+@mixin skewY(
+  $skew-y: $default-skew-y,
+  $only3d: false
+) {
+  $trans: skewY($skew-y);
+  @include transform($trans, $only3d);
+}
+
+
+// Full transform mixins
+// For settings any combination of transforms as arguments
+// These are complex and not highly recommended for daily use. They are mainly
+// here for backward-compatibility purposes.
+//
+// * they include origin adjustments
+// * scale takes a multiplier (unitless), rotate and skew take degrees (deg)
+//
+// **Note** This mixin cannot be combined with other transform mixins.
+@mixin create-transform(
+  $perspective: false,
+  $scale-x:     false,
+  $scale-y:     false,
+  $scale-z:     false,
+  $rotate-x:    false,
+  $rotate-y:    false,
+  $rotate-z:    false,
+  $rotate3d:    false,
+  $trans-x:     false,
+  $trans-y:     false,
+  $trans-z:     false,
+  $skew-x:      false,
+  $skew-y:      false,
+  $origin-x:    false,
+  $origin-y:    false,
+  $origin-z:    false,
+  $only3d:      false
+) {
+  $trans: unquote("");
+
+  // perspective
+  @if $perspective { $trans: perspective($perspective) ; }
+
+  // scale
+  @if $scale-x and $scale-y {
+    @if $scale-z { $trans: $trans scale3d($scale-x, $scale-y, $scale-z); }
+    @else { $trans: $trans scale($scale-x, $scale-y); }
+  } @else {
+    @if $scale-x { $trans: $trans scaleX($scale-x); }
+    @if $scale-y { $trans: $trans scaleY($scale-y); }
+    @if $scale-z { $trans: $trans scaleZ($scale-z); }
+  }
+
+  // rotate
+  @if $rotate-x { $trans: $trans rotateX($rotate-x); }
+  @if $rotate-y { $trans: $trans rotateY($rotate-y); }
+  @if $rotate-z { $trans: $trans rotateZ($rotate-z); }
+  @if $rotate3d { $trans: $trans rotate3d($rotate3d); }
+
+  // translate
+  @if $trans-x and $trans-y {
+    @if $trans-z { $trans: $trans translate3d($trans-x, $trans-y, $trans-z); }
+    @else { $trans: $trans translate($trans-x, $trans-y); }
+  } @else {
+    @if $trans-x { $trans: $trans translateX($trans-x); }
+    @if $trans-y { $trans: $trans translateY($trans-y); }
+    @if $trans-z { $trans: $trans translateZ($trans-z); }
+  }
+
+  // skew
+  @if $skew-x and $skew-y { $trans: $trans skew($skew-x, $skew-y); }
+  @else {
+    @if $skew-x { $trans: $trans skewX($skew-x); }
+    @if $skew-y { $trans: $trans skewY($skew-y); }
+  }
+
+  // apply it!
+  @include transform($trans, $only3d);
+  @include transform-origin($origin-x, $origin-y, $origin-z, $only3d);
+}
+
+
+// A simplified set of options
+// backwards-compatible with the previous version of the 'transform' mixin
+@mixin simple-transform(
+  $scale:    false,
+  $rotate:   false,
+  $trans-x:  false,
+  $trans-y:  false,
+  $skew-x:   false,
+  $skew-y:   false,
+  $origin-x: false,
+  $origin-y: false
+) {
+  @include create-transform(
+    false,
+    $scale, $scale, false,
+    false, false, $rotate, false,
+    $trans-x, $trans-y, false,
+    $skew-x, $skew-y,
+    $origin-x, $origin-y, false,
+    false
+  );
+}
+// IMPORTING css3/transition
+
+// CSS Transitions
+// Currently only works in Webkit.
+//
+// * expected in CSS3, FireFox 3.6/7 and Opera Presto 2.3
+// * We'll be prepared.
+//
+// Including this submodule sets following defaults for the mixins:
+//
+//     $default-transition-property : all
+//     $default-transition-duration : 1s
+//     $default-transition-function : false
+//     $default-transition-delay    : false
+//
+// Override them if you like. Timing-function and delay are set to false for browser defaults (ease, 0s).
+
+$default-transition-property: all !default;
+
+$default-transition-duration: 1s !default;
+
+$default-transition-function: false !default;
+
+$default-transition-delay: false !default;
+
+$transitionable-prefixed-values: transform, transform-origin !default;
+
+// One or more properties to transition
+//
+// * for multiple, use a comma-delimited list
+// * also accepts "all" or "none"
+
+@mixin transition-property($property-1: $default-transition-property,
+  $property-2 : false,
+  $property-3 : false,
+  $property-4 : false,
+  $property-5 : false,
+  $property-6 : false,
+  $property-7 : false,
+  $property-8 : false,
+  $property-9 : false,
+  $property-10: false
+) {
+  @if type-of($property-1) == string { $property-1: unquote($property-1); }
+  $properties: compact($property-1, $property-2, $property-3, $property-4, $property-5, $property-6, $property-7, $property-8, $property-9, $property-10);
+  @if $experimental-support-for-webkit    {       -webkit-transition-property : prefixed-for-transition(-webkit, $properties); }
+  @if $experimental-support-for-mozilla   {          -moz-transition-property : prefixed-for-transition(-moz,    $properties); }
+  @if $experimental-support-for-opera     {            -o-transition-property : prefixed-for-transition(-o,      $properties); }
+                                                          transition-property : $properties;
+}
+
+// One or more durations in seconds
+//
+// * for multiple, use a comma-delimited list
+// * these durations will affect the properties in the same list position
+
+@mixin transition-duration($duration-1: $default-transition-duration,
+  $duration-2 : false,
+  $duration-3 : false,
+  $duration-4 : false,
+  $duration-5 : false,
+  $duration-6 : false,
+  $duration-7 : false,
+  $duration-8 : false,
+  $duration-9 : false,
+  $duration-10: false
+) {
+  @if type-of($duration-1) == string { $duration-1: unquote($duration-1); }
+  $durations: compact($duration-1, $duration-2, $duration-3, $duration-4, $duration-5, $duration-6, $duration-7, $duration-8, $duration-9, $duration-10);
+  @include experimental(transition-duration, $durations,
+    -moz, -webkit, -o, not -ms, not -khtml, official
+  );
+}
+
+// One or more timing functions
+//
+// * [ ease | linear | ease-in | ease-out | ease-in-out | cubic-bezier(x1, y1, x2, y2)]
+// * For multiple, use a comma-delimited list
+// * These functions will effect the properties in the same list position
+
+@mixin transition-timing-function($function-1: $default-transition-function,
+  $function-2 : false,
+  $function-3 : false,
+  $function-4 : false,
+  $function-5 : false,
+  $function-6 : false,
+  $function-7 : false,
+  $function-8 : false,
+  $function-9 : false,
+  $function-10: false
+) {
+  $function-1: unquote($function-1);
+  $functions: compact($function-1, $function-2, $function-3, $function-4, $function-5, $function-6, $function-7, $function-8, $function-9, $function-10);
+  @include experimental(transition-timing-function, $functions,
+    -moz, -webkit, -o, not -ms, not -khtml, official
+  );
+}
+
+// One or more transition-delays in seconds
+//
+// * for multiple, use a comma-delimited list
+// * these delays will effect the properties in the same list position
+
+@mixin transition-delay($delay-1: $default-transition-delay,
+  $delay-2 : false,
+  $delay-3 : false,
+  $delay-4 : false,
+  $delay-5 : false,
+  $delay-6 : false,
+  $delay-7 : false,
+  $delay-8 : false,
+  $delay-9 : false,
+  $delay-10: false
+) {
+  @if type-of($delay-1) == string { $delay-1: unquote($delay-1); }
+  $delays: compact($delay-1, $delay-2, $delay-3, $delay-4, $delay-5, $delay-6, $delay-7, $delay-8, $delay-9, $delay-10);
+  @include experimental(transition-delay, $delays,
+    -moz, -webkit, -o, not -ms, not -khtml, official
+  );
+}
+
+// Transition all-in-one shorthand
+
+@mixin single-transition(
+  $property: $default-transition-property,
+  $duration: $default-transition-duration,
+  $function: $default-transition-function,
+  $delay: $default-transition-delay
+) {
+  @include transition(compact($property $duration $function $delay));
+}
+
+@mixin transition(
+  $transition-1 : default,
+  $transition-2 : false,
+  $transition-3 : false,
+  $transition-4 : false,
+  $transition-5 : false,
+  $transition-6 : false,
+  $transition-7 : false,
+  $transition-8 : false,
+  $transition-9 : false,
+  $transition-10: false
+) {
+  @if $transition-1 == default {
+    $transition-1 : compact($default-transition-property $default-transition-duration $default-transition-function $default-transition-delay);
+  }
+  $transitions: false;
+  @if type-of($transition-1) == list and type-of(nth($transition-1,1)) == list {
+    $transitions: join($transition-1, compact($transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10), comma);
+  } @else {
+    $transitions : compact($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10);
+  }
+  $delays: comma-list();
+  $has-delays: false;
+  $webkit-value: comma-list();
+  $moz-value: comma-list();
+  $o-value: comma-list();
+
+  // This block can be made considerably simpler at the point in time that
+  // we no longer need to deal with the differences in how delays are treated.
+  @each $transition in $transitions {
+    // Extract the values from the list
+    // (this would be cleaner if nth took a 3rd argument to provide a default value).
+    $property: nth($transition, 1);
+    $duration: false;
+    $timing-function: false;
+    $delay: false;
+    @if length($transition) > 1 { $duration:        nth($transition, 2); }
+    @if length($transition) > 2 { $timing-function: nth($transition, 3); }
+    @if length($transition) > 3 { $delay:           nth($transition, 4); $has-delays: true; }
+
+    // If a delay is provided without a timing function
+    @if is-time($timing-function) and not $delay { $delay: $timing-function; $timing-function: false; $has-delays: true; }
+
+    // Keep a list of delays in case one is specified
+    $delays: append($delays, if($delay, $delay, 0s));
+
+    $webkit-value: append($webkit-value, compact(prefixed-for-transition(-webkit, $property) $duration $timing-function));
+       $moz-value: append(   $moz-value, compact(prefixed-for-transition(   -moz, $property) $duration $timing-function $delay));
+         $o-value: append(     $o-value, compact(prefixed-for-transition(     -o, $property) $duration $timing-function $delay));
+  }
+
+  @if $experimental-support-for-webkit    {       -webkit-transition : $webkit-value;
+    // old webkit doesn't support the delay parameter in the shorthand so we progressively enhance it.
+    @if $has-delays                       { -webkit-transition-delay : $delays;       } }
+  @if $experimental-support-for-mozilla   {          -moz-transition : $moz-value;    }
+  @if $experimental-support-for-opera     {            -o-transition : $o-value;      }
+                                                          transition : $transitions;
+}
+
+// coerce a list to be comma delimited or make a new, empty comma delimited list.
+@function comma-list($list: ()) {
+  @return join((), $list, comma);
+}
+
+// Returns `$property` with the given prefix if it is found in `$transitionable-prefixed-values`.
+@function prefixed-for-transition($prefix, $property) {
+  @if type-of($property) == list {
+    $new-list: comma-list();
+    @each $v in $property {
+      $new-list: append($new-list, prefixed-for-transition($prefix, $v));
+    }
+    @return $new-list;
+  } @else {
+    @if index($transitionable-prefixed-values, $property) {
+      @return #{$prefix}-#{$property};
+    } @else {
+      @return $property;
+    }
+  }
+}
+
+// Checks if the value given is a unit of time.
+@function is-time($value) {
+  @if type-of($value) == number {
+    @return not not index(s ms, unit($value));
+  } @else {
+    @return false;
+  }
+}
+// IMPORTING css3/appearance
+
+// Change the appearance for Mozilla, Webkit and possibly the future.
+// The appearance property is currently not present in any newer CSS specification.
+//
+// There is no official list of accepted values, but you might check these source:
+//   Mozilla : https://developer.mozilla.org/en/CSS/-moz-appearance
+//   Webkit  : http://code.google.com/p/webkit-mirror/source/browse/Source/WebCore/css/CSSValueKeywords.in?spec=svnf1aea559dcd025a8946aa7da6e4e8306f5c1b604&r=63c7d1af44430b314233fea342c3ddb2a052e365
+//   (search for 'appearance' within the page)
+
+@mixin appearance($ap) {
+  $ap: unquote($ap);
+  @include experimental(appearance, $ap,
+    -moz, -webkit, not -o, not -ms, not -khtml, official
+  );
+}
+// IMPORTING css3/regions
+
+// Webkit, IE10 and future support for [CSS Regions](http://dev.w3.org/csswg/css3-regions/)
+//
+// $target is a value you use to link two regions of your css. Give the source of your content the flow-into property, and give your target container the flow-from property.
+//
+// For a visual explanation, see the diagrams at Chris Coyier's
+// [CSS-Tricks](http://css-tricks.com/content-folding/)
+
+@mixin flow-into($target) {
+  $target: unquote($target);
+  @include experimental(flow-into, $target,
+    not -moz, -webkit, not -o, -ms, not -khtml, not official
+  );
+}
+
+@mixin flow-from($target) {
+  $target: unquote($target);
+  @include experimental(flow-from, $target,
+    not -moz, -webkit, not -o, -ms, not -khtml, not official
+  );
+}
+// IMPORTING css3/hyphenation
+
+// Mixins to support specific CSS Text Level 3 elements
+//
+//
+//
+// Mixin for word-break properties
+// http://www.w3.org/css3-text/#word-break
+// * legal values for $type : normal, keep-all, break-all
+//
+// Example:
+//    p.wordBreak {@include word-break(break-all);}
+//
+// Which generates:
+//    p.wordBreak {
+//      -ms-word-break: break-all;
+//      word-break: break-all;
+//      word-break: break-word;}
+//
+@mixin word-break($value: normal){
+  @if $value == break-all {
+    //Most browsers handle the break-all case the same...
+    @include experimental(word-break, $value,
+      not -moz, not -webkit, not -o, -ms, not -khtml, official
+    );
+    //Webkit handles break-all differently... as break-word
+    @include experimental(word-break, break-word,
+      not -moz, not -webkit, not -o, not -ms, not -khtml, official
+    );
+  }
+  @else {
+    @include experimental(word-break, $value,
+      not -moz, not -webkit, not -o, -ms, not -khtml, official
+    );
+  }
+}
+
+// Mixin for the hyphens property
+//
+// W3C specification: http://www.w3.org/TR/css3-text/#hyphens
+// * legal values for $type : auto, manual, none
+//
+// Example:
+//  p {
+//    @include hyphens(auto);}
+// Which generates:
+//  p {
+//    -moz-hyphens: auto;
+//    -webkit-hyphens: auto;
+//    hyphens: auto;}
+//
+@mixin hyphens($value: auto){
+  @include experimental(hyphens, $value,
+    -moz, -webkit, not -o, not -ms, not -khtml, official
+  );
+}
+
+// Mixin for x-browser hyphenation based on @auchenberg's post:
+// Removes the need for the <wbr/> HTML tag
+// http://blog.kenneth.io/blog/2012/03/04/word-wrapping-hypernation-using-css/
+//
+//  Example:
+//  div {@include hyphenation;}
+//
+//  Which generates:
+//    div {
+//      -ms-word-break: break-all;
+//      word-break: break-all;
+//      word-break: break-word;
+//      -moz-hyphens: auto;
+//      -webkit-hyphens: auto;
+//      hyphens: auto;}
+//
+@mixin hyphenation{
+  @include word-break(break-all);
+  @include hyphens;
+}
+// IMPORTING css3/filter
+
+// Provides cross-browser support for the upcoming (?) css3 filter property.
+//
+// Each filter argument should adhere to the standard css3 syntax for the
+// filter property.
+@mixin filter (
+  $filter-1,
+  $filter-2 : false,
+  $filter-3 : false,
+  $filter-4 : false,
+  $filter-5 : false,
+  $filter-6 : false,
+  $filter-7 : false,
+  $filter-8 : false,
+  $filter-9 : false,
+  $filter-10: false
+) {
+  $filter : compact($filter-1, $filter-2, $filter-3, $filter-4, $filter-5, $filter-6, $filter-7, $filter-8, $filter-9, $filter-10);
+  @include experimental(filter, $filter,
+    -moz, -webkit, not -o, not -ms, not -khtml, official
+  );
+}

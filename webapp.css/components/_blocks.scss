@@ -1,0 +1,20 @@
+/*------------------------------------*\
+    $COMPONENT - BLOCKS
+\*------------------------------------*/
+
+/**
+ * Block
+ */
+
+.block{
+	@include section-margin;
+}
+
+/**
+ * Hero Panel
+ */
+
+.block--hero{
+	border: 1px #ccc solid;
+	padding: 1em;
+}
