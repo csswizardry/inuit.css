@@ -37,8 +37,18 @@
 
 
 @import "compass-all";
+
+/**
+ * Import Variables
+ */
+
 @import "webapp.css/modules/vars";
-@import "inuit.css/inuit";
+
+/**
+ * Import Inuit
+ */
+
+@import "inuit";
 
 
 /**
