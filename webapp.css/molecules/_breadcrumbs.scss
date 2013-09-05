@@ -1,0 +1,22 @@
+/*------------------------------------*\
+    BREADCRUMBS.CSS    
+\*------------------------------------*/
+
+.breadcrumbs{
+	@include list-inline;	
+
+	> li{
+		@include rem-shim('margin-right', $section-margin/3);
+
+		&:before{
+			font-family: FontAwesome;
+			content: "\f105";
+			@include rem-shim('padding-right', $section-margin/3);
+		}
+	}
+
+	> li:first-child:before{
+		content: '';
+		padding-right: 0;
+	}
+}

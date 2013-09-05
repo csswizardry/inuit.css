@@ -3,9 +3,7 @@
 \*------------------------------------*/
 
 .navigation{
-	@include list-inline;
-
-	margin-bottom: 0;
+	@include list-inline;	
 
 	> li{
 		@include rem-shim('margin-right', $section-margin/2);

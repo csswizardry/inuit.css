@@ -1,0 +1,18 @@
+/*------------------------------------*\
+    TAGS.CSS    
+\*------------------------------------*/
+
+.tags{
+	@include list-inline;	
+
+	> li{
+		@include rem-shim('margin-right', $section-margin/3);
+
+		&:before{
+			font-family: FontAwesome;
+			content: "\f02b";
+			@include rem-shim('padding-right', 5px);
+		}
+	}
+	
+}

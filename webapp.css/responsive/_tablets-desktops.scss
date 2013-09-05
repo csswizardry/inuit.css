@@ -18,6 +18,17 @@
 	//padding-right: 0;
 }
 
+/** 
+ * Sidebar
+ */
+
+.sidebar{
+	position: fixed;
+	height: 100%;
+	overflow: auto;
+	min-width: 25%;
+}
+
 
 /*
  * Show Hide Sections
