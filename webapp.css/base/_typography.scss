@@ -16,7 +16,7 @@ html{
 
 @include headings(1,6){
 	@include section-margin(0.5);	
-	font-family: 'Port Lligat Slab', serif;
+	font-family: Helvetica, Arial, serif;
 	font-weight: normal;
 	line-height: 1.25;
 }

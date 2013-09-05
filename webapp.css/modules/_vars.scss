@@ -325,9 +325,10 @@ $alert-info-color         : #3A87AD;
 \*------------------------------------*/
 
 $columns        : 12 !default; /* 12 Column Grid */
-$site-width     : 960px;
+$site-width     : 100%;
 $min-site-width : 0;
-$max-site-width : $site-width;
+$tablet-cut-off : 960px;
+$max-site-width : 2000px;
 $grid-gutter    : 30px;
 $mobile         : true;
 $desk-start     : $max-site-width;
@@ -340,6 +341,6 @@ $desk-start     : $max-site-width;
 $mobile-break-point-end   : 480px;
 $tablet-break-point-start : 600px; 
 $phone-break-point-end    : $tablet-break-point-start; /* Default: 480px; */
-$tablet-break-point-end   : $site-width - 1; /* Default: 768px */
-$desktop-start            : $site-width;
+$tablet-break-point-end   : $tablet-cut-off - 1; /* Default: 768px */
+$desktop-start            : $tablet-cut-off;
 $wide-screen-start        : 1200px;

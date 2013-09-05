@@ -30,3 +30,11 @@ img, video, embed, object{
 .row--pad{	
   @include section-margin(1);
 }
+
+/**
+ * Layout
+ */
+
+section, article{
+	@include section-margin();
+}

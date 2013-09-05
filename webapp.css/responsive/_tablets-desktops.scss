@@ -4,10 +4,20 @@
 \*------------------------------------*/
 
 /*
- * Add Grids for tablet
+ * Add Grids for tablets and desktops
  */
 
-@import "grid-tablet";
+@import "grid";
+
+/**
+ * Container
+ */
+
+.container{
+	//padding-left: 0;
+	//padding-right: 0;
+}
+
 
 /*
  * Show Hide Sections
@@ -38,3 +48,4 @@
 	padding: 0.5em 0;
 	line-height: 1;
 }
+

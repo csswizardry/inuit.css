@@ -1,0 +1,13 @@
+/*------------------------------------*\
+    NAVIGATION.CSS    
+\*------------------------------------*/
+
+.navigation{
+	@include list-inline;
+
+	margin-bottom: 0;
+
+	> li{
+		@include rem-shim('margin-right', $section-margin/2);
+	}
+}

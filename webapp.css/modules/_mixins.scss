@@ -22,6 +22,24 @@
   border-color: #51A7E8;
 }
 
+/** 
+ * Strip Units
+ */
+@function strip-units($number) {
+  @return $number / ($number * 0 + 1);
+}
+
+/*
+ *  REM Shim
+ */
+
+@mixin rem-shim($property, $value){
+  
+  #{$property} :$base-font-size * strip-units($value);
+  #{$property} :$value;
+
+}
+
 /*
  *  Bottom Margin: Based on Line Height
  */

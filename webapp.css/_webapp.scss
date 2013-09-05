@@ -63,6 +63,12 @@
 
 @import "vendor/vendor";
 
+/**
+ * Atomic Design
+ */
+
+@import "atoms/atoms";
+@import "molecules/molecules";
 
 /**
 * Mobile First Approach

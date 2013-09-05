@@ -1,0 +1,13 @@
+/*------------------------------------*\
+    LIST.CSS    
+\*------------------------------------*/
+
+@mixin list-inline{
+
+	list-style: none;
+	margin-left: 0;
+
+	> li{
+		display: inline;
+	}
+}

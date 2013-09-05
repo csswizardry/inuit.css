@@ -27,9 +27,8 @@
 }
 
 .row {
-	//max-width: $max-site-width;
-	//min-width: $min-site-width;
-	//width: $site-width;		
+	margin-left:(-$grid-gutter/2);
+  margin-right:(-$grid-gutter/2);
 }
 
 /**
@@ -39,9 +38,7 @@
 .row .row, .row--wide{
 	width: auto;
 	max-width: none;
-	min-width: 0;
-	margin-left:(-$grid-gutter/2);
-  margin-right:(-$grid-gutter/2);
+	min-width: 0;	
 }
 
 /**
