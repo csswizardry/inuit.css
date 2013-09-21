@@ -1,0 +1,32 @@
+{
+    "name": "components/inuit.css",
+    "description": "Powerful, scalable, Sass-based, BEM, OOCSS framework.",
+    "keywords": [
+        "SASS",
+        "BEM",
+        "OOCSS",
+        "framework"
+    ],
+    "license": "Apache-2.0",
+    "type": "component",
+    "homepage": "http://inuitcss.com",
+    "authors": [
+        {
+            "name": "csswizardry",
+            "homepage": "http://csswizardry.com"
+        }
+    ],
+    "require": {
+        "robloach/component-installer": "*"
+    },
+    "extra": {
+        "component": {
+            "styles": [
+                "*.scss",
+                "base/*.scss",
+                "generic/*.scss",
+                "objects/*.scss"
+            ]
+        }
+    }
+}
