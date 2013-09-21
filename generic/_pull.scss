@@ -93,6 +93,33 @@
     .pull--#{$namespace}nine-twelfths       { @extend .pull--#{$namespace}three-quarters; }
     .pull--#{$namespace}ten-twelfths        { @extend .pull--#{$namespace}five-sixths; }
     .pull--#{$namespace}eleven-twelfths     { right:91.666%; }
+
+
+    /**
+     * If you have set `$use-sixteenths` to ‘true’ in `_vars.scss` then you now
+     * have access to these classes available for the sixteenths pull proportions.
+     */
+
+    @if $use-sixteenths == true{
+        /**
+        * Sixteenths
+        */
+        .pull--#{$namespace}one-sixteenth         { right: 6.25%; }
+        .pull--#{$namespace}two-sixteenths        { @extend .pull--#{$namespace}one-eighth; }
+        .pull--#{$namespace}three-sixteenths      { right: 18.75%; }
+        .pull--#{$namespace}four-sixteenths       { @extend .pull--#{$namespace}one-quarter; }
+        .pull--#{$namespace}five-sixteenths       { right: 31.25%; }
+        .pull--#{$namespace}six-sixteenths        { @extend .pull--#{$namespace}three-eighths; }
+        .pull--#{$namespace}seven-sixteenths      { right: 43.75%; }
+        .pull--#{$namespace}eight-sixteenths      { @extend .pull--#{$namespace}one-half; }
+        .pull--#{$namespace}nine-sixteenths       { right: 56.25%; }
+        .pull--#{$namespace}ten-sixteenths        { @extend .pull--#{$namespace}five-eighths; }
+        .pull--#{$namespace}eleven-sixteenths     { right: 68.75%; }
+        .pull--#{$namespace}twelve-sixteenths     { @extend .pull--#{$namespace}three-quarters; }
+        .pull--#{$namespace}thirtheen-sixteenths  { right: 81.25%; }
+        .pull--#{$namespace}fourteen-sixteenths   { @extend .pull--#{$namespace}seven-eighths; }
+        .pull--#{$namespace}fifteen-sixteenths    { right: 93.75; }
+    }
 }
 
 @if $pull == true{

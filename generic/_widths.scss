@@ -97,6 +97,33 @@
     .#{$namespace}nine-twelfths     { @extend .#{$namespace}three-quarters; }
     .#{$namespace}ten-twelfths      { @extend .#{$namespace}five-sixths; }
     .#{$namespace}eleven-twelfths   { width:91.666%; }
+
+
+    /**
+     * If you have set `$use-sixteenths` to ‘true’ in `_vars.scss` then you now
+     * have access to these classes available for the sixteenths width proportions.
+     */
+
+    @if $use-sixteenths == true{
+        /**
+        * Sixteenths
+        */
+        .#{$namespace}one-sixteenth         { width: 6.25%; }
+        .#{$namespace}two-sixteenths        { @extend .#{$namespace}one-eighth; }
+        .#{$namespace}three-sixteenths      { width: 18.75%; }
+        .#{$namespace}four-sixteenths       { @extend .#{$namespace}one-quarter; }
+        .#{$namespace}five-sixteenths       { width: 31.25%; }
+        .#{$namespace}six-sixteenths        { @extend .#{$namespace}three-eighths; }
+        .#{$namespace}seven-sixteenths      { width: 43.75%; }
+        .#{$namespace}eight-sixteenths      { @extend .#{$namespace}one-half; }
+        .#{$namespace}nine-sixteenths       { width: 56.25%; }
+        .#{$namespace}ten-sixteenths        { @extend .#{$namespace}five-eighths; }
+        .#{$namespace}eleven-sixteenths     { width: 68.75%; }
+        .#{$namespace}twelve-sixteenths     { @extend .#{$namespace}three-quarters; }
+        .#{$namespace}thirtheen-sixteenths  { width: 81.25%; }
+        .#{$namespace}fourteen-sixteenths   { @extend .#{$namespace}seven-eighths; }
+        .#{$namespace}fifteen-sixteenths    { width: 93.75%; }
+    }
 }
 
 @include grid-setup();
