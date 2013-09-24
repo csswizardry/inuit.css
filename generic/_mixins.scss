@@ -10,7 +10,7 @@
  * Thanks to @redclov3r for the `line-height` Sass:
  * twitter.com/redclov3r/status/250301539321798657
  */
-@mixin font-size($font-size, $line-height:true){
+@mixin font-size($font-size, $line-height:$use-vertical-rhythm){
     font-size:$font-size;
     font-size:($font-size / $base-font-size)*1rem;
     @if $line-height == true{
