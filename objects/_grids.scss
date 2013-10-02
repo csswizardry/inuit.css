@@ -35,35 +35,150 @@
  */
 
 
+/*------------------------------------*\
+    $GRID SETUP
+\*------------------------------------*/
 /**
- * Grid wrapper
+ * 1. Allow the grid system to be used on lists.
+ * 2. Remove any margins and paddings that might affect the grid system.
+ * 3. Apply a negative `margin-left` to negate the columns’ gutters.
  */
-.grid{
-    margin-left:-$base-spacing-unit;
-    list-style:none;
-    margin-bottom:0;
+#{$class-type}grid{
+    list-style:none;                /* [1] */
+    margin:0;                       /* [2] */
+    padding:0;                      /* [2] */
+    margin-left:-$gutter;           /* [3] */
+    @if $use-markup-fix != true{
+        letter-spacing:-0.31em;
+    }
+}
+
+@if $use-markup-fix != true{
+    /* Opera hack */
+    .opera:-o-prefocus,
+    #{$class-type}grid{
+        word-spacing:-0.43em;
+    }
 }
 
 
     /**
-     * Very infrequently occuring grid wrappers as children of grid wrappers.
+     * 1. Cause columns to stack side-by-side.
+     * 2. Space columns apart.
+     * 3. Align columns to the tops of each other.
+     * 4. Full-width unless told to behave otherwise.
+     * 5. Required to combine fluid widths and fixed gutters.
      */
-    .grid > .grid{
-        margin-left:0;
-    }
-
-
-    /**
-     * Grid
-     */
-    .grid__item{
-        display:inline-block;
-        width:100%;
-        padding-left:$base-spacing-unit;
-        vertical-align:top;
-        @if $global-border-box == false{
-            @include vendor(box-sizing, border-box);
+    #{$class-type}grid__item{
+        display:inline-block;           /* [1] */
+        padding-left:$gutter;           /* [2] */
+        vertical-align:top;             /* [3] */
+        @if $mobile-first == true{
+            width:100%;                 /* [4] */
+        }
+        -webkit-box-sizing:border-box;  /* [5] */
+           -moz-box-sizing:border-box;  /* [5] */
+                box-sizing:border-box;  /* [5] */
+        @if $use-markup-fix != true{
+            letter-spacing:normal;
+            word-spacing:normal;
         }
     }
+
+
+/**
+ * Reversed grids allow you to structure your source in the opposite order to
+ * how your rendered layout will appear. Extends `.grid`.
+ */
+#{$class-type}grid--rev{
+    direction:rtl;
+    text-align:left;
+
+    > #{$class-type}grid__item{
+        direction:ltr;
+        text-align:left;
+    }
+}
+
+
+/**
+ * Gutterless grids have all the properties of regular grids, minus any spacing.
+ * Extends `.grid`.
+ */
+#{$class-type}grid--full{
+    margin-left:0;
+
+    > #{$class-type}grid__item{
+        padding-left:0;
+    }
+}
+
+
+/**
+ * Align the entire grid to the right. Extends `.grid`.
+ */
+#{$class-type}grid--right{
+    text-align:right;
+
+    > #{$class-type}grid__item{
+        text-align:left;
+    }
+}
+
+
+/**
+ * Centered grids align grid items centrally without needing to use push or pull
+ * classes. Extends `.grid`.
+ */
+#{$class-type}grid--center{
+    text-align:center;
+
+    > #{$class-type}grid__item{
+        text-align:left;
+    }
+}
+
+
+/**
+ * Align grid cells vertically (`.grid--middle` or `.grid--bottom`). Extends
+ * `.grid`.
+ */
+#{$class-type}grid--middle{
+
+    > #{$class-type}grid__item{
+        vertical-align:middle;
+    }
+}
+
+#{$class-type}grid--bottom{
+
+    > #{$class-type}grid__item{
+        vertical-align:bottom;
+    }
+}
+
+
+/**
+ * Create grids with narrower gutters. Extends `.grid`.
+ */
+#{$class-type}grid--narrow{
+    margin-left:-($gutter / 2);
+
+    > #{$class-type}grid__item{
+        padding-left:$gutter / 2;
+    }
+}
+
+
+/**
+ * Create grids with wider gutters. Extends `.grid`.
+ */
+#{$class-type}grid--wide{
+    margin-left:-($gutter * 2);
+
+    > #{$class-type}grid__item{
+        padding-left:$gutter * 2;
+    }
+}
 
 }//endif

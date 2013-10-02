@@ -68,41 +68,50 @@ $base-ui-color:     #ccc!default;
 $responsive:        true!default;
 
 /**
- * Responsiveness for widescreen/high resolution desktop monitors and beyond?
- * Note: `$responsive` variable above must be set to true before enabling this.
+ * Is this build mobile first? Setting to ‘true’ means that all grids will be
+ * 100% width if you do not apply a more specific class to them.
  */
-$responsive-extra:  false!default;
+$mobile-first:          true!default;
+
+/**
+ * Set the spacing between your grid items.
+ */
+$gutter:                24px!default;
 
 /**
  * Responsive push and pull produce a LOT of code, only turn them on if you
  * definitely need them.
  */
 $push:              false!default;
-/**
- * Note: `$push` variable above must be set to true before enabling these.
- */
-$palm-push:         false!default;
-$lap-push:          false!default;
-$lap-and-up-push:   false!default;
-$portable-push:     false!default;
-$desk-push:         false!default;
-
 $pull:              false!default;
-/**
- * Note: `$pull` variable above must be set to true before enabling these.
- */
-$palm-pull:         false!default;
-$lap-pull:          false!default;
-$lap-and-up-pull:   false!default;
-$portable-pull:     false!default;
-$desk-pull:         false!default;
 
 /**
- * Tell inuit.css when breakpoints start.
+ * Define your breakpoints. The first value is the prefix that shall be used for
+ * your classes (e.g. `.palm--one-half`), the second value is the media query
+ * that the breakpoint fires at.
  */
-$lap-start:         481px!default;
-$desk-start:        1024px!default;
-$desk-wide-start:   1200px!default;
+$breakpoints: (
+    'palm' '(max-width: 480px)',
+    'lap' '(min-width: 481px) and (max-width: 1023px)',
+    'portable' '(max-width: 1023px)',
+    'desk' '(min-width: 1024px)',
+ 	'desk-wide' '(min-width: 1200px)'
+
+)!default;
+
+/**
+ * Define which namespaced breakpoints you would like to generate for each of
+ * widths, push and pull. This is handy if you only need pull on, say, desk, or
+ * you only need a new width breakpoint at mobile sizes. It allows you to only
+ * compile as much CSS as you need. All are turned on by default, but you can
+ * add and remove breakpoints at will.
+ *
+ * Push and pull shall only be used if `$push` and/or `$pull` and `$responsive`
+ * have been set to ‘true’.
+ */
+$breakpoint-has-widths: ('palm', 'lap', 'portable', 'desk')!default;
+$breakpoint-has-push:   ('palm', 'lap', 'portable', 'desk')!default;
+$breakpoint-has-pull:   ('palm', 'lap', 'portable', 'desk')!default;
 
 
 
@@ -178,12 +187,47 @@ $brand-round:        4px!default;
 
 
 /*------------------------------------*\
+    $ADDITIONAL
+\*------------------------------------*/
+/**
+ * Would you like Sass’ silent classes, or regular CSS classes?
+ */
+$use-silent-classes:    false!default;
+
+/**
+ * Edit this line with caution. 
+ */
+$class-type:            unquote(".");
+
+@if $use-silent-classes == true{
+    $class-type:        unquote("%");
+}
+
+/**
+ * Using `inline-block` means that the grid items need their whitespace removing
+ * in order for them to work correctly. Set the following to true if you are
+ * going to achieve this by manually removing/commenting out any whitespace in
+ * your HTML yourself.
+ *
+ * Setting this to false invokes a hack which cannot always be guaranteed,
+ * please see the following for more detail:
+ *
+ * github.com/csswizardry/csswizardry-grids/commit/744d4b23c9d2b77d605b5991e54a397df72e0688
+ * github.com/csswizardry/inuit.css/issues/170#issuecomment-14859371
+ */
+$use-markup-fix:        true!default;
+
+
+
+
+
+/*------------------------------------*\
     $OBJECTS AND ABSTRACTIONS
 \*------------------------------------*/
 /**
  * Which objects and abstractions would you like to use?
  */
-$use-grids:         false!default;
+$use-grids:         true!default;
 $use-flexbox:       false!default;
 $use-columns:       false!default;
 $use-nav:           false!default;

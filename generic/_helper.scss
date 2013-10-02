@@ -173,8 +173,8 @@
     @include accessibility;
 }
 @if $responsive{
-    @each $state in palm, lap, lap-and-up, portable, desk, desk-wide{
-        @include media-query(#{$state}){
+    @each $state in $breakpoints{
+        @include grid-media-query(#{$state}){
             .accessibility--#{$state},
             .visuallyhidden--#{$state}{
                 @include accessibility;

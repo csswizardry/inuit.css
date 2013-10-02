@@ -10,149 +10,116 @@
  * variations.
  */
 
-@mixin grid-setup($namespace: "") {
-    /**
-    * Whole
-    */
-    .#{$namespace}one-whole         { width:100%; }
+@mixin device-type($namespace:""){
 
 
     /**
-    * Halves
-    */
-    .#{$namespace}one-half          { width:50%; }
+     * Whole
+     */
+    #{$class-type}#{$namespace}one-whole         { width:100%; }
 
 
     /**
-    * Thirds
-    */
-    .#{$namespace}one-third         { width:33.333%; }
-    .#{$namespace}two-thirds        { width:66.666%; }
+     * Halves
+     */
+    #{$class-type}#{$namespace}one-half          { width:50%; }
 
 
     /**
-    * Quarters
-    */
-    .#{$namespace}one-quarter       { width:25%; }
-    .#{$namespace}two-quarters      { @extend .#{$namespace}one-half; }
-    .#{$namespace}three-quarters    { width:75%; }
+     * Thirds
+     */
+    #{$class-type}#{$namespace}one-third         { width:33.333%; }
+    #{$class-type}#{$namespace}two-thirds        { width:66.666%; }
 
 
     /**
-    * Fifths
-    */
-    .#{$namespace}one-fifth         { width:20%; }
-    .#{$namespace}two-fifths        { width:40%; }
-    .#{$namespace}three-fifths      { width:60%; }
-    .#{$namespace}four-fifths       { width:80%; }
+     * Quarters
+     */
+    #{$class-type}#{$namespace}one-quarter       { width:25%; }
+    #{$class-type}#{$namespace}two-quarters      { @extend #{$class-type}#{$namespace}one-half; }
+    #{$class-type}#{$namespace}three-quarters    { width:75%; }
 
 
     /**
-    * Sixths
-    */
-    .#{$namespace}one-sixth         { width:16.666%; }
-    .#{$namespace}two-sixths        { @extend .#{$namespace}one-third; }
-    .#{$namespace}three-sixths      { @extend .#{$namespace}one-half; }
-    .#{$namespace}four-sixths       { @extend .#{$namespace}two-thirds; }
-    .#{$namespace}five-sixths       { width:83.333%; }
+     * Fifths
+     */
+    #{$class-type}#{$namespace}one-fifth         { width:20%; }
+    #{$class-type}#{$namespace}two-fifths        { width:40%; }
+    #{$class-type}#{$namespace}three-fifths      { width:60%; }
+    #{$class-type}#{$namespace}four-fifths       { width:80%; }
 
 
     /**
-    * Eighths
-    */
-    .#{$namespace}one-eighth        { width:12.5%; }
-    .#{$namespace}two-eighths       { @extend .#{$namespace}one-quarter; }
-    .#{$namespace}three-eighths     { width:37.5%; }
-    .#{$namespace}four-eighths      { @extend .#{$namespace}one-half; }
-    .#{$namespace}five-eighths      { width:62.5%; }
-    .#{$namespace}six-eighths       { @extend .#{$namespace}three-quarters; }
-    .#{$namespace}seven-eighths     { width:87.5%; }
+     * Sixths
+     */
+    #{$class-type}#{$namespace}one-sixth         { width:16.666%; }
+    #{$class-type}#{$namespace}two-sixths        { @extend #{$class-type}#{$namespace}one-third; }
+    #{$class-type}#{$namespace}three-sixths      { @extend #{$class-type}#{$namespace}one-half; }
+    #{$class-type}#{$namespace}four-sixths       { @extend #{$class-type}#{$namespace}two-thirds; }
+    #{$class-type}#{$namespace}five-sixths       { width:83.333%; }
 
 
     /**
-    * Tenths
-    */
-    .#{$namespace}one-tenth         { width:10%; }
-    .#{$namespace}two-tenths        { @extend .#{$namespace}one-fifth; }
-    .#{$namespace}three-tenths      { width:30%; }
-    .#{$namespace}four-tenths       { @extend .#{$namespace}two-fifths; }
-    .#{$namespace}five-tenths       { @extend .#{$namespace}one-half; }
-    .#{$namespace}six-tenths        { @extend .#{$namespace}three-fifths; }
-    .#{$namespace}seven-tenths      { width:70%; }
-    .#{$namespace}eight-tenths      { @extend .#{$namespace}four-fifths; }
-    .#{$namespace}nine-tenths       { width:90%; }
+     * Eighths
+     */
+    #{$class-type}#{$namespace}one-eighth        { width:12.5%; }
+    #{$class-type}#{$namespace}two-eighths       { @extend #{$class-type}#{$namespace}one-quarter; }
+    #{$class-type}#{$namespace}three-eighths     { width:37.5%; }
+    #{$class-type}#{$namespace}four-eighths      { @extend #{$class-type}#{$namespace}one-half; }
+    #{$class-type}#{$namespace}five-eighths      { width:62.5%; }
+    #{$class-type}#{$namespace}six-eighths       { @extend #{$class-type}#{$namespace}three-quarters; }
+    #{$class-type}#{$namespace}seven-eighths     { width:87.5%; }
 
 
     /**
-    * Twelfths
-    */
-    .#{$namespace}one-twelfth       { width:8.333%; }
-    .#{$namespace}two-twelfths      { @extend .#{$namespace}one-sixth; }
-    .#{$namespace}three-twelfths    { @extend .#{$namespace}one-quarter; }
-    .#{$namespace}four-twelfths     { @extend .#{$namespace}one-third; }
-    .#{$namespace}five-twelfths     { width:41.666% }
-    .#{$namespace}six-twelfths      { @extend .#{$namespace}one-half; }
-    .#{$namespace}seven-twelfths    { width:58.333%; }
-    .#{$namespace}eight-twelfths    { @extend .#{$namespace}two-thirds; }
-    .#{$namespace}nine-twelfths     { @extend .#{$namespace}three-quarters; }
-    .#{$namespace}ten-twelfths      { @extend .#{$namespace}five-sixths; }
-    .#{$namespace}eleven-twelfths   { width:91.666%; }
+     * Tenths
+     */
+    #{$class-type}#{$namespace}one-tenth         { width:10%; }
+    #{$class-type}#{$namespace}two-tenths        { @extend #{$class-type}#{$namespace}one-fifth; }
+    #{$class-type}#{$namespace}three-tenths      { width:30%; }
+    #{$class-type}#{$namespace}four-tenths       { @extend #{$class-type}#{$namespace}two-fifths; }
+    #{$class-type}#{$namespace}five-tenths       { @extend #{$class-type}#{$namespace}one-half; }
+    #{$class-type}#{$namespace}six-tenths        { @extend #{$class-type}#{$namespace}three-fifths; }
+    #{$class-type}#{$namespace}seven-tenths      { width:70%; }
+    #{$class-type}#{$namespace}eight-tenths      { @extend #{$class-type}#{$namespace}four-fifths; }
+    #{$class-type}#{$namespace}nine-tenths       { width:90%; }
+
+
+    /**
+     * Twelfths
+     */
+    #{$class-type}#{$namespace}one-twelfth       { width:8.333%; }
+    #{$class-type}#{$namespace}two-twelfths      { @extend #{$class-type}#{$namespace}one-sixth; }
+    #{$class-type}#{$namespace}three-twelfths    { @extend #{$class-type}#{$namespace}one-quarter; }
+    #{$class-type}#{$namespace}four-twelfths     { @extend #{$class-type}#{$namespace}one-third; }
+    #{$class-type}#{$namespace}five-twelfths     { width:41.666% }
+    #{$class-type}#{$namespace}six-twelfths      { @extend #{$class-type}#{$namespace}one-half; }
+    #{$class-type}#{$namespace}seven-twelfths    { width:58.333%; }
+    #{$class-type}#{$namespace}eight-twelfths    { @extend #{$class-type}#{$namespace}two-thirds; }
+    #{$class-type}#{$namespace}nine-twelfths     { @extend #{$class-type}#{$namespace}three-quarters; }
+    #{$class-type}#{$namespace}ten-twelfths      { @extend #{$class-type}#{$namespace}five-sixths; }
+    #{$class-type}#{$namespace}eleven-twelfths   { width:91.666%; }
+
+
 }
-
-@include grid-setup();
-
 
 
 /**
- * If you have set `$responsive` to ‘true’ in `_vars.scss` then you now have
- * access to these classes. You can define at which breakpoint you’d like an
- * element to be a certain size, e.g.:
- *
- * `<div class="g  one-quarter  lap-one-half  palm-one-whole"> ... </div>`
- *
- * This would create a `div` that, at ‘desktop’ sizes, takes up a quarter of the
- * horizontal space, a half of that space at ‘tablet’ sizes, and goes full width
- * at ‘mobile’ sizes.
- *
- * Demo: jsfiddle.net/inuitcss/WS4Ge
- *
+ * Our regular, non-responsive width classes.
  */
+@include device-type();
 
+
+/**
+ * Our responsive classes, if we have enabled them.
+ */
 @if $responsive == true{
 
-@include media-query(palm){
-    @include grid-setup("palm-");
-}
+    @each $name in $breakpoint-has-widths {
+        @include grid-media-query($name) {
+           @include device-type('#{$name}--');
+        }
+    }
 
-@include media-query(lap){
-    @include grid-setup("lap-");
-}
-
-@include media-query(lap-and-up){
-    @include grid-setup("lap-and-up-");
-}
-
-@include media-query(portable){
-    @include grid-setup("portable-");
-}
-
-@include media-query(desk){
-    @include grid-setup("desk-");
-}
-
-
-/**
- * If you have set the additional `$responsive-extra` variable to ‘true’ in
- * `_vars.scss` then you now have access to the following class available to
- * accomodate much larger screen resolutions.
- */
-
-@if $responsive-extra == true{
-
-@include media-query(desk-wide){
-    @include grid-setup("desk-wide-");
-}
 
 }
-
-} /* endif */
