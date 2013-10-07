@@ -40,7 +40,7 @@
  * Grid wrapper
  */
 .grid{
-    margin-left:-$base-spacing-unit;
+    @include rem(margin-left, -($base-spacing-unit));
     list-style:none;
     margin-bottom:0;
 }
@@ -60,7 +60,7 @@
     .grid__item{
         display:inline-block;
         width:100%;
-        padding-left:$base-spacing-unit;
+        @include rem(padding-left, $base-spacing-unit);
         vertical-align:top;
         @if $global-border-box == false{
             @include vendor(box-sizing, border-box);
@@ -144,10 +144,10 @@
  * Create grids with narrower gutters. Extends `.grid`.
  */
 .grid--narrow{
-    margin-left:-($gutter / 2);
+    @include rem(margin-left, -($half-spacing-unit));
 
     > .grid__item{
-        padding-left:$gutter / 2;
+        @include rem(padding-left, $half-spacing-unit);
     }
 }
 
@@ -156,10 +156,10 @@
  * Create grids with wider gutters. Extends `.grid`.
  */
 .grid--wide{
-    margin-left:-($gutter * 2);
+    @include rem(margin-left, -(2 * $base-spacing-unit));
 
     > .grid__item{
-        padding-left:$gutter * 2;
+        @include rem(padding-left, 2 * $base-spacing-unit);
     }
 }
 

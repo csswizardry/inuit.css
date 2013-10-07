@@ -7,7 +7,7 @@
  *
  */
 fieldset{
-    padding:$base-spacing-unit;
+    @include rem(padding, $base-spacing-unit);
 }
 
 

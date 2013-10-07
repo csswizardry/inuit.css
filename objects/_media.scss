@@ -23,14 +23,14 @@
 }
     .media__img{
         float:left;
-        margin-right:$base-spacing-unit;
+        @include rem(margin-right, $base-spacing-unit);
     }
     /**
      * Reversed image location (right instead of left).
      */
     .media__img--rev{
         float:right;
-        margin-left:$base-spacing-unit;
+        @include rem(margin-left, $base-spacing-unit);
     }
 
         .media__img img,
@@ -51,10 +51,10 @@
      * `.img`s in `.islet`s need an appropriately sized margin.
      */
     .islet .media__img{
-        margin-right:$half-spacing-unit;
+        @include rem(margin-right, $half-spacing-unit);
     }
     .islet .media__img--rev{
-        margin-left:$half-spacing-unit;
+        @include rem(margin-left, $half-spacing-unit);
     }
 
 }//endif

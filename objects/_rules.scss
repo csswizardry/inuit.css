@@ -12,10 +12,10 @@
 .rule{
     color:$base-ui-color;
     border:none;
-    border-bottom-width:1px;
-    border-bottom-style:solid;
-    margin-bottom:$base-spacing-unit - 1px;
-    margin-bottom:(($base-spacing-unit - 1px) / $base-font-size)*1rem;
+    border-top-width:1px;
+    border-top-style:solid;
+    margin-top: -1px;
+    @include rem(margin-bottom, $base-spacing-unit);
 }
 
 
@@ -23,7 +23,7 @@
  * Dotted rules
  */
 .rule--dotted{
-    border-bottom-style:dotted;
+    border-top-style:dotted;
 }
 
 
@@ -31,7 +31,7 @@
  * Dashed rules
  */
 .rule--dashed{
-    border-bottom-style:dashed;
+    border-top-style:dashed;
 }
 
 

@@ -39,69 +39,69 @@
 /**
  * Add/remove margins
  */
-.push           { margin:       $base-spacing-unit!important; }
-.push--top      { margin-top:   $base-spacing-unit!important; }
-.push--right    { margin-right: $base-spacing-unit!important; }
-.push--bottom   { margin-bottom:$base-spacing-unit!important; }
-.push--left     { margin-left:  $base-spacing-unit!important; }
-.push--ends     { margin-top:   $base-spacing-unit!important; margin-bottom:$base-spacing-unit!important; }
-.push--sides    { margin-right: $base-spacing-unit!important; margin-left:  $base-spacing-unit!important; }
+.push           { @include rem(margin,       $base-spacing-unit!important); }
+.push--top      { @include rem(margin-top,   $base-spacing-unit!important); }
+.push--right    { @include rem(margin-right, $base-spacing-unit!important); }
+.push--bottom   { @include rem(margin-bottom,$base-spacing-unit!important); }
+.push--left     { @include rem(margin-left,  $base-spacing-unit!important); }
+.push--ends     { @include rem(margin-top,   $base-spacing-unit!important); @include rem(margin-bottom,$base-spacing-unit!important); }
+.push--sides    { @include rem(margin-right, $base-spacing-unit!important); @include rem(margin-left,  $base-spacing-unit!important); }
 
-.push-half          { margin:       $half-spacing-unit!important; }
-.push-half--top     { margin-top:   $half-spacing-unit!important; }
-.push-half--right   { margin-right: $half-spacing-unit!important; }
-.push-half--bottom  { margin-bottom:$half-spacing-unit!important; }
-.push-half--left    { margin-left:  $half-spacing-unit!important; }
-.push-half--ends    { margin-top:   $half-spacing-unit!important; margin-bottom:$half-spacing-unit!important; }
-.push-half--sides   { margin-right: $half-spacing-unit!important; margin-left:  $half-spacing-unit!important; }
+.push-half          { @include rem(margin,       $half-spacing-unit!important); }
+.push-half--top     { @include rem(margin-top,   $half-spacing-unit!important); }
+.push-half--right   { @include rem(margin-right, $half-spacing-unit!important); }
+.push-half--bottom  { @include rem(margin-bottom,$half-spacing-unit!important); }
+.push-half--left    { @include rem(margin-left,  $half-spacing-unit!important); }
+.push-half--ends    { @include rem(margin-top,   $half-spacing-unit!important); @include rem(margin-bottom,$half-spacing-unit!important); }
+.push-half--sides   { @include rem(margin-right, $half-spacing-unit!important); @include rem(margin-left,  $half-spacing-unit!important); }
 
-.flush          { margin:       0!important; }
-.flush--top     { margin-top:   0!important; }
-.flush--right   { margin-right: 0!important; }
-.flush--bottom  { margin-bottom:0!important; }
-.flush--left    { margin-left:  0!important; }
-.flush--ends    { margin-top:   0!important; margin-bottom:0!important; }
-.flush--sides   { margin-right: 0!important; margin-left:  0!important; }
+.flush          { @include rem(margin,       0!important); }
+.flush--top     { @include rem(margin-top,   0!important); }
+.flush--right   { @include rem(margin-right, 0!important); }
+.flush--bottom  { @include rem(margin-bottom,0!important); }
+.flush--left    { @include rem(margin-left,  0!important); }
+.flush--ends    { @include rem(margin-top,   0!important); @include rem(margin-bottom,0!important); }
+.flush--sides   { @include rem(margin-right, 0!important); @include rem(margin-left,  0!important); }
 
 
 /**
  * Add/remove paddings
  */
-.soft           { padding:       $base-spacing-unit!important; }
-.soft--top      { padding-top:   $base-spacing-unit!important; }
-.soft--right    { padding-right: $base-spacing-unit!important; }
-.soft--bottom   { padding-bottom:$base-spacing-unit!important; }
-.soft--left     { padding-left:  $base-spacing-unit!important; }
-.soft--ends     { padding-top:   $base-spacing-unit!important; padding-bottom:$base-spacing-unit!important; }
-.soft--sides    { padding-right: $base-spacing-unit!important; padding-left:  $base-spacing-unit!important; }
+.soft           { @include rem(padding,       $base-spacing-unit!important); }
+.soft--top      { @include rem(padding-top,   $base-spacing-unit!important); }
+.soft--right    { @include rem(padding-right, $base-spacing-unit!important); }
+.soft--bottom   { @include rem(padding-bottom,$base-spacing-unit!important); }
+.soft--left     { @include rem(padding-left,  $base-spacing-unit!important); }
+.soft--ends     { @include rem(padding-top,   $base-spacing-unit!important); @include rem(padding-bottom,$base-spacing-unit!important); }
+.soft--sides    { @include rem(padding-right, $base-spacing-unit!important); @include rem(padding-left,  $base-spacing-unit!important); }
 
-.soft-half           { padding:       $half-spacing-unit!important; }
-.soft-half--top      { padding-top:   $half-spacing-unit!important; }
-.soft-half--right    { padding-right: $half-spacing-unit!important; }
-.soft-half--bottom   { padding-bottom:$half-spacing-unit!important; }
-.soft-half--left     { padding-left:  $half-spacing-unit!important; }
-.soft-half--ends     { padding-top:   $half-spacing-unit!important; padding-bottom:$half-spacing-unit!important; }
-.soft-half--sides    { padding-right: $half-spacing-unit!important; padding-left:  $half-spacing-unit!important; }
+.soft-half           { @include rem(padding,       $half-spacing-unit!important); }
+.soft-half--top      { @include rem(padding-top,   $half-spacing-unit!important); }
+.soft-half--right    { @include rem(padding-right, $half-spacing-unit!important); }
+.soft-half--bottom   { @include rem(padding-bottom,$half-spacing-unit!important); }
+.soft-half--left     { @include rem(padding-left,  $half-spacing-unit!important); }
+.soft-half--ends     { @include rem(padding-top,   $half-spacing-unit!important); @include rem(padding-bottom,$half-spacing-unit!important); }
+.soft-half--sides    { @include rem(padding-right, $half-spacing-unit!important); @include rem(padding-left,  $half-spacing-unit!important); }
 
-.hard           { padding:       0!important; }
-.hard--top      { padding-top:   0!important; }
-.hard--right    { padding-right: 0!important; }
-.hard--bottom   { padding-bottom:0!important; }
-.hard--left     { padding-left:  0!important; }
-.hard--ends     { padding-top:   0!important; padding-bottom:0!important; }
-.hard--sides    { padding-right: 0!important; padding-left:  0!important; }
+.hard           { @include rem(padding,       0!important); }
+.hard--top      { @include rem(padding-top,   0!important); }
+.hard--right    { @include rem(padding-right, 0!important); }
+.hard--bottom   { @include rem(padding-bottom,0!important); }
+.hard--left     { @include rem(padding-left,  0!important); }
+.hard--ends     { @include rem(padding-top,   0!important); @include rem(padding-bottom,0!important); }
+.hard--sides    { @include rem(padding-right, 0!important); @include rem(padding-left,  0!important); }
 
 
 /**
  * Pull items full width of `.island` parents.
  */
 .full-bleed{
-    margin-right:-$base-spacing-unit!important;
-    margin-left: -$base-spacing-unit!important;
+    @include rem(margin-right,-($base-spacing-unit)!important);
+    @include rem(margin-left, -($base-spacing-unit)!important);
 
     .islet &{
-        margin-right:-($half-spacing-unit)!important;
-        margin-left: -($half-spacing-unit)!important;
+        @include rem(margin-right,-($half-spacing-unit)!important);
+        @include rem(margin-left, -($half-spacing-unit)!important);
     }
 }
 

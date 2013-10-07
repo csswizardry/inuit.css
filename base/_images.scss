@@ -32,18 +32,18 @@ img[height]{
  */
 .img--right{
     float:right;
-    margin-bottom:$base-spacing-unit;
-    margin-left:$base-spacing-unit;
+    @include rem(margin-bottom, $base-spacing-unit);
+    @include rem(margin-left, $base-spacing-unit);
 }
 .img--left{
     float:left;
-    margin-right:$base-spacing-unit;
-    margin-bottom:$base-spacing-unit;
+    @include rem(margin-right, $base-spacing-unit);
+    @include rem(margin-bottom, $base-spacing-unit);
 }
 .img--center{
     display:block;
     margin-right:auto;
-    margin-bottom:$base-spacing-unit;
+    @include rem(margin-bottom, $base-spacing-unit);
     margin-left:auto;
 }
 
@@ -55,13 +55,13 @@ img[height]{
  * distort when resized below a certain width. Use with caution.
  */
 .img--short{
-    height:5 * $base-spacing-unit;
+    @include rem(height, 5 * $base-spacing-unit);
 }
 .img--medium{
-    height:10 * $base-spacing-unit;
+    @include rem(height, 10 * $base-spacing-unit);
 }
 .img--tall{
-    height:15 * $base-spacing-unit;
+    @include rem(height, 15 * $base-spacing-unit);
 }
 
 

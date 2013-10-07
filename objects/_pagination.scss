@@ -32,13 +32,13 @@
     word-spacing:-0.43em;
 }
     .pagination > li{
-        padding:$base-spacing-unit / 2;
+        @include rem(padding, $half-spacing-unit);
         letter-spacing:normal;
         word-spacing:normal;
     }
         .pagination > li > a{
-            padding:$base-spacing-unit / 2;
-            margin:-$base-spacing-unit / 2;
+            @include rem(padding, $half-spacing-unit);
+            @include rem(margin, -($half-spacing-unit));
         }
             .pagination__first a:before{
                 content:"\00AB" "\00A0";

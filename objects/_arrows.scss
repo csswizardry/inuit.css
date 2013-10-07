@@ -27,10 +27,10 @@ $arrow:                 $arrow-size - $arrow-border;
         border-collapse:separate;
     }
     &:before{
-        border:$border solid transparent;
+        @include rem(border, $border solid transparent);
     }
     &:after{
-        border:$arrow solid transparent;
+        @include rem(border, $arrow solid transparent);
     }
 }
 
@@ -51,10 +51,10 @@ $arrow:                 $arrow-size - $arrow-border;
     @extend %arrow;
 
     &:before{
-        top:$arrow;
+        @include rem(top, $arrow);
     }
     &:after{
-        top:$border;
+        @include rem(top, $border);
     }
 }
 
@@ -64,10 +64,10 @@ $arrow:                 $arrow-size - $arrow-border;
     &:before,
     &:after{
         top:50%;
-        margin-top:-$border;
+        @include rem(margin-top, -($border));
     }
     &:after{
-        margin-top:-$arrow;
+        @include rem(margin-top, -($arrow));
     }
 }
 
@@ -75,10 +75,10 @@ $arrow:                 $arrow-size - $arrow-border;
     @extend %arrow;
 
     &:before{
-        bottom:$arrow;
+        @include rem(bottom, $arrow);
     }
     &:after{
-        bottom:$border;
+        @include rem(bottom, $border);
     }
 }
 
@@ -104,10 +104,10 @@ $arrow:                 $arrow-size - $arrow-border;
     @extend %arrow;
 
     &:before{
-        left:$arrow;
+        @include rem(left, $arrow);
     }
     &:after{
-        left:$border;
+        @include rem(left, $border);
     }
 }
 
@@ -117,10 +117,10 @@ $arrow:                 $arrow-size - $arrow-border;
     &:before,
     &:after{
         left:50%;
-        margin-left:-$border;
+        @include rem(margin-left, -($border));
     }
     &:after{
-        margin-left:-$arrow;
+        @include rem(margin-left, -($arrow));
     }
 }
 
@@ -128,10 +128,10 @@ $arrow:                 $arrow-size - $arrow-border;
     @extend %arrow;
 
     &:before{
-        right:$arrow;
+        @include rem(right, $arrow);
     }
     &:after{
-        right:$border;
+        @include rem(right, $border);
     }
 }
 

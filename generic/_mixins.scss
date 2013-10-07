@@ -20,6 +20,38 @@
 
 
 /**
+ * Convert basic px measurements into rem units
+ */
+@mixin rem($property, $values) {
+    #{$property}:$values;
+    @if $use-rem == true {
+        @if type-of($values) == "number" {
+            #{$property}:$values/$base-font-size*1rem;
+        } @else {
+            $rem-values:();
+            @each $value in $values {
+                @if type-of($value) == "number" and unit($value) == px {
+                    $rem-values:append($rem-values, $value/$base-font-size*1rem);
+                } @else {
+                    $rem-values:append($rem-values, $value); 
+                }
+            }
+            #{$property}:$rem-values;
+        }        
+    }
+}
+
+@function rem($value) {
+    @if $use-rem == true and type-of($value) == "number" and unit($value) == px {
+        @return $value/$base-font-size*1rem;
+    } @else {
+        @return $value;
+    }
+}
+
+
+
+/**
  * Style any number of headings in one fell swoop, e.g.:
  *
    .foo{
@@ -43,7 +75,7 @@
     }
 }
 
-
+/**/
 /**
  * Create vendor-prefixed CSS in one go, e.g.
  *
