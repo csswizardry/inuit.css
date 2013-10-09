@@ -288,8 +288,12 @@ $palm-end:              $lap-start - 1px;
 $lap-end:               $desk-start - 1px;
 
 @mixin media-query($media-query){
-    @if $responsive {
-    
+    @if $ie-mode {
+        
+        @content;
+        
+    } @else {
+        
         @if $media-query == palm{
     
             @media only screen and (max-width:$palm-end) { @content; }
@@ -326,8 +330,6 @@ $lap-end:               $desk-start - 1px;
     
         }
         
-    } @else {
-        @content;
     }
 
 }
