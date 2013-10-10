@@ -180,7 +180,42 @@ $brand-face:        "Helvetica Neue", sans-serif!default;
 /**
  * How big would you like round corners to be by default?
  */
-$brand-round:        4px!default;
+$brand-round:        3px!default;
+
+
+
+
+
+/*------------------------------------*\
+    $ADDITIONAL
+\*------------------------------------*/
+/**
+ * Would you like Sass’ silent classes, or regular CSS classes?
+ */
+$use-silent-classes:    false!default;
+
+/**
+ * Edit this line with caution. 
+ */
+$class-type:            unquote(".");
+
+@if $use-silent-classes == true{
+    $class-type:        unquote("%");
+}
+
+/**
+ * Using `inline-block` means that the grid items need their whitespace removing
+ * in order for them to work correctly. Set the following to true if you are
+ * going to achieve this by manually removing/commenting out any whitespace in
+ * your HTML yourself.
+ *
+ * Setting this to false invokes a hack which cannot always be guaranteed,
+ * please see the following for more detail:
+ *
+ * github.com/csswizardry/csswizardry-grids/commit/744d4b23c9d2b77d605b5991e54a397df72e0688
+ * github.com/csswizardry/inuit.css/issues/170#issuecomment-14859371
+ */
+$use-markup-fix:        true!default;
 
 
 
@@ -230,13 +265,13 @@ $use-markup-fix:        true!default;
 $use-grids:         true!default;
 $use-flexbox:       false!default;
 $use-columns:       false!default;
-$use-nav:           false!default;
+$use-nav:           true!default;
 $use-options:       false!default;
 $use-pagination:    false!default;
 $use-breadcrumb:    false!default;
 $use-media:         false!default;
 $use-marginalia:    false!default;
-$use-island:        false!default;
+$use-island:        true!default;
 $use-block-list:    false!default;
 $use-matrix:        false!default;
 $use-split:         false!default;
@@ -246,7 +281,7 @@ $use-flyout:        false!default;
 $use-arrows:        false!default;
 $use-sprite:        false!default;
 $use-icon-text:     false!default;
-$use-beautons:      false!default;
+$use-beautons:      true!default;
 $use-lozenges:      false!default;
 $use-rules:         false!default;
 $use-stats:         false!default;
