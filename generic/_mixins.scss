@@ -284,45 +284,35 @@
  *
  * We work out your end points for you:
  */
-$palm-end:              $lap-start - 1px;
-$lap-end:               $desk-start - 1px;
 
-@mixin media-query($media-query){
+@mixin grid-media-query($media-query){
+    $breakpoint-found: false;
 
-    @if $media-query == palm{
+    @each $breakpoint in $breakpoints{
+        $name: nth($breakpoint, 1);
+        $declaration: nth($breakpoint, 2);
 
-        @media only screen and (max-width:$palm-end) { @content; }
+        @if $media-query == $name and $declaration{
+            $breakpoint-found: true;
 
+            @media only screen and #{$declaration}{
+                @content;
+            }
+        }
     }
 
-    @if $media-query == lap{
-
-        @media only screen and (min-width:$lap-start) and (max-width:$lap-end) { @content; }
-
+    @if $breakpoint-found == false{
+        @warn "Breakpoint ‘#{$media-query}’ does not exist"
     }
+}
 
-    @if $media-query == lap-and-up{
 
-        @media only screen and (min-width:$lap-start) { @content; }
-
+/**
+ * Drop relative positioning into silent classes which can’t take advantage of
+ * the `[class*="push--"]` and `[class*="pull--"]` selectors.
+ */
+@mixin silent-relative(){
+    @if $use-silent-classes == true{
+        position:relative;
     }
-
-    @if $media-query == portable{
-
-        @media only screen and (max-width:$lap-end) { @content; }
-
-    }
-
-    @if $media-query == desk{
-
-        @media only screen and (min-width:$desk-start) { @content; }
-
-    }
-
-    @if $media-query == desk-wide{
-
-        @media only screen and (min-width: $desk-wide-start) { @content; }
-
-    }
-
 }
