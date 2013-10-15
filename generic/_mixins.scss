@@ -10,11 +10,12 @@
  * Thanks to @redclov3r for the `line-height` Sass:
  * twitter.com/redclov3r/status/250301539321798657
  */
-@mixin font-size($font-size, $line-height:true){
+@mixin font-size($font-size, $line-height:true, $lh-ratio: 0.5){
     font-size:$font-size;
     font-size:($font-size / $base-font-size)*1rem;
     @if $line-height == true{
-        line-height:ceil($font-size / $base-line-height) * ($base-line-height / $font-size);
+        $line-height-r: $base-line-height * $lh-ratio;
+        line-height:ceil($font-size / $line-height-r + 0.001) * $lh-ratio * ($base-line-height / $font-size) + 0.01;
     }
 }
 
