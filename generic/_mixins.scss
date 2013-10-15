@@ -10,13 +10,46 @@
  * Thanks to @redclov3r for the `line-height` Sass:
  * twitter.com/redclov3r/status/250301539321798657
  */
-@mixin font-size($font-size, $line-height:true){
+@mixin font-size($font-size, $line-height:true, $lh-ratio: 0.5){
     font-size:$font-size;
     font-size:($font-size / $base-font-size)*1rem;
     @if $line-height == true{
-        line-height:ceil($font-size / $base-line-height) * ($base-line-height / $font-size);
+        $line-height-r: $base-line-height * $lh-ratio;
+        line-height:ceil($font-size / $line-height-r + 0.001) * $lh-ratio * ($base-line-height / $font-size) + 0.01;
     }
 }
+
+
+/**
+ * Convert basic px measurements into rem units
+ */
+@mixin rem($property, $values) {
+    #{$property}:$values;
+    @if $use-rem == true {
+        @if type-of($values) == "number" {
+            #{$property}:$values/$base-font-size*1rem;
+        } @else {
+            $rem-values:();
+            @each $value in $values {
+                @if type-of($value) == "number" and unit($value) == px {
+                    $rem-values:append($rem-values, $value/$base-font-size*1rem);
+                } @else {
+                    $rem-values:append($rem-values, $value); 
+                }
+            }
+            #{$property}:$rem-values;
+        }        
+    }
+}
+
+@function rem($value) {
+    @if $use-rem == true and type-of($value) == "number" and unit($value) == px {
+        @return $value/$base-font-size*1rem;
+    } @else {
+        @return $value;
+    }
+}
+
 
 
 /**
@@ -43,7 +76,7 @@
     }
 }
 
-
+/**/
 /**
  * Create vendor-prefixed CSS in one go, e.g.
  *

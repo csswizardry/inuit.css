@@ -28,11 +28,11 @@
   */
  .stat-group{
     @extend .cf;
-    margin-left:-$base-spacing-unit;
+    @include rem(margin-left, -($base-spacing-unit));
 }
     .stat{
         float:left;
-        margin-left:$base-spacing-unit;
+        @include rem(margin-left, $base-spacing-unit);
         display:-ms-flexbox;
         display:-webkit-flex;
         display:   -moz-flex;

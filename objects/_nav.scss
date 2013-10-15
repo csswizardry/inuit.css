@@ -99,7 +99,7 @@
         word-spacing:normal;
 
         > a{
-            padding:$half-spacing-unit;
+            @include rem(padding, $half-spacing-unit);
         }
     }
 }

@@ -29,16 +29,18 @@
     list-style:none;
     margin-left:0;
     border-top-width:1px;
+    margin-top: -1px;
 
     > li{
         border-bottom-width:1px;
-        padding:$half-spacing-unit;
+        margin-top: -1px;
+        @include rem(padding, $half-spacing-unit);
     }
 }
         .block-list__link{
             display:block;
-            padding:$half-spacing-unit;
-            margin:-$half-spacing-unit;
+            @include rem(padding, $half-spacing-unit);
+            @include rem(margin, -($half-spacing-unit));
         }
 
 }//endif

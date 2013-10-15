@@ -35,7 +35,7 @@
 
     .marginalia__body{
       right:100%;
-      padding-right:$base-spacing-unit;
+      @include rem(padding-right, $base-spacing-unit);
       text-align:right;
     }
 
@@ -44,7 +44,7 @@
      */
     .marginalia__body--right{
         left:100%;
-        padding-left:$base-spacing-unit;
+        @include rem(padding-left, $base-spacing-unit);
         text-align:left;
     }
 }

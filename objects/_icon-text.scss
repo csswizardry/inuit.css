@@ -20,7 +20,7 @@
  *
  */
 .icon-text > .icon-text__icon{
-    margin-right:$half-spacing-unit / 2;
+    @include rem(margin-right, $half-spacing-unit / 2);
 }
 
 
@@ -34,7 +34,7 @@
  *
  */
 .icon-text--rev > .icon-text__icon{
-    margin-left:$half-spacing-unit / 2;
+    @include rem(margin-left, $half-spacing-unit / 2);
 }
 
 }//endif
