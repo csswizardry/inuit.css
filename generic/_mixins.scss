@@ -28,17 +28,19 @@
        }
     }
  *
- * With thanks to @lar_zzz, @paranoida and @rowanmanning for refining and
- * improving my initial mixin.
+ * With thanks to @lar_zzz, @paranoida, @rowanmanning and ultimately
+ * @thierrylemoulec for refining and improving my initial mixin.
  */
 @mixin headings($from: 1, $to: 6){
+    %base-heading {
+        @content
+    }
+
     @if $from >= 1 and $to <= 6{
-        $heading-selector: (unquote(""));
-        @for $i from $from through $to {
-            $heading-selector: $heading-selector, unquote("h#{$i}")
-        }
-        #{$heading-selector}{
-            @content
+        @for $i from $from through $to{
+            h#{$i}{
+                @extend %base-heading;
+            }
         }
     }
 }
