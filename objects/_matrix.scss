@@ -63,27 +63,29 @@
 
     /**
      * Apply these classes alongside the `.matrix` or `.multi-list` classes on
-     * lists to determine how wide their columns are.
+     * lists to determine how wide their default columns are.
      */
-    .two-cols > *{
-        width:50%;
-    }
-    .three-cols > *{
-        width:33.333%;
-    }
-    .four-cols > *{
-        width:25%;
-    }
-    .five-cols > *{
-        width:20%;
-    }
+    .two-cols   > *{ width:50%;     }
+    .three-cols > *{ width:33.333%; }
+    .four-cols  > *{ width:25%;     }
+    .five-cols  > *{ width:20%;     }
+    .six-cols   > *{ width:16.666%; }
+    .seven-cols > *{ width:14.285%; }
+    .eight-cols > *{ width:12.5%;   }
+    .nine-cols  > *{ width:11.111%; }
+    
     /**
-     * Unfortunately we have to qualify this selector in order to bring its
-     * specificity above the `.[number]-cols > li` selectors above.
+     * To allow for individual items to be in different sizes apply these onto
+     * any item within the multi-list or matrix container.
      */
-    .matrix > .all-cols,
-    .multi-list > .all-cols{
-        width:100%;
-    }
+    .matrix > .all-cols,   .multi-list > .all-cols   { width:100%;    }
+    .matrix > .two-cols,   .multi-list > .two-cols   { width:50%;     }
+    .matrix > .three-cols, .multi-list > .three-cols { width:33.333%; }
+    .matrix > .four-cols,  .multi-list > .four-cols  { width:25%;     }
+    .matrix > .five-cols,  .multi-list > .five-cols  { width:20%;     }
+    .matrix > .six-cols,   .multi-list > .six-cols   { width:16.666%; }
+    .matrix > .seven-cols, .multi-list > .seven-cols { width:14.285%; }
+    .matrix > .eight-cols, .multi-list > .eight-cols { width:12.5%;   }
+    .matrix > .nine-cols,  .multi-list > .nine-cols  { width:11.111%; }
 
 }//endif
