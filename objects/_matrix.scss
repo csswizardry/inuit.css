@@ -24,7 +24,7 @@
     border-left-width:1px;
     @extend .cf;
 
-     > li{
+     > *{
         float:left;
         border-right-width:1px;
         @if $global-border-box == false{
@@ -56,7 +56,7 @@
     margin-left:0;
     @extend .cf;
 }
-    .multi-list > li{
+    .multi-list > *{
         float:left;
     }
 
@@ -65,16 +65,16 @@
      * Apply these classes alongside the `.matrix` or `.multi-list` classes on
      * lists to determine how wide their columns are.
      */
-    .two-cols > li{
+    .two-cols > *{
         width:50%;
     }
-    .three-cols > li{
+    .three-cols > *{
         width:33.333%;
     }
-    .four-cols > li{
+    .four-cols > *{
         width:25%;
     }
-    .five-cols > li{
+    .five-cols > *{
         width:20%;
     }
     /**
