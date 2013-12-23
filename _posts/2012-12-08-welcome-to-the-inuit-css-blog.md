@@ -1,14 +1,14 @@
 ---
 layout: post
-title: Welcome to the inuit.css blog
-meta: Hello, and welcome to the brand new inuit.css blog!
+title: Welcome to the inuitcss blog
+meta: Hello, and welcome to the brand new inuitcss blog!
 ---
 
 # {{ page.title }}
 
-Hey there! Thanks for your interest in [inuit.css](http://github.com/csswizardry/inuit.css).
+Hey there! Thanks for your interest in [inuitcss](http://github.com/csswizardry/inuit.css).
 I’ve set up this little blog in order to share more in-depth, detailed tips,
-tutorials, update information and more… If you use inuit.css, or are considering
+tutorials, update information and more… If you use inuitcss, or are considering
 it, hopefully this little site will aid you on your journey.
 
 If there’s a particular topic you’d like to see covered, or you’d like a better

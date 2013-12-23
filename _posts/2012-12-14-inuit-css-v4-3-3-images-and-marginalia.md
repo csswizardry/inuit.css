@@ -1,12 +1,12 @@
 ---
 layout: post
-title: inuit.css v4.3.3 &ndash; images and marginalia
+title: inuitcss v4.3.3 &ndash; images and marginalia
 meta: New image styles and a marginalia object added in v4.3.3
 ---
 
 # {{ page.title }}
 
-I’ve just pushed [v4.3.3 of inuit.css to GitHub](https://github.com/csswizardry/inuit.css)
+I’ve just pushed [v4.3.3 of inuitcss to GitHub](https://github.com/csswizardry/inuit.css)
 which included some new image classes—thanks to [Anderson Juhasc](https://github.com/Anderson-Juhasc)—and
 a marginalia object, courtesy of [Sacha Schmid](https://github.com/RadLikeWhoa).
 
@@ -23,7 +23,7 @@ or [view a demo](http://jsfiddle.net/inuitcss/yMtur/embedded/result,html,css).
 
 [Marginalia](http://en.wikipedia.org/wiki/Marginalia) is a ‘proper’ term for
 notes and asides often included in the margin of a piece of work (usually a book).
-Sacha Schmid built and submitted a marginalia object for inuit.css which got
+Sacha Schmid built and submitted a marginalia object for inuitcss which got
 included as part of v4.3.3.
 
 You can [browse the code](https://github.com/csswizardry/inuit.css/blob/master/objects/_marginalia.scss)

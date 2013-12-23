@@ -1,19 +1,19 @@
 ---
 layout: post
-title: Building grid systems with inuit.css
-meta: Look at how inuit.css’ grid system work and how to implement and use it.
+title: Building grid systems with inuitcss
+meta: Look at how inuitcss’ grid system work and how to implement and use it.
 ---
 
 # {{ page.title }}
 
 Hey there! The first proper tutorial on this site is gonna be a real simple one,
-covering inuit.css’ grid system, what it can do, and how best to use it.  For
+covering inuitcss’ grid system, what it can do, and how best to use it.  For
 starters, you’ll probably want to have the files
 [`_grids.scss`](https://github.com/csswizardry/inuit.css/blob/master/objects/_grids.scss)
 and [`_widths.css`](https://github.com/csswizardry/inuit.css/blob/master/generic/_widths.scss)
 open.
 
-inuit.css’ grid system has a few things worth noting:
+inuitcss’ grid system has a few things worth noting:
 
 * It will not work in IE7 and below.
 * It doesn’t use columns, but _proportions_.
@@ -43,23 +43,23 @@ at [20:25](http://vimeo.com/44773888).
 
 ## No columns
 
-As above, inuit.css’ grid system doesn’t work on the concept of columns, but on
+As above, inuitcss’ grid system doesn’t work on the concept of columns, but on
 the concept of proportions. In this age of responsive design, fluidity and
 device uncertainty, it makes little sense to build grid systems to finite
 and absolute numbers like ‘twelve columns’. It is much friendlier and more
 sensible to think of fluid grids in terms of fractions; one half, two thirds,
 five eighths and so on.
 
-As such, inuit.css’ `_widths.scss` is full of classes like these, making it
+As such, inuitcss’ `_widths.scss` is full of classes like these, making it
 really nice and easy to rapidly build grid systems by thinking in human-format
 terms. It also allows for nesting; `.span-6` might be `width:50%` in a twelve
 column grid system, but if you were to put that `.span-6` in a `.span-10` you
-wouldn’t get quite what you expect. <strong>inuit.css’ grids are friendly and
+wouldn’t get quite what you expect. <strong>inuitcss’ grids are friendly and
 nestable!</strong>
 
 ## How it works
 
-Using inuit.css’ grid system is super simple stuff! Each set of grids comprises
+Using inuitcss’ grid system is super simple stuff! Each set of grids comprises
 of a wrapper to place the grid items in, and then the grid items themselves. The
 syntax looks a little like this:
 
@@ -133,7 +133,7 @@ grids simply use the `.grid-wrapper--rev` class:
 
 ### Push and pull
 
-inuit.css also has a series of push and pull classes that you can use to
+inuitcss also has a series of push and pull classes that you can use to
 manipulate grids’ positions, for example:
 
     <div class="grid-wrapper">
@@ -149,10 +149,10 @@ starts one-third of the way in.
 
 ## Responsive grids
 
-inuit.css prides itself on how few design decisions it makes, but even so, it
+inuitcss prides itself on how few design decisions it makes, but even so, it
 still has some responsive grids in there! You can define your breakpoints in
 [`_vars.scss`](https://github.com/csswizardry/inuit.css/blob/e666615d9f4348700382ee6f827069296c8e8d9e/_vars.scss#L38-L44)
-and inuit.css will pick them up and make you some media queries which allow you
+and inuitcss will pick them up and make you some media queries which allow you
 to have your grids behave in certain ways at your custom widths.
 
 The widths are _very_ loosely based on devices, but only kind of… We don’t guess
@@ -219,12 +219,12 @@ that grid item with a more explicit class, for example:
 
 You should never apply any styling _whatsoever_ to a grid item; they are for
 structural purposes **only**. Furthermore, you should never, _ever_, **ever**
-apply new box-model rules to a grid item under any circumstances, be it inuit.css
+apply new box-model rules to a grid item under any circumstances, be it inuitcss
 or something else.
 
 ## Final word
 
-So, hopefully that explains a little more about what you can do with inuit.css’
+So, hopefully that explains a little more about what you can do with inuitcss’
 grid system, and how you should go about doing it. If I missed anything out, or
 you’d like to know something more, please do [let me know](http://twitter.com/inuitcss)
 and I’ll update the article.

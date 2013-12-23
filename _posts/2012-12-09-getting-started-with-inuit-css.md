@@ -1,15 +1,15 @@
 ---
 layout: post
-title: Getting started with inuit.css
-meta: A quick introduction to getting the inuit.css framework up and running in your project.
+title: Getting started with inuitcss
+meta: A quick introduction to getting the inuitcss framework up and running in your project.
 ---
 
 # {{ page.title }}
 
-So, you wanna use inuit.css? That’s awesome, thanks!
+So, you wanna use inuitcss? That’s awesome, thanks!
 
-Setting inuit.css up is surprisingly simple, but before you can go anywhere,
-inuit.css assumes/requires a few things: 
+Setting inuitcss up is surprisingly simple, but before you can go anywhere,
+inuitcss assumes/requires a few things:
 
 <ul class="numbered-list">
     <li>You have Sass set up, either via the command line or a GUI.</li>
@@ -20,9 +20,9 @@ inuit.css assumes/requires a few things:
 
 If the above is all good, then let’s get going!
 
-## Getting inuit.css
+## Getting inuitcss
 
-There are a number of ways to get inuit.css into your project; you can
+There are a number of ways to get inuitcss into your project; you can
 [download the zip](https://github.com/csswizardry/inuit.css/archive/master.zip)
 or `git clone` it into a CSS directory in your project, thus:
 
@@ -32,7 +32,7 @@ or `git clone` it into a CSS directory in your project, thus:
 
 ## Setting up your project
 
-Once you have inuit.css downloaded and in your `css/` directory, you need to
+Once you have inuitcss downloaded and in your `css/` directory, you need to
 alter a few things.
 
 Firstly, you can delete `README.md`, you probably won’t need that. Next up, you
@@ -45,31 +45,31 @@ find and replace will sort this in a flash.
 
 Lastly, you should pop open `_vars.scss` and alter your projects’ settings
 accordingly; here you can set typographic styles, define media query breakpoints,
-tell inuit.css to be responsive or not, and a whole lot more.
+tell inuitcss to be responsive or not, and a whole lot more.
 
 Once you’ve got those set up, you’re now ready to start work!
 
-## Running inuit.css
+## Running inuitcss
 
-Running inuit.css is simple, you can use a GUI like
+Running inuitcss is simple, you can use a GUI like
 [CodeKit](http://incident57.com/codekit/) to watch the `css/` directory or you
 can run Sass from the command line via the `watch.sh` file, like so:
 
     ~/path/to/your-site/css$ sh watch.sh
 
-Now Sass is watching your CSS directory and will compile inuit.css and your
+Now Sass is watching your CSS directory and will compile inuitcss and your
 theme stylesheets into your final, production file.
 
 **N.B.** It is advised that you only ever deploy a minified stylesheet as
-inuit.css contains a _lot_ of comments and whitespace.
+inuitcss contains a _lot_ of comments and whitespace.
 
-## Extending inuit.css
+## Extending inuitcss
 
-inuit.css is a framework in its truest sense; it is a helping hand which you
-work on top of. This means that, on its own, inuit.css won’t do much for you; it
+inuitcss is a framework in its truest sense; it is a helping hand which you
+work on top of. This means that, on its own, inuitcss won’t do much for you; it
 is designed to be extended by developers who lay their theme over the top of it.
 
-Extending inuit.css is super simple, you just import your own files into `your-project.scss`
+Extending inuitcss is super simple, you just import your own files into `your-project.scss`
 _after_ the framework gets imported. You can find this comment in that file:
 
     /**
@@ -88,7 +88,7 @@ in `_vars.scss` remain available to you for use in your UI component files.
 The best way to see this whole process is probably to just have a poke
 through [this blog’s source on GitHub](https://github.com/csswizardry/inuit.css/tree/gh-pages).
 
-So, hopefully that should be a decent, quick guide to setting inuit.css up, but
+So, hopefully that should be a decent, quick guide to setting inuitcss up, but
 if you think I’ve missed anything, or you’d like to know more about something in
 particular, please [let me know](http://twitter.com/inuitcss) and I’ll
 amend/update this post.
