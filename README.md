@@ -87,9 +87,11 @@ inuit.css updates is as simple as a `$ git pull`).
 
 The command line install of inuit.css is _incredibly_ simple:
 
-    $ git clone --recursive git@github.com:csswizardry/inuit.css-web-template.git your-project-folder
-    $ cd your-project-folder
-    $ ./go
+```bash
+$ git clone --recursive git@github.com:csswizardry/inuit.css-web-template.git your-project-folder
+$ cd your-project-folder
+$ ./go
+```
 
 What we are doing here is cloning an instance of the inuit.css-web-template and
 its submodules (that’s what the `--recursive` does) into a directory which you
@@ -185,24 +187,28 @@ web template. Let’s take an example…
 
 In inuit.css’ `_defaults.scss` we find the following:
 
-    $h1-size:           36px!default; // .alpha
-    $h2-size:           30px!default; // .beta
-    $h3-size:           24px!default; // .gamma
-    $h4-size:           20px!default; // .delta
-    $h5-size:           16px!default; // .epsilon
-    $h6-size:           14px!default; // .zeta
+```scss
+$h1-size:           36px!default; // .alpha
+$h2-size:           30px!default; // .beta
+$h3-size:           24px!default; // .gamma
+$h4-size:           20px!default; // .delta
+$h5-size:           16px!default; // .epsilon
+$h6-size:           14px!default; // .zeta
+```
 
 Let’s say we want our `h1`s to be `48px` and not `36px`; instead of modifying
 the value of `$h1-size` here, pop open your `_vars.scss` file and add this in
 the overrides section:
 
-    /*------------------------------------*\
-        $OVERRIDES
-    \*------------------------------------*/
-    /**
-     * Place any variables that should override inuit.css’ defaults here.
-     */
-    $h1-size:48px;
+```scss
+/*------------------------------------*\
+    $OVERRIDES
+\*------------------------------------*/
+/**
+ * Place any variables that should override inuit.css’ defaults here.
+ */
+$h1-size:48px;
+```
 
 Now when you compile your CSS, inuit.css will know to ignore its preset value
 (that is what `!default` is for) in favour of your own. By doing things this way
@@ -215,15 +221,17 @@ abstractions; you will **not** initially find switches for things like
 `$debug-mode` in here, but they can be turned on and off by adding an override
 as outlined above, e.g.:
 
-    /*------------------------------------*\
-        $OVERRIDES
-    \*------------------------------------*/
-    /**
-     * Place any variables that should override inuit.css’ defaults here.
-     */
-    $h1-size:48px;
-    $push:true;
-    $palm-push:true;
+```scss
+/*------------------------------------*\
+    $OVERRIDES
+\*------------------------------------*/
+/**
+ * Place any variables that should override inuit.css’ defaults here.
+ */
+$h1-size:48px;
+$push:true;
+$palm-push:true;
+```
 
 This file can also house any custom variables that you wish to use in extending
 inuit.css, as covered in the next section.
@@ -256,13 +264,15 @@ In here you can place your own Sass files which hold your UI’s CSS, for exampl
 
 You then include these from `style.scss`, like so:
 
-    /**
-     * She’s all yours, cap’n... Begin importing your stuff here.
-     */
-    //@import "ui/example";
-    @import "ui/footer";
-    @import "ui/contact-form";
-    @import "ui/pricing-table";
+```scss
+/**
+ * She’s all yours, cap’n... Begin importing your stuff here.
+ */
+//@import "ui/example";
+@import "ui/footer";
+@import "ui/contact-form";
+@import "ui/pricing-table";
+```
 
 Now, when you run `$ ./watch`, `style.scss` will be calling:
 
