@@ -86,6 +86,7 @@ $lap-push:          false!default;
 $lap-and-up-push:   false!default;
 $portable-push:     false!default;
 $desk-push:         false!default;
+$desk-wide-push:    false!default;
 
 $pull:              false!default;
 /**
@@ -96,6 +97,7 @@ $lap-pull:          false!default;
 $lap-and-up-pull:   false!default;
 $portable-pull:     false!default;
 $desk-pull:         false!default;
+$desk-wide-pull:    false!default;
 
 /**
  * Tell inuit.css when breakpoints start.

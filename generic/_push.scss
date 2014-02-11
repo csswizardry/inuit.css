@@ -144,4 +144,12 @@
 
 }
 
+@if $desk-wide-push == true{
+
+    @include media-query(desk-wide){
+        @include push-setup("desk-wide-");
+    }
+
+}
+
 }//endif
