@@ -31,7 +31,7 @@ _lot_ more.
 **Do not use inuit.css if:**
 
 * You need a framework that supplies design (I’d recommend
-  [Bootstrap](http://twitter.github.com/bootstrap/) for that).
+  [Bootstrap](http://getbootstrap.com) for that).
 
 ## Browser support
 
