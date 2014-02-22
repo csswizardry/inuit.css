@@ -41,45 +41,46 @@
 /**
  * Base button styles.
  *
- * 1. Allow us to better style box model properties.
- * 2. Line different sized buttons up a little nicer.
- * 3. Stop buttons wrapping and looking broken.
- * 4. Make buttons inherit font styles.
- * 5. Force all elements using beautons to appear clickable.
- * 6. Normalise box model styles.
- * 7. If the button’s text is 1em, and the button is (3 * font-size) tall, then
- *    there is 1em of space above and below that text. We therefore apply 1em
- *    of space to the left and right, as padding, to keep consistent spacing.
- * 8. Basic cosmetics for default buttons. Change or override at will.
- * 9. Don’t allow buttons to have underlines; it kinda ruins the illusion.
+ * 1.  Allow us to better style box model properties.
+ * 2.  Line different sized buttons up a little nicer.
+ * 3.  Stop buttons wrapping and looking broken.
+ * 4.  Make buttons inherit font styles.
+ * 5.  Force all elements using beautons to appear clickable.
+ * 6.  Normalise box model styles.
+ * 7.  If the button’s text is 1em, and the button is (3 * font-size) tall, then
+ *     there is 1em of space above and below that text. We therefore apply 1em
+ *     of space to the left and right, as padding, to keep consistent spacing.
+ * 8.  Basic cosmetics for default buttons. Change or override at will.
+ * 9.  Don’t allow buttons to have underlines; it kinda ruins the illusion.
+ * 10. Apply outline:none if $a11y-mode default variable is false.
  */
 .btn{
-    display:inline-block;       /* [1] */
-    vertical-align:middle;      /* [2] */
-    white-space:nowrap;         /* [3] */
-    font-family:inherit;        /* [4] */
-    font-size:100%;             /* [4] */
-    cursor:pointer;             /* [5] */
-    border:none;                /* [6] */
-    margin:0;                   /* [6] */
-    padding-top:   0;           /* [6] */
-    padding-bottom:0;           /* [6] */
-    line-height:3;              /* [7] */
-    padding-right:1em;          /* [7] */
-    padding-left: 1em;          /* [7] */
-    border-radius:$brand-round; /* [8] */
+    display:inline-block;        /* [1] */
+    vertical-align:middle;       /* [2] */
+    white-space:nowrap;          /* [3] */
+    font-family:inherit;         /* [4] */
+    font-size:100%;              /* [4] */
+    cursor:pointer;              /* [5] */
+    border:none;                 /* [6] */
+    margin:0;                    /* [6] */
+    padding-top:   0;            /* [6] */
+    padding-bottom:0;            /* [6] */
+    line-height:3;               /* [7] */
+    padding-right:1em;           /* [7] */
+    padding-left: 1em;           /* [7] */
+    border-radius:$brand-round;  /* [8] */
 }
 
 .btn{
 
     &,
     &:hover{
-        text-decoration:none;   /* [9] */
+        text-decoration:none;    /* [9] */
     }
 
     &:active,
     &:focus{
-        outline:none;
+        @include outline-none(); /* [10] */
     }
 }
 

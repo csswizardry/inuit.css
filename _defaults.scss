@@ -21,6 +21,15 @@ $debug-mode:        false!default;
 
 
 
+/*------------------------------------*\
+    $A11Y
+\*------------------------------------*/
+/**
+ * This mode provide accessibility requirements
+ * Check http://www.w3.org/WAI/intro/wcag
+ */
+$a11y-mode:        false!default;
+
 
 
 /*------------------------------------*\

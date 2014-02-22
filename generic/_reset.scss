@@ -62,6 +62,7 @@ img{
 
 /**
  * Give form elements some cursor interactions...
+ * Use outline-none() a11y mixin on active, focus states of form elems.
  */
 label,
 input,
@@ -76,5 +77,5 @@ option{
     textarea:active,
     textarea:focus{
         cursor:text;
-        outline:none;
+        @include outline-none();
     }

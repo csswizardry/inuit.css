@@ -31,7 +31,7 @@ _lot_ more.
 **Do not use inuit.css if:**
 
 * You need a framework that supplies design (I’d recommend
-  [Bootstrap](http://twitter.github.com/bootstrap/) for that).
+  [Bootstrap](http://getbootstrap.com) for that).
 
 ## Browser support
 
@@ -307,8 +307,9 @@ at the [inuit.css Trello board](https://trello.com/board/inuit-css/50a16487543de
 
 ## Looking for a little LESS?
 
-[Peter Wilson](http://twitter.com/pwcc) is maintaining a LESS port of inuit.css:
-check [the GitHub repo](https://github.com/peterwilsoncc/inuit.css).
+[Peter Wilson](http://twitter.com/pwcc) and
+[Nicolas Carlo](https://twitter.com/nicoespeon) are maintaining a LESS port of
+inuit.css: check [the GitHub repo](https://github.com/peterwilsoncc/inuit.css).
 
 ## Using Compass?
 
