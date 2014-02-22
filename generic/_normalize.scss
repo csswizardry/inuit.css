@@ -89,11 +89,12 @@ a:focus {
 
 /*
  * Improve readability when focused and also mouse hovered in all browsers.
+ * This is conditionned by outline-none() mixin and $a11y-mode default var.
  */
 
 a:active,
 a:hover {
-    outline: 0;
+    @include outline-none();
 }
 
 /* ==========================================================================

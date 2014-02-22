@@ -20,6 +20,22 @@
 
 
 /**
+ * Set outline:none if you don't care about people with disabilities
+ * Use $a11y-mode default variable
+ *
+   `@include outline-none();`
+ *
+ * Manifest http://www.outlinenone.com/
+ * WCAG2.0 level AA: http://www.w3.org/TR/2008/REC-WCAG20-20081211/#navigation-mechanisms-focus-visible
+ */
+@mixin outline-none(){
+    @if $a11y-mode == false{
+        outline: none;
+    }
+}
+
+
+/**
  * Style any number of headings in one fell swoop, e.g.:
  *
    .foo{
