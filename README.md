@@ -66,7 +66,7 @@ condensed into one powerful little framework.
 
 ## Installation
 
-**Requires Sass 3.2**
+**Requires Sass 3.3**
 
 inuit.css v5.0+ is designed to be even more advanced than previous versions of
 your favourite CSS framework! inuit.css’ core library is now intended to be used
