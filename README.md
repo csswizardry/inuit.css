@@ -1,4 +1,4 @@
-![inuit.css](http://inuitcss.com/img/content/logo.png)
+![inuit.css](http://inuitcss.com/img/logo.png)
 
 # inuit.css – v5.0
 
