@@ -1,6 +1,10 @@
+# [INUITCSS HAS MOVED TO A BIGGER IGLOO](https://github.com/inuitcss)
+
+**Please head to [github.com/inuitcss](https://github.com/inuitcss)**
+
 ![inuit.css](http://inuitcss.com/img/logo.png)
 
-# inuit.css – v5.0
+## inuit.css – v5.0
 
 inuit.css is a powerful little framework designed for _serious_ developers.
 
