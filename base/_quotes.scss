@@ -4,10 +4,11 @@
 /**
  * If English quotes are set in `_vars.scss`, define them here.
  */
-@if $english-quotes == true{
-    $open-quote:    \201C !global;
-    $close-quote:   \201D !global;
-}
+// Globals are unsuported in libsass, disable until libsass is updated - https://github.com/sass/libsass/issues/278, https://github.com/ptim/inuit.css/commit/89b0b2cc6b1ec74b7756e9f90577b14f2ad49fa2, https://github.com/Shandem/ClientDependency/issues/12
+//@if $english-quotes == true{
+//    $open-quote:    \201C !global;
+//    $close-quote:   \201D !global;
+//}
 
 
 /**
