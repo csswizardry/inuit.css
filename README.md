@@ -1,6 +1,11 @@
-![inuit.css](http://inuitcss.com/img/content/logo.png)
+# [OUR LITTLE INUIT HAS MOVED INTO A BIGGER IGLOO](https://github.com/inuitcss)
 
-# inuit.css – v5.0
+**Please head to [github.com/inuitcss](https://github.com/inuitcss) to play with
+the new, improved version of inuitcss.**
+
+![inuit.css](http://inuitcss.com/img/logo.png)
+
+## inuit.css – v5.0
 
 inuit.css is a powerful little framework designed for _serious_ developers.
 
@@ -31,7 +36,7 @@ _lot_ more.
 **Do not use inuit.css if:**
 
 * You need a framework that supplies design (I’d recommend
-  [Bootstrap](http://twitter.github.com/bootstrap/) for that).
+  [Bootstrap](http://getbootstrap.com) for that).
 
 ## Browser support
 
@@ -66,7 +71,7 @@ condensed into one powerful little framework.
 
 ## Installation
 
-**Requires Sass 3.2**
+**Requires Sass 3.3**
 
 inuit.css v5.0+ is designed to be even more advanced than previous versions of
 your favourite CSS framework! inuit.css’ core library is now intended to be used
@@ -307,8 +312,9 @@ at the [inuit.css Trello board](https://trello.com/board/inuit-css/50a16487543de
 
 ## Looking for a little LESS?
 
-[Peter Wilson](http://twitter.com/pwcc) is maintaining a LESS port of inuit.css:
-check [the GitHub repo](https://github.com/peterwilsoncc/inuit.css).
+[Peter Wilson](http://twitter.com/pwcc) and
+[Nicolas Carlo](https://twitter.com/nicoespeon) are maintaining a LESS port of
+inuit.css: check [the GitHub repo](https://github.com/peterwilsoncc/inuit.css).
 
 ## Using Compass?
 
