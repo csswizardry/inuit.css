@@ -1,0 +1,47 @@
+@if $use-scrollbar == true{
+
+.scrollbar(){
+	&::-webkit-scrollbar {
+		overflow: hidden;
+		width: 0px;
+	}
+
+	&::-webkit-scrollbar:vertical {
+		width: 4px;
+	}
+
+	&::-webkit-scrollbar:horizontal {
+		display: none;
+	}
+
+	&::-webkit-scrollbar-track {
+		background: rgba(255, 255, 255, 0);
+		-webkit-border-radius: 2px;
+		border-radius: 2px;
+	}
+
+	&::-webkit-scrollbar-button {
+		display: none;
+	}
+
+	&::-webkit-scrollbar-thumb {
+		-webkit-border-radius: 2px;
+		border-radius: 2px;
+		background: #fff;
+	}
+
+	&::-webkit-scrollbar-thumb:window-inactive {
+		background: rgba(255, 255, 255, 0);
+	}
+
+	&::-webkit-scrollbar-corner {
+		display: none;
+	}
+
+	&::-webkit-resizer {
+		display: none;
+		resize: none;
+	}
+}
+
+}
