@@ -308,7 +308,7 @@ demos of various aspects of the framework.
 ### Development
 
 You can keep up-to-date with upcoming features, suggestions and fixes by looking
-at the [inuit.css Trello board](https://trello.com/board/inuit-css/50a16487543dea585502f3d2).
+at the [inuit.css Trello board](https://trello.com/b/GAClGO9T/inuitcss-dev).
 
 ## Looking for a little LESS?
 
