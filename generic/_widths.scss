@@ -10,7 +10,11 @@
  * variations.
  */
 
-@mixin grid-setup($namespace: "") {
+@mixin grid-warning ($col) {
+    @warn "#{$col} column grid is not allowed. Use 3, 4, 5, 6, 8, 10, 12 instead.";
+}
+
+@mixin grid-setup($namespace:"",$cols:12) {
     /**
     * Whole
     */
@@ -26,77 +30,98 @@
     /**
     * Thirds
     */
-    .#{$namespace}one-third         { width:33.333%; }
-    .#{$namespace}two-thirds        { width:66.666%; }
-
+    @if $cols >= 3 {
+        .#{$namespace}one-third         { width:33.333%; }
+        .#{$namespace}two-thirds        { width:66.666%; }
+    }
 
     /**
     * Quarters
     */
-    .#{$namespace}one-quarter       { width:25%; }
-    .#{$namespace}two-quarters      { @extend .#{$namespace}one-half; }
-    .#{$namespace}three-quarters    { width:75%; }
+    @if $cols >= 4 {
+        .#{$namespace}one-quarter       { width:25%; }
+        .#{$namespace}two-quarters      { @extend .#{$namespace}one-half; }
+        .#{$namespace}three-quarters    { width:75%; }
+    }
 
 
     /**
     * Fifths
     */
-    .#{$namespace}one-fifth         { width:20%; }
-    .#{$namespace}two-fifths        { width:40%; }
-    .#{$namespace}three-fifths      { width:60%; }
-    .#{$namespace}four-fifths       { width:80%; }
-
+    @if $cols >= 5 {
+        .#{$namespace}one-fifth         { width:20%; }
+        .#{$namespace}two-fifths        { width:40%; }
+        .#{$namespace}three-fifths      { width:60%; }
+        .#{$namespace}four-fifths       { width:80%; }
+    }
 
     /**
     * Sixths
     */
-    .#{$namespace}one-sixth         { width:16.666%; }
-    .#{$namespace}two-sixths        { @extend .#{$namespace}one-third; }
-    .#{$namespace}three-sixths      { @extend .#{$namespace}one-half; }
-    .#{$namespace}four-sixths       { @extend .#{$namespace}two-thirds; }
-    .#{$namespace}five-sixths       { width:83.333%; }
+    @if $cols >= 6 {
+        .#{$namespace}one-sixth         { width:16.666%; }
+        .#{$namespace}two-sixths        { @extend .#{$namespace}one-third; }
+        .#{$namespace}three-sixths      { @extend .#{$namespace}one-half; }
+        .#{$namespace}four-sixths       { @extend .#{$namespace}two-thirds; }
+        .#{$namespace}five-sixths       { width:83.333%; }
+    }
 
+    @if $cols == 7 {
+        @include grid-warning(7);
+    }
 
     /**
     * Eighths
     */
-    .#{$namespace}one-eighth        { width:12.5%; }
-    .#{$namespace}two-eighths       { @extend .#{$namespace}one-quarter; }
-    .#{$namespace}three-eighths     { width:37.5%; }
-    .#{$namespace}four-eighths      { @extend .#{$namespace}one-half; }
-    .#{$namespace}five-eighths      { width:62.5%; }
-    .#{$namespace}six-eighths       { @extend .#{$namespace}three-quarters; }
-    .#{$namespace}seven-eighths     { width:87.5%; }
+    @if $cols >= 8 {
+        .#{$namespace}one-eighth        { width:12.5%; }
+        .#{$namespace}two-eighths       { @extend .#{$namespace}one-quarter; }
+        .#{$namespace}three-eighths     { width:37.5%; }
+        .#{$namespace}four-eighths      { @extend .#{$namespace}one-half; }
+        .#{$namespace}five-eighths      { width:62.5%; }
+        .#{$namespace}six-eighths       { @extend .#{$namespace}three-quarters; }
+        .#{$namespace}seven-eighths     { width:87.5%; }
+    }
 
+    @if $cols == 9 {
+        @include grid-warning(9);
+    }
 
     /**
     * Tenths
     */
-    .#{$namespace}one-tenth         { width:10%; }
-    .#{$namespace}two-tenths        { @extend .#{$namespace}one-fifth; }
-    .#{$namespace}three-tenths      { width:30%; }
-    .#{$namespace}four-tenths       { @extend .#{$namespace}two-fifths; }
-    .#{$namespace}five-tenths       { @extend .#{$namespace}one-half; }
-    .#{$namespace}six-tenths        { @extend .#{$namespace}three-fifths; }
-    .#{$namespace}seven-tenths      { width:70%; }
-    .#{$namespace}eight-tenths      { @extend .#{$namespace}four-fifths; }
-    .#{$namespace}nine-tenths       { width:90%; }
+    @if $cols >= 10 {
+        .#{$namespace}one-tenth         { width:10%; }
+        .#{$namespace}two-tenths        { @extend .#{$namespace}one-fifth; }
+        .#{$namespace}three-tenths      { width:30%; }
+        .#{$namespace}four-tenths       { @extend .#{$namespace}two-fifths; }
+        .#{$namespace}five-tenths       { @extend .#{$namespace}one-half; }
+        .#{$namespace}six-tenths        { @extend .#{$namespace}three-fifths; }
+        .#{$namespace}seven-tenths      { width:70%; }
+        .#{$namespace}eight-tenths      { @extend .#{$namespace}four-fifths; }
+        .#{$namespace}nine-tenths       { width:90%; }
+    }
 
+    @if $cols == 11 {
+        @include grid-warning(11);
+    }
 
     /**
     * Twelfths
     */
-    .#{$namespace}one-twelfth       { width:8.333%; }
-    .#{$namespace}two-twelfths      { @extend .#{$namespace}one-sixth; }
-    .#{$namespace}three-twelfths    { @extend .#{$namespace}one-quarter; }
-    .#{$namespace}four-twelfths     { @extend .#{$namespace}one-third; }
-    .#{$namespace}five-twelfths     { width:41.666% }
-    .#{$namespace}six-twelfths      { @extend .#{$namespace}one-half; }
-    .#{$namespace}seven-twelfths    { width:58.333%; }
-    .#{$namespace}eight-twelfths    { @extend .#{$namespace}two-thirds; }
-    .#{$namespace}nine-twelfths     { @extend .#{$namespace}three-quarters; }
-    .#{$namespace}ten-twelfths      { @extend .#{$namespace}five-sixths; }
-    .#{$namespace}eleven-twelfths   { width:91.666%; }
+    @if $cols > 12 {
+        .#{$namespace}one-twelfth       { width:8.333%; }
+        .#{$namespace}two-twelfths      { @extend .#{$namespace}one-sixth; }
+        .#{$namespace}three-twelfths    { @extend .#{$namespace}one-quarter; }
+        .#{$namespace}four-twelfths     { @extend .#{$namespace}one-third; }
+        .#{$namespace}five-twelfths     { width:41.666% }
+        .#{$namespace}six-twelfths      { @extend .#{$namespace}one-half; }
+        .#{$namespace}seven-twelfths    { width:58.333%; }
+        .#{$namespace}eight-twelfths    { @extend .#{$namespace}two-thirds; }
+        .#{$namespace}nine-twelfths     { @extend .#{$namespace}three-quarters; }
+        .#{$namespace}ten-twelfths      { @extend .#{$namespace}five-sixths; }
+        .#{$namespace}eleven-twelfths   { width:91.666%; }
+    }
 }
 
 @include grid-setup();
@@ -120,39 +145,39 @@
 
 @if $responsive == true{
 
-@include media-query(palm){
-    @include grid-setup("palm-");
-}
+    @include media-query(palm){
+        @include grid-setup("palm-");
+    }
 
-@include media-query(lap){
-    @include grid-setup("lap-");
-}
+    @include media-query(lap){
+        @include grid-setup("lap-");
+    }
 
-@include media-query(lap-and-up){
-    @include grid-setup("lap-and-up-");
-}
+    @include media-query(lap-and-up){
+        @include grid-setup("lap-and-up-");
+    }
 
-@include media-query(portable){
-    @include grid-setup("portable-");
-}
+    @include media-query(portable){
+        @include grid-setup("portable-");
+    }
 
-@include media-query(desk){
-    @include grid-setup("desk-");
-}
+    @include media-query(desk){
+        @include grid-setup("desk-");
+    }
 
 
-/**
- * If you have set the additional `$responsive-extra` variable to ‘true’ in
- * `_vars.scss` then you now have access to the following class available to
- * accomodate much larger screen resolutions.
- */
+    /**
+     * If you have set the additional `$responsive-extra` variable to ‘true’ in
+     * `_vars.scss` then you now have access to the following class available to
+     * accomodate much larger screen resolutions.
+     */
 
-@if $responsive-extra == true{
+    @if $responsive-extra == true{
 
-@include media-query(desk-wide){
-    @include grid-setup("desk-wide-");
-}
+        @include media-query(desk-wide){
+            @include grid-setup("desk-wide-");
+        }
 
-}
+    }
 
 } /* endif */
