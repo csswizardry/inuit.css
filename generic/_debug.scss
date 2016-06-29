@@ -27,11 +27,8 @@
  * Images require `alt` attributes, empty `alt`s are fine but should be
  * double-checked, no `alt` is bad and is flagged red.
  */
-img{
+img:not([alt]){
     outline:5px solid red;
-}
-img[alt]{
-    outline:none;
 }
 img[alt=""]{
     outline:5px solid yellow;
@@ -42,11 +39,8 @@ img[alt=""]{
  * Links sometimes, though not always, benefit from `title` attributes. Links
  * without are never invalid but it’s a good idea to check.
  */
-a{
+a:not([title]){
     outline:5px solid yellow;
-}
-a[title]{
-    outline:none;
 }
 
 
@@ -81,11 +75,8 @@ ol{
 /**
  * It’s always nice to give `th`s `scope` attributes.
  */
-th{
+th:not([scope]){
     outline:5px solid yellow;
-}
-th[scope]{
-    outline:none;
 }
 
 
@@ -108,11 +99,8 @@ tbody + tfoot{
 /**
  * Forms require `action` attributes
  */
-form{
+form:not([action]){
     outline:5px solid red;
-}
-form[action]{
-    outline:none;
 }
 
 
@@ -121,21 +109,12 @@ form[action]{
  * attributes, `textarea`s need `rows` and `cols` attributes and submit buttons
  * need a `value` attribute.
  */
-textarea,
-input{
+textarea:not([rows]):not([cols]),
+input:not([type]){
     outline:5px solid red;
 }
-input[type]{
-    outline:none;
-}
-textarea[rows][cols]{
-    outline:none;
-}
-input[type=submit]{
+input[type=submit]:not([value]){
     outline:5px solid red;
-}
-input[type=submit][value]{
-    outline:none;
 }
 
 
