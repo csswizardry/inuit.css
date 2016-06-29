@@ -100,6 +100,8 @@ $desk-pull:         false!default;
 /**
  * Tell inuit.css when breakpoints start.
  */
+$em-media-queries: false!default;
+ 
 $lap-start:         481px!default;
 $desk-start:        1024px!default;
 $desk-wide-start:   1200px!default;

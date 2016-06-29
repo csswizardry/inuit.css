@@ -284,8 +284,14 @@
  *
  * We work out your end points for you:
  */
-$palm-end:              $lap-start - 1px;
-$lap-end:               $desk-start - 1px;
+@if $em-media-queries == true{
+    $palm-end:              $lap-start - 0.065em;
+    $lap-end:               $desk-start - 0.065em;
+}
+@else{
+    $palm-end:              $lap-start - 1px;
+    $lap-end:               $desk-start - 1px;
+}
 
 @mixin media-query($media-query){
 
