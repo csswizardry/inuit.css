@@ -73,6 +73,8 @@ $responsive:        true!default;
  */
 $responsive-extra:  false!default;
 
+$media-query-sizes: palm, lap, lap-and-up, portable, desk, desk-wide;
+
 /**
  * Responsive push and pull produce a LOT of code, only turn them on if you
  * definitely need them.
