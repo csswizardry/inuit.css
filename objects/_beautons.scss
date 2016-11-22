@@ -47,9 +47,7 @@
  * 4. Make buttons inherit font styles.
  * 5. Force all elements using beautons to appear clickable.
  * 6. Normalise box model styles.
- * 7. If the button’s text is 1em, and the button is (3 * font-size) tall, then
- *    there is 1em of space above and below that text. We therefore apply 1em
- *    of space to the left and right, as padding, to keep consistent spacing.
+ * 7. Reset line-height for better sizing and add a base padding.
  * 8. Basic cosmetics for default buttons. Change or override at will.
  * 9. Don’t allow buttons to have underlines; it kinda ruins the illusion.
  */
@@ -62,11 +60,8 @@
     cursor:pointer;             /* [5] */
     border:none;                /* [6] */
     margin:0;                   /* [6] */
-    padding-top:   0;           /* [6] */
-    padding-bottom:0;           /* [6] */
-    line-height:3;              /* [7] */
-    padding-right:1em;          /* [7] */
-    padding-left: 1em;          /* [7] */
+    line-height:normal;         /* [7] */
+    padding:1em;                /* [7] */
     border-radius:$brand-round; /* [8] */
 }
 
