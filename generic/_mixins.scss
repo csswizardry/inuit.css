@@ -33,7 +33,7 @@
  */
 @mixin headings($from: 1, $to: 6){
     %base-heading {
-        @content
+        @content;
     }
 
     @if $from >= 1 and $to <= 6{
