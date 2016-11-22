@@ -5,8 +5,8 @@
  * If English quotes are set in `_vars.scss`, define them here.
  */
 @if $english-quotes == true{
-    $open-quote:    \201C !global;
-    $close-quote:   \201D !global;
+    $open-quote:    "\201C" !global;
+    $close-quote:   "\201D" !global;
 }
 
 
