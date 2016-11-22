@@ -52,10 +52,10 @@ textarea{
     list-style:none;
     margin:0;
 }
-    .form-fields > li{
+    .form-fields > *{
         @extend %sass-margin-bottom;
     }
-    .form-fields > li:last-child{
+    .form-fields > *:last-child{
         margin-bottom:0;
     }
 
