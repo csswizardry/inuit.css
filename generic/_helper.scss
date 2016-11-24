@@ -31,9 +31,15 @@
 /**
  * Font weights
  */
-.weight--light      { font-weight:300!important; }
-.weight--normal     { font-weight:400!important; }
-.weight--semibold   { font-weight:600!important; }
+.weight--ultralight  { font-weight: 100 !important; }
+.weight--light       { font-weight: 200 !important; }
+.weight--book        { font-weight: 300 !important; }
+.weight--normal      { font-weight: 400 !important; }
+.weight--medium      { font-weight: 500 !important; }
+.weight--semibold    { font-weight: 600 !important; }
+.weight--bold        { font-weight: 700 !important; }
+.weight--extrabold   { font-weight: 800 !important; }
+.weight--ultrabold   { font-weight: 900 !important; }
 
 
 /**
