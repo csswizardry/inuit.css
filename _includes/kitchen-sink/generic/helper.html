@@ -1,0 +1,187 @@
+<h2 class="section-title" id="helper">Helper</h2>
+<p>A series of helper classes to use arbitrarily. Only use a helper class if an element/component doesn’t already have a class to which you could apply this styling, e.g. if you need to float `.main-nav` left then add `float:left;` to that ruleset as opposed to adding the `.float--left` class to the markup.</p>
+<p>A lot of these classes carry `!important` as you will always want them to win out over other selectors.</p>
+
+<h3>Add/remove Floats</h3>
+<p class="float--none float-demo greybox">Float none</p>
+<p class="float--right float-demo greybox">Float right</p>
+<p class="float--left float-demo greybox">Float left</p>
+<hr />
+
+<h3>Text aligment</h3>
+<p class="text--left">Text left</p>
+<p class="text--center">Text center</p>
+<p class="text--right">Text right</p>
+<hr />
+
+<h3>Font weights</h3>
+<p class="weight--light">Weight light</p>
+<p class="weight--normal">Weight normal</p>
+<p class="weight--semibold">Weight semibold</p>
+<hr />
+
+<h3>Add/Remove margins</h3>
+<h4>Add Full Margins</h4>
+<p>Adds `$base-spacing-unit` margins</p>
+<ul>
+	<li>.push</li>
+	<li>.push--top</li>
+	<li>.push--right</li>
+	<li>.push--bottom</li>
+	<li>.push--left</li>
+	<li>.push--ends</li>
+	<li>.push--sides</li>
+</ul>
+<div class="margins-demo">
+	<div class="margins-demo__item push--left">Push Left</div>
+</div>
+<div class="margins-demo">
+	<div class="margins-demo__item push--sides">Push Sides</div>
+</div>
+<hr />
+
+<h4>Add Half Margins</h4>
+<p>Adds `$half-spacing-unit` margins</p>
+<ul>
+	<li>.push-half</li>
+	<li>.push-half--top</li>
+	<li>.push-half--right</li>
+	<li>.push-half--bottom</li>
+	<li>.push-half--left</li>
+	<li>.push-half--ends</li>
+	<li>.push-half--sides</li>
+</ul>
+<div class="margins-demo">
+	<div class="margins-demo__item push-half--left">Push Half Left</div>
+</div>
+<div class="margins-demo">
+	<div class="margins-demo__item push-half--sides">Push Half Sides</div>
+</div>
+<hr />
+
+<h4>Remove Margins</h4>
+<p>Takes away margins</p>
+<ul>
+	<li>.flush</li>
+	<li>.flush--top</li>
+	<li>.flush--right</li>
+	<li>.flush--bottom</li>
+	<li>.flush--left</li>
+	<li>.flush--ends</li>
+	<li>.flush--sides</li>
+</ul>
+<div class="margins-demo">
+	<div class="margins-demo__item  margins-demo--full-margin flush--left">Flush Left</div>
+</div>
+<div class="margins-demo">
+	<div class="margins-demo__item margins-demo--full-margin flush--sides">Flush Sides</div>
+</div>
+<hr />
+
+<h3>Add/Remove paddings</h3>
+<h4>Add Full Paddings</h4>
+<p>Adds `$base-spacing-unit` paddings</p>
+<ul>
+	<li>.soft</li>
+	<li>.soft--top</li>
+	<li>.soft--right</li>
+	<li>.soft--bottom</li>
+	<li>.soft--left</li>
+	<li>.soft--ends</li>
+	<li>.soft--sides</li>
+</ul>
+<div class="paddings-demo">
+	<div class="paddings-demo__item soft--left">Soft Left</div>
+</div>
+<div class="paddings-demo">
+	<div class="paddings-demo__item soft--sides">Soft Sides</div>
+</div>
+<hr />
+
+<h4>Add Half Padding</h4>
+<p>Adds `$half-spacing-unit` padding</p>
+<ul>
+	<li>.soft-half</li>
+	<li>.soft-half--top</li>
+	<li>.soft-half--right</li>
+	<li>.soft-half--bottom</li>
+	<li>.soft-half--left</li>
+	<li>.soft-half--ends</li>
+	<li>.soft-half--sides</li>
+</ul>
+<div class="paddings-demo">
+	<div class="paddings-demo__item soft-half--left">Soft Half Left</div>
+</div>
+<div class="paddings-demo">
+	<div class="paddings-demo__item soft-half--sides">Soft Half Sides</div>
+</div>
+<hr />
+
+<h4>Remove Padding</h4>
+<p>Takes away padding</p>
+<ul>
+	<li>.hard</li>
+	<li>.hard--top</li>
+	<li>.hard--right</li>
+	<li>.hard--bottom</li>
+	<li>.hard--left</li>
+	<li>.hard--ends</li>
+	<li>.hard--sides</li>
+</ul>
+<div class="paddings-demo">
+	<div class="paddings-demo__item  paddings-demo--full-padding hard--left">Hard Left</div>
+</div>
+<div class="paddings-demo">
+	<div class="paddings-demo__item paddings-demo--full-padding hard--sides">Hard Sides</div>
+</div>
+<hr />
+
+<h3>Full bleed</h3>
+<div class="island greybox">
+	<p class="full-bleed bleed-demo">Pull items full width of `.island` parents.<p>
+</div>
+<div class="islet greybox">
+	<p class="full-bleed bleed-demo">Pull items full width of `.islet` parents.<p>
+</div>
+<hr />
+
+<h3>Informative</h3>
+<p>Add a help cursor to any element that gives the user extra information on `:hover`.</p>
+<a class="btn btn-demo informative">Help?</a> (Hover me)
+<hr />
+
+<h3>Muted</h3>
+<p>Mute an object by reducing its opacity.</p>
+<a class="btn btn--positive">Without `.muted`</a>
+<a class="btn btn--positive muted">With `.muted`</a>
+<hr />
+
+<h3>Go</h3>
+<p>Add a right-angled quote to links that imply movement</p>
+<a href="#" class="go">Read more</a>
+<hr />
+
+<h3>Caps</h3>
+<p>Apply capital case to an element (usually a `strong`).</p>
+<p class="caps">CAPITALIZE</p>
+<hr />
+
+<h3>Accessibility</h3>
+<p>Hide content off-screen without resorting to `display:none;`, also provide breakpoint specific hidden elements. Classes include:</p>
+<ul>
+	<li>.accessibility</li>
+	<li>.visuallyhidden</li>
+	<li>.accessibility--palm</li>
+	<li>.visuallyhidden--palm</li>
+	<li>.accessibility--lap</li>
+	<li>.visuallyhidden--lap</li>
+	<li>.accessibility--lap-and-up</li>
+	<li>.visuallyhidden--lap-and-up</li>
+	<li>.accessibility--portable</li>
+	<li>.visuallyhidden--portable</li>
+	<li>.accessibility--desk</li>
+	<li>.visuallyhidden--desk</li>
+	<li>.accessibility--desk-wide</li>
+	<li>.visuallyhidden--desk-wide</li>
+</ul>
+

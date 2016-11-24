@@ -1,0 +1,79 @@
+---
+title: Kitchen Sink
+---
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset=UTF-8>
+    <title>{{ page.title }} &ndash; inuit.css &ndash; a powerful, scalable, Sass-based, BEM, OOCSS framework</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel=stylesheet href=/css/kitchen-sink.css>
+    <link rel="shortcut icon" href={{ site.root }}icon.png>
+    <link rel=apple-touch-icon-precomposed href={{ site.root }}icon.png>
+    <meta name=apple-mobile-web-app-title content="inuit.css">
+</head>
+
+<body>
+
+	<div class="main">
+
+		<!-- MASTHEAD -->
+		<h1 class="masthead">
+			<a href="http://www.inuitcss.com" target="_blank" class="masthead__logo ir">Inuit.css</a>
+			<span class="masthead__text">Kitchen Sink</span>
+		</h1>
+		<!-- / MASTHEAD -->
+
+		<!-- INTRO -->
+		<p class="lead">A list of <a href="http://www.inuitcss.com">Inuit.css</a> component examples. The page contains minimal styling so components are pretty much as is from Inuit. Code used from <a target="_blank" href="https://github.com/csswizardry/inuit.css/tree/v5.1.0">v5.1.0</a> branch used.</p>
+		<!-- / INTRO -->
+
+		<div class="grid">
+
+			<!-- SUBNAV -->
+			{% include kitchen-sink/subnav.html %}<!--
+
+				MAIN
+			--><div class="grid__item lap-and-up-three-quarters">
+
+				<!-- 	WHERE THE MAGIC HAPPENS -->
+				{% include kitchen-sink/objects/arrows.html %}
+				{% include kitchen-sink/objects/beautons.html %}
+				{% include kitchen-sink/objects/block-list.html %}
+				{% include kitchen-sink/objects/breadcrumb.html %}
+				{% include kitchen-sink/objects/columns.html %}
+				{% include kitchen-sink/objects/flexbox.html %}
+				{% include kitchen-sink/objects/flyout.html %}
+				{% include kitchen-sink/objects/greybox.html %}
+				{% include kitchen-sink/objects/grids.html %}
+				{% include kitchen-sink/objects/images.html %}
+				{% include kitchen-sink/objects/island.html %}
+				{% include kitchen-sink/objects/link-complex.html %}
+				{% include kitchen-sink/objects/lozenges.html %}
+				{% include kitchen-sink/objects/marginalia.html %}
+				{% include kitchen-sink/objects/matrix.html %}
+				{% include kitchen-sink/objects/media.html %}
+				{% include kitchen-sink/objects/nav.html %}
+				{% include kitchen-sink/objects/options.html %}
+				{% include kitchen-sink/objects/pagination.html %}
+				{% include kitchen-sink/objects/rule.html %}
+				{% include kitchen-sink/objects/split.html %}
+				{% include kitchen-sink/objects/stats.html %}
+				{% include kitchen-sink/objects/tables.html %}
+				{% include kitchen-sink/objects/this-or-this.html %}
+				{% include kitchen-sink/base/forms.html') %}
+				{% include kitchen-sink/base/typography.html %}
+				{% include kitchen-sink/generic/helper.html %}
+				{% include kitchen-sink/generic/mixins.html %}
+				<!-- / INUIT.CSS COMPONENTS -->
+
+			</div>
+			<!-- / MAIN -->
+
+		</div>
+	</div>
+
+</body>
+</html>

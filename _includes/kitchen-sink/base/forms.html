@@ -1,0 +1,116 @@
+<h2 class="section-title" id="forms">Forms</h2>
+<h3>Text Inputs</h3>
+<p>Instead of a `[type]` selector for each kind of form input, we just use a class to target any/every one<p/>
+ <input type="text" class="text-input">
+ <input type="email" class="text-input">
+ <input type="password" class="text-input">
+ <h3>Groups of Form Fields</h3>
+ <p>Group sets of form fields in a list with `.form-fields`</p>
+ <ul class="form-fields">
+   <li>
+       <label>test</label>
+       <input />
+   </li>
+   <li>
+       <select id="country">
+           <option>UK</option>
+           <option>US</option>
+           <option>Other</option>
+       </select>
+       <label>test</label>
+   </li>
+   <li>
+       <input />
+       <label>test</label>
+   </li>
+</ul>
+<h3>Labels</h3>
+<p>Define a `.label` class as well as a `label` element. This means we can apply label-like styling to meta-labels for groups of options where a `label` element is not suitable</p>
+<ul class="form-fields">
+   <li>
+       <label>test</label>
+       <input />
+   </li>
+   <li>
+       <span class="label">Select an option below:</span>
+       <ul class="multi-list  four-cols">
+           <li>
+            <label>test</label>
+            <input />
+        </li>
+        <li>
+            <label>test</label>
+            <input />
+        </li>
+        <li>
+            <label>test</label>
+            <input />
+        </li>
+        <li>
+            <label>test</label>
+            <input />
+        </li>
+    </ul>
+</li>
+</ul>
+<h4>Label - Extra Help</h4>
+<p>Extra help text in `label`s</p>
+<ul class="form-fields">
+   <li>
+       <label>Card number <small class="additional">No spaces</small></label>
+       <input />
+   </li>
+</ul>
+<h2 class="section-title">Groups of Checkboxes and Radios</h2>
+<ul class="form-fields">
+
+    <li>
+        <span class="label">How would you like to be contacted?</span>
+
+        <ul class="check-list">
+            <li>
+                <input type="checkbox" id="by-email"> <label for=by-email>By email</label>
+            </li>
+            <li>
+                <input type="checkbox" id="by-post"> <label for=by-post>By post</label>
+            </li>
+            <li>
+                <input type="checkbox" id="by-pigeon"> <label for=by-pigeon>By carrier pigeon</label>
+            </li>
+        </ul>
+
+    </li>
+
+    <li>
+        <span class="label">How often would you like to be contacted?</span>
+
+        <ul class="check-list  multi-list  two-cols">
+            <li>
+                <input type="radio" name=frequency id="weekly"/> <label for=weekly>Weekly</label>
+            </li>
+            <li>
+                <input type="radio" name=frequency id="daily"/> <label for=daily>Daily</label>
+            </li>
+        </ul>
+    </li>
+</ul>
+<h2 class="section-title">Spoken Forms</h2>
+<p>Spoken forms are for forms that read like spoken word</p>
+<ul class="form-fields">
+    <li class="spoken-form">
+       Hello, my <label for=spoken-name>name</label> is
+       <input type="text" class="text-input" id="spoken-name"/>. My home
+       <label for=country>country</label> is
+       <select id="country">
+           <option>UK</option>
+           <option>US</option>
+           <option>Other</option>
+       </select>
+   </li>
+</ul>
+<h2 class="section-title">Focus Help</h2>
+<p>Extra help text displayed after a field when that field is in focus. We leave the help text in the document flow and merely set it to `visibility:hidden;`. This means that it won't interfere with anything once it reappears.</p>
+    <label for=email>Email:</label>
+    <input type="email" class="text-input" id="email">
+    <small class="extra-help">.edu emails only</small>
+    <hr />

@@ -1,0 +1,30 @@
+<h2 class="section-title" id="arrows">Arrows</h2>
+<p>It is a common design treatment to give an element a triangular points-out arrow, we typically build these with CSS. These following classes allow us to generate these arbitrarily with a mixin</p>
+
+<h3>Top</h3>
+<pre><code>@include arrow(top, {location}, $color)</code></pre>
+<p class="test-arrow test-arrow--top-left">Left</p>
+<p class="test-arrow test-arrow--top-center">Center</p>
+<p class="test-arrow test-arrow--top-right">Right</p>
+<hr />
+
+<h3>Right</h3>
+<pre><code>@include arrow(right, {location}, $color)</code></pre>
+<p class="test-arrow test-arrow--right-top">Top</p>
+<p class="test-arrow test-arrow--right-center">Center</p>
+<p class="test-arrow test-arrow--right-bottom">Bottom</p>
+<hr />
+
+<h3>Bottom</h3>
+<pre><code>@include arrow(bottom, {location}, $color)</code></pre>
+<p class="test-arrow test-arrow--bottom-left">Left</p>
+<p class="test-arrow test-arrow--bottom-center">Center</p>
+<p class="test-arrow test-arrow--bottom-right">Right</p>
+<hr />
+
+<h3>Left</h3>
+<pre><code>@include arrow(left, {location}, $color)</code></pre>
+<p class="test-arrow test-arrow--left-top">Top</p>
+<p class="test-arrow test-arrow--left-center">Center</p>
+<p class="test-arrow test-arrow--left-bottom">Bottom</p>
+<hr />
