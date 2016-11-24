@@ -144,4 +144,19 @@
 
 }
 
+
+/**
+ * If you have set the additional `$responsive-extra` and `$desk-wide-push`
+ * variables to ‘true’ in `_vars.scss` then you now have access to the
+ * following class available to accomodate much larger screen resolutions.
+ */
+
+@if $responsive-extra == true and $desk-wide-push == true{
+
+@include media-query(desk-wide){
+    @include push-setup("desk-wide-");
+}
+
+}
+
 }//endif
