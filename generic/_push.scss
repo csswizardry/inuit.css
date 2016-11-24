@@ -93,6 +93,33 @@
     .push--#{$namespace}nine-twelfths       { @extend .push--#{$namespace}three-quarters; }
     .push--#{$namespace}ten-twelfths        { @extend .push--#{$namespace}five-sixths; }
     .push--#{$namespace}eleven-twelfths     { left:91.666%; }
+
+
+    /**
+     * If you have set `$use-sixteenths` to ‘true’ in `_vars.scss` then you now
+     * have access to these classes available for the sixteenths push proportions.
+     */
+
+    @if $use-sixteenths == true{
+        /**
+        * Sixteenths
+        */
+        .push--#{$namespace}one-sixteenth         { left: 6.25%; }
+        .push--#{$namespace}two-sixteenths        { @extend .push--#{$namespace}one-eighth; }
+        .push--#{$namespace}three-sixteenths      { left: 18.75%; }
+        .push--#{$namespace}four-sixteenths       { @extend .push--#{$namespace}one-quarter; }
+        .push--#{$namespace}five-sixteenths       { left: 31.25%; }
+        .push--#{$namespace}six-sixteenths        { @extend .push--#{$namespace}three-eighths; }
+        .push--#{$namespace}seven-sixteenths      { left: 43.75%; }
+        .push--#{$namespace}eight-sixteenths      { @extend .push--#{$namespace}one-half; }
+        .push--#{$namespace}nine-sixteenths       { left: 56.25%; }
+        .push--#{$namespace}ten-sixteenths        { @extend .push--#{$namespace}five-eighths; }
+        .push--#{$namespace}eleven-sixteenths     { left: 68.75%; }
+        .push--#{$namespace}twelve-sixteenths     { @extend .push--#{$namespace}three-quarters; }
+        .push--#{$namespace}thirtheen-sixteenths  { left: 81.25%; }
+        .push--#{$namespace}fourteen-sixteenths   { @extend .push--#{$namespace}seven-eighths; }
+        .push--#{$namespace}fifteen-sixteenths    { left: 93.75; }
+    }
 }
 
 @if $push == true{
