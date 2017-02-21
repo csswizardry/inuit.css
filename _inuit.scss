@@ -141,12 +141,12 @@
 /**
  * Generic utility styles etc.
  */
-@import "defaults";
-@import "generic/mixins";
-@import "generic/normalize";
-@import "generic/reset";
-@import "generic/clearfix";
-@import "generic/shared";
+@import "defaults",
+        "generic/mixins",
+        "generic/normalize",
+        "generic/reset",
+        "generic/clearfix",
+        "generic/shared";
 
 
 
@@ -155,16 +155,16 @@
 /**
  * Base styles; unclassed HTML elements etc.
  */
-@import "base/main";
-@import "base/headings";
-@import "base/paragraphs";
-@import "base/smallprint";
-@import "base/quotes";
-@import "base/code";
-@import "base/images";
-@import "base/lists";
-@import "base/tables";
-@import "base/forms";
+@import "base/main",
+        "base/headings",
+        "base/paragraphs",
+        "base/smallprint",
+        "base/quotes",
+        "base/code",
+        "base/images",
+        "base/lists",
+        "base/tables",
+        "base/forms";
 
 
 
@@ -173,30 +173,30 @@
 /**
  * Objects and abstractions
  */
-@import "objects/grids";
-@import "objects/flexbox";
-@import "objects/columns";
-@import "objects/nav";
-@import "objects/options";
-@import "objects/pagination";
-@import "objects/breadcrumb";
-@import "objects/media";
-@import "objects/marginalia";
-@import "objects/island";
-@import "objects/block-list";
-@import "objects/matrix";
-@import "objects/split";
-@import "objects/this-or-this";
-@import "objects/link-complex";
-@import "objects/flyout";
-@import "objects/arrows";
-@import "objects/sprite";
-@import "objects/icon-text";
-@import "objects/beautons";
-@import "objects/lozenges";
-@import "objects/rules";
-@import "objects/stats";
-@import "objects/greybox";
+@import "objects/grids",
+        "objects/flexbox",
+        "objects/columns",
+        "objects/nav",
+        "objects/options",
+        "objects/pagination",
+        "objects/breadcrumb",
+        "objects/media",
+        "objects/marginalia",
+        "objects/island",
+        "objects/block-list",
+        "objects/matrix",
+        "objects/split",
+        "objects/this-or-this",
+        "objects/link-complex",
+        "objects/flyout",
+        "objects/arrows",
+        "objects/sprite",
+        "objects/icon-text",
+        "objects/beautons",
+        "objects/lozenges",
+        "objects/rules",
+        "objects/stats",
+        "objects/greybox";
 
 
 
@@ -205,9 +205,9 @@
 /**
  * Style trumps; helper and brand classes
  */
-@import "generic/widths";
-@import "generic/push";
-@import "generic/pull";
-@import "generic/brand";
-@import "generic/helper";
-@import "generic/debug";
+@import "generic/widths",
+        "generic/push",
+        "generic/pull",
+        "generic/brand",
+        "generic/helper",
+        "generic/debug";

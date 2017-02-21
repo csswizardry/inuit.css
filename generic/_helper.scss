@@ -120,7 +120,6 @@
  */
 .muted{
     opacity:0.5!important;
-    filter:alpha(opacity = 50)!important;
 }
 
 
@@ -143,6 +142,17 @@
  */
 .go:after{
     content:"\00A0" "\00BB"!important;
+}
+
+
+/**
+ * Add a left-angled quote to links that imply backwards movement, e.g.:
+ *
+   <a href=# class=back>Return</a>
+ *
+ */
+.back:before{
+    content:"\00AB" "\00A0"!important;
 }
 
 
