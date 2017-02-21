@@ -1,0 +1,74 @@
+/*------------------------------------*\
+    PRESENTATION.CSS    
+\*------------------------------------*/
+
+/**
+ * Base
+ */
+
+html{
+	background: #eee;
+}
+
+/** 
+ * Container
+ */
+
+.container{
+	padding: 0 $grid-gutter/2;
+}
+
+/**
+ * Sidebar
+ */
+
+.sidebar{
+	//margin-left: - ($grid-gutter/2);
+	
+	padding: 1em 1.5em;
+
+
+	ul{
+		margin: 0 0 1em 0;
+		list-style: none;
+	}	
+
+	li{
+		margin-bottom: 0;
+	}
+
+	h3{		
+		@include font-size($base-font-size);
+		font-weight: bold;
+		margin-bottom: 0;
+	}
+
+	a{
+		margin: 0 -1.5em;
+		padding: 3px 1.5em;
+		display: block;
+	}
+
+	a:hover{
+		background: #ddd;
+	}
+}
+
+/**
+ * Content
+ */
+
+.content{
+	padding: 1em 1.5em;
+	background: #fff;
+}
+
+/** Demo Grids */
+
+.row--demo{
+	margin-bottom: 15px;
+	.columns{
+		border: 1px #ccc solid;
+		background: #eee;
+	}
+}

@@ -1,0 +1,59 @@
+/*------------------------------------*\
+    $LIST STYLES
+\*------------------------------------*/
+
+ul, ol{
+	margin-left: 2em;
+}
+
+/**
+ * Add a Margin to List Items 
+ */
+
+li{
+	margin-bottom: 5px;
+}
+
+/**
+ * Defintion List
+ */
+
+dl{
+	@include section-margin;
+}
+
+dt{
+	font-weight: bold;
+	margin-top: $section-margin * 0.5;
+	
+	&:first-child{
+		margin-top: 0;
+	}
+}
+
+dd{
+	margin: 0;
+}
+
+/**
+ * An inline list with no bullets
+ */
+
+.list-inline{
+	
+	list-style: none;
+	margin-left: 0;
+
+	> li{
+		display: inline;
+	}
+}
+
+/*
+ * No List
+ */ 
+
+.no-list{
+	@include nolist;
+}
+

@@ -1,0 +1,62 @@
+/*------------------------------------*\
+    PORTABLE.CSS
+    All portable devices
+\*------------------------------------*/
+
+/*
+ * Add Grids for tablets and desktops
+ */
+
+@import "grid";
+
+/**
+ * Container
+ */
+
+.container{
+	//padding-left: 0;
+	//padding-right: 0;
+}
+
+/** 
+ * Sidebar
+ */
+
+.sidebar{
+	position: fixed;
+	height: 100%;
+	overflow: auto;
+	min-width: 25%;
+}
+
+
+/*
+ * Show Hide Sections
+ */
+ 
+.show-for-desktop-above{
+  display: inherit;
+}
+
+.hide-for-tablet-above{
+  display:none;
+}
+
+/**
+ * Buttons
+ */
+
+.btn{
+	padding: $button-padding-desktop;
+}
+
+/**
+ * Inline Label
+ */
+
+.label--inline{
+	@include section-margin(0.5);
+	padding: 0.5em 0;
+	line-height: 1;
+}
+

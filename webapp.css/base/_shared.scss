@@ -1,0 +1,40 @@
+/*------------------------------------*\
+    SHARED CSS
+\*------------------------------------*/
+
+.hidden{
+  display:none;
+}
+
+/**
+ * Images, Videos
+ */
+
+img, video, embed, object{
+	max-width: 100%;
+	vertical-align: top;
+}
+
+/**
+ * Grid Clearing
+ */
+
+.row, .clearfix{  
+  @include clearfix;
+}
+
+/**
+ * Padded row with a bottom padding
+ */
+
+.row--pad{	
+  @include section-margin(1);
+}
+
+/**
+ * Layout
+ */
+
+section, article{
+	@include section-margin();
+}

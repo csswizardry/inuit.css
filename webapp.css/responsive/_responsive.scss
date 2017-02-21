@@ -1,0 +1,97 @@
+/*------------------------------------*\
+    RESPONSIVE.CSS
+\*------------------------------------*/
+
+/**
+ * Mobile First
+ * Base Width: 320px
+ */
+
+
+/**
+ * 600px
+ */
+
+@media only screen and (min-width: $tablet-break-point-start){
+
+	@import "tablets-desktops";
+  
+}
+
+
+/**
+ * 992px
+ */
+
+@media only screen and (min-width: $desktop-start){
+  
+  @import "desktop";
+
+}
+
+/**
+ * Target Specific Devices Only 
+ */
+
+
+@media only screen and (max-width: $tablet-break-point-start){
+  @import "phone";
+}
+
+/**
+ * Iphone Landscape
+ */
+ 
+@media only screen and (min-width: $mobile-break-point-end) 
+	and (orientation: landscape){
+
+ 	@import "phone-landscape";
+ 	
+}
+ 
+
+
+/**
+ * 768px : For Ipad
+ */
+
+@media only screen and (min-width: $tablet-break-point-start) 
+	and (max-width: $tablet-break-point-end){
+
+  @import "tablet";
+}
+
+/**
+ * iPads (landscape)
+ */
+
+
+@media only screen and (min-device-width : 768px) 
+	and (max-device-width : 1024px) 
+	and (orientation : landscape) {
+	
+	@import "tablet-landscape";
+}
+
+
+
+
+
+/**
+ * 1382px: Wide Screen
+ */
+
+@media only screen and (min-width: $wide-screen-start){
+  
+}
+
+/**
+ * Retina
+ */
+
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), 
+	only screen and (min--moz-device-pixel-ratio: 1.5), 
+	only screen and (min-device-pixel-ratio: 1.5){
+
+}

@@ -1,0 +1,55 @@
+/*------------------------------------*\
+    TABLE STYLES
+\*------------------------------------*/
+
+/**
+ * Table Cells
+ */
+
+th, td{
+	vertical-align: top;
+}
+
+/**
+ * Condensed Table
+ */
+
+.table--condensed{
+	
+	td, th{
+		border-bottom: 1px $table-border-color solid;
+	}
+}
+
+/**
+ * Zebra Table
+ */
+
+.table--zebra{
+	
+	tr:nth-child(even){
+		background: $table-zebra-color;
+	}
+
+}
+
+/**
+ * Cell Hover
+ */
+
+tr:hover > td{
+	background: $table-hover-color;
+}
+
+
+/**
+ * Bordered Table
+ */
+
+.table--bordered{
+	border-collapse: collapse;
+
+	td, th{
+		border: 1px $table-border-color solid;
+	}
+}

@@ -1,0 +1,61 @@
+/*------------------------------------*\
+    $COMPONENT - ALERTS
+\*------------------------------------*/
+
+.alert{	
+	padding: 1em;
+	@include section-margin;
+	background-color: $alert-success-background;
+	color: $alert-success-color;
+	border-color: $alert-success-border;
+}
+
+/**
+ * Alert Heading
+ */
+
+.alert__heading{
+	display: block;
+}
+
+/**
+ * Alert Success
+ */
+
+.alert--success{
+	background-color: $alert-success-background;
+	color: $alert-success-color;
+	border-color: $alert-success-border;
+}
+
+
+/**
+ * Alert Error
+ */
+
+.alert--error{
+	background-color: $alert-error-background;
+	color: $alert-error-color;
+	border-color: $alert-error-border;
+}
+
+
+/**
+ * Alert Warning
+ */
+
+.alert--warning{
+	background-color: $alert-warning-background;
+	color: $alert-warning-color;
+	border-color: $alert-warning-border;
+}
+
+/**
+ * Alert Info
+ */
+
+.alert--info{
+	background-color: $alert-info-background;
+	color: $alert-info-color;
+	border-color: $alert-info-border;
+}

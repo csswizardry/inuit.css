@@ -1,0 +1,186 @@
+/*------------------------------------*\
+    $COMPONENT - BUTTONS
+\*------------------------------------*/
+
+/**
+ * Base button extend
+ */
+
+.btn{	  
+  line-height: normal;
+	padding: $button-padding;	  
+	background: $button-default-background;
+  border: 1px darken($button-default-background, 5%) solid;
+  @include section-margin(0.5);
+
+  &:hover{
+      background: lighten($button-default-background, 5%);
+  }
+
+  &:hover, &{
+    color: $base-color;
+  }
+
+  &:focus{
+    @extend %focus-style;
+  }
+}
+
+
+/*------------------------------------*\
+    $FUNCTIONS
+\*------------------------------------*/
+
+/**
+ * Primary Button
+ */
+.btn--primary{
+	background-color: $brand-color;	
+  border-color: darken($brand-color, 5%);
+
+  &:hover, &{
+    color: #fff;
+  }
+
+  &:hover{
+    background: lighten($brand-color, 5%);
+  }
+}
+
+/**
+ * Secondary Buttton
+ */
+
+.btn--secondary{
+	background-color: #3F89C1;	
+  border-color: darken(#3F89C1, 5%);
+
+  &:hover, &{
+    color: #fff;
+  }
+
+  &:hover{
+    background: lighten(#3F89C1, 5%);
+  }
+}
+
+/**
+ * Tertiary Buttton
+ */
+
+
+.btn--tertiary{
+	background-color: #fff;		
+  border-color: darken(#fff, 50%);
+
+  &:hover, &{
+    color: $base-color;
+  }
+
+  &:hover{
+    background: darken(#fff, 5%);
+  }
+}
+
+/**
+ * Positive actions; e.g. sign in, purchase, submit, etc.
+ */
+.btn--positive{
+  background-color:#4A993E;  
+  border-color: darken(#4A993E, 5%);
+
+  &:hover, &{
+    color: #fff;
+  }
+
+  &:hover{
+    background: lighten(#4A993E, 5%);
+  }
+}
+
+/**
+ * Negative actions; e.g. close account, delete photo, remove friend, etc.
+ */
+.btn--negative{
+  background-color:#b33630;  
+  border-color: darken(#b33630, 5%);
+  
+  &:hover, &{
+    color: #fff;
+  }
+
+  &:hover{
+    background: lighten(#b33630, 5%);
+  }
+}
+
+/**
+ * Inverted Button
+ */
+.btn--inverted{
+  background-color:#000;  
+  border-color: darken(#000, 5%);
+
+  &:hover, &{
+    color: #fff;
+  }
+
+  &:hover{
+    background: lighten(#000, 20%);
+  }
+}
+
+/**
+ * Inactive, disabled buttons.
+ * 
+ * 1. Make the button look like normal text when hovered.
+ */
+.btn--inactive,
+    .btn--inactive:hover,
+    .btn--inactive:active,
+    .btn--inactive:focus{
+        background-color:#ddd;
+        color:#777;
+        cursor:text;            /* [1] */
+    }
+
+
+/**
+ * Button Groups
+ */
+
+.btn-group{
+  font-size: 0;
+  
+  .btn{
+    border-radius: 0;
+    border-left-width: 0;
+  }
+
+  .btn:first-child{
+    border-radius: $brand-round 0 0 $brand-round;
+    border-left-width: 1px;
+  }
+
+  .btn:last-child{
+    border-radius: 0 $brand-round $brand-round 0;
+  }
+
+  .btn{
+    @include font-size($base-font-size, false);
+  }
+}
+
+/**
+ * Button Toolbar
+ */
+
+.btn-toolbar{
+  font-size: 0;
+  
+  .btn-group{
+    display: inline-block;    
+    margin-right: $section-margin * 0.25;
+  }
+
+}

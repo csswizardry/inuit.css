@@ -1,0 +1,39 @@
+/*------------------------------------*\
+    $TYPOGRAPHY
+\*------------------------------------*/
+
+/**
+ * Text Direction
+ */
+
+html{
+	text-align: #{$dir-default};
+}
+
+/**
+ * Headings 1 to 6
+ */
+
+@include headings(1,6){
+	@include section-margin(0.5);	
+	font-family: Helvetica, Arial, serif;
+	font-weight: normal;
+	line-height: 1.25;
+}
+
+
+/*
+ * Paragraph
+ */
+ 
+.text--lead{
+  @include font-size($base-font-size * 1.125);
+}
+
+.text--secondary{
+  @include font-size($base-font-size * 0.9);
+}
+
+.text--tertiary{
+  @include font-size($base-font-size * 0.8);
+}

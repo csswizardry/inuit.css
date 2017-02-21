@@ -1,0 +1,163 @@
+/*------------------------------------*\
+    FORM ELEMENT STYLES    
+\*------------------------------------*/
+
+/**
+ * Forms
+ */
+
+form{
+	@include section-margin;
+}
+
+/**
+ * Help Block
+ */
+
+.help-block{
+	display: block;
+	@include section-margin;
+	color: darken($base-ui-color, 40%);
+}
+
+
+
+/**
+ * Input Elements
+ */
+
+.text-input,
+textarea{
+	border: 1px $input-border-color solid;
+	padding: $input-padding;
+	transition: all 0.1s ease-in;	
+	vertical-align: middle;
+	outline: none;	
+	width: 100%;
+	@include section-margin(0.5);
+	@include border-radius($input-border-radius);	
+
+	&:focus{
+		@extend %focus-style;
+	}
+}
+
+/**
+ * Margins for Select, File
+ */
+
+select, 
+input[type="file"], 
+input[type="color"],
+input[type="range"],
+.label-checkbox,
+.label-radio
+{
+	@include section-margin(0.5);
+	//display: block;
+}
+
+/**
+ * Checkbox, Radio
+ */
+
+input[type="checkbox"],
+input[type="radio"]{
+	margin-right: 0.5em;
+}
+
+/**
+ * Checkbox Display
+ */
+
+.label-checkbox, .label-radio{
+	
+	$spacing: 20px;
+
+	input{
+		float: left;
+		margin-left: -($spacing);
+		margin-top: 5px/$base-font-size * 1em;
+		margin-top: 1px \9; /* Internet Explorer 8 Fix */
+		margin-right: 0;
+	}
+	padding-left: $spacing;
+}
+
+/**
+ * Inline Input
+ */
+
+.input-inline{
+	width: auto;
+}
+
+/**
+ * Inline Label
+ */
+
+.label-inline{
+	width: auto;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+/**
+ * Fieldset
+ */
+
+
+fieldset{
+	border-color: $input-border-color;
+}
+
+/**
+ * Error Input
+ */
+
+.input-error{
+	border-color: red;
+}
+
+/**
+ * Error Label
+ */
+
+.label-error{
+	color: red;
+	display: inline-block;
+	@include section-margin;
+}
+
+/**
+ * PostFix
+ */
+
+.postfix, .prefix{
+	background: #eee;
+	display:block;
+	padding: 0;
+	margin-left: -($input-border-radius);
+	height: 2.45em;
+	line-height: 2.4em;
+	border: 1px $input-border-color solid;
+	text-align: center;
+	border-radius: 0 $input-border-radius $input-border-radius 0;
+}
+
+	/* Prefix */
+
+	.prefix{
+		border-radius: $input-border-radius 0 0 $input-border-radius;
+		margin-left: 0;
+		margin-right: -($input-border-radius);
+		position: relative;
+		z-index: 1;
+	}
+
+
+/* Chosen */
+
+.chosen-container-active .chosen-choices{
+	@extend %focus-style;
+}

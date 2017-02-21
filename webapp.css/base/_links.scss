@@ -1,0 +1,19 @@
+/*------------------------------------*\
+    $ALL LINK STYLES
+\*------------------------------------*/
+
+a{
+	@include link-colors($link-color, $link-hover-color, $link-visited-color);
+	text-decoration: none;	
+
+	@if $link-underline{
+		text-decoration: underline;
+	}
+
+	@if $link-underline-on-hover{
+
+		&:hover{
+			text-decoration: underline;	
+		}		
+	}	
+}

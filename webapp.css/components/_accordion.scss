@@ -1,0 +1,38 @@
+/*------------------------------------*\
+    $COMPONENT - ACCORDION
+\*------------------------------------*/
+
+
+
+/**
+ * Accordion
+ */
+
+.accordion{
+	list-style: none;
+	@include section-margin;
+}
+
+/**
+ * Accordion Handle
+ */
+
+.accordion__handle{
+	cursor: pointer;	
+}
+
+/**
+ * Accordion Content
+ */
+
+.accordion__content{
+	
+}
+
+/**
+ * Active Handle
+ */
+
+.accordion__handle--active{
+	color: $brand-color;
+}
