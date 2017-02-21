@@ -29,10 +29,14 @@
     list-style:none;
     margin-left:0;
     border-top-width:1px;
+    border-bottom-width:1px;
 
     > li{
-        border-bottom-width:1px;
         padding:$half-spacing-unit;
+    }
+    
+    > li + li {
+        border-top-width:1px;
     }
 }
         .block-list__link{
