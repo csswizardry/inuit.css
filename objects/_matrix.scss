@@ -57,7 +57,8 @@
     @extend .cf;
 }
     .multi-list > li{
-        float:left;
+        display:inline-block;
+        vertical-align:top
     }
 
 
