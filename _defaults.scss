@@ -24,6 +24,19 @@ $debug-mode:        false!default;
 
 
 /*------------------------------------*\
+    $IE
+\*------------------------------------*/
+/**
+ * IE Mode will output a stylesheet with all media query concatenated.
+ * Resulting in a Desktop only stylesheet. Set to `true` or `false`.
+ */
+$ie-mode:        false!default;
+
+
+
+
+
+/*------------------------------------*\
     $BORDER-BOX
 \*------------------------------------*/
 /**
